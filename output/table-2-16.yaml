@@ -1,0 +1,218 @@
+---
+name: Table 2-16
+full_name: Table 2-16. Additional MSRs in Intel® Xeon® Processor 5500 and 3400 Series
+supported_cpu:
+- 06_1FH
+- 06_2CH
+- 06_1EH
+- 06_25H
+- 06_1AH
+msr:
+- value: 1ADH
+  name: MSR_TURBO_RATIO_LIMIT
+  bitfields:
+  - bit: '7:0'
+    access: R/O
+    long_description: Maximum Turbo Ratio Limit 1C Maximum Turbo mode ratio limit with 1 core active.
+    description: Maximum Turbo Ratio Limit 1C
+  - bit: '15:8'
+    access: R/O
+    long_description: Maximum Turbo Ratio Limit 2C Maximum Turbo mode ratio limit with 2 cores active.
+    description: Maximum Turbo Ratio Limit 2C
+  - bit: '23:16'
+    access: R/O
+    long_description: Maximum Turbo Ratio Limit 3C Maximum Turbo mode ratio limit with 3 cores active.
+    description: Maximum Turbo Ratio Limit 3C
+  - bit: '31:24'
+    access: R/O
+    long_description: Maximum Turbo Ratio Limit 4C Maximum Turbo mode ratio limit with 4 cores active.
+    description: Maximum Turbo Ratio Limit 4C
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  description: Actual maximum turbo frequency is multiplied by
+  long_description: Actual maximum turbo frequency is multiplied by 133.33MHz. (Not available in model 06_2EH.)
+- value: 301H
+  name: MSR_GQ_SNOOP_MESF
+  bitfields:
+  - bit: '0'
+    access: R/W
+    description: From M to S
+  - bit: '1'
+    access: R/W
+    description: From E to S
+  - bit: '2'
+    access: R/W
+    description: From S to S
+  - bit: '3'
+    access: R/W
+    description: From F to S
+  - bit: '4'
+    access: R/W
+    description: From M to I
+  - bit: '5'
+    access: R/W
+    description: From E to I
+  - bit: '6'
+    access: R/W
+    description: From S to I
+  - bit: '7'
+    access: R/W
+    description: From F to I
+  - bit: '63:8'
+    description: Reserved
+  scope: Package
+- value: 391H
+  name: MSR_UNCORE_PERF_GLOBAL_CTRL
+  scope: Package
+  description: See Section 18.3.1.2.1
+  long_description: See Section 18.3.1.2.1, “Uncore Performance Monitoring Management Facility.”
+  see_section:
+  - 18.3.1.2.1
+- value: 392H
+  name: MSR_UNCORE_PERF_GLOBAL_STATUS
+  scope: Package
+  description: See Section 18.3.1.2.1
+  long_description: See Section 18.3.1.2.1, “Uncore Performance Monitoring Management Facility.”
+  see_section:
+  - 18.3.1.2.1
+- value: 393H
+  name: MSR_UNCORE_PERF_GLOBAL_OVF_CTRL
+  scope: Package
+  description: See Section 18.3.1.2.1
+  long_description: See Section 18.3.1.2.1, “Uncore Performance Monitoring Management Facility.”
+  see_section:
+  - 18.3.1.2.1
+- value: 394H
+  name: MSR_UNCORE_FIXED_CTR0
+  scope: Package
+  description: See Section 18.3.1.2.1
+  long_description: See Section 18.3.1.2.1, “Uncore Performance Monitoring Management Facility.”
+  see_section:
+  - 18.3.1.2.1
+- value: 395H
+  name: MSR_UNCORE_FIXED_CTR_CTRL
+  scope: Package
+  description: See Section 18.3.1.2.1
+  long_description: See Section 18.3.1.2.1, “Uncore Performance Monitoring Management Facility.”
+  see_section:
+  - 18.3.1.2.1
+- value: 396H
+  name: MSR_UNCORE_ADDR_OPCODE_MATCH
+  scope: Package
+  description: See Section 18.3.1.2.3
+  long_description: See Section 18.3.1.2.3, “Uncore Address/Opcode Match MSR.”
+  see_section:
+  - 18.3.1.2.3
+- value: 3B0H
+  name: MSR_UNCORE_PMC0
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3B1H
+  name: MSR_UNCORE_PMC1
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3B2H
+  name: MSR_UNCORE_PMC2
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3B3H
+  name: MSR_UNCORE_PMC3
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3B4H
+  name: MSR_UNCORE_PMC4
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3B5H
+  name: MSR_UNCORE_PMC5
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3B6H
+  name: MSR_UNCORE_PMC6
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3B7H
+  name: MSR_UNCORE_PMC7
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3C0H
+  name: MSR_UNCORE_PERFEVTSEL0
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3C1H
+  name: MSR_UNCORE_PERFEVTSEL1
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3C2H
+  name: MSR_UNCORE_PERFEVTSEL2
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3C3H
+  name: MSR_UNCORE_PERFEVTSEL3
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3C4H
+  name: MSR_UNCORE_PERFEVTSEL4
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3C5H
+  name: MSR_UNCORE_PERFEVTSEL5
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3C6H
+  name: MSR_UNCORE_PERFEVTSEL6
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2
+- value: 3C7H
+  name: MSR_UNCORE_PERFEVTSEL7
+  scope: Package
+  description: See Section 18.3.1.2.2
+  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  see_section:
+  - 18.3.1.2.2

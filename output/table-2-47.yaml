@@ -1,0 +1,155 @@
+---
+name: Table 2-47
+full_name: Table 2-47. Additional MSRs Supported by Intel® Xeon Phi™ Processor 7215, 7285, 7295 Series with DisplayFamily_DisplayModel Signature 06_85H
+supported_cpu: []
+msr:
+- value: 9BH
+  name: IA32_SMM_MONITOR_CTL
+  scope: Core
+  access: R/W
+  description: SMM Monitor Configuration
+  long_description: SMM Monitor Configuration This MSR is readable only if VMX is enabled, and writeable only if VMX is enabled and in SMM mode, and is used to configure the VMX MSEG base address. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 480H
+  name: IA32_VMX_BASIC
+  scope: Core
+  access: R/O
+  description: Reporting Register of Basic VMX Capabilities
+  long_description: Reporting Register of Basic VMX Capabilities See Table 2-2.
+  see_table:
+  - 2-2
+- value: 481H
+  name: IA32_VMX_PINBASED_ CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of Pin-based VM-execution
+  long_description: Capability Reporting Register of Pin-based VM-execution Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 482H
+  name: IA32_VMX_PROCBASED_ CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of Primary Processor-
+  long_description: Capability Reporting Register of Primary Processor- based VM-execution Controls
+- value: 483H
+  name: IA32_VMX_EXIT_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VM-exit Controls
+  long_description: Capability Reporting Register of VM-exit Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 484H
+  name: IA32_VMX_ENTRY_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VM-entry Controls
+  long_description: Capability Reporting Register of VM-entry Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 485H
+  name: IA32_VMX_MISC
+  scope: Core
+  access: R/O
+  description: Reporting Register of Miscellaneous VMX Capabilities
+  long_description: Reporting Register of Miscellaneous VMX Capabilities See Table 2-2.
+  see_table:
+  - 2-2
+- value: 486H
+  name: IA32_VMX_CR0_FIXED0
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of CR0 Bits Fixed to 0
+  long_description: Capability Reporting Register of CR0 Bits Fixed to 0 See Table 2-2.
+  see_table:
+  - 2-2
+- value: 487H
+  name: IA32_VMX_CR0_FIXED1
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of CR0 Bits Fixed to 1
+  long_description: Capability Reporting Register of CR0 Bits Fixed to 1 See Table 2-2.
+  see_table:
+  - 2-2
+- value: 488H
+  name: IA32_VMX_CR4_FIXED0
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of CR4 Bits Fixed to 0
+  long_description: Capability Reporting Register of CR4 Bits Fixed to 0 See Table 2-2.
+  see_table:
+  - 2-2
+- value: 489H
+  name: IA32_VMX_CR4_FIXED1
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of CR4 Bits Fixed to 1
+  long_description: Capability Reporting Register of CR4 Bits Fixed to 1 See Table 2-2.
+  see_table:
+  - 2-2
+- value: 48AH
+  name: IA32_VMX_VMCS_ENUM
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VMCS Field Enumeration
+  long_description: Capability Reporting Register of VMCS Field Enumeration See Table 2-2.
+  see_table:
+  - 2-2
+- value: 48BH
+  name: IA32_VMX_PROCBASED_ CTLS2
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of Secondary Processor-
+  long_description: Capability Reporting Register of Secondary Processor- Based VM-Execution Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 48CH
+  name: IA32_VMX_EPT_VPID_ENUM
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of EPT and VPID
+  long_description: Capability Reporting Register of EPT and VPID See Table 2-2.
+  see_table:
+  - 2-2
+- value: 48DH
+  name: IA32_VMX_TRUE_PINBASE D_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of Pin-Based VM-Execution
+  long_description: Capability Reporting Register of Pin-Based VM-Execution Flex Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 48EH
+  name: IA32_VMX_TRUE_PROCBASED_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of Primary Processor-
+  long_description: Capability Reporting Register of Primary Processor- Based VM-Execution Flex Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 48FH
+  name: IA32_VMX_TRUE_EXIT_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VM-Exit Flex Controls
+  long_description: Capability Reporting Register of VM-Exit Flex Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 490H
+  name: IA32_VMX_TRUE_ENTRY_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VM-Entry Flex Controls
+  long_description: Capability Reporting Register of VM-Entry Flex Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 491H
+  name: IA32_VMX_FMFUNC
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VM-Function Controls
+  long_description: Capability Reporting Register of VM-Function Controls See Table 2-2.
+  see_table:
+  - 2-2

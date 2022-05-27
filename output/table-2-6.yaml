@@ -1,0 +1,944 @@
+---
+name: Table 2-6
+full_name: Table 2-6. MSRs Common to the Silvermont Microarchitecture and Newer Microarchitectures for Intel Atom® Processors
+supported_cpu:
+- 06_5DH
+- 06_5AH
+- 06_5CH
+- 06_37H
+- 06_4AH
+- 06_7AH
+- 06_4DH
+msr:
+- value: 0H
+  name: IA32_P5_MC_ADDR
+  scope: Module
+  description: See Section 2.23
+  see_section:
+  - '2.23'
+- value: 1H
+  name: IA32_P5_MC_TYPE
+  scope: Module
+  description: See Section 2.23
+  see_section:
+  - '2.23'
+- value: 6H
+  name: IA32_MONITOR_FILTER_SIZE
+  scope: Core
+  description: See Section 8.10.5
+  long_description: See Section 8.10.5, “Monitor/Mwait Address Range Determination.” and Table 2-2.
+  see_table:
+  - 2-2
+  see_section:
+  - 8.10.5
+- value: 10H
+  name: IA32_TIME_STAMP_COUNTER
+  scope: Core
+  description: See Section 17.17
+  long_description: See Section 17.17, “Time-Stamp Counter,” and Table 2-2.
+  see_table:
+  - 2-2
+  see_section:
+  - '17.17'
+- value: 1BH
+  name: IA32_APIC_BASE
+  scope: Core
+  description: See Section 10.4.4
+  long_description: See Section 10.4.4, “Local APIC Status and Location,” and Table 2-2.
+  see_table:
+  - 2-2
+  see_section:
+  - 10.4.4
+- value: 2AH
+  name: MSR_EBL_CR_POWERON
+  bitfields:
+  - bit: '63:0'
+    description: Reserved
+  scope: Module
+  access: R/W
+  description: Processor Hard Power-On Configuration
+  long_description: Processor Hard Power-On Configuration Writes ignored.
+- value: 34H
+  name: MSR_SMI_COUNT
+  bitfields:
+  - bit: '31:0'
+    access: R/O
+    long_description: SMI Count Running count of SMI events since last RESET.
+    description: SMI Count
+  - bit: '63:32'
+    description: Reserved
+  scope: Core
+  access: R/O
+  description: SMI Counter
+- value: 79H
+  name: IA32_BIOS_UPDT_TRIG
+  scope: Core
+  access: W
+  description: BIOS Update Trigger Register
+  long_description: BIOS Update Trigger Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 8BH
+  name: IA32_BIOS_SIGN_ID
+  scope: Core
+  access: RO
+  description: BIOS Update Signature ID
+  long_description: BIOS Update Signature ID See Table 2-2.
+  see_table:
+  - 2-2
+- value: C1H
+  name: IA32_PMC0
+  scope: Core
+  description: Performance counter register
+  long_description: Performance counter register See Table 2-2.
+  see_table:
+  - 2-2
+- value: C2H
+  name: IA32_PMC1
+  scope: Core
+  description: Performance Counter Register
+  long_description: Performance Counter Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: E4H
+  name: MSR_PMG_IO_CAPTURE_BASE
+  bitfields:
+  - bit: '15:0'
+    access: R/W
+    long_description: LVL_2 Base Address Specifies the base address visible to software for IO redirection. If IO MWAIT Redirection is enabled, reads to this address will be consumed by the power management logic and decoded to MWAIT instructions. When IO port address redirection is enabled, this is the IO port address reported to the OS/software.
+    description: LVL_2 Base Address
+  - bit: '18:16'
+    access: R/W
+    long_description: 'C-state Range Specifies the encoding value of the maximum C-State code name to be included when IO read to MWAIT redirection is enabled by MSR_PKG_CST_CONFIG_CONTROL[bit10]: 100b - C4 is the max C-State to include 110b - C6 is the max C-State to include 111b - C7 is the max C-State to include'
+    description: C-state Range
+  - bit: '63:19'
+    description: Reserved
+  scope: Module
+  access: R/W
+  description: Power Management IO Redirection in C-state
+  long_description: Power Management IO Redirection in C-state See http://biosbits.org.
+- value: E7H
+  name: IA32_MPERF
+  scope: Core
+  access: RW
+  description: Maximum Performance Frequency Clock Count
+  long_description: Maximum Performance Frequency Clock Count See Table 2-2.
+  see_table:
+  - 2-2
+- value: E8H
+  name: IA32_APERF
+  scope: Core
+  access: RW
+  description: Actual Performance Frequency Clock Count
+  long_description: Actual Performance Frequency Clock Count See Table 2-2.
+  see_table:
+  - 2-2
+- value: FEH
+  name: IA32_MTRRCAP
+  scope: Core
+  access: R
+  description: Memory Type Range Register
+  long_description: Memory Type Range Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 13CH
+  name: MSR_FEATURE_CONFIG
+  bitfields:
+  - bit: '1:0'
+    access: RW-L
+    long_description: 'AES Configuration Upon a successful read of this MSR, the configuration of AES instruction sets availability is as follows: 11b: AES instructions are not available until next RESET. Otherwise, AES instructions are available. Note: AES instruction set is not available if read is unsuccessful. If the configuration is not 01b, AES instructions can be mis-configured if a privileged agent unintentionally writes 11b.'
+    description: AES Configuration
+  - bit: '63:2'
+    description: Reserved
+  scope: Core
+  access: RW-L
+  description: AES Configuration
+  long_description: 'AES Configuration Privileged post-BIOS agent must provide a #GP handler to handle unsuccessful read of this MSR.'
+- value: 174H
+  name: IA32_SYSENTER_CS
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 175H
+  name: IA32_SYSENTER_ESP
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 176H
+  name: IA32_SYSENTER_EIP
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 179H
+  name: IA32_MCG_CAP
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 17AH
+  name: IA32_MCG_STATUS
+  bitfields:
+  - bit: '0'
+    long_description: RIPV When set, bit indicates that the instruction addressed by the instruction pointer pushed on the stack (when the machine check was generated) can be used to restart the program. If cleared, the program cannot be reliably restarted.
+    description: RIPV
+  - bit: '1'
+    long_description: EIPV When set, bit indicates that the instruction addressed by the instruction pointer pushed on the stack (when the machine check was generated) is directly associated with the error.
+    description: EIPV
+  - bit: '2'
+    long_description: MCIP When set, bit indicates that a machine check has been generated. If a second machine check is detected while this bit is still set, the processor enters a shutdown state. Software should write this bit to 0 after processing a machine check exception.
+    description: MCIP
+  - bit: '63:3'
+    description: Reserved
+  scope: Core
+  description: Global Machine Check Status
+- value: 186H
+  name: IA32_PERFEVTSEL0
+  bitfields:
+  - bit: '7:0'
+    description: Event Select
+  - bit: '15:8'
+    description: UMask
+  - bit: '16'
+    description: USR
+  - bit: '17'
+    description: OS
+  - bit: '18'
+    description: Edge
+  - bit: '19'
+    description: PC
+  - bit: '20'
+    description: INT
+  - bit: '21'
+    description: Reserved
+  - bit: '22'
+    description: EN
+  - bit: '23'
+    description: INV
+  - bit: '31:24'
+    description: CMASK
+  - bit: '63:32'
+    description: Reserved
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 187H
+  name: IA32_PERFEVTSEL1
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 198H
+  name: IA32_PERF_STATUS
+  scope: Module
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 199H
+  name: IA32_PERF_CTL
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 19AH
+  name: IA32_CLOCK_MODULATION
+  scope: Core
+  access: R/W
+  description: Clock Modulation
+  long_description: Clock Modulation See Table 2-2. IA32_CLOCK_MODULATION MSR was originally named IA32_THERM_CONTROL MSR.
+  see_table:
+  - 2-2
+- value: 19BH
+  name: IA32_THERM_INTERRUPT
+  scope: Core
+  access: R/W
+  description: Thermal Interrupt Control
+  long_description: Thermal Interrupt Control See Table 2-2.
+  see_table:
+  - 2-2
+- value: 19CH
+  name: IA32_THERM_STATUS
+  scope: Core
+  access: R/W
+  description: Thermal Monitor Status
+  long_description: Thermal Monitor Status See Table 2-2.
+  see_table:
+  - 2-2
+- value: 1A2H
+  name: MSR_TEMPERATURE_TARGET
+  bitfields:
+  - bit: '15:0'
+    description: Reserved
+  - bit: '23:16'
+    access: R
+    long_description: Temperature Target The default thermal throttling or PROCHOT# activation temperature in degrees C. The effective temperature for thermal throttling or PROCHOT# activation is “Temperature Target” + “Target Offset”.
+    description: Temperature Target
+  - bit: '29:24'
+    access: R/W
+    long_description: Target Offset Specifies an offset in degrees C to adjust the throttling and PROCHOT# activation temperature from the default target specified in TEMPERATURE_TARGET (bits 23:16).
+    description: Target Offset
+  - bit: '63:30'
+    description: Reserved
+  scope: Package
+  description: Temperature Target
+- value: 1A6H
+  name: MSR_OFFCORE_RSP_0
+  scope: Module
+  access: R/W
+  description: Offcore Response Event Select Register
+- value: 1A7H
+  name: MSR_OFFCORE_RSP_1
+  scope: Module
+  access: R/W
+  description: Offcore Response Event Select Register
+- value: 1B0H
+  name: IA32_ENERGY_PERF_BIAS
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 1D9H
+  name: IA32_DEBUGCTL
+  scope: Core
+  access: R/W
+  description: Debug Control
+  long_description: Debug Control See Table 2-2.
+  see_table:
+  - 2-2
+- value: 1DDH
+  name: MSR_LER_FROM_LIP
+  scope: Core
+  access: R/W
+  description: Last Exception Record From Linear IP
+  long_description: Last Exception Record From Linear IP Contains a pointer to the last branch instruction that the processor executed prior to the last exception that was generated or the last interrupt that was handled.
+- value: 1DEH
+  name: MSR_LER_TO_LIP
+  scope: Core
+  access: R/W
+  description: Last Exception Record To Linear IP
+  long_description: Last Exception Record To Linear IP This area contains a pointer to the target of the last branch instruction that the processor executed prior to the last exception that was generated or the last interrupt that was handled.
+- value: 1F2H
+  name: IA32_SMRR_PHYSBASE
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 1F3H
+  name: IA32_SMRR_PHYSMASK
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 200H
+  name: IA32_MTRR_PHYSBASE0
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 201H
+  name: IA32_MTRR_PHYSMASK0
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 202H
+  name: IA32_MTRR_PHYSBASE1
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 203H
+  name: IA32_MTRR_PHYSMASK1
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 204H
+  name: IA32_MTRR_PHYSBASE2
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 205H
+  name: IA32_MTRR_PHYSMASK2
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 206H
+  name: IA32_MTRR_PHYSBASE3
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 207H
+  name: IA32_MTRR_PHYSMASK3
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 208H
+  name: IA32_MTRR_PHYSBASE4
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 209H
+  name: IA32_MTRR_PHYSMASK4
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 20AH
+  name: IA32_MTRR_PHYSBASE5
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 20BH
+  name: IA32_MTRR_PHYSMASK5
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 20CH
+  name: IA32_MTRR_PHYSBASE6
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 20DH
+  name: IA32_MTRR_PHYSMASK6
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 20EH
+  name: IA32_MTRR_PHYSBASE7
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 20FH
+  name: IA32_MTRR_PHYSMASK7
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 250H
+  name: IA32_MTRR_FIX64K_00000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 258H
+  name: IA32_MTRR_FIX16K_80000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 259H
+  name: IA32_MTRR_FIX16K_A0000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 268H
+  name: IA32_MTRR_FIX4K_C0000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 269H
+  name: IA32_MTRR_FIX4K_C8000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 26AH
+  name: IA32_MTRR_FIX4K_D0000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 26BH
+  name: IA32_MTRR_FIX4K_D8000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 26CH
+  name: IA32_MTRR_FIX4K_E0000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 26DH
+  name: IA32_MTRR_FIX4K_E8000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 26EH
+  name: IA32_MTRR_FIX4K_F0000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 26FH
+  name: IA32_MTRR_FIX4K_F8000
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 277H
+  name: IA32_PAT
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 2FFH
+  name: IA32_MTRR_DEF_TYPE
+  scope: Core
+  access: R/W
+  description: Default Memory Types
+  long_description: Default Memory Types See Table 2-2.
+  see_table:
+  - 2-2
+- value: 309H
+  name: IA32_FIXED_CTR0
+  scope: Core
+  access: R/W
+  description: Fixed-Function Performance Counter Register 0
+  long_description: Fixed-Function Performance Counter Register 0 See Table 2-2.
+  see_table:
+  - 2-2
+- value: 30AH
+  name: IA32_FIXED_CTR1
+  scope: Core
+  access: R/W
+  description: Fixed-Function Performance Counter Register 1
+  long_description: Fixed-Function Performance Counter Register 1 See Table 2-2.
+  see_table:
+  - 2-2
+- value: 30BH
+  name: IA32_FIXED_CTR2
+  scope: Core
+  access: R/W
+  description: Fixed-Function Performance Counter Register 2
+  long_description: Fixed-Function Performance Counter Register 2 See Table 2-2.
+  see_table:
+  - 2-2
+- value: 345H
+  name: IA32_PERF_CAPABILITIES
+  scope: Core
+  description: See Table 2-2. See Section 17.4.1
+  long_description: See Table 2-2. See Section 17.4.1, “IA32_DEBUGCTL MSR.”
+  see_table:
+  - 2-2
+  see_section:
+  - 17.4.1
+- value: 38DH
+  name: IA32_FIXED_CTR_CTRL
+  scope: Core
+  access: R/W
+  description: Fixed-Function-Counter Control Register
+  long_description: Fixed-Function-Counter Control Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 38FH
+  name: IA32_PERF_GLOBAL_CTRL
+  scope: Core
+  description: See Table 2-2. See Section 18.6.2.2
+  long_description: See Table 2-2. See Section 18.6.2.2, “Global Counter Control Facilities.”
+  see_table:
+  - 2-2
+  see_section:
+  - 18.6.2.2
+- value: 3FDH
+  name: MSR_CORE_C6_RESIDENCY
+  bitfields:
+  - bit: '63:0'
+    access: R/O
+    long_description: CORE C6 Residency Counter Value since last reset that this core is in processor- specific C6 states. Counts at the TSC Frequency.
+    description: CORE C6 Residency Counter
+  scope: Core
+  description: Note
+  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 400H
+  name: IA32_MC0_CTL
+  scope: Module
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 401H
+  name: IA32_MC0_STATUS
+  scope: Module
+  description: See Section 15.3.2.2
+  see_section:
+  - 15.3.2.2
+- value: 402H
+  name: IA32_MC0_ADDR
+  scope: Module
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC0_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 404H
+  name: IA32_MC1_CTL
+  scope: Module
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 405H
+  name: IA32_MC1_STATUS
+  scope: Module
+  description: See Section 15.3.2.2
+  see_section:
+  - 15.3.2.2
+- value: 408H
+  name: IA32_MC2_CTL
+  scope: Module
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 409H
+  name: IA32_MC2_STATUS
+  scope: Module
+  description: See Section 15.3.2.2
+  see_section:
+  - 15.3.2.2
+- value: 40AH
+  name: IA32_MC2_ADDR
+  scope: Module
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 40CH
+  name: IA32_MC3_CTL
+  scope: Core
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 40DH
+  name: IA32_MC3_STATUS
+  scope: Core
+  description: See Section 15.3.2.2
+  see_section:
+  - 15.3.2.2
+- value: 40EH
+  name: IA32_MC3_ADDR
+  scope: Core
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC3_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 410H
+  name: IA32_MC4_CTL
+  scope: Core
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 411H
+  name: IA32_MC4_STATUS
+  scope: Core
+  description: See Section 15.3.2.2
+  see_section:
+  - 15.3.2.2
+- value: 412H
+  name: IA32_MC4_ADDR
+  scope: Core
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 414H
+  name: IA32_MC5_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 415H
+  name: IA32_MC5_STATUS
+  scope: Package
+  description: See Section 15.3.2.2
+  see_section:
+  - 15.3.2.2
+- value: 416H
+  name: IA32_MC5_ADDR
+  scope: Package
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 480H
+  name: IA32_VMX_BASIC
+  scope: Core
+  access: R/O
+  description: Reporting Register of Basic VMX Capabilities
+  long_description: Reporting Register of Basic VMX Capabilities See Table 2-2. See Appendix A.1, “Basic VMX Information.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.1
+- value: 481H
+  name: IA32_VMX_PINBASED_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of Pin-Based
+  long_description: Capability Reporting Register of Pin-Based VM-Execution Controls See Table 2-2. See Appendix A.3, “VM-Execution Controls.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.3
+- value: 482H
+  name: IA32_VMX_PROCBASED_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of Primary Processor-
+  long_description: Capability Reporting Register of Primary Processor- Based VM-Execution Controls See Appendix A.3, “VM-Execution Controls.”
+  see_appendix:
+  - A.3
+- value: 483H
+  name: IA32_VMX_EXIT_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VM-Exit Controls
+  long_description: Capability Reporting Register of VM-Exit Controls See Table 2-2. See Appendix A.4, “VM-Exit Controls.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.4
+- value: 484H
+  name: IA32_VMX_ENTRY_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VM-Entry Controls
+  long_description: Capability Reporting Register of VM-Entry Controls See Table 2-2. See Appendix A.5, “VM-Entry Controls.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.5
+- value: 485H
+  name: IA32_VMX_MISC
+  scope: Core
+  access: R/O
+  description: Reporting Register of Miscellaneous VMX Capabilities
+  long_description: Reporting Register of Miscellaneous VMX Capabilities See Table 2-2. See Appendix A.6, “Miscellaneous Data.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.6
+- value: 486H
+  name: IA32_VMX_CR0_FIXED0
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of CR0 Bits Fixed to 0
+  long_description: Capability Reporting Register of CR0 Bits Fixed to 0 See Table 2-2. See Appendix A.7, “VMX-Fixed Bits in CR0.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.7
+- value: 487H
+  name: IA32_VMX_CR0_FIXED1
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of CR0 Bits Fixed to 1
+  long_description: Capability Reporting Register of CR0 Bits Fixed to 1 See Table 2-2. See Appendix A.7, “VMX-Fixed Bits in CR0.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.7
+- value: 488H
+  name: IA32_VMX_CR4_FIXED0
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of CR4 Bits Fixed to 0
+  long_description: Capability Reporting Register of CR4 Bits Fixed to 0 See Table 2-2. See Appendix A.8, “VMX-Fixed Bits in CR4.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.8
+- value: 489H
+  name: IA32_VMX_CR4_FIXED1
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of CR4 Bits Fixed to 1
+  long_description: Capability Reporting Register of CR4 Bits Fixed to 1 See Table 2-2. See Appendix A.8, “VMX-Fixed Bits in CR4.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.8
+- value: 48AH
+  name: IA32_VMX_VMCS_ENUM
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VMCS Field
+  long_description: Capability Reporting Register of VMCS Field Enumeration See Table 2-2. See Appendix A.9, “VMCS Enumeration.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.9
+- value: 48BH
+  name: IA32_VMX_PROCBASED_CTLS2
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of Secondary Processor-
+  long_description: Capability Reporting Register of Secondary Processor- Based VM-Execution Controls See Appendix A.3, “VM-Execution Controls.”
+  see_appendix:
+  - A.3
+- value: 48CH
+  name: IA32_VMX_EPT_VPID_ENUM
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of EPT and VPID
+  long_description: Capability Reporting Register of EPT and VPID See Table 2-2
+  see_table:
+  - 2-2
+- value: 48DH
+  name: IA32_VMX_TRUE_PINBASED_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of Pin-Based
+  long_description: Capability Reporting Register of Pin-Based VM-Execution Flex Controls See Table 2-2
+  see_table:
+  - 2-2
+- value: 48EH
+  name: IA32_VMX_TRUE_PROCBASED_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of Primary Processor-
+  long_description: Capability Reporting Register of Primary Processor- based VM-Execution Flex Controls See Table 2-2
+  see_table:
+  - 2-2
+- value: 48FH
+  name: IA32_VMX_TRUE_EXIT_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VM-Exit Flex Controls
+  long_description: Capability Reporting Register of VM-Exit Flex Controls See Table 2-2
+  see_table:
+  - 2-2
+- value: 490H
+  name: IA32_VMX_TRUE_ENTRY_CTLS
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VM-Entry Flex Controls
+  long_description: Capability Reporting Register of VM-Entry Flex Controls See Table 2-2
+  see_table:
+  - 2-2
+- value: 491H
+  name: IA32_VMX_FMFUNC
+  scope: Core
+  access: R/O
+  description: Capability Reporting Register of VM-Function Controls
+  long_description: Capability Reporting Register of VM-Function Controls See Table 2-2
+  see_table:
+  - 2-2
+- value: 4C1H
+  name: IA32_A_PMC0
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 4C2H
+  name: IA32_A_PMC1
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 600H
+  name: IA32_DS_AREA
+  scope: Core
+  access: R/W
+  description: DS Save Area
+  long_description: DS Save Area See Table 2-2. See Section 18.6.3.4, “Debug Store (DS) Mechanism.”
+  see_table:
+  - 2-2
+  see_section:
+  - 18.6.3.4
+- value: 660H
+  name: MSR_CORE_C1_RESIDENCY
+  bitfields:
+  - bit: '63:0'
+    access: R/O
+    long_description: CORE C1 Residency Counter. Value since last reset that this core is in processor- specific C1 states. Counts at the TSC frequency.
+    description: CORE C1 Residency Counter
+  scope: Core
+  description: Note
+  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 6E0H
+  name: IA32_TSC_DEADLINE
+  scope: Core
+  access: R/W
+  description: TSC Target of Local APIC’s TSC Deadline Mode
+  long_description: TSC Target of Local APIC’s TSC Deadline Mode See Table 2-2.
+  see_table:
+  - 2-2
+- value: C000_0080H
+  name: IA32_EFER
+  scope: Core
+  description: Extended Feature Enables
+  long_description: Extended Feature Enables See Table 2-2.
+  see_table:
+  - 2-2
+- value: C000_0081H
+  name: |-
+    IA32_STAR
+    Core
+    System Call Target Address
+  alt_name: |-
+    R/W
+    See Table 2-2.
+- value: C000_0082H
+  name: |-
+    IA32_LSTAR
+    Core
+    IA-32e Mode System Call Target Address
+  alt_name: |-
+    R/W
+    See Table 2-2.
+- value: C000_0084H
+  name: |-
+    IA32_FMASK
+    Core
+    System Call Flag Mask
+  alt_name: |-
+    R/W
+    See Table 2-2.
+- value: C000_0100H
+  name: |-
+    IA32_FS_BASE
+    Core
+    Map of BASE Address of FS
+  alt_name: |-
+    R/W
+    See Table 2-2.
+- value: C000_0101H
+  name: |-
+    IA32_GS_BASE
+    Core
+    Map of BASE Address of GS
+  alt_name: |-
+    R/W
+    See Table 2-2.
+- value: C000_0102H
+  name: IA32_KERNEL_GS_BASE
+  scope: Core
+  access: R/W
+  description: Swap Target of BASE Address of GS
+  long_description: Swap Target of BASE Address of GS See Table 2-2.
+  see_table:
+  - 2-2
+- value: C000_0103H
+  name: IA32_TSC_AUX
+  scope: Core
+  access: R/W
+  description: AUXILIARY TSC Signature
+  long_description: AUXILIARY TSC Signature See Table 2-2
+  see_table:
+  - 2-2

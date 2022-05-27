@@ -1,0 +1,201 @@
+---
+name: Table 2-25
+full_name: Table 2-25. Additional MSRs Supported by 3rd Generation Intel® Core™ Processors (based on Intel® microarchitecture code name Ivy Bridge)
+supported_cpu:
+- 06_3AH
+msr:
+- value: CEH
+  name: MSR_PLATFORM_INFO
+  bitfields:
+  - bit: '7:0'
+    description: Reserved
+  - bit: '15:8'
+    access: R/O
+    long_description: Maximum Non-Turbo Ratio This is the ratio of the frequency that invariant TSC runs at. Frequency = ratio * 100 MHz.
+    description: Maximum Non-Turbo Ratio
+  - bit: '27:16'
+    description: Reserved
+  - bit: '28'
+    access: R/O
+    long_description: Programmable Ratio Limit for Turbo Mode When set to 1, indicates that Programmable Ratio Limit for Turbo mode is enabled. When set to 0, indicates Programmable Ratio Limit for Turbo mode is disabled.
+    description: Programmable Ratio Limit for Turbo Mode
+  - bit: '29'
+    access: R/O
+    long_description: Programmable TDP Limit for Turbo Mode When set to 1, indicates that TDP Limit for Turbo mode is programmable. When set to 0, indicates that TDP Limit for Turbo mode is not programmable.
+    description: Programmable TDP Limit for Turbo Mode
+  - bit: '31:30'
+    description: Reserved
+  - bit: '32'
+    access: LPM
+    long_description: Low Power Mode Support (R/O) When set to 1, indicates that LPM is supported. When set to 0, indicates LPM is not supported.
+    description: Low Power Mode Support
+  - bit: '34:33'
+    access: R/O
+    long_description: 'Number of ConfigTDP Levels 00: Only Base TDP level available. 01: One additional TDP level available. 02: Two additional TDP level available. 03: Reserved'
+    description: Number of ConfigTDP Levels
+  - bit: '39:35'
+    description: Reserved
+  - bit: '47:40'
+    access: R/O
+    long_description: Maximum Efficiency Ratio This is the minimum ratio (maximum efficiency) that the processor can operate, in units of 100MHz.
+    description: Maximum Efficiency Ratio
+  - bit: '55:48'
+    access: R/O
+    long_description: Minimum Operating Ratio Contains the minimum supported operating ratio in units of 100 MHz.
+    description: Minimum Operating Ratio
+  - bit: '63:56'
+    description: Reserved
+  scope: Package
+  description: Platform Information
+  long_description: Platform Information Contains power management and other model specific features enumeration. See http://biosbits.org.
+- value: E2H
+  name: MSR_PKG_CST_CONFIG_CONTROL
+  bitfields:
+  - bit: '2:0'
+    access: R/W
+    long_description: 'Package C-State Limit Specifies the lowest processor-specific C-state code name (consuming the least power) for the package. The default is set as factory-configured package C- state limit. The following C-state code name encodings are supported: 000b: C0/C1 (no package C-sate support) 001b: C2 010b: C6 no retention 011b: C6 retention 100b: C7 101b: C7s 111: No package C-state limit. Note: This field cannot be used to limit package C- state to C3.'
+    description: Package C-State Limit
+  - bit: '9:3'
+    description: Reserved
+  - bit: '10'
+    access: R/W
+    long_description: I/O MWAIT Redirection Enable When set, will map IO_read instructions sent to IO register specified by MSR_PMG_IO_CAPTURE_BASE to MWAIT instructions.
+    description: I/O MWAIT Redirection Enable
+  - bit: '14:11'
+    description: Reserved
+  - bit: '15'
+    access: R/WO
+    long_description: CFG Lock When set, locks bits 15:0 of this register until next reset.
+    description: CFG Lock
+  - bit: '24:16'
+    description: Reserved
+  - bit: '25'
+    access: R/W
+    long_description: C3 State Auto Demotion Enable When set, the processor will conditionally demote C6/C7 requests to C3 based on uncore auto-demote information.
+    description: C3 State Auto Demotion Enable
+  - bit: '26'
+    access: R/W
+    long_description: C1 State Auto Demotion Enable When set, the processor will conditionally demote C3/C6/C7 requests to C1 based on uncore auto- demote information.
+    description: C1 State Auto Demotion Enable
+  - bit: '27'
+    access: R/W
+    long_description: Enable C3 Undemotion When set, enables undemotion from demoted C3.
+    description: Enable C3 Undemotion
+  - bit: '28'
+    access: R/W
+    long_description: Enable C1 Undemotion When set, enables undemotion from demoted C1.
+    description: Enable C1 Undemotion
+  - bit: '63:29'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: C-State Configuration Control
+  long_description: 'C-State Configuration Control Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States. See http://biosbits.org.'
+- value: 639H
+  name: MSR_PP0_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: PP0 Energy Status
+  long_description: PP0 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  see_section:
+  - 14.9.4
+- value: 648H
+  name: MSR_CONFIG_TDP_NOMINAL
+  bitfields:
+  - bit: '7:0'
+    long_description: Config_TDP_Base Base TDP level ratio to be used for this specific processor (in units of 100 MHz).
+    description: Config_TDP_Base
+  - bit: '63:8'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: Base TDP Ratio
+- value: 649H
+  name: MSR_CONFIG_TDP_LEVEL1
+  bitfields:
+  - bit: '14:0'
+    long_description: PKG_TDP_LVL1 Power setting for ConfigTDP Level 1.
+    description: PKG_TDP_LVL1
+  - bit: '15'
+    description: Reserved
+  - bit: '23:16'
+    long_description: Config_TDP_LVL1_Ratio ConfigTDP level 1 ratio to be used for this specific processor.
+    description: Config_TDP_LVL1_Ratio
+  - bit: '31:24'
+    description: Reserved
+  - bit: '46:32'
+    long_description: PKG_MAX_PWR_LVL1 Max Power setting allowed for ConfigTDP Level 1.
+    description: PKG_MAX_PWR_LVL1
+  - bit: '47'
+    description: Reserved
+  - bit: '62:48'
+    long_description: PKG_MIN_PWR_LVL1 MIN Power setting allowed for ConfigTDP Level 1.
+    description: PKG_MIN_PWR_LVL1
+  - bit: '63'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: ConfigTDP Level 1 ratio and power level
+- value: 64AH
+  name: MSR_CONFIG_TDP_LEVEL2
+  bitfields:
+  - bit: '14:0'
+    long_description: PKG_TDP_LVL2 Power setting for ConfigTDP Level 2.
+    description: PKG_TDP_LVL2
+  - bit: '15'
+    description: Reserved
+  - bit: '23:16'
+    long_description: Config_TDP_LVL2_Ratio ConfigTDP level 2 ratio to be used for this specific processor.
+    description: Config_TDP_LVL2_Ratio
+  - bit: '31:24'
+    description: Reserved
+  - bit: '46:32'
+    long_description: PKG_MAX_PWR_LVL2 Max Power setting allowed for ConfigTDP Level 2.
+    description: PKG_MAX_PWR_LVL2
+  - bit: '47'
+    description: Reserved
+  - bit: '62:48'
+    long_description: PKG_MIN_PWR_LVL2 MIN Power setting allowed for ConfigTDP Level 2.
+    description: PKG_MIN_PWR_LVL2
+  - bit: '63'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: ConfigTDP Level 2 ratio and power level
+- value: 64BH
+  name: MSR_CONFIG_TDP_CONTROL
+  bitfields:
+  - bit: '1:0'
+    access: RW/L
+    long_description: TDP_LEVEL System BIOS can program this field.
+    description: TDP_LEVEL
+  - bit: '30:2'
+    description: Reserved
+  - bit: '31'
+    access: RW/L
+    long_description: Config_TDP_Lock When this bit is set, the content of this register is locked until a reset.
+    description: Config_TDP_Lock
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: ConfigTDP Control
+- value: 64CH
+  name: MSR_TURBO_ACTIVATION_RATIO
+  bitfields:
+  - bit: '7:0'
+    access: RW/L
+    long_description: MAX_NON_TURBO_RATIO System BIOS can program this field.
+    description: MAX_NON_TURBO_RATIO
+  - bit: '30:8'
+    description: Reserved
+  - bit: '31'
+    access: RW/L
+    long_description: TURBO_ACTIVATION_RATIO_Lock When this bit is set, the content of this register is locked until a reset.
+    description: TURBO_ACTIVATION_RATIO_Lock
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: ConfigTDP Control
+- value: SeeTable2-20,Table2-21andTable2-22forotherMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_3AH.

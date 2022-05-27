@@ -1,0 +1,757 @@
+---
+name: Table 2-32
+full_name: Table 2-32. Additional MSRs Supported by Intel® Xeon® Processor E5 v3 Family
+supported_cpu:
+- 06_3F
+- See Table 2-32
+- 06_3FH
+msr:
+- value: 35H
+  name: MSR_CORE_THREAD_COUNT
+  bitfields:
+  - bit: '15:0'
+    access: RO
+    long_description: THREAD_COUNT The number of logical processors that are currently enabled (by either factory configuration or BIOS configuration) in the physical package.
+    description: THREAD_COUNT
+  - bit: '31:16'
+    access: RO
+    long_description: Core_COUNT The number of processor cores that are currently enabled (by either factory configuration or BIOS configuration) in the physical package.
+    description: Core_COUNT
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  access: RO
+  description: Configured State of Enabled Processor Core Count and
+  long_description: Configured State of Enabled Processor Core Count and Logical Processor Count • After a Power-On RESET, enumerates factory configuration of the number of processor cores and logical processors in the physical package. • Following the sequence of (i) BIOS modified a Configuration Mask which selects a subset of processor cores to be active post RESET and (ii) a RESET event after the modification, enumerates the current configuration of enabled processor core count and logical processor count in the physical package.
+- value: 53H
+  name: MSR_THREAD_ID_INFO
+  bitfields:
+  - bit: '7:0'
+    access: RO
+    long_description: Logical_Processor_ID An implementation-specific numerical value physically assigned to each logical processor. This ID is not related to Initial APIC ID or x2APIC ID, it is unique within a physical package.
+    description: Logical_Processor_ID
+  - bit: '63:8'
+    description: Reserved
+  scope: Thread
+  access: RO
+  description: A Hardware Assigned ID for the Logical Processor
+- value: E2H
+  name: MSR_PKG_CST_CONFIG_CONTROL
+  bitfields:
+  - bit: '2:0'
+    access: R/W
+    long_description: 'Package C-State Limit Specifies the lowest processor-specific C-state code name (consuming the least power) for the package. The default is set as factory-configured package C-state limit. The following C-state code name encodings are supported: 000b: C0/C1 (no package C-state support) 001b: C2 010b: C6 (non-retention) 011b: C6 (retention) 111b: No Package C state limits. All C states supported by the processor are available.'
+    description: Package C-State Limit
+  - bit: '9:3'
+    description: Reserved
+  - bit: '10'
+    access: R/W
+    description: I/O MWAIT Redirection Enable
+  - bit: '14:11'
+    description: Reserved
+  - bit: '15'
+    access: R/WO
+    description: CFG Lock
+  - bit: '24:16'
+    description: Reserved
+  - bit: '25'
+    access: R/W
+    description: C3 State Auto Demotion Enable
+  - bit: '26'
+    access: R/W
+    description: C1 State Auto Demotion Enable
+  - bit: '27'
+    access: R/W
+    description: Enable C3 Undemotion
+  - bit: '28'
+    access: R/W
+    description: Enable C1 Undemotion
+  - bit: '29'
+    access: R/W
+    description: Package C State Demotion Enable
+  - bit: '30'
+    access: R/W
+    description: Package C State UnDemotion Enable
+  - bit: '63:31'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: C-State Configuration Control
+  long_description: 'C-State Configuration Control Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states. See http://biosbits.org.'
+- value: 179H
+  name: IA32_MCG_CAP
+  bitfields:
+  - bit: '7:0'
+    description: Count
+  - bit: '8'
+    description: MCG_CTL_P
+  - bit: '9'
+    description: MCG_EXT_P
+  - bit: '10'
+    description: MCP_CMCI_P
+  - bit: '11'
+    description: MCG_TES_P
+  - bit: '15:12'
+    description: Reserved
+  - bit: '23:16'
+    description: MCG_EXT_CNT
+  - bit: '24'
+    description: MCG_SER_P
+  - bit: '25'
+    description: MCG_EM_P
+  - bit: '26'
+    description: MCG_ELOG_P
+  - bit: '63:27'
+    description: Reserved
+  scope: Thread
+  access: R/O
+  description: Global Machine Check Capability
+- value: 17DH
+  name: MSR_SMM_MCA_CAP
+  bitfields:
+  - bit: '57:0'
+    description: Reserved
+  - bit: '58'
+    access: SMM-RO
+    long_description: SMM_Code_Access_Chk If set to 1, indicates that the SMM code access restriction is supported and a host-space interface available to SMM handler.
+    description: SMM_Code_Access_Chk
+  - bit: '59'
+    access: SMM-RO
+    long_description: Long_Flow_Indication If set to 1, indicates that the SMM long flow indicator is supported and a host-space interface available to SMM handler.
+    description: Long_Flow_Indication
+  - bit: 63:60
+    description: Reserved
+  scope: Thread
+  access: SMM-RO
+  description: Enhanced SMM Capabilities
+  long_description: Enhanced SMM Capabilities Reports SMM capability Enhancement. Accessible only while in SMM.
+- value: 17FH
+  name: MSR_ERROR_CONTROL
+  bitfields:
+  - bit: '0'
+    description: Reserved
+  - bit: '1'
+    access: R/W
+    long_description: MemError Log Enable When set, enables IMC status bank to log additional info in bits 36:32.
+    description: MemError Log Enable
+  - bit: '63:2'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: MC Bank Error Configuration
+- value: 1ADH
+  name: MSR_TURBO_RATIO_LIMIT
+  bitfields:
+  - bit: '7:0'
+    long_description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
+    description: Maximum Ratio Limit for 1C
+  - bit: '15:8'
+    long_description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
+    description: Maximum Ratio Limit for 2C
+  - bit: '23:16'
+    long_description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
+    description: Maximum Ratio Limit for 3C
+  - bit: '31:24'
+    long_description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
+    description: Maximum Ratio Limit for 4C
+  - bit: '39:32'
+    long_description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5 core active.
+    description: Maximum Ratio Limit for 5C
+  - bit: '47:40'
+    long_description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6 core active.
+    description: Maximum Ratio Limit for 6C
+  - bit: '55:48'
+    long_description: Maximum Ratio Limit for 7C Maximum turbo ratio limit of 7 core active.
+    description: Maximum Ratio Limit for 7C
+  - bit: '63:56'
+    long_description: Maximum Ratio Limit for 8C Maximum turbo ratio limit of 8 core active.
+    description: Maximum Ratio Limit for 8C
+  scope: Package
+  description: Maximum Ratio Limit of Turbo Mode
+  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+- value: 1AEH
+  name: MSR_TURBO_RATIO_LIMIT1
+  bitfields:
+  - bit: '7:0'
+    long_description: Maximum Ratio Limit for 9C Maximum turbo ratio limit of 9 core active.
+    description: Maximum Ratio Limit for 9C
+  - bit: '15:8'
+    long_description: Maximum Ratio Limit for 10C Maximum turbo ratio limit of 10 core active.
+    description: Maximum Ratio Limit for 10C
+  - bit: '23:16'
+    long_description: Maximum Ratio Limit for 11C Maximum turbo ratio limit of 11 core active.
+    description: Maximum Ratio Limit for 11C
+  - bit: '31:24'
+    long_description: Maximum Ratio Limit for 12C Maximum turbo ratio limit of 12 core active.
+    description: Maximum Ratio Limit for 12C
+  - bit: '39:32'
+    long_description: Maximum Ratio Limit for 13C Maximum turbo ratio limit of 13 core active.
+    description: Maximum Ratio Limit for 13C
+  - bit: '47:40'
+    long_description: Maximum Ratio Limit for 14C Maximum turbo ratio limit of 14 core active.
+    description: Maximum Ratio Limit for 14C
+  - bit: '55:48'
+    long_description: Maximum Ratio Limit for 15C Maximum turbo ratio limit of 15 core active.
+    description: Maximum Ratio Limit for 15C
+  - bit: '63:56'
+    long_description: Maximum Ratio Limit for16C Maximum turbo ratio limit of 16 core active.
+    description: Maximum Ratio Limit for16C
+  scope: Package
+  description: Maximum Ratio Limit of Turbo Mode
+  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+- value: 1AFH
+  name: MSR_TURBO_RATIO_LIMIT2
+  bitfields:
+  - bit: '7:0'
+    long_description: Maximum Ratio Limit for 17C Maximum turbo ratio limit of 17 core active.
+    description: Maximum Ratio Limit for 17C
+  - bit: '15:8'
+    long_description: Maximum Ratio Limit for 18C Maximum turbo ratio limit of 18 core active.
+    description: Maximum Ratio Limit for 18C
+  - bit: '62:16'
+    description: Reserved
+  - bit: '63'
+    long_description: Semaphore for Turbo Ratio Limit Configuration If 1, the processor uses override configuration1 specified in MSR_TURBO_RATIO_LIMIT, MSR_TURBO_RATIO_LIMIT1 and MSR_TURBO_RATIO_LIMIT2. If 0, the processor uses factory-set configuration (Default).
+    description: Semaphore for Turbo Ratio Limit Configuration
+  scope: Package
+  description: Maximum Ratio Limit of Turbo Mode
+  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+- value: 414H
+  name: IA32_MC5_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC5 reports MC errors from the Intel QPI 0 module.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 415H
+  name: IA32_MC5_STATUS
+  scope: Package
+- value: 416H
+  name: IA32_MC5_ADDR
+  scope: Package
+- value: 417H
+  name: IA32_MC5_MISC
+  scope: Package
+- value: 418H
+  name: IA32_MC6_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC6 reports MC errors from the integrated I/O module.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 419H
+  name: IA32_MC6_STATUS
+  scope: Package
+- value: 41AH
+  name: IA32_MC6_ADDR
+  scope: Package
+- value: 41BH
+  name: IA32_MC6_MISC
+  scope: Package
+- value: 41CH
+  name: IA32_MC7_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC7 reports MC errors from the home agent HA 0.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 41DH
+  name: IA32_MC7_STATUS
+  scope: Package
+- value: 41EH
+  name: IA32_MC7_ADDR
+  scope: Package
+- value: 41FH
+  name: IA32_MC7_MISC
+  scope: Package
+- value: 420H
+  name: IA32_MC8_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC8 reports MC errors from the home agent HA 1.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 421H
+  name: IA32_MC8_STATUS
+  scope: Package
+- value: 422H
+  name: IA32_MC8_ADDR
+  scope: Package
+- value: 423H
+  name: IA32_MC8_MISC
+  scope: Package
+- value: 424H
+  name: IA32_MC9_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 425H
+  name: IA32_MC9_STATUS
+  scope: Package
+- value: 426H
+  name: IA32_MC9_ADDR
+  scope: Package
+- value: 427H
+  name: IA32_MC9_MISC
+  scope: Package
+- value: 428H
+  name: IA32_MC10_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 429H
+  name: IA32_MC10_STATUS
+  scope: Package
+- value: 42AH
+  name: IA32_MC10_ADDR
+  scope: Package
+- value: 42BH
+  name: IA32_MC10_MISC
+  scope: Package
+- value: 42CH
+  name: IA32_MC11_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 42DH
+  name: IA32_MC11_STATUS
+  scope: Package
+- value: 42EH
+  name: IA32_MC11_ADDR
+  scope: Package
+- value: 42FH
+  name: IA32_MC11_MISC
+  scope: Package
+- value: 430H
+  name: IA32_MC12_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 431H
+  name: IA32_MC12_STATUS
+  scope: Package
+- value: 432H
+  name: IA32_MC12_ADDR
+  scope: Package
+- value: 433H
+  name: IA32_MC12_MISC
+  scope: Package
+- value: 434H
+  name: IA32_MC13_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 435H
+  name: IA32_MC13_STATUS
+  scope: Package
+- value: 436H
+  name: IA32_MC13_ADDR
+  scope: Package
+- value: 437H
+  name: IA32_MC13_MISC
+  scope: Package
+- value: 438H
+  name: IA32_MC14_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 439H
+  name: IA32_MC14_STATUS
+  scope: Package
+- value: 43AH
+  name: IA32_MC14_ADDR
+  scope: Package
+- value: 43BH
+  name: IA32_MC14_MISC
+  scope: Package
+- value: 43CH
+  name: IA32_MC15_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 43DH
+  name: IA32_MC15_STATUS
+  scope: Package
+- value: 43EH
+  name: IA32_MC15_ADDR
+  scope: Package
+- value: 43FH
+  name: IA32_MC15_MISC
+  scope: Package
+- value: 440H
+  name: IA32_MC16_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 441H
+  name: IA32_MC16_STATUS
+  scope: Package
+- value: 442H
+  name: IA32_MC16_ADDR
+  scope: Package
+- value: 443H
+  name: IA32_MC16_MISC
+  scope: Package
+- value: 444H
+  name: IA32_MC17_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: 'See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC17 reports MC errors from the following pair of CBo/L3 Slices (if the pair is present): CBo0, CBo3, CBo6, CBo9, CBo12, CBo15.'
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 445H
+  name: IA32_MC17_STATUS
+  scope: Package
+- value: 446H
+  name: IA32_MC17_ADDR
+  scope: Package
+- value: 447H
+  name: IA32_MC17_MISC
+  scope: Package
+- value: 448H
+  name: IA32_MC18_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: 'See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC18 reports MC errors from the following pair of CBo/L3 Slices (if the pair is present): CBo1, CBo4, CBo7, CBo10, CBo13, CBo16.'
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 449H
+  name: IA32_MC18_STATUS
+  scope: Package
+- value: 44AH
+  name: IA32_MC18_ADDR
+  scope: Package
+- value: 44BH
+  name: IA32_MC18_MISC
+  scope: Package
+- value: 44CH
+  name: IA32_MC19_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: 'See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC19 reports MC errors from the following pair of CBo/L3 Slices (if the pair is present): CBo2, CBo5, CBo8, CBo11, CBo14, CBo17.'
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 44DH
+  name: IA32_MC19_STATUS
+  scope: Package
+- value: 44EH
+  name: IA32_MC19_ADDR
+  scope: Package
+- value: 44FH
+  name: IA32_MC19_MISC
+  scope: Package
+- value: 450H
+  name: IA32_MC20_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC20 reports MC errors from the Intel QPI 1 module.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 451H
+  name: IA32_MC20_STATUS
+  scope: Package
+- value: 452H
+  name: IA32_MC20_ADDR
+  scope: Package
+- value: 453H
+  name: IA32_MC20_MISC
+  scope: Package
+- value: 454H
+  name: IA32_MC21_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC21 reports MC errors from the Intel QPI 2 module.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 455H
+  name: IA32_MC21_STATUS
+  scope: Package
+- value: 456H
+  name: IA32_MC21_ADDR
+  scope: Package
+- value: 457H
+  name: IA32_MC21_MISC
+  scope: Package
+- value: 606H
+  name: MSR_RAPL_POWER_UNIT
+  bitfields:
+  - bit: '3:0'
+    long_description: Power Units See Section 14.9.1, “RAPL Interfaces.”
+    description: Power Units
+    see_section:
+    - 14.9.1
+  - bit: '7:4'
+    description: Reserved
+  - bit: '12:8'
+    long_description: Energy Status Units Energy related information (in Joules) is based on the multiplier, 1/2^ESU; where ESU is an unsigned integer represented by bits 12:8. Default value is 0EH (or 61 micro-joules).
+    description: Energy Status Units
+  - bit: '15:13'
+    description: Reserved
+  - bit: '19:16'
+    long_description: Time Units See Section 14.9.1, “RAPL Interfaces.”
+    description: Time Units
+    see_section:
+    - 14.9.1
+  - bit: '63:20'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: Unit Multipliers Used in RAPL Interfaces
+- value: 618H
+  name: MSR_DRAM_POWER_LIMIT
+  scope: Package
+  access: R/W
+  description: DRAM RAPL Power Limit Control
+  long_description: DRAM RAPL Power Limit Control See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 619H
+  name: MSR_DRAM_ENERGY_STATUS
+  bitfields:
+  - bit: '31:0'
+    long_description: Energy in 15.3 micro-joules. Requires BIOS configuration to enable DRAM RAPL mode 0 (Direct VR).
+    description: Energy in 15
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: DRAM Energy Status
+  long_description: DRAM Energy Status Energy Consumed by DRAM devices.
+- value: 61BH
+  name: MSR_DRAM_PERF_STATUS
+  scope: Package
+  access: R/O
+  description: DRAM Performance Throttling Status
+  long_description: DRAM Performance Throttling Status See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 61CH
+  name: MSR_DRAM_POWER_INFO
+  scope: Package
+  access: R/W
+  description: DRAM RAPL Parameters
+  long_description: DRAM RAPL Parameters See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 61EH
+  name: MSR_PCIE_PLL_RATIO
+  bitfields:
+  - bit: '1:0'
+    access: R/W
+    long_description: 'PCIE Ratio 00b: Use 5:5 mapping for100MHz operation (default). 01b: Use 5:4 mapping for125MHz operation. 10b: Use 5:3 mapping for166MHz operation. 11b: Use 5:2 mapping for250MHz operation.'
+    description: PCIE Ratio
+  - bit: '2'
+    access: R/W
+    long_description: LPLL Select If 1, use configured setting of PCIE Ratio.
+    description: LPLL Select
+  - bit: '3'
+    access: R/W
+    long_description: LONG RESET If 1, wait an additional time-out before re-locking Gen2/Gen3 PLLs.
+    description: LONG RESET
+  - bit: '63:4'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Configuration of PCIE PLL Relative to BCLK
+- value: 620H
+  name: MSR UNCORE_RATIO_LIMIT
+  bitfields:
+  - bit: '63:15'
+    description: Reserved
+  - bit: '14:8'
+    long_description: MIN_RATIO Writing to this field controls the minimum possible ratio of the LLC/Ring.
+    description: MIN_RATIO
+  - bit: '7'
+    description: Reserved
+  - bit: '6:0'
+    long_description: MAX_RATIO This field is used to limit the max ratio of the LLC/Ring.
+    description: MAX_RATIO
+  scope: Package
+  access: R/W
+  description: Uncore Ratio Limit
+  long_description: Uncore Ratio Limit Out of reset, the min_ratio and max_ratio fields represent the widest possible range of uncore frequencies. Writing to these fields allows software to control the minimum and the maximum frequency that hardware will select.
+- value: 639H
+  name: MSR_PP0_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: Reserved
+  long_description: Reserved Reads return 0.
+- value: 690H
+  name: MSR_CORE_PERF_LIMIT_REASONS
+  bitfields:
+  - bit: '0'
+    access: R0
+    long_description: PROCHOT Status When set, processor core frequency is reduced below the operating system request due to assertion of external PROCHOT.
+    description: PROCHOT Status
+  - bit: '1'
+    access: R0
+    long_description: Thermal Status When set, frequency is reduced below the operating system request due to a thermal event.
+    description: Thermal Status
+  - bit: '2'
+    access: R0
+    long_description: Power Budget Management Status When set, frequency is reduced below the operating system request due to PBM limit
+    description: Power Budget Management Status
+  - bit: '3'
+    access: R0
+    long_description: Platform Configuration Services Status When set, frequency is reduced below the operating system request due to PCS limit
+    description: Platform Configuration Services Status
+  - bit: '4'
+    description: Reserved
+  - bit: '5'
+    access: R0
+    long_description: Autonomous Utilization-Based Frequency Control Status When set, frequency is reduced below the operating system request because the processor has detected that utilization is low.
+    description: Autonomous Utilization-Based Frequency Control
+  - bit: '6'
+    access: R0
+    long_description: VR Therm Alert Status When set, frequency is reduced below the operating system request due to a thermal alert from the Voltage Regulator.
+    description: VR Therm Alert Status
+  - bit: '7'
+    description: Reserved
+  - bit: '8'
+    access: R0
+    long_description: Electrical Design Point Status When set, frequency is reduced below the operating system request due to electrical design point constraints (e.g., maximum electrical current consumption).
+    description: Electrical Design Point Status
+  - bit: '9'
+    description: Reserved
+  - bit: '10'
+    access: R0
+    long_description: Multi-Core Turbo Status When set, frequency is reduced below the operating system request due to Multi-Core Turbo limits.
+    description: Multi-Core Turbo Status
+  - bit: '12:11'
+    description: Reserved
+  - bit: '13'
+    access: R0
+    long_description: Core Frequency P1 Status When set, frequency is reduced below max non-turbo P1.
+    description: Core Frequency P1 Status
+  - bit: '14'
+    access: R0
+    long_description: Core Max N-Core Turbo Frequency Limiting Status When set, frequency is reduced below max n-core turbo frequency.
+    description: Core Max N-Core Turbo Frequency Limiting Status
+  - bit: '15'
+    access: R0
+    long_description: Core Frequency Limiting Status When set, frequency is reduced below the operating system request.
+    description: Core Frequency Limiting Status
+  - bit: '16'
+    long_description: PROCHOT Log When set, indicates that the PROCHOT Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: PROCHOT Log
+  - bit: '17'
+    long_description: Thermal Log When set, indicates that the Thermal Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Thermal Log
+  - bit: '18'
+    long_description: Power Budget Management Log When set, indicates that the PBM Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Power Budget Management Log
+  - bit: '19'
+    long_description: Platform Configuration Services Log When set, indicates that the PCS Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Platform Configuration Services Log
+  - bit: '20'
+    description: Reserved
+  - bit: '21'
+    long_description: Autonomous Utilization-Based Frequency Control Log When set, indicates that the AUBFC Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Autonomous Utilization-Based Frequency Control Log
+  - bit: '22'
+    long_description: VR Therm Alert Log When set, indicates that the VR Therm Alert Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: VR Therm Alert Log
+  - bit: '23'
+    description: Reserved
+  - bit: '24'
+    long_description: Electrical Design Point Log When set, indicates that the EDP Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Electrical Design Point Log
+  - bit: '25'
+    description: Reserved
+  - bit: '26'
+    long_description: Multi-Core Turbo Log When set, indicates that the Multi-Core Turbo Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Multi-Core Turbo Log
+  - bit: '28:27'
+    description: Reserved
+  - bit: '29'
+    long_description: Core Frequency P1 Log When set, indicates that the Core Frequency P1 Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Core Frequency P1 Log
+  - bit: '30'
+    long_description: Core Max N-Core Turbo Frequency Limiting Log When set, indicates that the Core Max n-core Turbo Frequency Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Core Max N-Core Turbo Frequency Limiting Log
+  - bit: '31'
+    long_description: Core Frequency Limiting Log When set, indicates that the Core Frequency Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Core Frequency Limiting Log
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Indicator of Frequency Clipping in Processor Cores
+  long_description: Indicator of Frequency Clipping in Processor Cores (Frequency refers to processor core frequency.)
+- value: C8DH
+  name: IA32_QM_EVTSEL
+  bitfields:
+  - bit: '7:0'
+    access: RW
+    long_description: 'EventID Event encoding: 0x0: No monitoring. 0x1: L3 occupancy monitoring. All other encoding reserved.'
+    description: EventID
+  - bit: '31:8'
+    description: Reserved
+  - bit: '41:32'
+    access: RW
+    description: RMID
+  - bit: '63:42'
+    description: Reserved
+  scope: THREAD
+  access: R/W
+  description: Monitoring Event Select Register
+  long_description: Monitoring Event Select Register If CPUID.(EAX=07H, ECX=0):EBX.RDT-M[bit 12] = 1.
+- value: C8EH
+  name: IA32_QM_CTR
+  bitfields:
+  - bit: '61:0'
+    description: Resource Monitored Data
+  - bit: '62'
+    long_description: 'Unavailable: If 1, indicates data for this RMID is not available or not monitored for this resource or RMID.'
+    description: Unavailable
+  - bit: '63'
+    long_description: 'Error: If 1, indicates and unsupported RMID or event type was written to IA32_PQR_QM_EVTSEL.'
+    description: Error
+  scope: THREAD
+  access: R/O
+  description: Monitoring Counter Register
+  long_description: Monitoring Counter Register If CPUID.(EAX=07H, ECX=0):EBX.RDT-M[bit 12] = 1.
+- value: C8FH
+  name: IA32_PQR_ASSOC
+  bitfields:
+  - bit: '9:0'
+    description: RMID
+  - bit: '63: 10'
+    description: Reserved
+  scope: THREAD
+  access: R/W
+  description: Resource Association Register
+- value: SeeTable2-20,Table2-29forotherMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_3FH.

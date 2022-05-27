@@ -1,0 +1,75 @@
+---
+name: Table 2-14
+full_name: Table 2-14. MSRs in Intel Atom® Processors Based on the Tremont Microarchitecture
+supported_cpu: []
+msr:
+- value: 33H
+  name: TEST_CTRL
+  bitfields:
+  - bit: '28:0'
+    description: Reserved
+  - bit: '29'
+    access: '0'
+    long_description: 'Enable #AC exception for split locked accesses: Cause #AC exception for split locked access at all CPL irrespective of CR0.AM or EFLAGS.AC. If bits 29 and 31 are both set, bit 29 takes precedence.'
+    description: 'Enable #AC exception for split locked accesses'
+  - bit: '30'
+    description: Reserved
+  - bit: '31'
+    description: Disable LOCK# assertion for split locked access
+  scope: Core
+  description: Test Control Register
+- value: CFH
+  name: IA32_CORE_CAPABILITIES
+  scope: Core
+  description: IA32 Core Capabilities Register
+  long_description: IA32 Core Capabilities Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 3F1H
+  name: MSR_PEBS_ENABLE
+  bitfields:
+  - bit: n:0
+    long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMCx. The maximum value n can be determined from CPUID.0AH:EAX[15:8].
+    description: Enable PEBS trigger and recording for the programmed
+  - bit: 31:n+1
+    description: Reserved
+  - bit: 32+m:32
+    long_description: Enable PEBS trigger and recording for IA32_FIXED_CTRx. The maximum value m can be determined from CPUID.0AH:EDX[4:0].
+    description: Enable PEBS trigger and recording for
+  - bit: 59:33+m
+    description: Reserved
+  - bit: '60'
+    description: Pend a PerfMon Interrupt
+  - bit: 62:61
+    long_description: 'Specifies PEBS output destination. Encodings: 00B: DS Save Area 01B: Intel PT trace output. Supported if IA32_PERF_CAPABILITIES.PEBS_OUTPUT_PT_AVAIL[ 16] and CPUID.07H.0.EBX[25] are set. 10B: Reserved 11B: Reserved'
+    description: Specifies PEBS output destination. Encodings
+  - bit: '63'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: See Table 2-2. See Section 18.6.2.4
+  long_description: See Table 2-2. See Section 18.6.2.4, “Processor Event Based Sampling (PEBS)”.
+  see_table:
+  - 2-2
+  see_section:
+  - 18.6.2.4
+- value: 1309H-130BH
+  name: MSR_RELOAD_FIXED_CTRx
+  bitfields:
+  - bit: '47:0'
+    long_description: Value loaded into IA32_FIXED_CTRx when a PEBS record is generated while PEBS_EN_FIXEDx = 1 and PEBS_OUTPUT = 01B in IA32_PEBS_ENABLE, and FIXED_CTRx is overflowed.
+    description: Value loaded into IA32_FIXED_CTRx when a PEBS
+  - bit: '63:48'
+    description: Reserved
+  access: R/W
+  description: Reload value for IA32_FIXED_CTRx
+- value: 14C1H-14C8H
+  name: MSR_RELOAD_PMCx
+  bitfields:
+  - bit: '47:0'
+    long_description: Value loaded into IA32_PMCx when a PEBS record is generated while PEBS_EN_PMCx = 1 and PEBS_OUTPUT = 01B in IA32_PEBS_ENABLE, and PMCx is overflowed.
+    description: Value loaded into IA32_PMCx when a PEBS record is
+  - bit: '63:48'
+    description: Reserved
+  access: R/W
+  description: Reload value for IA32_PMCx

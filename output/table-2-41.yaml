@@ -1,0 +1,125 @@
+---
+name: Table 2-41
+full_name: Table 2-41. Additional MSRs Supported by 7th Generation and 8th Generation Intel® Core™ Processors Based on Kaby Lake Microarchitecture and Coffee Lake Microarchitecture
+supported_cpu:
+- 06_9EH
+- 06_8EH
+msr:
+- value: 80H
+  name: MSR_TRACE_HUB_STH_ACPIBAR_BASE
+  bitfields:
+  - bit: '0'
+    long_description: Lock Bit If set, this MSR cannot be re-written anymore. Lock bit has to be set in order for the AET packets to be directed to NPK MMIO.
+    description: Lock Bit
+  - bit: '17:1'
+    description: Reserved
+  - bit: '63:18'
+    long_description: ACPIBAR_BASE_ADDRESS AET target address in NPK MMIO space.
+    description: ACPIBAR_BASE_ADDRESS
+  scope: Package
+  access: R/W
+  description: NPK Address Used by AET Messages
+- value: 1F4H
+  name: MSR_PRMRR_PHYS_BASE
+  bitfields:
+  - bit: '2:0'
+    long_description: MemType PRMRR BASE MemType.
+    description: MemType
+  - bit: '11:3'
+    description: Reserved
+  - bit: '45:12'
+    long_description: Base PRMRR Base Address.
+    description: Base
+  - bit: '63:46'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Processor Reserved Memory Range Register -
+  long_description: Processor Reserved Memory Range Register - Physical Base Control Register
+- value: 1F5H
+  name: MSR_PRMRR_PHYS_MASK
+  bitfields:
+  - bit: '9:0'
+    description: Reserved
+  - bit: '10'
+    long_description: Lock Lock bit for the PRMRR.
+    description: Lock
+  - bit: '11'
+    long_description: VLD Enable bit for the PRMRR.
+    description: VLD
+  - bit: '45:12'
+    long_description: Mask PRMRR MASK bits.
+    description: Mask
+  - bit: '63:46'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Processor Reserved Memory Range Register -
+  long_description: Processor Reserved Memory Range Register - Physical Mask Control Register
+- value: 1FBH
+  name: MSR_PRMRR_VALID_CONFIG
+  bitfields:
+  - bit: '0'
+    description: 1M supported MEE size
+  - bit: '4:1'
+    description: Reserved
+  - bit: '5'
+    description: 32M supported MEE size
+  - bit: '6'
+    description: 64M supported MEE size
+  - bit: '7'
+    description: 128M supported MEE size
+  - bit: '31:8'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Valid PRMRR Configurations
+- value: 2F4H
+  name: MSR_UNCORE_PRMRR_PHYS_BASE
+  bitfields:
+  - bit: '11:0'
+    description: Reserved
+  - bit: '38:12'
+    long_description: Range Base This field corresponds to bits 38:12 of the base address memory range which is allocated to PRMRR memory.
+    description: Range Base
+  - bit: '63:39'
+    description: Reserved
+  scope: Package
+  access: R/W
+  long_description: The PRMRR range is used to protect Xucode memory from unauthorized reads and writes. Any IO access to this range is aborted. This register controls the location of the PRMRR range by indicating its starting address. It functions in tandem with the PRMRR mask register.
+- value: 2F5H
+  name: MSR_UNCORE_PRMRR_PHYS_MASK
+  bitfields:
+  - bit: '9:0'
+    description: Reserved
+  - bit: '10'
+    long_description: Lock Setting this bit locks all writeable settings in this register, including itself.
+    description: Lock
+  - bit: '11'
+    long_description: Range_En Indicates whether the PRMRR range is enabled and valid.
+    description: Range_En
+  - bit: '38:12'
+    long_description: Range_Mask This field indicates which address bits must match PRMRR base in order to qualify as an PRMRR access.
+    description: Range_Mask
+  - bit: '63:39'
+    description: Reserved
+  scope: Package
+  access: R/W
+  long_description: This register controls the size of the PRMRR range by indicating which address bits must match the PRMRR base register value.
+- value: 620H
+  name: MSR_RING_RATIO_LIMIT
+  bitfields:
+  - bit: '6:0'
+    long_description: MAX_Ratio This field is used to limit the max ratio of the LLC/Ring.
+    description: MAX_Ratio
+  - bit: '7'
+    description: Reserved
+  - bit: '14:8'
+    long_description: MIN_Ratio Writing to this field controls the minimum possible ratio of the LLC/Ring.
+    description: MIN_Ratio
+  - bit: '63:15'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Ring Ratio Limit
+  long_description: Ring Ratio Limit This register provides Min/Max Ratio Limits for the LLC and Ring.

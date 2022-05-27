@@ -1,0 +1,57 @@
+---
+name: Table 2-18
+full_name: Table 2-18. Additional MSRs Supported by Intel Processors (Based on Intel® Microarchitecture Code Name Westmere)
+supported_cpu:
+- 06_25H
+- 06_2CH
+msr:
+- value: 13CH
+  name: MSR_FEATURE_CONFIG
+  bitfields:
+  - bit: '1:0'
+    access: RW-L
+    long_description: 'AES Configuration Upon a successful read of this MSR, the configuration of AES instruction set availability is as follows: 11b: AES instructions are not available until next RESET. Otherwise, AES instructions are available. Note, AES instruction set is not available if read is unsuccessful. If the configuration is not 01b, AES instructions can be mis-configured if a privileged agent unintentionally writes 11b.'
+    description: AES Configuration
+  - bit: '63:2'
+    description: Reserved
+  scope: Core
+  access: RW-L
+  description: AES Configuration
+  long_description: 'AES Configuration Privileged post-BIOS agent must provide a #GP handler to handle unsuccessful read of this MSR.'
+- value: 1A7H
+  name: MSR_OFFCORE_RSP_1
+  scope: Thread
+  access: R/W
+  description: Offcore Response Event Select Register
+- value: 1ADH
+  name: MSR_TURBO_RATIO_LIMIT
+  bitfields:
+  - bit: '7:0'
+    long_description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
+    description: Maximum Ratio Limit for 1C
+  - bit: '15:8'
+    long_description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
+    description: Maximum Ratio Limit for 2C
+  - bit: '23:16'
+    long_description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
+    description: Maximum Ratio Limit for 3C
+  - bit: '31:24'
+    long_description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
+    description: Maximum Ratio Limit for 4C
+  - bit: '39:32'
+    long_description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5 core active.
+    description: Maximum Ratio Limit for 5C
+  - bit: '47:40'
+    long_description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6 core active.
+    description: Maximum Ratio Limit for 6C
+  - bit: '63:48'
+    description: Reserved
+  scope: Package
+  description: Maximum Ratio Limit of Turbo Mode
+  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+- value: 1B0H
+  name: IA32_ENERGY_PERF_BIAS
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2

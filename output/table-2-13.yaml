@@ -1,0 +1,375 @@
+---
+name: Table 2-13
+full_name: Table 2-13. MSRs in Intel Atom® Processors Based on the Goldmont Plus Microarchitecture
+supported_cpu:
+- 06_7AH
+msr:
+- value: 3AH
+  name: IA32_FEATURE_CONTROL
+  bitfields:
+  - bit: '0'
+    access: R/WL
+    description: Lock
+  - bit: '1'
+    access: R/WL
+    description: Enable VMX inside SMX operation
+  - bit: '2'
+    access: R/WL
+    description: Enable VMX outside SMX operation
+  - bit: '14:8'
+    access: R/WL
+    description: SENTER local functions enables
+  - bit: '15'
+    access: R/WL
+    description: SENTER global functions enable
+  - bit: '17'
+    access: R/WL
+    long_description: 'SGX Launch Control Enable This bit must be set to enable runtime reconfiguration of SGX Launch Control via IA32_SGXLEPUBKEYHASHn MSR. Valid if CPUID.(EAX=07H, ECX=0H): ECX[30] = 1.'
+    description: SGX Launch Control Enable
+  - bit: '18'
+    access: R/WL
+    description: SGX global functions enable
+  - bit: '63:19'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Control Features in Intel 64Processor
+  long_description: Control Features in Intel 64Processor See Table 2-2.
+  see_table:
+  - 2-2
+- value: 8CH
+  name: IA32_SGXLEPUBKEYHASH0
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 8DH
+  name: IA32_SGXLEPUBKEYHASH1
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 8EH
+  name: IA32_SGXLEPUBKEYHASH2
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 8FH
+  name: IA32_SGXLEPUBKEYHASH3
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 3F1H
+  name: MSR_PEBS_ENABLE
+  bitfields:
+  - bit: '0'
+    long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMC0.
+    description: Enable PEBS trigger and recording for the
+  - bit: '1'
+    long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMC1.
+    description: Enable PEBS trigger and recording for the
+  - bit: '2'
+    long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMC2.
+    description: Enable PEBS trigger and recording for the
+  - bit: '3'
+    long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMC3.
+    description: Enable PEBS trigger and recording for the
+  - bit: '31:4'
+    description: Reserved
+  - bit: '32'
+    long_description: Enable PEBS trigger and recording for IA32_FIXED_CTR0.
+    description: Enable PEBS trigger and recording for
+  - bit: '33'
+    long_description: Enable PEBS trigger and recording for IA32_FIXED_CTR1.
+    description: Enable PEBS trigger and recording for
+  - bit: '34'
+    long_description: Enable PEBS trigger and recording for IA32_FIXED_CTR2.
+    description: Enable PEBS trigger and recording for
+  - bit: '63:35'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: See Table 2-2. See Section 18.6.2.4
+  long_description: See Table 2-2. See Section 18.6.2.4, “Processor Event Based Sampling (PEBS).”
+  see_table:
+  - 2-2
+  see_section:
+  - 18.6.2.4
+- value: 570H
+  name: IA32_RTIT_CTL
+  bitfields:
+  - bit: '0'
+    description: TraceEn
+  - bit: '1'
+    description: CYCEn
+  - bit: '2'
+    description: OS
+  - bit: '3'
+    description: User
+  - bit: '4'
+    description: PwrEvtEn
+  - bit: '5'
+    description: FUPonPTW
+  - bit: '6'
+    description: FabricEn
+  - bit: '7'
+    description: CR3 filter
+  - bit: '8'
+    long_description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
+    description: ToPA
+  - bit: '9'
+    description: MTCEn
+  - bit: '10'
+    description: TSCEn
+  - bit: '11'
+    description: DisRETC
+  - bit: '12'
+    description: PTWEn
+  - bit: '13'
+    description: BranchEn
+  - bit: '17:14'
+    description: MTCFreq
+  - bit: '18'
+    description: Reserved
+  - bit: '22:19'
+    description: CYCThresh
+  - bit: '23'
+    description: Reserved
+  - bit: '27:24'
+    description: PSBFreq
+  - bit: '31:28'
+    description: Reserved
+  - bit: '35:32'
+    description: ADDR0_CFG
+  - bit: '39:36'
+    description: ADDR1_CFG
+  - bit: '63:40'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Trace Control Register
+- value: 680H
+  name: MSR_LASTBRANCH_0_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 0 From IP
+  long_description: 'Last Branch Record 0 From IP One of the three MSRs that make up the first entry of the 32-entry LBR stack. The From_IP part of the stack contains pointers to the source instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.7, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Goldmont Plus Microarchitecture.”'
+  see_section:
+  - '17.7'
+- value: 681H-69FH
+  name: MSR_LASTBRANCH_i_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record i From IP
+  long_description: Last Branch Record i From IP See description of MSR_LASTBRANCH_0_FROM_IP; i = 1-31.
+- value: 6C0H
+  name: MSR_LASTBRANCH_0_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 0 To IP
+  long_description: 'Last Branch Record 0 To IP One of the three MSRs that make up the first entry of the 32-entry LBR stack. The To_IP part of the stack contains pointers to the Destination instruction. See also: • Section 17.7, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Goldmont Plus Microarchitecture.”'
+  see_section:
+  - '17.7'
+- value: 6C1H-6DFH
+  name: MSR_LASTBRANCH_i_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record i To IP
+  long_description: Last Branch Record i To IP See description of MSR_LASTBRANCH_0_TO_IP; i = 1- 31.
+- value: DC0H
+  name: MSR_LASTBRANCH_INFO_0
+  scope: Core
+  access: R/W
+  description: Last Branch Record 0 Additional Information
+  long_description: 'Last Branch Record 0 Additional Information One of the three MSRs that make up the first entry of the 32-entry LBR stack. This part of the stack contains flag and elapsed cycle information. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.9.1, “LBR Stack.”'
+  see_section:
+  - 17.9.1
+- value: DC1H
+  name: MSR_LASTBRANCH_INFO_1
+  scope: Core
+  access: R/W
+  description: Last Branch Record 1 Additional Information
+  long_description: Last Branch Record 1 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DC2H
+  name: MSR_LASTBRANCH_INFO_2
+  scope: Core
+  access: R/W
+  description: Last Branch Record 2 Additional Information
+  long_description: Last Branch Record 2 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DC3H
+  name: MSR_LASTBRANCH_INFO_3
+  scope: Core
+  access: R/W
+  description: Last Branch Record 3 Additional Information
+  long_description: Last Branch Record 3 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DC4H
+  name: MSR_LASTBRANCH_INFO_4
+  scope: Core
+  access: R/W
+  description: Last Branch Record 4 Additional Information
+  long_description: Last Branch Record 4 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DC5H
+  name: MSR_LASTBRANCH_INFO_5
+  scope: Core
+  access: R/W
+  description: Last Branch Record 5 Additional Information
+  long_description: Last Branch Record 5 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DC6H
+  name: MSR_LASTBRANCH_INFO_6
+  scope: Core
+  access: R/W
+  description: Last Branch Record 6 Additional Information
+  long_description: Last Branch Record 6 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DC7H
+  name: MSR_LASTBRANCH_INFO_7
+  scope: Core
+  access: R/W
+  description: Last Branch Record 7 Additional Information
+  long_description: Last Branch Record 7 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DC8H
+  name: MSR_LASTBRANCH_INFO_8
+  scope: Core
+  access: R/W
+  description: Last Branch Record 8 Additional Information
+  long_description: Last Branch Record 8 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DC9H
+  name: MSR_LASTBRANCH_INFO_9
+  scope: Core
+  access: R/W
+  description: Last Branch Record 9 Additional Information
+  long_description: Last Branch Record 9 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DCAH
+  name: MSR_LASTBRANCH_INFO_10
+  scope: Core
+  access: R/W
+  description: Last Branch Record 10 Additional Information
+  long_description: Last Branch Record 10 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DCBH
+  name: MSR_LASTBRANCH_INFO_11
+  scope: Core
+  access: R/W
+  description: Last Branch Record 11 Additional Information
+  long_description: Last Branch Record 11 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DCCH
+  name: MSR_LASTBRANCH_INFO_12
+  scope: Core
+  access: R/W
+  description: Last Branch Record 12 Additional Information
+  long_description: Last Branch Record 12 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DCDH
+  name: MSR_LASTBRANCH_INFO_13
+  scope: Core
+  access: R/W
+  description: Last Branch Record 13 Additional Information
+  long_description: Last Branch Record 13 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DCEH
+  name: MSR_LASTBRANCH_INFO_14
+  scope: Core
+  access: R/W
+  description: Last Branch Record 14 Additional Information
+  long_description: Last Branch Record 14 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DCFH
+  name: MSR_LASTBRANCH_INFO_15
+  scope: Core
+  access: R/W
+  description: Last Branch Record 15 Additional Information
+  long_description: Last Branch Record 15 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DD0H
+  name: MSR_LASTBRANCH_INFO_16
+  scope: Core
+  access: R/W
+  description: Last Branch Record 16 Additional Information
+  long_description: Last Branch Record 16 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DD1H
+  name: MSR_LASTBRANCH_INFO_17
+  scope: Core
+  access: R/W
+  description: Last Branch Record 17 Additional Information
+  long_description: Last Branch Record 17 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DD2H
+  name: MSR_LASTBRANCH_INFO_18
+  scope: Core
+  access: R/W
+  description: Last Branch Record 18 Additional Information
+  long_description: Last Branch Record 18 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DD3H
+  name: MSR_LASTBRANCH_INFO_19
+  scope: Core
+  access: R/W
+  description: Last Branch Record 19 Additional Information
+  long_description: Last Branch Record 19 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DD4H
+  name: MSR_LASTBRANCH_INFO_20
+  scope: Core
+  access: R/W
+  description: Last Branch Record 20 Additional Information
+  long_description: Last Branch Record 20 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DD5H
+  name: MSR_LASTBRANCH_INFO_21
+  scope: Core
+  access: R/W
+  description: Last Branch Record 21 Additional Information
+  long_description: Last Branch Record 21 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DD6H
+  name: MSR_LASTBRANCH_INFO_22
+  scope: Core
+  access: R/W
+  description: Last Branch Record 22 Additional Information
+  long_description: Last Branch Record 22 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DD7H
+  name: MSR_LASTBRANCH_INFO_23
+  scope: Core
+  access: R/W
+  description: Last Branch Record 23 Additional Information
+  long_description: Last Branch Record 23 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DD8H
+  name: MSR_LASTBRANCH_INFO_24
+  scope: Core
+  access: R/W
+  description: Last Branch Record 24 Additional Information
+  long_description: Last Branch Record 24 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DD9H
+  name: MSR_LASTBRANCH_INFO_25
+  scope: Core
+  access: R/W
+  description: Last Branch Record 25 Additional Information
+  long_description: Last Branch Record 25 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DDAH
+  name: MSR_LASTBRANCH_INFO_26
+  scope: Core
+  access: R/W
+  description: Last Branch Record 26 Additional Information
+  long_description: Last Branch Record 26 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DDBH
+  name: MSR_LASTBRANCH_INFO_27
+  scope: Core
+  access: R/W
+  description: Last Branch Record 27 Additional Information
+  long_description: Last Branch Record 27 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DDCH
+  name: MSR_LASTBRANCH_INFO_28
+  scope: Core
+  access: R/W
+  description: Last Branch Record 28 Additional Information
+  long_description: Last Branch Record 28 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DDDH
+  name: MSR_LASTBRANCH_INFO_29
+  scope: Core
+  access: R/W
+  description: Last Branch Record 29 Additional Information
+  long_description: Last Branch Record 29 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DDEH
+  name: MSR_LASTBRANCH_INFO_30
+  scope: Core
+  access: R/W
+  description: Last Branch Record 30 Additional Information
+  long_description: Last Branch Record 30 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: DDFH
+  name: MSR_LASTBRANCH_INFO_31
+  scope: Core
+  access: R/W
+  description: Last Branch Record 31 Additional Information
+  long_description: Last Branch Record 31 Additional Information See description of MSR_LASTBRANCH_INFO_0.
+- value: SeeTable2-6,Table2-12andTable2-13forMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_7AH.

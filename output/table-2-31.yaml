@@ -1,0 +1,80 @@
+---
+name: Table 2-31
+full_name: Table 2-31. Additional Residency MSRs Supported by 4th Generation Intel® Core™ Processors with DisplayFamily_DisplayModel Signature 06_45H
+supported_cpu:
+- 06_45H
+msr:
+- value: E2H
+  name: MSR_PKG_CST_CONFIG_CONTROL
+  bitfields:
+  - bit: '3:0'
+    access: R/W
+    long_description: 'Package C-State Limit Specifies the lowest processor-specific C-state code name (consuming the least power) for the package. The default is set as factory-configured package C-state limit. The following C-state code name encodings are supported: 0000b: C0/C1 (no package C-state support) 0001b: C2 0010b: C3 0011b: C6 0100b: C7 0101b: C7s 0110b: C8 0111b: C9 1000b: C10'
+    description: Package C-State Limit
+  - bit: '9:4'
+    description: Reserved
+  - bit: '10'
+    access: R/W
+    description: I/O MWAIT Redirection Enable
+  - bit: '14:11'
+    description: Reserved
+  - bit: '15'
+    access: R/WO
+    description: CFG Lock
+  - bit: '24:16'
+    description: Reserved
+  - bit: '25'
+    access: R/W
+    description: C3 State Auto Demotion Enable
+  - bit: '26'
+    access: R/W
+    description: C1 State Auto Demotion Enable
+  - bit: '27'
+    access: R/W
+    description: Enable C3 Undemotion
+  - bit: '28'
+    access: R/W
+    description: Enable C1 Undemotion
+  - bit: '63:29'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: C-State Configuration Control
+  long_description: 'C-State Configuration Control Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states. See http://biosbits.org.'
+- value: 630H
+  name: MSR_PKG_C8_RESIDENCY
+  bitfields:
+  - bit: '59:0'
+    access: R/O
+    long_description: Package C8 Residency Counter Value since last reset that this package is in processor- specific C8 states. Count at the same frequency as the TSC.
+    description: Package C8 Residency Counter
+  - bit: 63:60
+    description: Reserved
+  scope: Package
+  description: Note
+  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 631H
+  name: MSR_PKG_C9_RESIDENCY
+  bitfields:
+  - bit: '59:0'
+    access: R/O
+    long_description: Package C9 Residency Counter Value since last reset that this package is in processor- specific C9 states. Count at the same frequency as the TSC.
+    description: Package C9 Residency Counter
+  - bit: 63:60
+    description: Reserved
+  scope: Package
+  description: Note
+  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 632H
+  name: MSR_PKG_C10_RESIDENCY
+  bitfields:
+  - bit: '59:0'
+    access: R/O
+    long_description: Package C10 Residency Counter Value since last reset that this package is in processor- specific C10 states. Count at the same frequency as the TSC.
+    description: Package C10 Residency Counter
+  - bit: 63:60
+    description: Reserved
+  scope: Package
+  description: Note
+  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: SeeTable2-20,Table2-21,Table2-22,Table2-29,Table2-30forotherMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_45H.

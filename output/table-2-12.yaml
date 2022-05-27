@@ -1,0 +1,1942 @@
+---
+name: Table 2-12
+full_name: Table 2-12. MSRs in Intel Atom® Processors Based on the Goldmont Microarchitecture
+supported_cpu:
+- 06_5CH
+- 06_7AH
+- 06_86H
+msr:
+- value: 17H
+  name: MSR_PLATFORM_ID
+  bitfields:
+  - bit: '49:0'
+    description: Reserved
+  - bit: '52:50'
+    description: See Table 2-2
+    see_table:
+    - 2-2
+  - bit: '63:33'
+    description: Reserved
+  scope: Module
+  access: R
+  description: Model Specific Platform ID
+- value: 3AH
+  name: IA32_FEATURE_CONTROL
+  bitfields:
+  - bit: '0'
+    access: R/WL
+    description: Lock
+  - bit: '1'
+    access: R/WL
+    description: Enable VMX inside SMX operation
+  - bit: '2'
+    access: R/WL
+    description: Enable VMX outside SMX operation
+  - bit: '14:8'
+    access: R/WL
+    description: SENTER local functions enables
+  - bit: '15'
+    access: R/WL
+    description: SENTER global functions enable
+  - bit: '18'
+    access: R/WL
+    description: SGX global functions enable
+  - bit: '63:19'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Control Features in Intel 64 Processor
+  long_description: Control Features in Intel 64 Processor See Table 2-2.
+  see_table:
+  - 2-2
+- value: 3BH
+  name: IA32_TSC_ADJUST
+  scope: Core
+  access: R/W
+  description: Per-Core TSC ADJUST
+  long_description: Per-Core TSC ADJUST See Table 2-2.
+  see_table:
+  - 2-2
+- value: C3H
+  name: IA32_PMC2
+  scope: Core
+  description: Performance Counter Register
+  long_description: Performance Counter Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: C4H
+  name: IA32_PMC3
+  scope: Core
+  description: Performance Counter Register
+  long_description: Performance Counter Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: CEH
+  name: MSR_PLATFORM_INFO
+  bitfields:
+  - bit: '7:0'
+    description: Reserved
+  - bit: '15:8'
+    access: R/O
+    long_description: Maximum Non-Turbo Ratio This is the ratio of the maximum frequency that does not require turbo. Frequency = ratio * 100 MHz.
+    description: Maximum Non-Turbo Ratio
+  - bit: '27:16'
+    description: Reserved
+  - bit: '28'
+    access: R/O
+    long_description: Programmable Ratio Limit for Turbo Mode When set to 1, indicates that Programmable Ratio Limit for Turbo mode is enabled. When set to 0, indicates Programmable Ratio Limit for Turbo mode is disabled.
+    description: Programmable Ratio Limit for Turbo Mode
+  - bit: '29'
+    access: R/O
+    long_description: Programmable TDP Limit for Turbo Mode When set to 1, indicates that TDP Limit for Turbo mode is programmable. When set to 0, indicates TDP Limit for Turbo mode is not programmable.
+    description: Programmable TDP Limit for Turbo Mode
+  - bit: '30'
+    access: R/O
+    long_description: Programmable TJ OFFSET When set to 1, indicates that MSR_TEMPERATURE_TARGET.[27:24] is valid and writable to specify a temperature offset.
+    description: Programmable TJ OFFSET
+  - bit: '39:31'
+    description: Reserved
+  - bit: '47:40'
+    access: R/O
+    long_description: Maximum Efficiency Ratio This is the minimum ratio (maximum efficiency) that the processor can operate, in units of 100MHz.
+    description: Maximum Efficiency Ratio
+  - bit: '63:48'
+    description: Reserved
+  scope: Package
+  description: Platform Information
+  long_description: Platform Information Contains power management and other model specific features enumeration. See http://biosbits.org.
+- value: E2H
+  name: MSR_PKG_CST_CONFIG_CONTROL
+  bitfields:
+  - bit: '3:0'
+    access: R/W
+    long_description: 'Package C-State Limit Specifies the lowest processor-specific C-state code name (consuming the least power) for the package. The default is set as factory-configured package C- state limit. The following C-state code name encodings are supported: 0000b: No limit 0001b: C1 0010b: C3 0011b: C6 0100b: C7 0101b: C7S 0110b: C8 0111b: C9 1000b: C10'
+    description: Package C-State Limit
+  - bit: '9:3'
+    description: Reserved
+  - bit: '10'
+    access: R/W
+    long_description: I/O MWAIT Redirection Enable When set, will map IO_read instructions sent to IO register specified by MSR_PMG_IO_CAPTURE_BASE to MWAIT instructions.
+    description: I/O MWAIT Redirection Enable
+  - bit: '14:11'
+    description: Reserved
+  - bit: '15'
+    access: R/WO
+    long_description: CFG Lock When set, locks bits 15:0 of this register until next reset.
+    description: CFG Lock
+  - bit: '63:16'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: C-State Configuration Control
+  long_description: 'C-State Configuration Control Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States. See http://biosbits.org.'
+- value: 17DH
+  name: MSR_SMM_MCA_CAP
+  bitfields:
+  - bit: '57:0'
+    description: Reserved
+  - bit: '58'
+    access: SMM-RO
+    long_description: SMM_Code_Access_Chk If set to 1 indicates that the SMM code access restriction is supported and the MSR_SMM_FEATURE_CONTROL is supported.
+    description: SMM_Code_Access_Chk
+  - bit: '59'
+    access: SMM-RO
+    long_description: Long_Flow_Indication If set to 1 indicates that the SMM long flow indicator is supported and the MSR_SMM_DELAYED is supported.
+    description: Long_Flow_Indication
+  - bit: 63:60
+    description: Reserved
+  scope: Core
+  access: SMM-RO
+  description: Enhanced SMM Capabilities
+  long_description: Enhanced SMM Capabilities Reports SMM capability enhancement. Accessible only while in SMM.
+- value: 188H
+  name: IA32_PERFEVTSEL2
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 189H
+  name: IA32_PERFEVTSEL3
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 1A0H
+  name: IA32_MISC_ENABLE
+  bitfields:
+  - bit: '0'
+    long_description: Fast-Strings Enable See Table 2-2.
+    description: Fast-Strings Enable
+    see_table:
+    - 2-2
+  - bit: '2:1'
+    description: Reserved
+  - bit: '3'
+    access: R/W
+    long_description: Automatic Thermal Control Circuit Enable See Table 2-2. Default value is 1.
+    description: Automatic Thermal Control Circuit Enable
+    see_table:
+    - 2-2
+  - bit: '6:4'
+    description: Reserved
+  - bit: '7'
+    access: R
+    long_description: Performance Monitoring Available See Table 2-2.
+    description: Performance Monitoring Available
+    see_table:
+    - 2-2
+  - bit: '10:8'
+    description: Reserved
+  - bit: '11'
+    access: RO
+    long_description: Branch Trace Storage Unavailable See Table 2-2.
+    description: Branch Trace Storage Unavailable
+    see_table:
+    - 2-2
+  - bit: '12'
+    access: RO
+    long_description: Processor Event Based Sampling Unavailable See Table 2-2.
+    description: Processor Event Based Sampling Unavailable
+    see_table:
+    - 2-2
+  - bit: '15:13'
+    description: Reserved
+  - bit: '16'
+    access: R/W
+    long_description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
+    description: Enhanced Intel SpeedStep Technology Enable
+    see_table:
+    - 2-2
+  - bit: '18'
+    access: R/W
+    long_description: ENABLE MONITOR FSM See Table 2-2.
+    description: ENABLE MONITOR FSM
+    see_table:
+    - 2-2
+  - bit: '21:19'
+    description: Reserved
+  - bit: '22'
+    access: R/W
+    long_description: Limit CPUID Maxval See Table 2-2.
+    description: Limit CPUID Maxval
+    see_table:
+    - 2-2
+  - bit: '23'
+    access: R/W
+    long_description: xTPR Message Disable See Table 2-2.
+    description: xTPR Message Disable
+    see_table:
+    - 2-2
+  - bit: '33:24'
+    description: Reserved
+  - bit: '34'
+    access: R/W
+    long_description: XD Bit Disable See Table 2-2.
+    description: XD Bit Disable
+    see_table:
+    - 2-2
+  - bit: '37:35'
+    description: Reserved
+  - bit: '38'
+    access: R/W
+    long_description: 'Turbo Mode Disable When set to 1 on processors that support Intel Turbo Boost Technology, the turbo mode feature is disabled and the IDA_Enable feature flag will be clear (CPUID.06H: EAX[1]=0). When set to a 0 on processors that support IDA, CPUID.06H: EAX[1] reports the processor’s support of turbo mode is enabled. Note: The power-on default value is used by BIOS to detect hardware support of turbo mode. If the power- on default value is 1, turbo mode is available in the processor. If the power-on default value is 0, turbo mode is not available.'
+    description: Turbo Mode Disable
+  - bit: '63:39'
+    description: Reserved
+  access: R/W
+  description: Enable Misc
+  long_description: Enable Misc. Processor Features Allows a variety of processor functions to be enabled and disabled.
+- value: 1A4H
+  name: MSR_MISC_FEATURE_CONTROL
+  bitfields:
+  - bit: '0'
+    access: R/W
+    long_description: L2 Hardware Prefetcher Disable If 1, disables the L2 hardware prefetcher, which fetches additional lines of code or data into the L2 cache.
+    description: L2 Hardware Prefetcher Disable
+  - bit: '1'
+    description: Reserved
+  - bit: '2'
+    access: R/W
+    long_description: DCU Hardware Prefetcher Disable If 1, disables the L1 data cache prefetcher, which fetches the next cache line into L1 data cache.
+    description: DCU Hardware Prefetcher Disable
+  - bit: '63:3'
+    description: Reserved
+  access: R/W
+  description: Miscellaneous Feature Control
+- value: 1AAH
+  name: MSR_MISC_PWR_MGMT
+  bitfields:
+  - bit: '0'
+    access: R/W
+    long_description: EIST Hardware Coordination Disable When 0, enables hardware coordination of Enhanced Intel Speedstep Technology request from processor cores. When 1, disables hardware coordination of Enhanced Intel Speedstep Technology requests.
+    description: EIST Hardware Coordination Disable
+  - bit: '21:1'
+    description: Reserved
+  - bit: '22'
+    access: R/W
+    long_description: Thermal Interrupt Coordination Enable If set, then thermal interrupt on one core is routed to all cores.
+    description: Thermal Interrupt Coordination Enable
+  - bit: '63:23'
+    description: Reserved
+  scope: Package
+  description: Miscellaneous Power Management Control
+  long_description: Miscellaneous Power Management Control Various model specific features enumeration. See http://biosbits.org.
+- value: 1ADH
+  name: MSR_TURBO_RATIO_LIMIT
+  bitfields:
+  - bit: '7:0'
+    long_description: Maximum Ratio Limit for Active Cores in Group 0 Maximum turbo ratio limit when the number of active cores is less than or equal to the Group 0 threshold.
+    description: Maximum Ratio Limit for Active Cores in Group 0
+  - bit: '15:8'
+    long_description: Maximum Ratio Limit for Active Cores in Group 1 Maximum turbo ratio limit when the number of active cores is less than or equal to the Group 1 threshold, and greater than the Group 0 threshold.
+    description: Maximum Ratio Limit for Active Cores in Group 1
+  - bit: '23:16'
+    long_description: Maximum Ratio Limit for Active Cores in Group 2 Maximum turbo ratio limit when the number of active cores is less than or equal to the Group 2 threshold, and greater than the Group 1 threshold.
+    description: Maximum Ratio Limit for Active Cores in Group 2
+  - bit: '31:24'
+    long_description: Maximum Ratio Limit for Active Cores in Group 3 Maximum turbo ratio limit when the number of active cores is less than or equal to the Group 3 threshold, and greater than the Group 2 threshold.
+    description: Maximum Ratio Limit for Active Cores in Group 3
+  - bit: '39:32'
+    long_description: Maximum Ratio Limit for Active Cores in Group 4 Maximum turbo ratio limit when the number of active cores is less than or equal to the Group 4 threshold, and greater than the Group 3 threshold.
+    description: Maximum Ratio Limit for Active Cores in Group 4
+  - bit: '47:40'
+    long_description: Maximum Ratio Limit for Active Cores in Group 5 Maximum turbo ratio limit when the number of active cores is less than or equal to the Group 5 threshold, and greater than the Group 4 threshold.
+    description: Maximum Ratio Limit for Active Cores in Group 5
+  - bit: '55:48'
+    long_description: Maximum Ratio Limit for Active Cores in Group 6 Maximum turbo ratio limit when the number of active cores is less than or equal to the Group 6 threshold, and greater than the Group 5 threshold.
+    description: Maximum Ratio Limit for Active Cores in Group 6
+  - bit: '63:56'
+    long_description: Maximum Ratio Limit for Active Cores in Group 7 Maximum turbo ratio limit when the number of active cores is less than or equal to the Group 7 threshold, and greater than the Group 6 threshold.
+    description: Maximum Ratio Limit for Active Cores in Group 7
+  scope: Package
+  access: RW
+  description: Maximum Ratio Limit of Turbo Mode by Core Groups
+  long_description: Maximum Ratio Limit of Turbo Mode by Core Groups Specifies Maximum Ratio Limit for each Core Group. Max ratio for groups with more cores must decrease monotonically. For groups with less than 4 cores, the max ratio must be 32 or less. For groups with 4-5 cores, the max ratio must be 22 or less. For groups with more than 5 cores, the max ratio must be 16 or less.
+- value: 1AEH
+  name: MSR_TURBO_GROUP_CORECNT
+  bitfields:
+  - bit: '7:0'
+    long_description: Group 0 Core Count Threshold Maximum number of active cores to operate under the Group 0 Max Turbo Ratio limit.
+    description: Group 0 Core Count Threshold
+  - bit: '15:8'
+    long_description: Group 1 Core Count Threshold Maximum number of active cores to operate under the Group 1 Max Turbo Ratio limit. Must be greater than the Group 0 Core Count.
+    description: Group 1 Core Count Threshold
+  - bit: '23:16'
+    long_description: Group 2 Core Count Threshold Maximum number of active cores to operate under the Group 2 Max Turbo Ratio limit. Must be greater than the Group 1 Core Count.
+    description: Group 2 Core Count Threshold
+  - bit: '31:24'
+    long_description: Group 3 Core Count Threshold Maximum number of active cores to operate under the Group 3 Max Turbo Ratio limit. Must be greater than the Group 2 Core Count.
+    description: Group 3 Core Count Threshold
+  - bit: '39:32'
+    long_description: Group 4 Core Count Threshold Maximum number of active cores to operate under the Group 4 Max Turbo Ratio limit. Must be greater than the Group 3 Core Count.
+    description: Group 4 Core Count Threshold
+  - bit: '47:40'
+    long_description: Group 5 Core Count Threshold Maximum number of active cores to operate under the Group 5 Max Turbo Ratio limit. Must be greater than the Group 4 Core Count.
+    description: Group 5 Core Count Threshold
+  - bit: '55:48'
+    long_description: Group 6 Core Count Threshold Maximum number of active cores to operate under the Group 6 Max Turbo Ratio limit. Must be greater than the Group 5 Core Count.
+    description: Group 6 Core Count Threshold
+  - bit: '63:56'
+    long_description: Group 7 Core Count Threshold Maximum number of active cores to operate under the Group 7 Max Turbo Ratio limit. Must be greater than the Group 6 Core Count, and not less than the total number of processor cores in the package. E.g., specify 255.
+    description: Group 7 Core Count Threshold
+  scope: Package
+  access: RW
+  description: Group Size of Active Cores for Turbo Mode Operation
+  long_description: Group Size of Active Cores for Turbo Mode Operation Writes of 0 threshold is ignored.
+- value: 1C8H
+  name: MSR_LBR_SELECT
+  bitfields:
+  - bit: '0'
+    description: CPL_EQ_0
+  - bit: '1'
+    description: CPL_NEQ_0
+  - bit: '2'
+    description: JCC
+  - bit: '3'
+    description: NEAR_REL_CALL
+  - bit: '4'
+    description: NEAR_IND_CALL
+  - bit: '5'
+    description: NEAR_RET
+  - bit: '6'
+    description: NEAR_IND_JMP
+  - bit: '7'
+    description: NEAR_REL_JMP
+  - bit: '8'
+    description: FAR_BRANCH
+  - bit: '9'
+    description: EN_CALL_STACK
+  - bit: '63:10'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Last Branch Record Filtering Select Register
+  long_description: Last Branch Record Filtering Select Register See Section 17.9.2, “Filtering of Last Branch Records.”
+  see_section:
+  - 17.9.2
+- value: 1C9H
+  name: MSR_LASTBRANCH_TOS
+  scope: Core
+  access: R/W
+  description: Last Branch Record Stack TOS
+  long_description: Last Branch Record Stack TOS Contains an index (bits 0-4) that points to the MSR containing the most recent branch record. See MSR_LASTBRANCH_0_FROM_IP.
+- value: 1FCH
+  name: MSR_POWER_CTL
+  bitfields:
+  - bit: '0'
+    description: Reserved
+  - bit: '1'
+    access: R/W
+    long_description: C1E Enable When set to ‘1’, will enable the CPU to switch to the Minimum Enhanced Intel SpeedStep Technology operating point when all execution cores enter MWAIT (C1).
+    description: C1E Enable
+  - bit: '63:2'
+    description: Reserved
+  scope: Core
+  description: Power Control Register. See http
+- value: 210H
+  name: IA32_MTRR_PHYSBASE8
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 211H
+  name: IA32_MTRR_PHYSMASK8
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 212H
+  name: IA32_MTRR_PHYSBASE9
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 213H
+  name: IA32_MTRR_PHYSMASK9
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 280H
+  name: IA32_MC0_CTL2
+  scope: Module
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 281H
+  name: IA32_MC1_CTL2
+  scope: Module
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 282H
+  name: IA32_MC2_CTL2
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 283H
+  name: IA32_MC3_CTL2
+  scope: Module
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 284H
+  name: IA32_MC4_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 285H
+  name: IA32_MC5_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 286H
+  name: IA32_MC6_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 300H
+  name: MSR_SGXOWNEREPOCH0
+  bitfields:
+  - bit: '63:0'
+    long_description: Lower 64 bits of an 128-bit external entropy value for key derivation of an enclave.
+    description: Lower 64 bits of an 128-bit external entropy value for
+  scope: Package
+  access: W
+  description: Lower 64 Bit CR_SGXOWNEREPOCH
+  long_description: Lower 64 Bit CR_SGXOWNEREPOCH Writes do not update CR_SGXOWNEREPOCH if CPUID.(EAX=12H, ECX=0):EAX.SGX1 is 1 on any thread in the package.
+- value: 301H
+  name: MSR_SGXOWNEREPOCH1
+  bitfields:
+  - bit: '63:0'
+    long_description: Upper 64 bits of an 128-bit external entropy value for key derivation of an enclave.
+    description: Upper 64 bits of an 128-bit external entropy value for
+  scope: Package
+  access: W
+  description: Upper 64 Bit CR_SGXOWNEREPOCH
+  long_description: Upper 64 Bit CR_SGXOWNEREPOCH Writes do not update CR_SGXOWNEREPOCH if CPUID.(EAX=12H, ECX=0):EAX.SGX1 is 1 on any thread in the package.
+- value: 38EH
+  name: IA32_PERF_GLOBAL_STATUS
+  bitfields:
+  - bit: '0'
+    description: Ovf_PMC0
+  - bit: '1'
+    description: Ovf_PMC1
+  - bit: '2'
+    description: Ovf_PMC2
+  - bit: '3'
+    description: Ovf_PMC3
+  - bit: '31:4'
+    description: Reserved
+  - bit: '32'
+    description: Ovf_FixedCtr0
+  - bit: '33'
+    description: Ovf_FixedCtr1
+  - bit: '34'
+    description: Ovf_FixedCtr2
+  - bit: '54:35'
+    description: Reserved
+  - bit: '55'
+    description: Trace_ToPA_PMI
+  - bit: '57:56'
+    description: Reserved
+  - bit: '58'
+    description: LBR_Frz
+  - bit: '59'
+    description: CTR_Frz
+  - bit: '60'
+    description: ASCI
+  - bit: '61'
+    description: Ovf_Uncore
+  - bit: '62'
+    description: Ovf_BufDSSAVE
+  - bit: '63'
+    description: CondChgd
+  scope: Core
+  description: See Table 2-2. See Section 18.2.4
+  long_description: See Table 2-2. See Section 18.2.4, “Architectural Performance Monitoring Version 4.”
+  see_table:
+  - 2-2
+  see_section:
+  - 18.2.4
+- value: 390H
+  name: IA32_PERF_GLOBAL_STATUS_RESET
+  bitfields:
+  - bit: '0'
+    description: Set 1 to clear Ovf_PMC0
+  - bit: '1'
+    description: Set 1 to clear Ovf_PMC1
+  - bit: '2'
+    description: Set 1 to clear Ovf_PMC2
+  - bit: '3'
+    description: Set 1 to clear Ovf_PMC3
+  - bit: '31:4'
+    description: Reserved
+  - bit: '32'
+    description: Set 1 to clear Ovf_FixedCtr0
+  - bit: '33'
+    description: Set 1 to clear Ovf_FixedCtr1
+  - bit: '34'
+    description: Set 1 to clear Ovf_FixedCtr2
+  - bit: '54:35'
+    description: Reserved
+  - bit: '55'
+    description: Set 1 to clear Trace_ToPA_PMI
+  - bit: '57:56'
+    description: Reserved
+  - bit: '58'
+    description: Set 1 to clear LBR_Frz
+  - bit: '59'
+    description: Set 1 to clear CTR_Frz
+  - bit: '60'
+    description: Set 1 to clear ASCI
+  - bit: '61'
+    description: Set 1 to clear Ovf_Uncore
+  - bit: '62'
+    description: Set 1 to clear Ovf_BufDSSAVE
+  - bit: '63'
+    description: Set 1 to clear CondChgd
+  scope: Core
+  description: See Table 2-2. See Section 18.2.4
+  long_description: See Table 2-2. See Section 18.2.4, “Architectural Performance Monitoring Version 4.”
+  see_table:
+  - 2-2
+  see_section:
+  - 18.2.4
+- value: 391H
+  name: IA32_PERF_GLOBAL_STATUS_SET
+  bitfields:
+  - bit: '0'
+    description: Set 1 to cause Ovf_PMC0 = 1
+  - bit: '1'
+    description: Set 1 to cause Ovf_PMC1 = 1
+  - bit: '2'
+    description: Set 1 to cause Ovf_PMC2 = 1
+  - bit: '3'
+    description: Set 1 to cause Ovf_PMC3 = 1
+  - bit: '31:4'
+    description: Reserved
+  - bit: '32'
+    description: Set 1 to cause Ovf_FixedCtr0 = 1
+  - bit: '33'
+    description: Set 1 to cause Ovf_FixedCtr1 = 1
+  - bit: '34'
+    description: Set 1 to cause Ovf_FixedCtr2 = 1
+  - bit: '54:35'
+    description: Reserved
+  - bit: '55'
+    description: Set 1 to cause Trace_ToPA_PMI = 1
+  - bit: '57:56'
+    description: Reserved
+  - bit: '58'
+    description: Set 1 to cause LBR_Frz = 1
+  - bit: '59'
+    description: Set 1 to cause CTR_Frz = 1
+  - bit: '60'
+    description: Set 1 to cause ASCI = 1
+  - bit: '61'
+    description: Set 1 to cause Ovf_Uncore
+  - bit: '62'
+    description: Set 1 to cause Ovf_BufDSSAVE
+  - bit: '63'
+    description: Reserved
+  scope: Core
+  description: See Table 2-2. See Section 18.2.4
+  long_description: See Table 2-2. See Section 18.2.4, “Architectural Performance Monitoring Version 4.”
+  see_table:
+  - 2-2
+  see_section:
+  - 18.2.4
+- value: 392H
+  name: IA32_PERF_GLOBAL_INUSE
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 3F1H
+  name: MSR_PEBS_ENABLE
+  bitfields:
+  - bit: '0'
+    access: R/W
+    long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMC0.
+    description: Enable PEBS trigger and recording for the
+  scope: Core
+  description: See Table 2-2. See Section 18.6.2.4
+  long_description: See Table 2-2. See Section 18.6.2.4, “Processor Event Based Sampling (PEBS).”
+  see_table:
+  - 2-2
+  see_section:
+  - 18.6.2.4
+- value: 3F8H
+  name: MSR_PKG_C3_RESIDENCY
+  bitfields:
+  - bit: '63:0'
+    access: R/O
+    long_description: Package C3 Residency Counter Value since last reset that this package is in processor-specific C3 states. Count at the same frequency as the TSC.
+    description: Package C3 Residency Counter
+  scope: Package
+  description: Note
+  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 3F9H
+  name: MSR_PKG_C6_RESIDENCY
+  bitfields:
+  - bit: '63:0'
+    access: R/O
+    long_description: Package C6 Residency Counter Value since last reset that this package is in processor-specific C6 states. Count at the same frequency as the TSC.
+    description: Package C6 Residency Counter
+  scope: Package
+  description: Note
+  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 3FCH
+  name: MSR_CORE_C3_RESIDENCY
+  bitfields:
+  - bit: '63:0'
+    access: R/O
+    long_description: CORE C3 Residency Counter Value since last reset that this core is in processor- specific C3 states. Count at the same frequency as the TSC.
+    description: CORE C3 Residency Counter
+  scope: Core
+  description: Note
+  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 406H
+  name: IA32_MC1_ADDR
+  scope: Module
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 418H
+  name: IA32_MC6_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 419H
+  name: IA32_MC6_STATUS
+  scope: Package
+  description: See Section 15.3.2.2
+  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 16.
+  see_section:
+  - 15.3.2.2
+- value: 41AH
+  name: IA32_MC6_ADDR
+  scope: Package
+  description: See Section 15.3.2.3
+  see_section:
+  - 15.3.2.3
+- value: 4C3H
+  name: IA32_A_PMC2
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 4C4H
+  name: IA32_A_PMC3
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 4E0H
+  name: MSR_SMM_FEATURE_CONTROL
+  bitfields:
+  - bit: '0'
+    access: SMM-RWO
+    long_description: Lock When set to ‘1’ locks this register from further changes.
+    description: Lock
+  - bit: '1'
+    description: Reserved
+  - bit: '2'
+    access: SMM-RW
+    long_description: SMM_Code_Chk_En This control bit is available only if MSR_SMM_MCA_CAP[58] == 1. When set to ‘0’ (default) none of the logical processors are prevented from executing SMM code outside the ranges defined by the SMRR. When set to ‘1’ any logical processor in the package that attempts to execute SMM code not within the ranges defined by the SMRR will assert an unrecoverable MCE.
+    description: SMM_Code_Chk_En
+  - bit: '63:3'
+    description: Reserved
+  scope: Package
+  access: SMM-RW
+  description: Enhanced SMM Feature Control
+  long_description: Enhanced SMM Feature Control Reports SMM capability Enhancement. Accessible only while in SMM.
+- value: 4E2H
+  name: MSR_SMM_DELAYED
+  bitfields:
+  - bit: N-1:0
+    access: SMM-RO
+    long_description: 'LOG_PROC_STATE Each bit represents a processor core of its state in a long flow of internal operation which delays servicing an interrupt. The corresponding bit will be set at the start of long events such as: Microcode Update Load, C6, WBINVD, Ratio Change, Throttle. The bit is automatically cleared at the end of each long event. The reset value of this field is 0. Only bit positions below N = CPUID.(EAX=0BH, ECX=PKG_LVL):EBX[15:0] can be updated.'
+    description: LOG_PROC_STATE
+  - bit: 63:N
+    description: Reserved
+  scope: Package
+  access: SMM-RO
+  description: SMM Delayed
+  long_description: SMM Delayed Reports the interruptible state of all logical processors in the package. Available only while in SMM and MSR_SMM_MCA_CAP[LONG_FLOW_INDICATION] == 1.
+- value: 4E3H
+  name: MSR_SMM_BLOCKED
+  bitfields:
+  - bit: N-1:0
+    access: SMM-RO
+    long_description: 'LOG_PROC_STATE Each bit represents a processor core of its blocked state to service an SMI. The corresponding bit will be set if the logical processor is in one of the following states: Wait For SIPI or SENTER Sleep. The reset value of this field is 0FFFH. Only bit positions below N = CPUID.(EAX=0BH, ECX=PKG_LVL):EBX[15:0] can be updated.'
+    description: LOG_PROC_STATE
+  - bit: 63:N
+    description: Reserved
+  scope: Package
+  access: SMM-RO
+  description: SMM Blocked
+  long_description: SMM Blocked Reports the blocked state of all logical processors in the package. Available only while in SMM.
+- value: 500H
+  name: IA32_SGX_SVN_STATUS
+  bitfields:
+  - bit: '0'
+    long_description: Lock See Section 41.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
+    description: Lock
+    see_section:
+    - 41.11.3
+  - bit: '15:1'
+    description: Reserved
+  - bit: '23:16'
+    long_description: SGX_SVN_SINIT See Section 41.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
+    description: SGX_SVN_SINIT
+    see_section:
+    - 41.11.3
+  - bit: '63:24'
+    description: Reserved
+  scope: Core
+  access: RO
+  description: Status and SVN Threshold of SGX Support for ACM
+  long_description: Status and SVN Threshold of SGX Support for ACM
+- value: 560H
+  name: IA32_RTIT_OUTPUT_BASE
+  scope: Core
+  access: R/W
+  description: Trace Output Base Register
+  long_description: Trace Output Base Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 561H
+  name: IA32_RTIT_OUTPUT_MASK_PTRS
+  scope: Core
+  access: R/W
+  description: Trace Output Mask Pointers Register
+  long_description: Trace Output Mask Pointers Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 570H
+  name: IA32_RTIT_CTL
+  bitfields:
+  - bit: '0'
+    description: TraceEn
+  - bit: '1'
+    description: CYCEn
+  - bit: '2'
+    description: OS
+  - bit: '3'
+    description: User
+  - bit: '6:4'
+    description: Reserved
+  - bit: '7'
+    description: CR3 filter
+  - bit: '8'
+    long_description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
+    description: ToPA
+  - bit: '9'
+    description: MTCEn
+  - bit: '10'
+    description: TSCEn
+  - bit: '11'
+    description: DisRETC
+  - bit: '12'
+    description: Reserved
+  - bit: '13'
+    description: BranchEn
+  - bit: '17:14'
+    description: MTCFreq
+  - bit: '18'
+    description: Reserved
+  - bit: '22:19'
+    description: CYCThresh
+  - bit: '23'
+    description: Reserved
+  - bit: '27:24'
+    description: PSBFreq
+  - bit: '31:28'
+    description: Reserved
+  - bit: '35:32'
+    description: ADDR0_CFG
+  - bit: '39:36'
+    description: ADDR1_CFG
+  - bit: '63:40'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Trace Control Register
+- value: 571H
+  name: IA32_RTIT_STATUS
+  bitfields:
+  - bit: '0'
+    long_description: FilterEn Writes ignored.
+    description: FilterEn
+  - bit: '1'
+    long_description: ContexEn Writes ignored.
+    description: ContexEn
+  - bit: '2'
+    long_description: TriggerEn Writes ignored.
+    description: TriggerEn
+  - bit: '3'
+    description: Reserved
+  - bit: '4'
+    access: R/W
+    description: Error
+  - bit: '5'
+    description: Stopped
+  - bit: '31:6'
+    description: Reserved
+  - bit: '48:32'
+    description: PacketByteCnt
+  - bit: '63:49'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Tracing Status Register
+- value: 572H
+  name: IA32_RTIT_CR3_MATCH
+  bitfields:
+  - bit: '4:0'
+    description: Reserved
+  - bit: '63:5'
+    description: CR3[63:5] value to match
+  scope: Core
+  access: R/W
+  description: Trace Filter CR3 Match Register
+- value: 580H
+  name: IA32_RTIT_ADDR0_A
+  bitfields:
+  - bit: '63:0'
+    description: See Table 2-2
+    see_table:
+    - 2-2
+  scope: Core
+  access: R/W
+  description: Region 0 Start Address
+- value: 581H
+  name: IA32_RTIT_ADDR0_B
+  bitfields:
+  - bit: '63:0'
+    description: See Table 2-2
+    see_table:
+    - 2-2
+  scope: Core
+  access: R/W
+  description: Region 0 End Address
+- value: 582H
+  name: IA32_RTIT_ADDR1_A
+  bitfields:
+  - bit: '63:0'
+    description: See Table 2-2
+    see_table:
+    - 2-2
+  scope: Core
+  access: R/W
+  description: Region 1 Start Address
+- value: 583H
+  name: IA32_RTIT_ADDR1_B
+  bitfields:
+  - bit: '63:0'
+    description: See Table 2-2
+    see_table:
+    - 2-2
+  scope: Core
+  access: R/W
+  description: Region 1 End Address
+- value: 606H
+  name: MSR_RAPL_POWER_UNIT
+  bitfields:
+  - bit: '3:0'
+    long_description: Power Units Power related information (in Watts) is in unit of 1W/2^PU; where PU is an unsigned integer represented by bits 3:0. Default value is 1000b, indicating power unit is in 3.9 milliWatts increment.
+    description: Power Units
+  - bit: '7:4'
+    description: Reserved
+  - bit: '12:8'
+    long_description: Energy Status Units Energy related information (in Joules) is in unit of 1Joule/ (2^ESU); where ESU is an unsigned integer represented by bits 12:8. Default value is 01110b, indicating energy unit is in 61 microJoules.
+    description: Energy Status Units
+  - bit: '15:13'
+    description: Reserved
+  - bit: '19:16'
+    long_description: Time Unit Time related information (in seconds) is in unit of 1S/2^TU; where TU is an unsigned integer represented by bits 19:16. Default value is 1010b, indicating power unit is in 0.977 millisecond.
+    description: Time Unit
+  - bit: '63:20'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: Unit Multipliers used in RAPL Interfaces
+  long_description: Unit Multipliers used in RAPL Interfaces See Section 14.9.1, “RAPL Interfaces.”
+  see_section:
+  - 14.9.1
+- value: 60AH
+  name: MSR_PKGC3_IRTL
+  bitfields:
+  - bit: '9:0'
+    access: R/W
+    long_description: Interrupt Response Time Limit Specifies the limit that should be used to decide if the package should be put into a package C3 state.
+    description: Interrupt Response Time Limit
+  - bit: '12:10'
+    access: R/W
+    long_description: Time Unit Specifies the encoding value of time unit of the interrupt response time limit. See Table 2-20 for supported time unit encodings.
+    description: Time Unit
+    see_table:
+    - 2-20
+  - bit: '14:13'
+    description: Reserved
+  - bit: '15'
+    access: R/W
+    long_description: Valid Indicates whether the values in bits 12:0 are valid and can be used by the processor for package C-sate management.
+    description: Valid
+  - bit: '63:16'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Package C3 Interrupt Response Limit
+  long_description: 'Package C3 Interrupt Response Limit Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 60BH
+  name: MSR_PKGC_IRTL1
+  bitfields:
+  - bit: '9:0'
+    access: R/W
+    long_description: Interrupt Response Time Limit Specifies the limit that should be used to decide if the package should be put into a package C6 or C7S state.
+    description: Interrupt Response Time Limit
+  - bit: '12:10'
+    access: R/W
+    long_description: Time Unit Specifies the encoding value of time unit of the interrupt response time limit. See Table 2-20 for supported time unit encodings.
+    description: Time Unit
+    see_table:
+    - 2-20
+  - bit: '14:13'
+    description: Reserved
+  - bit: '15'
+    access: R/W
+    long_description: Valid Indicates whether the values in bits 12:0 are valid and can be used by the processor for package C-sate management.
+    description: Valid
+  - bit: '63:16'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Package C6/C7S Interrupt Response Limit 1
+  long_description: 'Package C6/C7S Interrupt Response Limit 1 This MSR defines the interrupt response time limit used by the processor to manage a transition to a package C6 or C7S state. Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
+- value: 60CH
+  name: MSR_PKGC_IRTL2
+  bitfields:
+  - bit: '9:0'
+    access: R/W
+    long_description: Interrupt Response Time Limit Specifies the limit that should be used to decide if the package should be put into a package C7 state.
+    description: Interrupt Response Time Limit
+  - bit: '12:10'
+    access: R/W
+    long_description: Time Unit Specifies the encoding value of time unit of the interrupt response time limit. See Table 2-20 for supported time unit encodings.
+    description: Time Unit
+    see_table:
+    - 2-20
+  - bit: '14:13'
+    description: Reserved
+  - bit: '15'
+    access: R/W
+    long_description: Valid Indicates whether the values in bits 12:0 are valid and can be used by the processor for package C-sate management.
+    description: Valid
+  - bit: '63:16'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Package C7 Interrupt Response Limit 2
+  long_description: 'Package C7 Interrupt Response Limit 2 This MSR defines the interrupt response time limit used by the processor to manage a transition to a package C7 state. Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 60DH
+  name: MSR_PKG_C2_RESIDENCY
+  bitfields:
+  - bit: '63:0'
+    access: R/O
+    long_description: Package C2 Residency Counter Value since last reset that this package is in processor-specific C2 states. Count at the same frequency as the TSC.
+    description: Package C2 Residency Counter
+  scope: Package
+  description: Note
+  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
+- value: 610H
+  name: MSR_PKG_POWER_LIMIT
+  scope: Package
+  access: R/W
+  description: PKG RAPL Power Limit Control
+  long_description: PKG RAPL Power Limit Control See Section 14.9.3, “Package RAPL Domain.”
+  see_section:
+  - 14.9.3
+- value: 611H
+  name: MSR_PKG_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: PKG Energy Status
+  long_description: PKG Energy Status See Section 14.9.3, “Package RAPL Domain.”
+  see_section:
+  - 14.9.3
+- value: 613H
+  name: MSR_PKG_PERF_STATUS
+  scope: Package
+  access: R/O
+  description: PKG Perf Status
+  long_description: PKG Perf Status See Section 14.9.3, “Package RAPL Domain.”
+  see_section:
+  - 14.9.3
+- value: 614H
+  name: MSR_PKG_POWER_INFO
+  bitfields:
+  - bit: '14:0'
+    access: R/W
+    long_description: Thermal Spec Power See Section 14.9.3, “Package RAPL Domain.”
+    description: Thermal Spec Power
+    see_section:
+    - 14.9.3
+  - bit: '15'
+    description: Reserved
+  - bit: '30:16'
+    access: R/W
+    long_description: Minimum Power See Section 14.9.3, “Package RAPL Domain.”
+    description: Minimum Power
+    see_section:
+    - 14.9.3
+  - bit: '31'
+    description: Reserved
+  - bit: '46:32'
+    access: R/W
+    long_description: Maximum Power See Section 14.9.3, “Package RAPL Domain.”
+    description: Maximum Power
+    see_section:
+    - 14.9.3
+  - bit: '47'
+    description: Reserved
+  - bit: '54:48'
+    access: R/W
+    long_description: Maximum Time Window Specified by 2^Y * (1.0 + Z/4.0) * Time_Unit, where “Y” is the unsigned integer value represented by bits 52:48, “Z” is an unsigned integer represented by bits 54:53. “Time_Unit” is specified by the “Time Units” field of MSR_RAPL_POWER_UNIT.
+    description: Maximum Time Window
+  - bit: '63:55'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: PKG RAPL Parameters
+- value: 618H
+  name: MSR_DRAM_POWER_LIMIT
+  scope: Package
+  access: R/W
+  description: DRAM RAPL Power Limit Control
+  long_description: DRAM RAPL Power Limit Control See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 619H
+  name: MSR_DRAM_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: DRAM Energy Status
+  long_description: DRAM Energy Status See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 61BH
+  name: MSR_DRAM_PERF_STATUS
+  scope: Package
+  access: R/O
+  description: DRAM Performance Throttling Status
+  long_description: DRAM Performance Throttling Status See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 61CH
+  name: MSR_DRAM_POWER_INFO
+  scope: Package
+  access: R/W
+  description: DRAM RAPL Parameters
+  long_description: DRAM RAPL Parameters See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 632H
+  name: MSR_PKG_C10_RESIDENCY
+  bitfields:
+  - bit: '63:0'
+    access: R/O
+    long_description: Package C10 Residency Counter Value since last reset that the entire SOC is in an S0i3 state. Count at the same frequency as the TSC.
+    description: Package C10 Residency Counter
+  scope: Package
+  description: Note
+  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
+- value: 639H
+  name: MSR_PP0_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: PP0 Energy Status
+  long_description: PP0 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  see_section:
+  - 14.9.4
+- value: 641H
+  name: MSR_PP1_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: PP1 Energy Status
+  long_description: PP1 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  see_section:
+  - 14.9.4
+- value: 64CH
+  name: MSR_TURBO_ACTIVATION_RATIO
+  bitfields:
+  - bit: '7:0'
+    access: RW/L
+    long_description: MAX_NON_TURBO_RATIO System BIOS can program this field.
+    description: MAX_NON_TURBO_RATIO
+  - bit: '30:8'
+    description: Reserved
+  - bit: '31'
+    access: RW/L
+    long_description: TURBO_ACTIVATION_RATIO_Lock When this bit is set, the content of this register is locked until a reset.
+    description: TURBO_ACTIVATION_RATIO_Lock
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: ConfigTDP Control
+- value: 64FH
+  name: MSR_CORE_PERF_LIMIT_REASONS
+  bitfields:
+  - bit: '0'
+    access: R0
+    long_description: PROCHOT Status When set, processor core frequency is reduced below the operating system request due to assertion of external PROCHOT.
+    description: PROCHOT Status
+  - bit: '1'
+    access: R0
+    long_description: Thermal Status When set, frequency is reduced below the operating system request due to a thermal event.
+    description: Thermal Status
+  - bit: '2'
+    access: R0
+    long_description: Package-Level Power Limiting PL1 Status When set, frequency is reduced below the operating system request due to package-level power limiting PL1.
+    description: Package-Level Power Limiting PL1 Status
+  - bit: '3'
+    access: R0
+    long_description: Package-Level PL2 Power Limiting Status When set, frequency is reduced below the operating system request due to package-level power limiting PL2.
+    description: Package-Level PL2 Power Limiting Status
+  - bit: '8:4'
+    description: Reserved
+  - bit: '9'
+    access: R0
+    long_description: Core Power Limiting Status When set, frequency is reduced below the operating system request due to domain-level power limiting.
+    description: Core Power Limiting Status
+  - bit: '10'
+    access: R0
+    long_description: VR Therm Alert Status When set, frequency is reduced below the operating system request due to a thermal alert from the Voltage Regulator.
+    description: VR Therm Alert Status
+  - bit: '11'
+    access: R0
+    long_description: Max Turbo Limit Status When set, frequency is reduced below the operating system request due to multi-core turbo limits.
+    description: Max Turbo Limit Status
+  - bit: '12'
+    access: R0
+    long_description: Electrical Design Point Status When set, frequency is reduced below the operating system request due to electrical design point constraints (e.g., maximum electrical current consumption).
+    description: Electrical Design Point Status
+  - bit: '13'
+    access: R0
+    long_description: Turbo Transition Attenuation Status When set, frequency is reduced below the operating system request due to Turbo transition attenuation. This prevents performance degradation due to frequent operating ratio changes.
+    description: Turbo Transition Attenuation Status
+  - bit: '14'
+    access: R0
+    long_description: Maximum Efficiency Frequency Status When set, frequency is reduced below the maximum efficiency frequency.
+    description: Maximum Efficiency Frequency Status
+  - bit: '15'
+    description: Reserved
+  - bit: '16'
+    long_description: PROCHOT Log When set, indicates that the PROCHOT Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: PROCHOT Log
+  - bit: '17'
+    long_description: Thermal Log When set, indicates that the Thermal Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Thermal Log
+  - bit: '18'
+    long_description: Package-Level PL1 Power Limiting Log When set, indicates that the Package Level PL1 Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Package-Level PL1 Power Limiting Log
+  - bit: '19'
+    long_description: Package-Level PL2 Power Limiting Log When set, indicates that the Package Level PL2 Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Package-Level PL2 Power Limiting Log
+  - bit: '24:20'
+    description: Reserved
+  - bit: '25'
+    long_description: Core Power Limiting Log When set, indicates that the Core Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Core Power Limiting Log
+  - bit: '26'
+    long_description: VR Therm Alert Log When set, indicates that the VR Therm Alert Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: VR Therm Alert Log
+  - bit: '27'
+    long_description: Max Turbo Limit Log When set, indicates that the Max Turbo Limit Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Max Turbo Limit Log
+  - bit: '28'
+    long_description: Electrical Design Point Log When set, indicates that the EDP Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Electrical Design Point Log
+  - bit: '29'
+    long_description: Turbo Transition Attenuation Log When set, indicates that the Turbo Transition Attenuation Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Turbo Transition Attenuation Log
+  - bit: '30'
+    long_description: Maximum Efficiency Frequency Log When set, indicates that the Maximum Efficiency Frequency Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Maximum Efficiency Frequency Log
+  - bit: '63:31'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Indicator of Frequency Clipping in Processor Cores
+  long_description: Indicator of Frequency Clipping in Processor Cores (Frequency refers to processor core frequency.)
+- value: 680H
+  name: MSR_LASTBRANCH_0_FROM_IP
+  bitfields:
+  - bit: 0:47
+    access: R/W
+    description: From Linear Address
+  - bit: '62:48'
+    description: Signed extension of bits 47
+  - bit: '63'
+    description: Mispred
+  scope: Core
+  access: R/W
+  description: Last Branch Record 0 From IP
+  long_description: 'Last Branch Record 0 From IP One of 32 pairs of last branch record registers on the last branch record stack. The From_IP part of the stack contains pointers to the source instruction . See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.6 and record format in Section 17.4.8.1.'
+  see_section:
+  - '17.6'
+  - 17.4.8.1.
+- value: 681H
+  name: MSR_LASTBRANCH_1_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 1 From IP
+  long_description: Last Branch Record 1 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 682H
+  name: MSR_LASTBRANCH_2_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 2 From IP
+  long_description: Last Branch Record 2 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 683H
+  name: MSR_LASTBRANCH_3_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 3 From IP
+  long_description: Last Branch Record 3 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 684H
+  name: MSR_LASTBRANCH_4_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 4 From IP
+  long_description: Last Branch Record 4 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 685H
+  name: MSR_LASTBRANCH_5_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 5 From IP
+  long_description: Last Branch Record 5 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 686H
+  name: MSR_LASTBRANCH_6_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 6 From IP
+  long_description: Last Branch Record 6 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 687H
+  name: MSR_LASTBRANCH_7_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 7 From IP
+  long_description: Last Branch Record 7 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 688H
+  name: MSR_LASTBRANCH_8_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 8 From IP
+  long_description: Last Branch Record 8 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 689H
+  name: MSR_LASTBRANCH_9_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 9 From IP
+  long_description: Last Branch Record 9 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 68AH
+  name: MSR_LASTBRANCH_10_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 10 From IP
+  long_description: Last Branch Record 10 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 68BH
+  name: MSR_LASTBRANCH_11_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 11 From IP
+  long_description: Last Branch Record 11 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 68CH
+  name: MSR_LASTBRANCH_12_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 12 From IP
+  long_description: Last Branch Record 12 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 68DH
+  name: MSR_LASTBRANCH_13_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 13 From IP
+  long_description: Last Branch Record 13 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 68EH
+  name: MSR_LASTBRANCH_14_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 14 From IP
+  long_description: Last Branch Record 14 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 68FH
+  name: MSR_LASTBRANCH_15_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 15 From IP
+  long_description: Last Branch Record 15 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 690H
+  name: MSR_LASTBRANCH_16_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 16 From IP
+  long_description: Last Branch Record 16 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 691H
+  name: MSR_LASTBRANCH_17_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 17 From IP
+  long_description: Last Branch Record 17 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 692H
+  name: MSR_LASTBRANCH_18_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 18 From IP
+  long_description: Last Branch Record 18 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 693H
+  name: MSR_LASTBRANCH_19_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 19From IP
+  long_description: Last Branch Record 19From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 694H
+  name: MSR_LASTBRANCH_20_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 20 From IP
+  long_description: Last Branch Record 20 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 695H
+  name: MSR_LASTBRANCH_21_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 21 From IP
+  long_description: Last Branch Record 21 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 696H
+  name: MSR_LASTBRANCH_22_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 22 From IP
+  long_description: Last Branch Record 22 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 697H
+  name: MSR_LASTBRANCH_23_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 23 From IP
+  long_description: Last Branch Record 23 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 698H
+  name: MSR_LASTBRANCH_24_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 24 From IP
+  long_description: Last Branch Record 24 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 699H
+  name: MSR_LASTBRANCH_25_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 25 From IP
+  long_description: Last Branch Record 25 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 69AH
+  name: MSR_LASTBRANCH_26_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 26 From IP
+  long_description: Last Branch Record 26 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 69BH
+  name: MSR_LASTBRANCH_27_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 27 From IP
+  long_description: Last Branch Record 27 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 69CH
+  name: MSR_LASTBRANCH_28_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 28 From IP
+  long_description: Last Branch Record 28 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 69DH
+  name: MSR_LASTBRANCH_29_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 29 From IP
+  long_description: Last Branch Record 29 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 69EH
+  name: MSR_LASTBRANCH_30_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 30 From IP
+  long_description: Last Branch Record 30 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 69FH
+  name: MSR_LASTBRANCH_31_FROM_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 31 From IP
+  long_description: Last Branch Record 31 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+- value: 6C0H
+  name: MSR_LASTBRANCH_0_TO_IP
+  bitfields:
+  - bit: 0:47
+    access: R/W
+    description: Target Linear Address
+  - bit: '63:48'
+    description: Elapsed cycles from last update to the LBR
+  scope: Core
+  access: R/W
+  description: Last Branch Record 0 To IP
+  long_description: Last Branch Record 0 To IP One of 32 pairs of last branch record registers on the last branch record stack. The To_IP part of the stack contains pointers to the Destination instruction and elapsed cycles from last LBR update. See Section 17.6.
+  see_section:
+  - 17.6.
+- value: 6C1H
+  name: MSR_LASTBRANCH_1_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 1 To IP
+  long_description: Last Branch Record 1 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6C2H
+  name: MSR_LASTBRANCH_2_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 2 To IP
+  long_description: Last Branch Record 2 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6C3H
+  name: MSR_LASTBRANCH_3_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 3 To IP
+  long_description: Last Branch Record 3 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6C4H
+  name: MSR_LASTBRANCH_4_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 4 To IP
+  long_description: Last Branch Record 4 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6C5H
+  name: MSR_LASTBRANCH_5_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 5 To IP
+  long_description: Last Branch Record 5 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6C6H
+  name: MSR_LASTBRANCH_6_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 6 To IP
+  long_description: Last Branch Record 6 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6C7H
+  name: MSR_LASTBRANCH_7_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 7 To IP
+  long_description: Last Branch Record 7 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6C8H
+  name: MSR_LASTBRANCH_8_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 8 To IP
+  long_description: Last Branch Record 8 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6C9H
+  name: MSR_LASTBRANCH_9_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 9 To IP
+  long_description: Last Branch Record 9 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6CAH
+  name: MSR_LASTBRANCH_10_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 10 To IP
+  long_description: Last Branch Record 10 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6CBH
+  name: MSR_LASTBRANCH_11_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 11 To IP
+  long_description: Last Branch Record 11 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6CCH
+  name: MSR_LASTBRANCH_12_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 12 To IP
+  long_description: Last Branch Record 12 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6CDH
+  name: MSR_LASTBRANCH_13_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 13 To IP
+  long_description: Last Branch Record 13 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6CEH
+  name: MSR_LASTBRANCH_14_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 14 To IP
+  long_description: Last Branch Record 14 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6CFH
+  name: MSR_LASTBRANCH_15_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 15 To IP
+  long_description: Last Branch Record 15 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6D0H
+  name: MSR_LASTBRANCH_16_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 16 To IP
+  long_description: Last Branch Record 16 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6D1H
+  name: MSR_LASTBRANCH_17_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 17 To IP
+  long_description: Last Branch Record 17 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6D2H
+  name: MSR_LASTBRANCH_18_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 18 To IP
+  long_description: Last Branch Record 18 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6D3H
+  name: MSR_LASTBRANCH_19_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 19To IP
+  long_description: Last Branch Record 19To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6D4H
+  name: MSR_LASTBRANCH_20_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 20 To IP
+  long_description: Last Branch Record 20 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6D5H
+  name: MSR_LASTBRANCH_21_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 21 To IP
+  long_description: Last Branch Record 21 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6D6H
+  name: MSR_LASTBRANCH_22_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 22 To IP
+  long_description: Last Branch Record 22 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6D7H
+  name: MSR_LASTBRANCH_23_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 23 To IP
+  long_description: Last Branch Record 23 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6D8H
+  name: MSR_LASTBRANCH_24_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 24 To IP
+  long_description: Last Branch Record 24 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6D9H
+  name: MSR_LASTBRANCH_25_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 25 To IP
+  long_description: Last Branch Record 25 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6DAH
+  name: MSR_LASTBRANCH_26_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 26 To IP
+  long_description: Last Branch Record 26 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6DBH
+  name: MSR_LASTBRANCH_27_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 27 To IP
+  long_description: Last Branch Record 27 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6DCH
+  name: MSR_LASTBRANCH_28_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 28 To IP
+  long_description: Last Branch Record 28 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6DDH
+  name: MSR_LASTBRANCH_29_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 29 To IP
+  long_description: Last Branch Record 29 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6DEH
+  name: MSR_LASTBRANCH_30_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 30 To IP
+  long_description: Last Branch Record 30 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 6DFH
+  name: MSR_LASTBRANCH_31_TO_IP
+  scope: Core
+  access: R/W
+  description: Last Branch Record 31 To IP
+  long_description: Last Branch Record 31 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+- value: 802H
+  name: IA32_X2APIC_APICID
+  scope: Core
+  access: R/O
+  description: x2APIC ID register
+- value: 803H
+  name: IA32_X2APIC_VERSION
+  scope: Core
+  access: R/O
+  description: x2APIC Version register
+- value: 808H
+  name: IA32_X2APIC_TPR
+  scope: Core
+  access: R/W
+  description: x2APIC Task Priority register
+- value: 80AH
+  name: IA32_X2APIC_PPR
+  scope: Core
+  access: R/O
+  description: x2APIC Processor Priority register
+- value: 80BH
+  name: IA32_X2APIC_EOI
+  scope: Core
+  access: W/O
+  description: x2APIC EOI register
+- value: 80DH
+  name: IA32_X2APIC_LDR
+  scope: Core
+  access: R/O
+  description: x2APIC Logical Destination register
+- value: 80FH
+  name: IA32_X2APIC_SIVR
+  scope: Core
+  access: R/W
+  description: x2APIC Spurious Interrupt Vector register
+- value: 810H
+  name: IA32_X2APIC_ISR0
+  scope: Core
+  access: R/O
+  description: x2APIC In-Service register bits [31:0]
+- value: 811H
+  name: IA32_X2APIC_ISR1
+  scope: Core
+  access: R/O
+  description: x2APIC In-Service register bits [63:32]
+- value: 812H
+  name: IA32_X2APIC_ISR2
+  scope: Core
+  access: R/O
+  description: x2APIC In-Service register bits [95:64]
+- value: 813H
+  name: IA32_X2APIC_ISR3
+  scope: Core
+  access: R/O
+  description: x2APIC In-Service register bits [127:96]
+- value: 814H
+  name: IA32_X2APIC_ISR4
+  scope: Core
+  access: R/O
+  description: x2APIC In-Service register bits [159:128]
+- value: 815H
+  name: IA32_X2APIC_ISR5
+  scope: Core
+  access: R/O
+  description: x2APIC In-Service register bits [191:160]
+- value: 816H
+  name: IA32_X2APIC_ISR6
+  scope: Core
+  access: R/O
+  description: x2APIC In-Service register bits [223:192]
+- value: 817H
+  name: IA32_X2APIC_ISR7
+  scope: Core
+  access: R/O
+  description: x2APIC In-Service register bits [255:224]
+- value: 818H
+  name: IA32_X2APIC_TMR0
+  scope: Core
+  access: R/O
+  description: x2APIC Trigger Mode register bits [31:0]
+- value: 819H
+  name: IA32_X2APIC_TMR1
+  scope: Core
+  access: R/O
+  description: x2APIC Trigger Mode register bits [63:32]
+- value: 81AH
+  name: IA32_X2APIC_TMR2
+  scope: Core
+  access: R/O
+  description: x2APIC Trigger Mode register bits [95:64]
+- value: 81BH
+  name: IA32_X2APIC_TMR3
+  scope: Core
+  access: R/O
+  description: x2APIC Trigger Mode register bits [127:96]
+- value: 81CH
+  name: IA32_X2APIC_TMR4
+  scope: Core
+  access: R/O
+  description: x2APIC Trigger Mode register bits [159:128]
+- value: 81DH
+  name: IA32_X2APIC_TMR5
+  scope: Core
+  access: R/O
+  description: x2APIC Trigger Mode register bits [191:160]
+- value: 81EH
+  name: IA32_X2APIC_TMR6
+  scope: Core
+  access: R/O
+  description: x2APIC Trigger Mode register bits [223:192]
+- value: 81FH
+  name: IA32_X2APIC_TMR7
+  scope: Core
+  access: R/O
+  description: x2APIC Trigger Mode register bits [255:224]
+- value: 820H
+  name: IA32_X2APIC_IRR0
+  scope: Core
+  access: R/O
+  description: x2APIC Interrupt Request register bits [31:0]
+- value: 821H
+  name: IA32_X2APIC_IRR1
+  scope: Core
+  access: R/O
+  description: x2APIC Interrupt Request register bits [63:32]
+- value: 822H
+  name: IA32_X2APIC_IRR2
+  scope: Core
+  access: R/O
+  description: x2APIC Interrupt Request register bits [95:64]
+- value: 823H
+  name: IA32_X2APIC_IRR3
+  scope: Core
+  access: R/O
+  description: x2APIC Interrupt Request register bits [127:96]
+- value: 824H
+  name: IA32_X2APIC_IRR4
+  scope: Core
+  access: R/O
+  description: x2APIC Interrupt Request register bits [159:128]
+  long_description: x2APIC Interrupt Request register bits [159:128]
+- value: 825H
+  name: IA32_X2APIC_IRR5
+  scope: Core
+  access: R/O
+  description: x2APIC Interrupt Request register bits [191:160]
+  long_description: x2APIC Interrupt Request register bits [191:160]
+- value: 826H
+  name: IA32_X2APIC_IRR6
+  scope: Core
+  access: R/O
+  description: x2APIC Interrupt Request register bits [223:192]
+  long_description: x2APIC Interrupt Request register bits [223:192]
+- value: 827H
+  name: IA32_X2APIC_IRR7
+  scope: Core
+  access: R/O
+  description: x2APIC Interrupt Request register bits [255:224]
+  long_description: x2APIC Interrupt Request register bits [255:224]
+- value: 828H
+  name: IA32_X2APIC_ESR
+  scope: Core
+  access: R/W
+  description: x2APIC Error Status register
+- value: 82FH
+  name: IA32_X2APIC_LVT_CMCI
+  scope: Core
+  access: R/W
+  description: x2APIC LVT Corrected Machine Check Interrupt
+  long_description: x2APIC LVT Corrected Machine Check Interrupt register
+- value: 830H
+  name: IA32_X2APIC_ICR
+  scope: Core
+  access: R/W
+  description: x2APIC Interrupt Command register
+- value: 832H
+  name: IA32_X2APIC_LVT_TIMER
+  scope: Core
+  access: R/W
+  description: x2APIC LVT Timer Interrupt register
+- value: 833H
+  name: IA32_X2APIC_LVT_THERMAL
+  scope: Core
+  access: R/W
+  description: x2APIC LVT Thermal Sensor Interrupt register
+- value: 834H
+  name: IA32_X2APIC_LVT_PMI
+  scope: Core
+  access: R/W
+  description: x2APIC LVT Performance Monitor register
+- value: 835H
+  name: IA32_X2APIC_LVT_LINT0
+  scope: Core
+  access: R/W
+  description: x2APIC LVT LINT0 register
+- value: 836H
+  name: IA32_X2APIC_LVT_LINT1
+  scope: Core
+  access: R/W
+  description: x2APIC LVT LINT1 register
+- value: 837H
+  name: IA32_X2APIC_LVT_ERROR
+  scope: Core
+  access: R/W
+  description: x2APIC LVT Error register
+- value: 838H
+  name: IA32_X2APIC_INIT_COUNT
+  scope: Core
+  access: R/W
+  description: x2APIC Initial Count register
+- value: 839H
+  name: IA32_X2APIC_CUR_COUNT
+  scope: Core
+  access: R/O
+  description: x2APIC Current Count register
+- value: 83EH
+  name: IA32_X2APIC_DIV_CONF
+  scope: Core
+  access: R/W
+  description: x2APIC Divide Configuration register
+- value: 83FH
+  name: IA32_X2APIC_SELF_IPI
+  scope: Core
+  access: W/O
+  description: x2APIC Self IPI register
+- value: C8FH
+  name: IA32_PQR_ASSOC
+  bitfields:
+  - bit: '31:0'
+    description: Reserved
+  - bit: '33:32'
+    access: R/W
+    description: COS
+  - bit: '63: 34'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Resource Association Register
+- value: D10H
+  name: IA32_L2_QOS_MASK_0
+  bitfields:
+  - bit: 0:7
+    long_description: 'CBM: Bit vector of available L2 ways for COS 0 enforcement.'
+    description: CBM
+  - bit: '63:8'
+    description: Reserved
+  scope: Module
+  access: R/W
+  description: L2 Class Of Service Mask - COS 0
+  long_description: L2 Class Of Service Mask - COS 0 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=0.
+- value: D11H
+  name: IA32_L2_QOS_MASK_1
+  bitfields:
+  - bit: 0:7
+    long_description: 'CBM: Bit vector of available L2 ways for COS 0 enforcement.'
+    description: CBM
+  - bit: '63:8'
+    description: Reserved
+  scope: Module
+  access: R/W
+  description: L2 Class Of Service Mask - COS 1
+  long_description: L2 Class Of Service Mask - COS 1 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=1.
+- value: D12H
+  name: IA32_L2_QOS_MASK_2
+  bitfields:
+  - bit: 0:7
+    long_description: 'CBM: Bit vector of available L2 ways for COS 0 enforcement.'
+    description: CBM
+  - bit: '63:8'
+    description: Reserved
+  scope: Module
+  access: R/W
+  description: L2 Class Of Service Mask - COS 2
+  long_description: L2 Class Of Service Mask - COS 2 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=2.
+- value: D13H
+  name: IA32_L2_QOS_MASK_3
+  bitfields:
+  - bit: 0:19
+    long_description: 'CBM: Bit vector of available L2 ways for COS 3 enforcement.'
+    description: CBM
+  - bit: '63:20'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: L2 Class Of Service Mask - COS 3
+  long_description: L2 Class Of Service Mask - COS 3 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=3.
+- value: D90H
+  name: IA32_BNDCFGS
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: DA0H
+  name: IA32_XSS
+  scope: Core
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: SeeTable2-6,andTable2-12forMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_5CH.

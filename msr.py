@@ -9,6 +9,7 @@ from typing import Union, List, Dict, Any, Tuple, Pattern, Set
 
 import multiprocessing as mp
 from py_pdf_parser.loaders import load_file
+from pathlib import Path
 
 import camelot
 import pdfminer
@@ -462,6 +463,19 @@ def dump_tables(table_list: List[Table]) -> None:
             )
 
 
+def apply_patch(table: Table, patch_dict: Dict[str, Any]) -> None:
+    pass
+
+
+def apply_patches(table_list: List[Table]) -> None:
+    # TODO: WIP
+    patchdir = Path(__file__).parent.resolve() / Path("patches")
+    for patch in patchdir.iterdir():
+        with open(path, "r") as handle:
+            patch_dict = yaml.load(handle)
+        table = get_table_by_name(patch_dict["name"])
+        apply_patch(table, patch_dict)
+
 
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
@@ -491,4 +505,5 @@ if __name__ == "__main__":
 
     cpus, tables = parse_pdf(args.path)
     parse_cpus(args.path, cpus, tables)
+    apply_patches(tables)
     dump_tables(tables)

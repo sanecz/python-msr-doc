@@ -1,0 +1,231 @@
+---
+name: Table 2-27
+full_name: Table 2-27. Additional MSRs Supported by Intel® Xeon® Processor E7 v2 Family with DisplayFamily_DisplayModel Signature 06_3EH
+supported_cpu:
+- 06_3EH
+msr:
+- value: 3AH
+  name: IA32_FEATURE_CONTROL
+  bitfields:
+  - bit: '0'
+    access: R/WL
+    description: Lock
+  - bit: '1'
+    access: R/WL
+    description: Enable VMX Inside SMX Operation
+  - bit: '2'
+    access: R/WL
+    description: Enable VMX Outside SMX Operation
+  - bit: '14:8'
+    access: R/WL
+    description: SENTER Local Functions Enables
+  - bit: '15'
+    access: R/WL
+    description: SENTER Global Functions Enable
+  - bit: '63:16'
+    description: Reserved
+  scope: Thread
+  access: R/W
+  description: Control Features in Intel 64 Processor
+  long_description: Control Features in Intel 64 Processor See Table 2-2.
+  see_table:
+  - 2-2
+- value: 179H
+  name: IA32_MCG_CAP
+  bitfields:
+  - bit: '7:0'
+    description: Count
+  - bit: '8'
+    description: MCG_CTL_P
+  - bit: '9'
+    description: MCG_EXT_P
+  - bit: '10'
+    description: MCP_CMCI_P
+  - bit: '11'
+    description: MCG_TES_P
+  - bit: '15:12'
+    description: Reserved
+  - bit: '23:16'
+    description: MCG_EXT_CNT
+  - bit: '24'
+    description: MCG_SER_P
+  - bit: '63:25'
+    description: Reserved
+  scope: Thread
+  access: R/O
+  description: Global Machine Check Capability
+- value: 17AH
+  name: IA32_MCG_STATUS
+  bitfields:
+  - bit: '0'
+    description: RIPV
+  - bit: '1'
+    description: EIPV
+  - bit: '2'
+    description: MCIP
+  - bit: '3'
+    description: LMCE Signaled
+  - bit: '63:4'
+    description: Reserved
+  scope: Thread
+  access: R/WO
+  description: Global Machine Check Status
+- value: 1AEH
+  name: MSR_TURBO_RATIO_LIMIT1
+  bitfields:
+  - bit: '7:0'
+    long_description: Maximum Ratio Limit for 9C Maximum turbo ratio limit of 9 core active.
+    description: Maximum Ratio Limit for 9C
+  - bit: '15:8'
+    long_description: Maximum Ratio Limit for 10C Maximum turbo ratio limit of 10core active.
+    description: Maximum Ratio Limit for 10C
+  - bit: '23:16'
+    long_description: Maximum Ratio Limit for 11C Maximum turbo ratio limit of 11 core active.
+    description: Maximum Ratio Limit for 11C
+  - bit: '31:24'
+    long_description: Maximum Ratio Limit for 12C Maximum turbo ratio limit of 12 core active.
+    description: Maximum Ratio Limit for 12C
+  - bit: '39:32'
+    long_description: Maximum Ratio Limit for 13C Maximum turbo ratio limit of 13 core active.
+    description: Maximum Ratio Limit for 13C
+  - bit: '47:40'
+    long_description: Maximum Ratio Limit for 14C Maximum turbo ratio limit of 14 core active.
+    description: Maximum Ratio Limit for 14C
+  - bit: '55:48'
+    long_description: Maximum Ratio Limit for 15C Maximum turbo ratio limit of 15 core active.
+    description: Maximum Ratio Limit for 15C
+  - bit: '62:56'
+    description: Reserved
+  - bit: '63'
+    long_description: Semaphore for Turbo Ratio Limit Configuration If 1, the processor uses override configuration1 specified in MSR_TURBO_RATIO_LIMIT and MSR_TURBO_RATIO_LIMIT1. If 0, the processor uses factory-set configuration (Default).
+    description: Semaphore for Turbo Ratio Limit Configuration
+  scope: Package
+  description: Maximum Ratio Limit of Turbo Mode
+  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+- value: 29DH
+  name: IA32_MC29_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 29EH
+  name: IA32_MC30_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 29FH
+  name: IA32_MC31_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 3F1H
+  name: MSR_PEBS_ENABLE
+  bitfields:
+  - bit: '0'
+    access: R/W
+    description: Enable PEBS on IA32_PMC0
+  - bit: '1'
+    access: R/W
+    description: Enable PEBS on IA32_PMC1
+  - bit: '2'
+    access: R/W
+    description: Enable PEBS on IA32_PMC2
+  - bit: '3'
+    access: R/W
+    description: Enable PEBS on IA32_PMC3
+  - bit: '31:4'
+    description: Reserved
+  - bit: '32'
+    access: R/W
+    description: Enable Load Latency on IA32_PMC0
+  - bit: '33'
+    access: R/W
+    description: Enable Load Latency on IA32_PMC1
+  - bit: '34'
+    access: R/W
+    description: Enable Load Latency on IA32_PMC2
+  - bit: '35'
+    access: R/W
+    description: Enable Load Latency on IA32_PMC3
+  - bit: '63:36'
+    description: Reserved
+  scope: Thread
+  description: See Section 18.3.1.1.1
+  long_description: See Section 18.3.1.1.1, “Processor Event Based Sampling (PEBS).”
+  see_section:
+  - 18.3.1.1.1
+- value: 41BH
+  name: IA32_MC6_MISC
+  bitfields:
+  - bit: '5:0'
+    description: Recoverable Address LSB
+  - bit: '8:6'
+    description: Address Mode
+  - bit: '15:9'
+    description: Reserved
+  - bit: '31:16'
+    description: PCI Express Requestor ID
+  - bit: '39:32'
+    description: PCI Express Segment Number
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: Misc MAC Information of Integrated I/O
+  long_description: Misc MAC Information of Integrated I/O See Section 15.3.2.4.
+  see_section:
+  - 15.3.2.4.
+- value: 474H
+  name: IA32_MC29_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC29 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 475H
+  name: IA32_MC29_STATUS
+  scope: Package
+- value: 476H
+  name: IA32_MC29_ADDR
+  scope: Package
+- value: 477H
+  name: IA32_MC29_MISC
+  scope: Package
+- value: 478H
+  name: IA32_MC30_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC30 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 479H
+  name: IA32_MC30_STATUS
+  scope: Package
+- value: 47AH
+  name: IA32_MC30_ADDR
+  scope: Package
+- value: 47BH
+  name: IA32_MC30_MISC
+  scope: Package
+- value: 47CH
+  name: IA32_MC31_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC31 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 47DH
+  name: IA32_MC31_STATUS
+  scope: Package
+- value: 47EH
+  name: IA32_MC31_ADDR
+  scope: Package
+- value: 47FH
+  name: IA32_MC31_MISC
+  scope: Package
+- value: SeeTable2-20,Table2-26forotherMSRdefinitionsapplicabletoIntelXeonprocessorE7v2withCPUIDsignature06_3AH.

@@ -1,0 +1,372 @@
+---
+name: Table 2-29
+full_name: Table 2-29. Additional MSRs Supported by Processors based on the Haswell or Haswell-E microarchitectures
+supported_cpu:
+- See Table 2-29
+- 06_3CH
+- 06_45H
+- 06_46H
+msr:
+- value: 3BH
+  name: IA32_TSC_ADJUST
+  scope: Thread
+  access: R/W
+  description: Per-Logical-Processor TSC ADJUST
+  long_description: Per-Logical-Processor TSC ADJUST See Table 2-2.
+  see_table:
+  - 2-2
+- value: CEH
+  name: MSR_PLATFORM_INFO
+  bitfields:
+  - bit: '7:0'
+    description: Reserved
+  - bit: '15:8'
+    access: R/O
+    long_description: Maximum Non-Turbo Ratio This is the ratio of the frequency that invariant TSC runs at. Frequency = ratio * 100 MHz.
+    description: Maximum Non-Turbo Ratio
+  - bit: '27:16'
+    description: Reserved
+  - bit: '28'
+    access: R/O
+    long_description: Programmable Ratio Limit for Turbo Mode When set to 1, indicates that Programmable Ratio Limit for Turbo mode is enabled. When set to 0, indicates Programmable Ratio Limit for Turbo mode is disabled.
+    description: Programmable Ratio Limit for Turbo Mode
+  - bit: '29'
+    access: R/O
+    long_description: Programmable TDP Limit for Turbo Mode When set to 1, indicates that TDP Limit for Turbo mode is programmable. When set to 0, indicates TDP Limit for Turbo mode is not programmable.
+    description: Programmable TDP Limit for Turbo Mode
+  - bit: '31:30'
+    description: Reserved
+  - bit: '32'
+    access: LPM
+    long_description: Low Power Mode Support (R/O) When set to 1, indicates that LPM is supported. When set to 0, indicates LPM is not supported.
+    description: Low Power Mode Support
+  - bit: '34:33'
+    access: R/O
+    long_description: 'Number of ConfigTDP Levels 00: Only Base TDP level available. 01: One additional TDP level available. 02: Two additional TDP level available. 03: Reserved'
+    description: Number of ConfigTDP Levels
+  - bit: '39:35'
+    description: Reserved
+  - bit: '47:40'
+    access: R/O
+    long_description: Maximum Efficiency Ratio This is the minimum ratio (maximum efficiency) that the processor can operate, in units of 100MHz.
+    description: Maximum Efficiency Ratio
+  - bit: '55:48'
+    access: R/O
+    long_description: Minimum Operating Ratio Contains the minimum supported operating ratio in units of 100 MHz.
+    description: Minimum Operating Ratio
+  - bit: '63:56'
+    description: Reserved
+  scope: Package
+  description: Platform Information
+  long_description: Platform Information Contains power management and other model specific features enumeration. See http://biosbits.org.
+- value: 186H
+  name: IA32_PERFEVTSEL0
+  bitfields:
+  - bit: '32'
+    long_description: 'IN_TX: See Section 18.3.6.5.1. When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
+    description: IN_TX
+    see_section:
+    - 18.3.6.5.1.
+  scope: Thread
+  access: R/W
+  description: Performance Event Select for Counter 0
+  long_description: Performance Event Select for Counter 0 Supports all fields described inTable 2-2 and the fields below.
+  see_table:
+  - 2-2
+- value: 187H
+  name: IA32_PERFEVTSEL1
+  bitfields:
+  - bit: '32'
+    long_description: 'IN_TX: See Section 18.3.6.5.1. When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
+    description: IN_TX
+    see_section:
+    - 18.3.6.5.1.
+  scope: Thread
+  access: R/W
+  description: Performance Event Select for Counter 1
+  long_description: Performance Event Select for Counter 1 Supports all fields described inTable 2-2 and the fields below.
+  see_table:
+  - 2-2
+- value: 188H
+  name: IA32_PERFEVTSEL2
+  bitfields:
+  - bit: '32'
+    long_description: 'IN_TX: See Section 18.3.6.5.1. When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
+    description: IN_TX
+    see_section:
+    - 18.3.6.5.1.
+  - bit: '33'
+    long_description: 'IN_TXCP: See Section 18.3.6.5.1. When IN_TXCP=1 & IN_TX=1 and in sampling, a spurious PMI may occur and transactions may continuously abort near overflow conditions. Software should favor using IN_TXCP for counting over sampling. If sampling, software should use large “sample-after” value after clearing the counter configured to use IN_TXCP and also always reset the counter even when no overflow condition was reported.'
+    description: IN_TXCP
+    see_section:
+    - 18.3.6.5.1.
+  scope: Thread
+  access: R/W
+  description: Performance Event Select for Counter 2
+  long_description: Performance Event Select for Counter 2 Supports all fields described inTable 2-2 and the fields below.
+  see_table:
+  - 2-2
+- value: 189H
+  name: IA32_PERFEVTSEL3
+  bitfields:
+  - bit: '32'
+    long_description: 'IN_TX: See Section 18.3.6.5.1 When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
+    description: IN_TX
+    see_section:
+    - 18.3.6.5.1
+  scope: Thread
+  access: R/W
+  description: Performance Event Select for Counter 3
+  long_description: Performance Event Select for Counter 3 Supports all fields described inTable 2-2 and the fields below.
+  see_table:
+  - 2-2
+- value: 1C8H
+  name: MSR_LBR_SELECT
+  bitfields:
+  - bit: '0'
+    description: CPL_EQ_0
+  - bit: '1'
+    description: CPL_NEQ_0
+  - bit: '2'
+    description: JCC
+  - bit: '3'
+    description: NEAR_REL_CALL
+  - bit: '4'
+    description: NEAR_IND_CALL
+  - bit: '5'
+    description: NEAR_RET
+  - bit: '6'
+    description: NEAR_IND_JMP
+  - bit: '7'
+    description: NEAR_REL_JMP
+  - bit: '8'
+    description: FAR_BRANCH
+  - bit: '9'
+    description: EN_CALL_STACK
+  - bit: '63:9'
+    description: Reserved
+  scope: Thread
+  access: R/W
+  description: Last Branch Record Filtering Select Register
+- value: 1D9H
+  name: IA32_DEBUGCTL
+  bitfields:
+  - bit: '0'
+    description: LBR
+  - bit: '1'
+    description: BTF
+  - bit: '5:2'
+    description: Reserved
+  - bit: '6'
+    description: TR
+  - bit: '7'
+    description: BTS
+  - bit: '8'
+    description: BTINT
+  - bit: '9'
+    description: BTS_OFF_OS
+  - bit: '10'
+    description: BTS_OFF_USER
+  - bit: '11'
+    description: FREEZE_LBR_ON_PMI
+  - bit: '12'
+    description: FREEZE_PERFMON_ON_PMI
+  - bit: '13'
+    description: ENABLE_UNCORE_PMI
+  - bit: '14'
+    description: FREEZE_WHILE_SMM
+  - bit: '15'
+    description: RTM_DEBUG
+  - bit: '63:15'
+    description: Reserved
+  scope: Thread
+  access: R/W
+  description: Debug Control
+  long_description: Debug Control See Table 2-2.
+  see_table:
+  - 2-2
+- value: 491H
+  name: IA32_VMX_VMFUNC
+  scope: Thread
+  access: R/O
+  description: Capability Reporting Register of VM-Function
+  long_description: Capability Reporting Register of VM-Function Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 60BH
+  name: MSR_PKGC_IRTL1
+  bitfields:
+  - bit: '9:0'
+    access: R/W
+    long_description: Interrupt Response Time Limit Specifies the limit that should be used to decide if the package should be put into a package C6 or C7 state.
+    description: Interrupt Response Time Limit
+  - bit: '12:10'
+    access: R/W
+    long_description: Time Unit Specifies the encoding value of time unit of the interrupt response time limit. See Table 2-20 for supported time unit encodings.
+    description: Time Unit
+    see_table:
+    - 2-20
+  - bit: '14:13'
+    description: Reserved
+  - bit: '15'
+    access: R/W
+    long_description: Valid Indicates whether the values in bits 12:0 are valid and can be used by the processor for package C-sate management.
+    description: Valid
+  - bit: '63:16'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Package C6/C7 Interrupt Response Limit 1
+  long_description: 'Package C6/C7 Interrupt Response Limit 1 This MSR defines the interrupt response time limit used by the processor to manage a transition to a package C6 or C7 state. The latency programmed in this register is for the shorter-latency sub C-states used by an MWAIT hint to a C6 or C7 state. Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 60CH
+  name: MSR_PKGC_IRTL2
+  bitfields:
+  - bit: '9:0'
+    access: R/W
+    long_description: Interrupt response time limit Specifies the limit that should be used to decide if the package should be put into a package C6 or C7 state.
+    description: Interrupt response time limit
+  - bit: '12:10'
+    access: R/W
+    long_description: Time Unit Specifies the encoding value of time unit of the interrupt response time limit. See Table 2-20 for supported time unit encodings.
+    description: Time Unit
+    see_table:
+    - 2-20
+  - bit: '14:13'
+    description: Reserved
+  - bit: '15'
+    access: R/W
+    long_description: Valid Indicates whether the values in bits 12:0 are valid and can be used by the processor for package C-sate management.
+    description: Valid
+  - bit: '63:16'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Package C6/C7 Interrupt Response Limit 2
+  long_description: 'Package C6/C7 Interrupt Response Limit 2 This MSR defines the interrupt response time limit used by the processor to manage a transition to a package C6 or C7 state. The latency programmed in this register is for the longer-latency sub C-states used by an MWAIT hint to a C6 or C7 state. Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 613H
+  name: MSR_PKG_PERF_STATUS
+  scope: Package
+  access: R/O
+  description: PKG Perf Status
+  long_description: PKG Perf Status See Section 14.9.3, “Package RAPL Domain.”
+  see_section:
+  - 14.9.3
+- value: 619H
+  name: MSR_DRAM_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: DRAM Energy Status
+  long_description: DRAM Energy Status See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 61BH
+  name: MSR_DRAM_PERF_STATUS
+  scope: Package
+  access: R/O
+  description: DRAM Performance Throttling Status
+  long_description: DRAM Performance Throttling Status See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 648H
+  name: MSR_CONFIG_TDP_NOMINAL
+  bitfields:
+  - bit: '7:0'
+    long_description: Config_TDP_Base Base TDP level ratio to be used for this specific processor (in units of 100 MHz).
+    description: Config_TDP_Base
+  - bit: '63:8'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: Base TDP Ratio
+- value: 649H
+  name: MSR_CONFIG_TDP_LEVEL1
+  bitfields:
+  - bit: '14:0'
+    long_description: PKG_TDP_LVL1 Power setting for ConfigTDP Level 1.
+    description: PKG_TDP_LVL1
+  - bit: '15'
+    description: Reserved
+  - bit: '23:16'
+    long_description: Config_TDP_LVL1_Ratio ConfigTDP level 1 ratio to be used for this specific processor.
+    description: Config_TDP_LVL1_Ratio
+  - bit: '31:24'
+    description: Reserved
+  - bit: '46:32'
+    long_description: PKG_MAX_PWR_LVL1 Max Power setting allowed for ConfigTDP Level 1.
+    description: PKG_MAX_PWR_LVL1
+  - bit: '62:47'
+    long_description: PKG_MIN_PWR_LVL1 MIN Power setting allowed for ConfigTDP Level 1.
+    description: PKG_MIN_PWR_LVL1
+  - bit: '63'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: ConfigTDP Level 1 Ratio and Power Level
+- value: 64AH
+  name: MSR_CONFIG_TDP_LEVEL2
+  bitfields:
+  - bit: '14:0'
+    long_description: PKG_TDP_LVL2 Power setting for ConfigTDP Level 2.
+    description: PKG_TDP_LVL2
+  - bit: '15'
+    description: Reserved
+  - bit: '23:16'
+    long_description: Config_TDP_LVL2_Ratio ConfigTDP level 2 ratio to be used for this specific processor.
+    description: Config_TDP_LVL2_Ratio
+  - bit: '31:24'
+    description: Reserved
+  - bit: '46:32'
+    long_description: PKG_MAX_PWR_LVL2 Max Power setting allowed for ConfigTDP Level 2.
+    description: PKG_MAX_PWR_LVL2
+  - bit: '62:47'
+    long_description: PKG_MIN_PWR_LVL2 MIN Power setting allowed for ConfigTDP Level 2.
+    description: PKG_MIN_PWR_LVL2
+  - bit: '63'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: ConfigTDP Level 2 Ratio and Power Level
+- value: 64BH
+  name: MSR_CONFIG_TDP_CONTROL
+  bitfields:
+  - bit: '1:0'
+    access: RW/L
+    long_description: TDP_LEVEL System BIOS can program this field.
+    description: TDP_LEVEL
+  - bit: '30:2'
+    description: Reserved
+  - bit: '31'
+    access: RW/L
+    long_description: Config_TDP_Lock When this bit is set, the content of this register is locked until a reset.
+    description: Config_TDP_Lock
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: ConfigTDP Control
+- value: 64CH
+  name: MSR_TURBO_ACTIVATION_RATIO
+  bitfields:
+  - bit: '7:0'
+    access: RW/L
+    long_description: MAX_NON_TURBO_RATIO System BIOS can program this field.
+    description: MAX_NON_TURBO_RATIO
+  - bit: '30:8'
+    description: Reserved
+  - bit: '31'
+    access: RW/L
+    long_description: TURBO_ACTIVATION_RATIO_Lock When this bit is set, the content of this register is locked until a reset.
+    description: TURBO_ACTIVATION_RATIO_Lock
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: ConfigTDP Control
+- value: C80H
+  name: IA32_DEBUG_INTERFACE
+  scope: Package
+  access: R/W
+  description: Silicon Debug Feature Control
+  long_description: Silicon Debug Feature Control See Table 2-2.
+  see_table:
+  - 2-2

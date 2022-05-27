@@ -1,0 +1,192 @@
+---
+name: Table 2-34
+full_name: Table 2-34. Additional MSRs Common to Processors Based the Broadwell Microarchitectures
+supported_cpu: []
+msr:
+- value: 38EH
+  name: IA32_PERF_GLOBAL_STATUS
+  bitfields:
+  - bit: '0'
+    description: Ovf_PMC0
+  - bit: '1'
+    description: Ovf_PMC1
+  - bit: '2'
+    description: Ovf_PMC2
+  - bit: '3'
+    description: Ovf_PMC3
+  - bit: '31:4'
+    description: Reserved
+  - bit: '32'
+    description: Ovf_FixedCtr0
+  - bit: '33'
+    description: Ovf_FixedCtr1
+  - bit: '34'
+    description: Ovf_FixedCtr2
+  - bit: '54:35'
+    description: Reserved
+  - bit: '55'
+    long_description: Trace_ToPA_PMI See Section 35.2.6.2, “Table of Physical Addresses (ToPA).”
+    description: Trace_ToPA_PMI
+    see_section:
+    - 35.2.6.2
+  - bit: '60:56'
+    description: Reserved
+  - bit: '61'
+    description: Ovf_Uncore
+  - bit: '62'
+    description: Ovf_BufDSSAVE
+  - bit: '63'
+    description: CondChgd
+  scope: Thread
+  description: See Table 2-2. See Section 18.6.2.2
+  long_description: See Table 2-2. See Section 18.6.2.2, “Global Counter Control Facilities.”
+  see_table:
+  - 2-2
+  see_section:
+  - 18.6.2.2
+- value: 390H
+  name: IA32_PERF_GLOBAL_OVF_CTRL
+  bitfields:
+  - bit: '0'
+    description: Set 1 to clear Ovf_PMC0
+  - bit: '1'
+    description: Set 1 to clear Ovf_PMC1
+  - bit: '2'
+    description: Set 1 to clear Ovf_PMC2
+  - bit: '3'
+    description: Set 1 to clear Ovf_PMC3
+  - bit: '31:4'
+    description: Reserved
+  - bit: '32'
+    description: Set 1 to clear Ovf_FixedCtr0
+  - bit: '33'
+    description: Set 1 to clear Ovf_FixedCtr1
+  - bit: '34'
+    description: Set 1 to clear Ovf_FixedCtr2
+  - bit: '54:35'
+    description: Reserved
+  - bit: '55'
+    long_description: Set 1 to clear Trace_ToPA_PMI. See Section 35.2.6.2, “Table of Physical Addresses (ToPA).”
+    description: Set 1 to clear Trace_ToPA_PMI
+    see_section:
+    - 35.2.6.2
+  - bit: '60:56'
+    description: Reserved
+  - bit: '61'
+    description: Set 1 to clear Ovf_Uncore
+  - bit: '62'
+    description: Set 1 to clear Ovf_BufDSSAVE
+  - bit: '63'
+    description: Set 1 to clear CondChgd
+  scope: Thread
+  description: See Table 2-2. See Section 18.6.2.2
+  long_description: See Table 2-2. See Section 18.6.2.2, “Global Counter Control Facilities.”
+  see_table:
+  - 2-2
+  see_section:
+  - 18.6.2.2
+- value: 560H
+  name: IA32_RTIT_OUTPUT_BASE
+  bitfields:
+  - bit: '6:0'
+    description: Reserved
+  - bit: MAXPHYADDR1-1:7
+    description: Base physical address
+  - bit: 63:MAXPHYADDR
+    description: Reserved
+  scope: THREAD
+  access: R/W
+  description: Trace Output Base Register
+- value: 561H
+  name: IA32_RTIT_OUTPUT_MASK_PTRS
+  bitfields:
+  - bit: '6:0'
+    description: Reserved
+  - bit: '31:7'
+    description: MaskOrTableOffset
+  - bit: '63:32'
+    description: Output Offset
+  scope: THREAD
+  access: R/W
+  description: Trace Output Mask Pointers Register
+- value: 570H
+  name: IA32_RTIT_CTL
+  bitfields:
+  - bit: '0'
+    description: TraceEn
+  - bit: '1'
+    description: Reserved
+  - bit: '2'
+    description: OS
+  - bit: '3'
+    description: User
+  - bit: '6:4'
+    description: Reserved
+  - bit: '7'
+    description: CR3 filter
+  - bit: '8'
+    long_description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
+    description: ToPA
+  - bit: '9'
+    description: Reserved
+  - bit: '10'
+    description: TSCEn
+  - bit: '11'
+    description: DisRETC
+  - bit: '12'
+    description: Reserved
+  - bit: '13'
+    description: 'Reserved; writing 0 will #GP if also setting TraceEn'
+  - bit: '63:14'
+    description: Reserved
+  scope: Thread
+  access: R/W
+  description: Trace Control Register
+- value: 571H
+  name: IA32_RTIT_STATUS
+  bitfields:
+  - bit: '0'
+    description: Reserved
+  - bit: '1'
+    description: ContexEn
+  - bit: '2'
+    description: TriggerEn
+  - bit: '3'
+    description: Reserved
+  - bit: '4'
+    access: R/W
+    description: Error
+  - bit: '5'
+    description: Stopped
+  - bit: '63:6'
+    description: Reserved
+  scope: Thread
+  access: R/W
+  description: Tracing Status Register
+- value: 572H
+  name: IA32_RTIT_CR3_MATCH
+  bitfields:
+  - bit: '4:0'
+    description: Reserved
+  - bit: '63:5'
+    description: CR3[63:5] value to match
+  scope: THREAD
+  access: R/W
+  description: Trace Filter CR3 Match Register
+- value: 620H
+  name: MSR UNCORE_RATIO_LIMIT
+  bitfields:
+  - bit: '63:15'
+    description: Reserved
+  - bit: '14:8'
+    long_description: MIN_RATIO Writing to this field controls the minimum possible ratio of the LLC/Ring.
+    description: MIN_RATIO
+  - bit: '7'
+    description: Reserved
+  - bit: '6:0'
+    long_description: MAX_RATIO This field is used to limit the max ratio of the LLC/Ring.
+    description: MAX_RATIO
+  scope: Package
+  access: R/W
+  description: Uncore Ratio Limit
+  long_description: Uncore Ratio Limit Out of reset, the min_ratio and max_ratio fields represent the widest possible range of uncore frequencies. Writing to these fields allows software to control the minimum and the maximum frequency that hardware will select.

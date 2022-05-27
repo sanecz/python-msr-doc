@@ -1,0 +1,639 @@
+---
+name: Table 2-30
+full_name: Table 2-30. MSRs Supported by 4th Generation Intel® Core™ Processors (Haswell Microarchitecture)
+supported_cpu:
+- 06_3CH
+- 06_45H
+- See Table 2-30
+- 06_46H
+msr:
+- value: E2H
+  name: MSR_PKG_CST_CONFIG_CONTROL
+  bitfields:
+  - bit: '3:0'
+    access: R/W
+    long_description: 'Package C-State Limit Specifies the lowest processor-specific C-state code name (consuming the least power) for the package. The default is set as factory-configured package C- state limit. The following C-state code name encodings are supported: 0000b: C0/C1 (no package C-state support) 0001b: C2 0010b: C3 0011b: C6 0100b: C7 0101b: C7s Package C states C7 are not available to processors with a signature of 06_3CH.'
+    description: Package C-State Limit
+  - bit: '9:4'
+    description: Reserved
+  - bit: '10'
+    access: R/W
+    description: I/O MWAIT Redirection Enable
+  - bit: '14:11'
+    description: Reserved
+  - bit: '15'
+    access: R/WO
+    description: CFG Lock
+  - bit: '24:16'
+    description: Reserved
+  - bit: '25'
+    access: R/W
+    description: C3 State Auto Demotion Enable
+  - bit: '26'
+    access: R/W
+    description: C1 State Auto Demotion Enable
+  - bit: '27'
+    access: R/W
+    description: Enable C3 Undemotion
+  - bit: '28'
+    access: R/W
+    description: Enable C1 Undemotion
+  - bit: '63:29'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: C-State Configuration Control
+  long_description: 'C-State Configuration Control Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states. See http://biosbits.org.'
+- value: 17DH
+  name: MSR_SMM_MCA_CAP
+  bitfields:
+  - bit: '57:0'
+    description: Reserved
+  - bit: '58'
+    access: SMM-RO
+    long_description: SMM_Code_Access_Chk If set to 1, indicates that the SMM code access restriction is supported and the MSR_SMM_FEATURE_CONTROL is supported.
+    description: SMM_Code_Access_Chk
+  - bit: '59'
+    access: SMM-RO
+    long_description: Long_Flow_Indication If set to 1, indicates that the SMM long flow indicator is supported and the MSR_SMM_DELAYED is supported.
+    description: Long_Flow_Indication
+  - bit: 63:60
+    description: Reserved
+  scope: THREAD
+  access: SMM-RO
+  description: Enhanced SMM Capabilities
+  long_description: Enhanced SMM Capabilities Reports SMM capability Enhancement. Accessible only while in SMM.
+- value: 1ADH
+  name: MSR_TURBO_RATIO_LIMIT
+  bitfields:
+  - bit: '7:0'
+    long_description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
+    description: Maximum Ratio Limit for 1C
+  - bit: '15:8'
+    long_description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
+    description: Maximum Ratio Limit for 2C
+  - bit: '23:16'
+    long_description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
+    description: Maximum Ratio Limit for 3C
+  - bit: '31:24'
+    long_description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
+    description: Maximum Ratio Limit for 4C
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  description: Maximum Ratio Limit of Turbo Mode
+  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+- value: 391H
+  name: MSR_UNC_PERF_GLOBAL_CTRL
+  bitfields:
+  - bit: '0'
+    description: Core 0 select
+  - bit: '1'
+    description: Core 1 select
+  - bit: '2'
+    description: Core 2 select
+  - bit: '3'
+    description: Core 3 select
+  - bit: '18:4'
+    description: Reserved
+  - bit: '29'
+    description: Enable all uncore counters
+  - bit: '30'
+    description: Enable wake on PMI
+  - bit: '31'
+    description: Enable Freezing counter when overflow
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  description: Uncore PMU Global Control
+- value: 392H
+  name: MSR_UNC_PERF_GLOBAL_STATUS
+  bitfields:
+  - bit: '0'
+    description: Fixed counter overflowed
+  - bit: '1'
+    description: An ARB counter overflowed
+  - bit: '2'
+    description: Reserved
+  - bit: '3'
+    description: A CBox counter overflowed
+  - bit: '63:4'
+    description: Reserved
+  scope: Package
+  description: Uncore PMU Main Status
+- value: 394H
+  name: MSR_UNC_PERF_FIXED_CTRL
+  bitfields:
+  - bit: '19:0'
+    description: Reserved
+  - bit: '20'
+    description: Enable overflow propagation
+  - bit: '21'
+    description: Reserved
+  - bit: '22'
+    description: Enable counting
+  - bit: '63:23'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Uncore Fixed Counter Control
+- value: 395H
+  name: MSR_UNC_PERF_FIXED_CTR
+  bitfields:
+  - bit: '47:0'
+    description: Current count
+  - bit: '63:48'
+    description: Reserved
+  scope: Package
+  description: Uncore Fixed Counter
+- value: 396H
+  name: MSR_UNC_CBO_CONFIG
+  bitfields:
+  - bit: '3:0'
+    description: Encoded number of C-Box
+  - bit: '63:4'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: Uncore C-Box Configuration Information
+- value: 3B0H
+  name: MSR_UNC_ARB_PERFCTR0
+  scope: Package
+  description: Uncore Arb Unit
+- value: 3B1H
+  name: MSR_UNC_ARB_PERFCTR1
+  scope: Package
+  description: Uncore Arb Unit
+- value: 3B2H
+  name: MSR_UNC_ARB_PERFEVTSEL0
+  scope: Package
+  description: Uncore Arb Unit
+- value: 3B3H
+  name: MSR_UNC_ARB_PERFEVTSEL1
+  scope: Package
+  description: Uncore Arb Unit
+- value: 391H
+  name: MSR_UNC_PERF_GLOBAL_CTRL
+  bitfields:
+  - bit: '0'
+    description: Core 0 select
+  - bit: '1'
+    description: Core 1 select
+  - bit: '2'
+    description: Core 2 select
+  - bit: '3'
+    description: Core 3 select
+  - bit: '18:4'
+    description: Reserved
+  - bit: '29'
+    description: Enable all uncore counters
+  - bit: '30'
+    description: Enable wake on PMI
+  - bit: '31'
+    description: Enable Freezing counter when overflow
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  description: Uncore PMU Global Control
+- value: 395H
+  name: MSR_UNC_PERF_FIXED_CTR
+  bitfields:
+  - bit: '47:0'
+    description: Current count
+  - bit: '63:48'
+    description: Reserved
+  scope: Package
+  description: Uncore Fixed Counter
+- value: 3B3H
+  name: MSR_UNC_ARB_PERFEVTSEL1
+  scope: Package
+  description: Uncore Arb Unit
+- value: 4E0H
+  name: MSR_SMM_FEATURE_CONTROL
+  bitfields:
+  - bit: '0'
+    access: SMM-RWO
+    long_description: Lock When set to ‘1’ locks this register from further changes.
+    description: Lock
+  - bit: '1'
+    description: Reserved
+  - bit: '2'
+    access: SMM-RW
+    long_description: SMM_Code_Chk_En This control bit is available only if MSR_SMM_MCA_CAP[58] == 1. When set to ‘0’ (default) none of the logical processors are prevented from executing SMM code outside the ranges defined by the SMRR. When set to ‘1’ any logical processor in the package that attempts to execute SMM code not within the ranges defined by the SMRR will assert an unrecoverable MCE.
+    description: SMM_Code_Chk_En
+  - bit: '63:3'
+    description: Reserved
+  scope: Package
+  access: SMM-RW
+  description: Enhanced SMM Feature Control
+  long_description: Enhanced SMM Feature Control Reports SMM capability Enhancement. Accessible only while in SMM.
+- value: 4E2H
+  name: MSR_SMM_DELAYED
+  bitfields:
+  - bit: N-1:0
+    access: SMM-RO
+    long_description: 'LOG_PROC_STATE Each bit represents a logical processor of its state in a long flow of internal operation which delays servicing an interrupt. The corresponding bit will be set at the start of long events such as: Microcode Update Load, C6, WBINVD, Ratio Change, Throttle. The bit is automatically cleared at the end of each long event. The reset value of this field is 0. Only bit positions below N = CPUID.(EAX=0BH, ECX=PKG_LVL):EBX[15:0] can be updated.'
+    description: LOG_PROC_STATE
+  - bit: 63:N
+    description: Reserved
+  scope: Package
+  access: SMM-RO
+  description: SMM Delayed
+  long_description: SMM Delayed Reports the interruptible state of all logical processors in the package. Available only while in SMM and MSR_SMM_MCA_CAP[LONG_FLOW_INDICATION] == 1.
+- value: 4E3H
+  name: MSR_SMM_BLOCKED
+  bitfields:
+  - bit: N-1:0
+    access: SMM-RO
+    long_description: 'LOG_PROC_STATE Each bit represents a logical processor of its blocked state to service an SMI. The corresponding bit will be set if the logical processor is in one of the following states: Wait For SIPI or SENTER Sleep. The reset value of this field is 0FFFH. Only bit positions below N = CPUID.(EAX=0BH, ECX=PKG_LVL):EBX[15:0] can be updated.'
+    description: LOG_PROC_STATE
+  - bit: 63:N
+    description: Reserved
+  scope: Package
+  access: SMM-RO
+  description: SMM Blocked
+  long_description: SMM Blocked Reports the blocked state of all logical processors in the package. Available only while in SMM.
+- value: 606H
+  name: MSR_RAPL_POWER_UNIT
+  bitfields:
+  - bit: '3:0'
+    long_description: Power Units See Section 14.9.1, “RAPL Interfaces.”
+    description: Power Units
+    see_section:
+    - 14.9.1
+  - bit: '7:4'
+    description: Reserved
+  - bit: '12:8'
+    long_description: Energy Status Units Energy related information (in Joules) is based on the multiplier, 1/2^ESU; where ESU is an unsigned integer represented by bits 12:8. Default value is 0EH (or 61 micro-joules).
+    description: Energy Status Units
+  - bit: '15:13'
+    description: Reserved
+  - bit: '19:16'
+    long_description: Time Units See Section 14.9.1, “RAPL Interfaces.”
+    description: Time Units
+    see_section:
+    - 14.9.1
+  - bit: '63:20'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: Unit Multipliers Used in RAPL Interfaces
+- value: 639H
+  name: MSR_PP0_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: PP0 Energy Status
+  long_description: PP0 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  see_section:
+  - 14.9.4
+- value: 640H
+  name: MSR_PP1_POWER_LIMIT
+  scope: Package
+  access: R/W
+  description: PP1 RAPL Power Limit Control
+  long_description: PP1 RAPL Power Limit Control See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  see_section:
+  - 14.9.4
+- value: 641H
+  name: MSR_PP1_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: PP1 Energy Status
+  long_description: PP1 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  see_section:
+  - 14.9.4
+- value: 642H
+  name: MSR_PP1_POLICY
+  scope: Package
+  access: R/W
+  description: PP1 Balance Policy
+  long_description: PP1 Balance Policy See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  see_section:
+  - 14.9.4
+- value: 690H
+  name: MSR_CORE_PERF_LIMIT_REASONS
+  bitfields:
+  - bit: '0'
+    access: R0
+    long_description: PROCHOT Status When set, processor core frequency is reduced below the operating system request due to assertion of external PROCHOT.
+    description: PROCHOT Status
+  - bit: '1'
+    access: R0
+    long_description: Thermal Status When set, frequency is reduced below the operating system request due to a thermal event.
+    description: Thermal Status
+  - bit: '3:2'
+    description: Reserved
+  - bit: '4'
+    access: R0
+    long_description: Graphics Driver Status When set, frequency is reduced below the operating system request due to Processor Graphics driver override.
+    description: Graphics Driver Status
+  - bit: '5'
+    access: R0
+    long_description: Autonomous Utilization-Based Frequency Control Status When set, frequency is reduced below the operating system request because the processor has detected that utilization is low.
+    description: Autonomous Utilization-Based Frequency Control
+  - bit: '6'
+    access: R0
+    long_description: VR Therm Alert Status When set, frequency is reduced below the operating system request due to a thermal alert from the Voltage Regulator.
+    description: VR Therm Alert Status
+  - bit: '7'
+    description: Reserved
+  - bit: '8'
+    access: R0
+    long_description: Electrical Design Point Status When set, frequency is reduced below the operating system request due to electrical design point constraints (e.g., maximum electrical current consumption).
+    description: Electrical Design Point Status
+  - bit: '9'
+    access: R0
+    long_description: Core Power Limiting Status When set, frequency is reduced below the operating system request due to domain-level power limiting.
+    description: Core Power Limiting Status
+  - bit: '10'
+    access: R0
+    long_description: Package-Level Power Limiting PL1 Status When set, frequency is reduced below the operating system request due to package-level power limiting PL1.
+    description: Package-Level Power Limiting PL1 Status
+  - bit: '11'
+    access: R0
+    long_description: Package-Level PL2 Power Limiting Status When set, frequency is reduced below the operating system request due to package-level power limiting PL2.
+    description: Package-Level PL2 Power Limiting Status
+  - bit: '12'
+    access: R0
+    long_description: Max Turbo Limit Status When set, frequency is reduced below the operating system request due to multi-core turbo limits.
+    description: Max Turbo Limit Status
+  - bit: '13'
+    access: R0
+    long_description: Turbo Transition Attenuation Status When set, frequency is reduced below the operating system request due to Turbo transition attenuation. This prevents performance degradation due to frequent operating ratio changes.
+    description: Turbo Transition Attenuation Status
+  - bit: '15:14'
+    description: Reserved
+  - bit: '16'
+    long_description: PROCHOT Log When set, indicates that the PROCHOT Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: PROCHOT Log
+  - bit: '17'
+    long_description: Thermal Log When set, indicates that the Thermal Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Thermal Log
+  - bit: '19:18'
+    description: Reserved
+  - bit: '20'
+    long_description: Graphics Driver Log When set, indicates that the Graphics Driver Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Graphics Driver Log
+  - bit: '21'
+    long_description: Autonomous Utilization-Based Frequency Control Log When set, indicates that the Autonomous Utilization- Based Frequency Control Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Autonomous Utilization-Based Frequency Control Log
+  - bit: '22'
+    long_description: VR Therm Alert Log When set, indicates that the VR Therm Alert Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: VR Therm Alert Log
+  - bit: '23'
+    description: Reserved
+  - bit: '24'
+    long_description: Electrical Design Point Log When set, indicates that the EDP Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Electrical Design Point Log
+  - bit: '25'
+    long_description: Core Power Limiting Log When set, indicates that the Core Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Core Power Limiting Log
+  - bit: '26'
+    long_description: Package-Level PL1 Power Limiting Log When set, indicates that the Package Level PL1 Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Package-Level PL1 Power Limiting Log
+  - bit: '27'
+    long_description: Package-Level PL2 Power Limiting Log When set, indicates that the Package Level PL2 Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Package-Level PL2 Power Limiting Log
+  - bit: '28'
+    long_description: Max Turbo Limit Log When set, indicates that the Max Turbo Limit Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Max Turbo Limit Log
+  - bit: '29'
+    long_description: Turbo Transition Attenuation Log When set, indicates that the Turbo Transition Attenuation Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Turbo Transition Attenuation Log
+  - bit: '63:30'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Indicator of Frequency Clipping in Processor Cores
+  long_description: Indicator of Frequency Clipping in Processor Cores (Frequency refers to processor core frequency.)
+- value: 6B0H
+  name: MSR_GRAPHICS_PERF_LIMIT_REASONS
+  bitfields:
+  - bit: '0'
+    access: R0
+    long_description: PROCHOT Status When set, frequency is reduced below the operating system request due to assertion of external PROCHOT.
+    description: PROCHOT Status
+  - bit: '1'
+    access: R0
+    long_description: Thermal Status When set, frequency is reduced below the operating system request due to a thermal event.
+    description: Thermal Status
+  - bit: '3:2'
+    description: Reserved
+  - bit: '4'
+    access: R0
+    long_description: Graphics Driver Status When set, frequency is reduced below the operating system request due to Processor Graphics driver override.
+    description: Graphics Driver Status
+  - bit: '5'
+    access: R0
+    long_description: Autonomous Utilization-Based Frequency Control Status When set, frequency is reduced below the operating system request because the processor has detected that utilization is low.
+    description: Autonomous Utilization-Based Frequency Control
+  - bit: '6'
+    access: R0
+    long_description: VR Therm Alert Status When set, frequency is reduced below the operating system request due to a thermal alert from the Voltage Regulator.
+    description: VR Therm Alert Status
+  - bit: '7'
+    description: Reserved
+  - bit: '8'
+    access: R0
+    long_description: Electrical Design Point Status When set, frequency is reduced below the operating system request due to electrical design point constraints (e.g., maximum electrical current consumption).
+    description: Electrical Design Point Status
+  - bit: '9'
+    access: R0
+    long_description: Graphics Power Limiting Status When set, frequency is reduced below the operating system request due to domain-level power limiting.
+    description: Graphics Power Limiting Status
+  - bit: '10'
+    access: R0
+    long_description: Package-Level Power Limiting PL1 Status When set, frequency is reduced below the operating system request due to package-level power limiting PL1.
+    description: Package-Level Power Limiting PL1 Status
+  - bit: '11'
+    access: R0
+    long_description: Package-Level PL2 Power Limiting Status When set, frequency is reduced below the operating system request due to package-level power limiting PL2.
+    description: Package-Level PL2 Power Limiting Status
+  - bit: '15:12'
+    description: Reserved
+  - bit: '16'
+    long_description: PROCHOT Log When set, indicates that the PROCHOT Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: PROCHOT Log
+  - bit: '17'
+    long_description: Thermal Log When set, indicates that the Thermal Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Thermal Log
+  - bit: '19:18'
+    description: Reserved
+  - bit: '20'
+    long_description: Graphics Driver Log When set, indicates that the Graphics Driver Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Graphics Driver Log
+  - bit: '21'
+    long_description: Autonomous Utilization-Based Frequency Control Log When set, indicates that the Autonomous Utilization- Based Frequency Control Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Autonomous Utilization-Based Frequency Control Log
+  - bit: '22'
+    long_description: VR Therm Alert Log When set, indicates that the VR Therm Alert Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: VR Therm Alert Log
+  - bit: '23'
+    description: Reserved
+  - bit: '24'
+    long_description: Electrical Design Point Log When set, indicates that the EDP Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Electrical Design Point Log
+  - bit: '25'
+    long_description: Core Power Limiting Log When set, indicates that the Core Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Core Power Limiting Log
+  - bit: '26'
+    long_description: Package-Level PL1 Power Limiting Log When set, indicates that the Package Level PL1 Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Package-Level PL1 Power Limiting Log
+  - bit: '27'
+    long_description: Package-Level PL2 Power Limiting Log When set, indicates that the Package Level PL2 Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Package-Level PL2 Power Limiting Log
+  - bit: '28'
+    long_description: Max Turbo Limit Log When set, indicates that the Max Turbo Limit Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Max Turbo Limit Log
+  - bit: '29'
+    long_description: Turbo Transition Attenuation Log When set, indicates that the Turbo Transition Attenuation Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Turbo Transition Attenuation Log
+  - bit: '63:30'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Indicator of Frequency Clipping in the Processor
+  long_description: Indicator of Frequency Clipping in the Processor Graphics (Frequency refers to processor graphics frequency.)
+- value: 6B1H
+  name: MSR_RING_PERF_LIMIT_REASONS
+  bitfields:
+  - bit: '0'
+    access: R0
+    long_description: PROCHOT Status When set, frequency is reduced below the operating system request due to assertion of external PROCHOT.
+    description: PROCHOT Status
+  - bit: '1'
+    access: R0
+    long_description: Thermal Status When set, frequency is reduced below the operating system request due to a thermal event.
+    description: Thermal Status
+  - bit: '5:2'
+    description: Reserved
+  - bit: '6'
+    access: R0
+    long_description: VR Therm Alert Status When set, frequency is reduced below the operating system request due to a thermal alert from the Voltage Regulator.
+    description: VR Therm Alert Status
+  - bit: '7'
+    description: Reserved
+  - bit: '8'
+    access: R0
+    long_description: Electrical Design Point Status When set, frequency is reduced below the operating system request due to electrical design point constraints (e.g., maximum electrical current consumption).
+    description: Electrical Design Point Status
+  - bit: '9'
+    description: Reserved
+  - bit: '10'
+    access: R0
+    long_description: Package-Level Power Limiting PL1 Status When set, frequency is reduced below the operating system request due to package-level power limiting PL1.
+    description: Package-Level Power Limiting PL1 Status
+  - bit: '11'
+    access: R0
+    long_description: Package-Level PL2 Power Limiting Status When set, frequency is reduced below the operating system request due to package-level power limiting PL2.
+    description: Package-Level PL2 Power Limiting Status
+  - bit: '15:12'
+    description: Reserved
+  - bit: '16'
+    long_description: PROCHOT Log When set, indicates that the PROCHOT Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: PROCHOT Log
+  - bit: '17'
+    long_description: Thermal Log When set, indicates that the Thermal Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Thermal Log
+  - bit: '19:18'
+    description: Reserved
+  - bit: '20'
+    long_description: Graphics Driver Log When set, indicates that the Graphics Driver Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Graphics Driver Log
+  - bit: '21'
+    long_description: Autonomous Utilization-Based Frequency Control Log When set, indicates that the Autonomous Utilization- Based Frequency Control Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Autonomous Utilization-Based Frequency Control Log
+  - bit: '22'
+    long_description: VR Therm Alert Log When set, indicates that the VR Therm Alert Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: VR Therm Alert Log
+  - bit: '23'
+    description: Reserved
+  - bit: '24'
+    long_description: Electrical Design Point Log When set, indicates that the EDP Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Electrical Design Point Log
+  - bit: '25'
+    long_description: Core Power Limiting Log When set, indicates that the Core Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Core Power Limiting Log
+  - bit: '26'
+    long_description: Package-Level PL1 Power Limiting Log When set, indicates that the Package Level PL1 Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Package-Level PL1 Power Limiting Log
+  - bit: '27'
+    long_description: Package-Level PL2 Power Limiting Log When set, indicates that the Package Level PL2 Power Limiting Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Package-Level PL2 Power Limiting Log
+  - bit: '28'
+    long_description: Max Turbo Limit Log When set, indicates that the Max Turbo Limit Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Max Turbo Limit Log
+  - bit: '29'
+    long_description: Turbo Transition Attenuation Log When set, indicates that the Turbo Transition Attenuation Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
+    description: Turbo Transition Attenuation Log
+  - bit: '63:30'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Indicator of Frequency Clipping in the Ring
+  long_description: Indicator of Frequency Clipping in the Ring Interconnect (Frequency refers to ring interconnect in the uncore.)
+- value: 700H
+  name: MSR_UNC_CBO_0_PERFEVTSEL0
+  scope: Package
+  description: Uncore C-Box 0
+- value: 701H
+  name: MSR_UNC_CBO_0_PERFEVTSEL1
+  scope: Package
+  description: Uncore C-Box 0
+- value: 706H
+  name: MSR_UNC_CBO_0_PERFCTR0
+  scope: Package
+  description: Uncore C-Box 0
+- value: 707H
+  name: MSR_UNC_CBO_0_PERFCTR1
+  scope: Package
+  description: Uncore C-Box 0
+- value: 710H
+  name: MSR_UNC_CBO_1_PERFEVTSEL0
+  scope: Package
+  description: Uncore C-Box 1
+- value: 711H
+  name: MSR_UNC_CBO_1_PERFEVTSEL1
+  scope: Package
+  description: Uncore C-Box 1
+- value: 716H
+  name: MSR_UNC_CBO_1_PERFCTR0
+  scope: Package
+  description: Uncore C-Box 1
+- value: 717H
+  name: MSR_UNC_CBO_1_PERFCTR1
+  scope: Package
+  description: Uncore C-Box 1
+- value: 720H
+  name: MSR_UNC_CBO_2_PERFEVTSEL0
+  scope: Package
+  description: Uncore C-Box 2
+- value: 721H
+  name: MSR_UNC_CBO_2_PERFEVTSEL1
+  scope: Package
+  description: Uncore C-Box 2
+- value: 726H
+  name: MSR_UNC_CBO_2_PERFCTR0
+  scope: Package
+  description: Uncore C-Box 2
+- value: 727H
+  name: MSR_UNC_CBO_2_PERFCTR1
+  scope: Package
+  description: Uncore C-Box 2
+- value: 730H
+  name: MSR_UNC_CBO_3_PERFEVTSEL0
+  scope: Package
+  description: Uncore C-Box 3
+- value: 731H
+  name: MSR_UNC_CBO_3_PERFEVTSEL1
+  scope: Package
+  description: Uncore C-Box 3
+- value: 736H
+  name: MSR_UNC_CBO_3_PERFCTR0
+  scope: Package
+  description: Uncore C-Box 3
+- value: 737H
+  name: MSR_UNC_CBO_3_PERFCTR1
+  scope: Package
+  description: Uncore C-Box 3
+- value: SeeTable2-20,Table2-21,Table2-22,Table2-25,Table2-29forotherMSRdefinitionsapplicabletoprocessorswithCPUIDsignatures063CH,06_46H.

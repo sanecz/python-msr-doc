@@ -1,0 +1,32 @@
+---
+name: Table 2-9
+full_name: Table 2-9. Specific MSRs Supported by Intel Atom® Processor E3000 Series with CPUID Signature 06_37H
+supported_cpu:
+- 06_37H
+msr:
+- value: 668H
+  name: MSR_CC6_DEMOTION_POLICY_CONFIG
+  bitfields:
+  - bit: '63:0'
+    long_description: Controls per-core C6 demotion policy. Writing a value of 0 disables core level HW demotion policy.
+    description: Controls per-core C6 demotion policy
+  scope: Package
+  description: Core C6 Demotion Policy Config MSR
+- value: 669H
+  name: MSR_MC6_DEMOTION_POLICY_CONFIG
+  bitfields:
+  - bit: '63:0'
+    long_description: Controls module (i.e., two cores sharing the second-level cache) C6 demotion policy. Writing a value of 0 disables module level HW demotion policy.
+    description: Controls module
+  scope: Package
+  description: Module C6 Demotion Policy Config MSR
+- value: 664H
+  name: MSR_MC6_RESIDENCY_COUNTER
+  bitfields:
+  - bit: '63:0'
+    long_description: Time that this module is in module-specific C6 states since last reset. Counts at 1 Mhz frequency.
+    description: Time that this module is in module-specific C6 states
+  scope: Module
+  access: R/0
+  description: Module C6 Residency Counter
+  long_description: 'Module C6 Residency Counter Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'

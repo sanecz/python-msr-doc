@@ -1,0 +1,97 @@
+---
+name: Table 2-10
+full_name: Table 2-10. Specific MSRs Supported by Intel Atom® Processor C2000 Series with CPUID Signature 06_4DH
+supported_cpu:
+- 06_4DH
+msr:
+- value: 1A4H
+  name: MSR_MISC_FEATURE_CONTROL
+  bitfields:
+  - bit: '0'
+    access: R/W
+    long_description: L2 Hardware Prefetcher Disable If 1, disables the L2 hardware prefetcher, which fetches additional lines of code or data into the L2 cache.
+    description: L2 Hardware Prefetcher Disable
+  - bit: '1'
+    description: Reserved
+  - bit: '2'
+    access: R/W
+    long_description: DCU Hardware Prefetcher Disable If 1, disables the L1 data cache prefetcher, which fetches the next cache line into L1 data cache.
+    description: DCU Hardware Prefetcher Disable
+  - bit: '63:3'
+    description: Reserved
+  access: R/W
+  description: Miscellaneous Feature Control
+- value: 1ADH
+  name: MSR_TURBO_RATIO_LIMIT
+  bitfields:
+  - bit: '7:0'
+    long_description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
+    description: Maximum Ratio Limit for 1C
+  - bit: '15:8'
+    long_description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
+    description: Maximum Ratio Limit for 2C
+  - bit: '23:16'
+    long_description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
+    description: Maximum Ratio Limit for 3C
+  - bit: '31:24'
+    long_description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
+    description: Maximum Ratio Limit for 4C
+  - bit: '39:32'
+    long_description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5 core active.
+    description: Maximum Ratio Limit for 5C
+  - bit: '47:40'
+    long_description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6 core active.
+    description: Maximum Ratio Limit for 6C
+  - bit: '55:48'
+    long_description: Maximum Ratio Limit for 7C Maximum turbo ratio limit of 7 core active.
+    description: Maximum Ratio Limit for 7C
+  - bit: '63:56'
+    long_description: Maximum Ratio Limit for 8C Maximum turbo ratio limit of 8 core active.
+    description: Maximum Ratio Limit for 8C
+  scope: Package
+  access: RW
+  description: Maximum Ratio Limit of Turbo Mode
+- value: 606H
+  name: MSR_RAPL_POWER_UNIT
+  bitfields:
+  - bit: '3:0'
+    long_description: Power Units Power related information (in milliWatts) is based on the multiplier, 2^PU; where PU is an unsigned integer represented by bits 3:0. Default value is 0101b, indicating power unit is in 32 milliWatts increment.
+    description: Power Units
+  - bit: '7:4'
+    description: Reserved
+  - bit: '12:8'
+    long_description: Energy Status Units. Energy related information (in microJoules) is based on the multiplier, 2^ESU; where ESU is an unsigned integer represented by bits 12:8. Default value is 00101b, indicating energy unit is in 32 microJoules increment.
+    description: Energy Status Units
+  - bit: '15:13'
+    description: Reserved
+  - bit: '19:16'
+    long_description: Time Unit The value is 0000b, indicating time unit is in one second.
+    description: Time Unit
+  - bit: '63:20'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: Unit Multipliers used in RAPL Interfaces
+  long_description: Unit Multipliers used in RAPL Interfaces See Section 14.9.1, “RAPL Interfaces.”
+  see_section:
+  - 14.9.1
+- value: 610H
+  name: MSR_PKG_POWER_LIMIT
+  scope: Package
+  access: R/W
+  description: PKG RAPL Power Limit Control
+  long_description: PKG RAPL Power Limit Control See Section 14.9.3, “Package RAPL Domain.”
+  see_section:
+  - 14.9.3
+- value: 66EH
+  name: MSR_PKG_POWER_INFO
+  bitfields:
+  - bit: '14:0'
+    access: R/0
+    long_description: Thermal Spec Power The unsigned integer value is the equivalent of the thermal specification power of the package domain. The unit of this field is specified by the “Power Units” field of MSR_RAPL_POWER_UNIT.
+    description: Thermal Spec Power
+  - bit: '63:15'
+    description: Reserved
+  scope: Package
+  access: R/0
+  description: PKG RAPL Parameter

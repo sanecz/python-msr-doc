@@ -1,0 +1,776 @@
+---
+name: Table 2-26
+full_name: Table 2-26. MSRs Supported by Intel® Xeon® Processors E5 v2 Product Family (based on Ivy Bridge-E microarchitecture)
+supported_cpu:
+- 06_3AH
+- 06_3EH
+- 06_3FH
+msr:
+- value: 4EH78
+  name: Package
+  bitfields:
+  - bit: '0'
+    access: R/WO
+    long_description: LockOut Set 1 to prevent further writes to MSR_PPIN_CTL. Writing 1 to MSR_PPINCTL[bit 0] is permitted only if MSR_PPIN_CTL[bit 1] is clear. Default is 0. BIOS should provide an opt-in menu to enable the user to turn on MSR_PPIN_CTL[bit 1] for privileged inventory initialization agent to access MSR_PPIN. After reading MSR_PPIN, the privileged inventory initialization agent should write ‘01b’ to MSR_PPIN_CTL to disable further access to MSR_PPIN and prevent unauthorized modification to MSR_PPIN_CTL.
+    description: LockOut
+  - bit: '1'
+    access: R/W
+    long_description: 'Enable_PPIN If 1, enables MSR_PPIN to be accessible using RDMSR. Once set, attempt to write 1 to MSR_PPIN_CTL[bit 0] will cause #GP. If 0, an attempt to read MSR_PPIN will cause #GP. Default is 0.'
+    description: Enable_PPIN
+  - bit: '63:2'
+    description: Reserved
+  access: R/W
+  description: Protected Processor Inventory Number Enable Control
+  long_description: Protected Processor Inventory Number Enable Control
+- value: 4FH
+  name: MSR_PPIN
+  bitfields:
+  - bit: '63:0'
+    access: R/O
+    long_description: Protected Processor Inventory Number A unique value within a given CPUID family/model/stepping signature that a privileged inventory initialization agent can access to identify each physical processor, when access to MSR_PPIN is enabled. Access to MSR_PPIN is permitted only if MSR_PPIN_CTL[bits 1:0] = ‘10b’.
+    description: Protected Processor Inventory Number
+  scope: Package
+  access: R/O
+  description: Protected Processor Inventory Number
+- value: CEH
+  name: MSR_PLATFORM_INFO
+  bitfields:
+  - bit: '7:0'
+    description: Reserved
+  - bit: '15:8'
+    access: R/O
+    long_description: Maximum Non-Turbo Ratio This is the ratio of the frequency that invariant TSC runs at. Frequency = ratio * 100 MHz.
+    description: Maximum Non-Turbo Ratio
+  - bit: '22:16'
+    description: Reserved
+  - bit: '23'
+    access: R/O
+    long_description: 'PPIN_CAP When set to 1, indicates that Protected Processor Inventory Number (PPIN) capability can be enabled for a privileged system inventory agent to read PPIN from MSR_PPIN. When set to 0, PPIN capability is not supported. An attempt to access MSR_PPIN_CTL or MSR_PPIN will cause #GP.'
+    description: PPIN_CAP
+  - bit: '27:24'
+    description: Reserved
+  - bit: '28'
+    access: R/O
+    long_description: Programmable Ratio Limit for Turbo Mode When set to 1, indicates that Programmable Ratio Limit for Turbo mode is enabled. When set to 0, indicates Programmable Ratio Limit for Turbo mode is disabled.
+    description: Programmable Ratio Limit for Turbo Mode
+  - bit: '29'
+    access: R/O
+    long_description: Programmable TDP Limit for Turbo Mode When set to 1, indicates that TDP Limit for Turbo mode is programmable. When set to 0, indicates TDP Limit for Turbo mode is not programmable.
+    description: Programmable TDP Limit for Turbo Mode
+  - bit: '30'
+    access: R/O
+    long_description: Programmable TJ OFFSET When set to 1, indicates that MSR_TEMPERATURE_TARGET.[27:24] is valid and writable to specify a temperature offset.
+    description: Programmable TJ OFFSET
+  - bit: '39:31'
+    description: Reserved
+  - bit: '47:40'
+    access: R/O
+    long_description: Maximum Efficiency Ratio This is the minimum ratio (maximum efficiency) that the processor can operate, in units of 100MHz.
+    description: Maximum Efficiency Ratio
+  - bit: '63:48'
+    description: Reserved
+  scope: Package
+  description: Platform Information
+  long_description: Platform Information Contains power management and other model specific features enumeration. See http://biosbits.org.
+- value: E2H
+  name: MSR_PKG_CST_CONFIG_CONTROL
+  bitfields:
+  - bit: '2:0'
+    access: R/W
+    long_description: 'Package C-State Limit Specifies the lowest processor-specific C-state code name (consuming the least power) for the package. The default is set as factory-configured package C- state limit. The following C-state code name encodings are supported: 000b: C0/C1 (no package C-sate support) 001b: C2 010b: C6 no retention 011b: C6 retention 100b: C7 101b: C7s 111: No package C-state limit. Note: This field cannot be used to limit package C-state to C3.'
+    description: Package C-State Limit
+  - bit: '9:3'
+    description: Reserved
+  - bit: '10'
+    access: R/W
+    long_description: I/O MWAIT Redirection Enable When set, will map IO_read instructions sent to IO register specified by MSR_PMG_IO_CAPTURE_BASE to MWAIT instructions.
+    description: I/O MWAIT Redirection Enable
+  - bit: '14:11'
+    description: Reserved
+  - bit: '15'
+    access: R/WO
+    long_description: CFG Lock When set, locks bits 15:0 of this register until next reset.
+    description: CFG Lock
+  - bit: '63:16'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: C-State Configuration Control
+  long_description: 'C-State Configuration Control Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states. See http://biosbits.org.'
+- value: 179H
+  name: IA32_MCG_CAP
+  bitfields:
+  - bit: '7:0'
+    description: Count
+  - bit: '8'
+    description: MCG_CTL_P
+  - bit: '9'
+    description: MCG_EXT_P
+  - bit: '10'
+    description: MCP_CMCI_P
+  - bit: '11'
+    description: MCG_TES_P
+  - bit: '15:12'
+    description: Reserved
+  - bit: '23:16'
+    description: MCG_EXT_CNT
+  - bit: '24'
+    description: MCG_SER_P
+  - bit: '25'
+    description: Reserved
+  - bit: '26'
+    description: MCG_ELOG_P
+  - bit: '63:27'
+    description: Reserved
+  scope: Thread
+  access: R/O
+  description: Global Machine Check Capability
+- value: 17FH
+  name: MSR_ERROR_CONTROL
+  bitfields:
+  - bit: '0'
+    description: Reserved
+  - bit: '1'
+    access: R/W
+    long_description: MemError Log Enable When set, enables IMC status bank to log additional info in bits 36:32.
+    description: MemError Log Enable
+  - bit: '63:2'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: MC Bank Error Configuration
+- value: 1A2H
+  name: MSR_TEMPERATURE_TARGET
+  bitfields:
+  - bit: '15:0'
+    description: Reserved
+  - bit: '23:16'
+    access: RO
+    long_description: Temperature Target The minimum temperature at which PROCHOT# will be asserted. The value is degrees C.
+    description: Temperature Target
+  - bit: '27:24'
+    access: R/W
+    long_description: TCC Activation Offset Specifies a temperature offset in degrees C from the temperature target (bits 23:16). PROCHOT# will assert at the offset target temperature. Write is permitted only if MSR_PLATFORM_INFO.[30] is set.
+    description: TCC Activation Offset
+  - bit: '63:28'
+    description: Reserved
+  scope: Package
+  description: Temperature Target
+- value: 1AEH
+  name: MSR_TURBO_RATIO_LIMIT1
+  bitfields:
+  - bit: '7:0'
+    long_description: Maximum Ratio Limit for 9C Maximum turbo ratio limit of 9 core active.
+    description: Maximum Ratio Limit for 9C
+  - bit: '15:8'
+    long_description: Maximum Ratio Limit for 10C Maximum turbo ratio limit of 10 core active.
+    description: Maximum Ratio Limit for 10C
+  - bit: '23:16'
+    long_description: Maximum Ratio Limit for 11C Maximum turbo ratio limit of 11 core active.
+    description: Maximum Ratio Limit for 11C
+  - bit: '31:24'
+    long_description: Maximum Ratio Limit for 12C Maximum turbo ratio limit of 12 core active.
+    description: Maximum Ratio Limit for 12C
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  description: Maximum Ratio Limit of Turbo Mode
+  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+- value: 285H
+  name: IA32_MC5_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 286H
+  name: IA32_MC6_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 287H
+  name: IA32_MC7_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 288H
+  name: IA32_MC8_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 289H
+  name: IA32_MC9_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 28AH
+  name: IA32_MC10_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 28BH
+  name: IA32_MC11_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 28CH
+  name: IA32_MC12_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 28DH
+  name: IA32_MC13_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 28EH
+  name: IA32_MC14_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 28FH
+  name: IA32_MC15_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 290H
+  name: IA32_MC16_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 291H
+  name: IA32_MC17_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 292H
+  name: IA32_MC18_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 293H
+  name: IA32_MC19_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 294H
+  name: IA32_MC20_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 295H
+  name: IA32_MC21_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 296H
+  name: IA32_MC22_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 297H
+  name: IA32_MC23_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 298H
+  name: IA32_MC24_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 299H
+  name: IA32_MC25_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 29AH
+  name: IA32_MC26_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 29BH
+  name: IA32_MC27_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 29CH
+  name: IA32_MC28_CTL2
+  scope: Package
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 414H
+  name: IA32_MC5_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC5 reports MC errors from the Intel QPI module.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 415H
+  name: IA32_MC5_STATUS
+  scope: Package
+- value: 416H
+  name: IA32_MC5_ADDR
+  scope: Package
+- value: 417H
+  name: IA32_MC5_MISC
+  scope: Package
+- value: 418H
+  name: IA32_MC6_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC6 reports MC errors from the integrated I/O module.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 419H
+  name: IA32_MC6_STATUS
+  scope: Package
+- value: 41AH
+  name: IA32_MC6_ADDR
+  scope: Package
+- value: 41BH
+  name: IA32_MC6_MISC
+  scope: Package
+- value: 41CH
+  name: IA32_MC7_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC7 and MC 8 report MC errors from the two home agents.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 41DH
+  name: IA32_MC7_STATUS
+  scope: Package
+- value: 41EH
+  name: IA32_MC7_ADDR
+  scope: Package
+- value: 41FH
+  name: IA32_MC7_MISC
+  scope: Package
+- value: 420H
+  name: IA32_MC8_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC7 and MC 8 report MC errors from the two home agents.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 421H
+  name: IA32_MC8_STATUS
+  scope: Package
+- value: 422H
+  name: IA32_MC8_ADDR
+  scope: Package
+- value: 423H
+  name: IA32_MC8_MISC
+  scope: Package
+- value: 424H
+  name: IA32_MC9_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 425H
+  name: IA32_MC9_STATUS
+  scope: Package
+- value: 426H
+  name: IA32_MC9_ADDR
+  scope: Package
+- value: 427H
+  name: IA32_MC9_MISC
+  scope: Package
+- value: 428H
+  name: IA32_MC10_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 429H
+  name: IA32_MC10_STATUS
+  scope: Package
+- value: 42AH
+  name: IA32_MC10_ADDR
+  scope: Package
+- value: 42BH
+  name: IA32_MC10_MISC
+  scope: Package
+- value: 42CH
+  name: IA32_MC11_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 42DH
+  name: IA32_MC11_STATUS
+  scope: Package
+  description: Bank MC11 reports MC errors from a specific channel
+  long_description: Bank MC11 reports MC errors from a specific channel of the integrated memory controller.
+- value: 42EH
+  name: IA32_MC11_ADDR
+  scope: Package
+- value: 42FH
+  name: IA32_MC11_MISC
+  scope: Package
+- value: 430H
+  name: IA32_MC12_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 431H
+  name: IA32_MC12_STATUS
+  scope: Package
+- value: 432H
+  name: IA32_MC12_ADDR
+  scope: Package
+- value: 433H
+  name: IA32_MC12_MISC
+  scope: Package
+- value: 434H
+  name: IA32_MC13_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 435H
+  name: IA32_MC13_STATUS
+  scope: Package
+- value: 436H
+  name: IA32_MC13_ADDR
+  scope: Package
+- value: 437H
+  name: IA32_MC13_MISC
+  scope: Package
+- value: 438H
+  name: IA32_MC14_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 439H
+  name: IA32_MC14_STATUS
+  scope: Package
+- value: 43AH
+  name: IA32_MC14_ADDR
+  scope: Package
+- value: 43BH
+  name: IA32_MC14_MISC
+  scope: Package
+- value: 43CH
+  name: IA32_MC15_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 43DH
+  name: IA32_MC15_STATUS
+  scope: Package
+- value: 43EH
+  name: IA32_MC15_ADDR
+  scope: Package
+- value: 43FH
+  name: IA32_MC15_MISC
+  scope: Package
+- value: 440H
+  name: IA32_MC16_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 441H
+  name: IA32_MC16_STATUS
+  scope: Package
+- value: 442H
+  name: IA32_MC16_ADDR
+  scope: Package
+- value: 443H
+  name: IA32_MC16_MISC
+  scope: Package
+- value: 444H
+  name: IA32_MC17_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC17 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 445H
+  name: IA32_MC17_STATUS
+  scope: Package
+- value: 446H
+  name: IA32_MC17_ADDR
+  scope: Package
+- value: 447H
+  name: IA32_MC17_MISC
+  scope: Package
+- value: 448H
+  name: IA32_MC18_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC18 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 449H
+  name: IA32_MC18_STATUS
+  scope: Package
+- value: 44AH
+  name: IA32_MC18_ADDR
+  scope: Package
+- value: 44BH
+  name: IA32_MC18_MISC
+  scope: Package
+- value: 44CH
+  name: IA32_MC19_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC19 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 44DH
+  name: IA32_MC19_STATUS
+  scope: Package
+- value: 44EH
+  name: IA32_MC19_ADDR
+  scope: Package
+- value: 44FH
+  name: IA32_MC19_MISC
+  scope: Package
+- value: 450H
+  name: IA32_MC20_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 451H
+  name: IA32_MC20_STATUS
+  scope: Package
+  description: Bank MC20 reports MC errors from a specific CBo
+  long_description: Bank MC20 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+- value: 452H
+  name: IA32_MC20_ADDR
+  scope: Package
+- value: 453H
+  name: IA32_MC20_MISC
+  scope: Package
+- value: 454H
+  name: IA32_MC21_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC21 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 455H
+  name: IA32_MC21_STATUS
+  scope: Package
+- value: 456H
+  name: IA32_MC21_ADDR
+  scope: Package
+- value: 457H
+  name: IA32_MC21_MISC
+  scope: Package
+- value: 458H
+  name: IA32_MC22_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC22 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 459H
+  name: IA32_MC22_STATUS
+  scope: Package
+- value: 45AH
+  name: IA32_MC22_ADDR
+  scope: Package
+- value: 45BH
+  name: IA32_MC22_MISC
+  scope: Package
+- value: 45CH
+  name: IA32_MC23_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC23 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 45DH
+  name: IA32_MC23_STATUS
+  scope: Package
+- value: 45EH
+  name: IA32_MC23_ADDR
+  scope: Package
+- value: 45FH
+  name: IA32_MC23_MISC
+  scope: Package
+- value: 460H
+  name: IA32_MC24_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC24 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 461H
+  name: IA32_MC24_STATUS
+  scope: Package
+- value: 462H
+  name: IA32_MC24_ADDR
+  scope: Package
+- value: 463H
+  name: IA32_MC24_MISC
+  scope: Package
+- value: 464H
+  name: IA32_MC25_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC25 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 465H
+  name: IA32_MC25_STATUS
+  scope: Package
+- value: 466H
+  name: IA32_MC25_ADDR
+  scope: Package
+- value: 467H
+  name: IA32_MC2MISC
+  scope: Package
+- value: 468H
+  name: IA32_MC26_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC26 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 469H
+  name: IA32_MC26_STATUS
+  scope: Package
+- value: 46AH
+  name: IA32_MC26_ADDR
+  scope: Package
+- value: 46BH
+  name: IA32_MC26_MISC
+  scope: Package
+- value: 46CH
+  name: IA32_MC27_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC27 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 46DH
+  name: IA32_MC27_STATUS
+  scope: Package
+- value: 46EH
+  name: IA32_MC27_ADDR
+  scope: Package
+- value: 46FH
+  name: IA32_MC27_MISC
+  scope: Package
+- value: 470H
+  name: IA32_MC28_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC28 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  see_section:
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 471H
+  name: IA32_MC28_STATUS
+  scope: Package
+- value: 472H
+  name: IA32_MC28_ADDR
+  scope: Package
+- value: 473H
+  name: IA32_MC28_MISC
+  scope: Package
+- value: 613H
+  name: MSR_PKG_PERF_STATUS
+  scope: Package
+  access: R/O
+  description: Package RAPL Perf Status
+- value: 618H
+  name: MSR_DRAM_POWER_LIMIT
+  scope: Package
+  access: R/W
+  description: DRAM RAPL Power Limit Control
+  long_description: DRAM RAPL Power Limit Control See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 619H
+  name: MSR_DRAM_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: DRAM Energy Status
+  long_description: DRAM Energy Status See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 61BH
+  name: MSR_DRAM_PERF_STATUS
+  scope: Package
+  access: R/O
+  description: DRAM Performance Throttling Status
+  long_description: DRAM Performance Throttling Status See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 61CH
+  name: MSR_DRAM_POWER_INFO
+  scope: Package
+  access: R/W
+  description: DRAM RAPL Parameters
+  long_description: DRAM RAPL Parameters See Section 14.9.5, “DRAM RAPL Domain.”
+  see_section:
+  - 14.9.5
+- value: 639H
+  name: MSR_PP0_ENERGY_STATUS
+  scope: Package
+  access: R/O
+  description: PP0 Energy Status
+  long_description: PP0 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  see_section:
+  - 14.9.4
+- value: SeeTable2-20,forotherMSRdefinitionsapplicabletoIntelXeonprocessorE5v2withCPUIDsignature06_3EH.

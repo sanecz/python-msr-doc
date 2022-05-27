@@ -1,0 +1,278 @@
+---
+name: Table 2-22
+full_name: Table 2-22. Uncore PMU MSRs Supported by 2nd Generation Intel® Core™ Processors
+supported_cpu:
+- 06_2AH
+msr:
+- value: 391H
+  name: MSR_UNC_PERF_GLOBAL_CTRL
+  bitfields:
+  - bit: '0'
+    description: Slice 0 select
+  - bit: '1'
+    description: Slice 1 select
+  - bit: '2'
+    description: Slice 2 select
+  - bit: '3'
+    description: Slice 3 select
+  - bit: '4'
+    description: Slice 4 select
+  - bit: '18:5'
+    description: Reserved
+  - bit: '29'
+    description: Enable all uncore counters
+  - bit: '30'
+    description: Enable wake on PMI
+  - bit: '31'
+    description: Enable Freezing counter when overflow
+  - bit: '63:32'
+    description: Reserved
+  scope: Package
+  description: Uncore PMU Global Control
+- value: 392H
+  name: MSR_UNC_PERF_GLOBAL_STATUS
+  bitfields:
+  - bit: '0'
+    description: Fixed counter overflowed
+  - bit: '1'
+    description: An ARB counter overflowed
+  - bit: '2'
+    description: Reserved
+  - bit: '3'
+    description: A CBox counter overflowed
+  - bit: '63:4'
+    description: Reserved
+  scope: Package
+  description: Uncore PMU Main Status
+- value: 394H
+  name: MSR_UNC_PERF_FIXED_CTRL
+  bitfields:
+  - bit: '19:0'
+    description: Reserved
+  - bit: '20'
+    description: Enable overflow propagation
+  - bit: '21'
+    description: Reserved
+  - bit: '22'
+    description: Enable counting
+  - bit: '63:23'
+    description: Reserved
+  scope: Package
+  access: R/W
+  description: Uncore Fixed Counter Control
+- value: 395H
+  name: MSR_UNC_PERF_FIXED_CTR
+  bitfields:
+  - bit: '47:0'
+    description: Current count
+  - bit: '63:48'
+    description: Reserved
+  scope: Package
+  description: Uncore Fixed Counter
+- value: 396H
+  name: MSR_UNC_CBO_CONFIG
+  bitfields:
+  - bit: '3:0'
+    long_description: Report the number of C-Box units with performance counters, including processor cores and processor graphics.
+    description: Report the number of C-Box units with performance
+  - bit: '63:4'
+    description: Reserved
+  scope: Package
+  access: R/O
+  description: Uncore C-Box Configuration Information
+- value: 3B0H
+  name: MSR_UNC_ARB_PERFCTR0
+  scope: Package
+  description: Uncore Arb Unit
+- value: 3B1H
+  name: MSR_UNC_ARB_PERFCTR1
+  scope: Package
+  description: Uncore Arb Unit
+- value: 3B2H
+  name: MSR_UNC_ARB_PERFEVTSEL0
+  scope: Package
+  description: Uncore Arb Unit
+- value: 3B3H
+  name: MSR_UNC_ARB_PERFEVTSEL1
+  scope: Package
+  description: Uncore Arb unit
+- value: 700H
+  name: MSR_UNC_CBO_0_PERFEVTSEL0
+  scope: Package
+  description: Uncore C-Box 0
+- value: 701H
+  name: MSR_UNC_CBO_0_PERFEVTSEL1
+  scope: Package
+  description: Uncore C-Box 0
+- value: 702H
+  name: MSR_UNC_CBO_0_PERFEVTSEL2
+  scope: Package
+  description: Uncore C-Box 0
+- value: 703H
+  name: MSR_UNC_CBO_0_PERFEVTSEL3
+  scope: Package
+  description: Uncore C-Box 0
+- value: 705H
+  name: MSR_UNC_CBO_0_UNIT_STATUS
+  scope: Package
+  description: Uncore C-Box 0
+- value: 706H
+  name: MSR_UNC_CBO_0_PERFCTR0
+  scope: Package
+  description: Uncore C-Box 0
+- value: 707H
+  name: MSR_UNC_CBO_0_PERFCTR1
+  scope: Package
+  description: Uncore C-Box 0
+- value: 708H
+  name: MSR_UNC_CBO_0_PERFCTR2
+  scope: Package
+  description: Uncore C-Box 0
+- value: 709H
+  name: MSR_UNC_CBO_0_PERFCTR3
+  scope: Package
+  description: Uncore C-Box 0
+- value: 710H
+  name: MSR_UNC_CBO_1_PERFEVTSEL0
+  scope: Package
+  description: Uncore C-Box 1
+- value: 711H
+  name: MSR_UNC_CBO_1_PERFEVTSEL1
+  scope: Package
+  description: Uncore C-Box 1
+- value: 712H
+  name: MSR_UNC_CBO_1_PERFEVTSEL2
+  scope: Package
+  description: Uncore C-Box 1
+- value: 713H
+  name: MSR_UNC_CBO_1_PERFEVTSEL3
+  scope: Package
+  description: Uncore C-Box 1
+- value: 715H
+  name: MSR_UNC_CBO_1_UNIT_STATUS
+  scope: Package
+  description: Uncore C-Box 1
+- value: 716H
+  name: MSR_UNC_CBO_1_PERFCTR0
+  scope: Package
+  description: Uncore C-Box 1
+- value: 717H
+  name: MSR_UNC_CBO_1_PERFCTR1
+  scope: Package
+  description: Uncore C-Box 1
+- value: 718H
+  name: MSR_UNC_CBO_1_PERFCTR2
+  scope: Package
+  description: Uncore C-Box 1
+- value: 719H
+  name: MSR_UNC_CBO_1_PERFCTR3
+  scope: Package
+  description: Uncore C-Box 1
+- value: 720H
+  name: MSR_UNC_CBO_2_PERFEVTSEL0
+  scope: Package
+  description: Uncore C-Box 2
+- value: 721H
+  name: MSR_UNC_CBO_2_PERFEVTSEL1
+  scope: Package
+  description: Uncore C-Box 2
+- value: 722H
+  name: MSR_UNC_CBO_2_PERFEVTSEL2
+  scope: Package
+  description: Uncore C-Box 2
+- value: 723H
+  name: MSR_UNC_CBO_2_PERFEVTSEL3
+  scope: Package
+  description: Uncore C-Box 2
+- value: 725H
+  name: MSR_UNC_CBO_2_UNIT_STATUS
+  scope: Package
+  description: Uncore C-Box 2
+- value: 726H
+  name: MSR_UNC_CBO_2_PERFCTR0
+  scope: Package
+  description: Uncore C-Box 2
+- value: 727H
+  name: MSR_UNC_CBO_2_PERFCTR1
+  scope: Package
+  description: Uncore C-Box 2
+- value: 728H
+  name: MSR_UNC_CBO_3_PERFCTR2
+  scope: Package
+  description: Uncore C-Box 3
+- value: 729H
+  name: MSR_UNC_CBO_3_PERFCTR3
+  scope: Package
+  description: Uncore C-Box 3
+- value: 730H
+  name: MSR_UNC_CBO_3_PERFEVTSEL0
+  scope: Package
+  description: Uncore C-Box 3
+- value: 731H
+  name: MSR_UNC_CBO_3_PERFEVTSEL1
+  scope: Package
+  description: Uncore C-Box 3
+- value: 732H
+  name: MSR_UNC_CBO_3_PERFEVTSEL2
+  scope: Package
+  description: Uncore C-Box 3
+- value: 733H
+  name: MSR_UNC_CBO_3_PERFEVTSEL3
+  scope: Package
+  description: Uncore C-Box 3
+- value: 735H
+  name: MSR_UNC_CBO_3_UNIT_STATUS
+  scope: Package
+  description: Uncore C-Box 3
+- value: 736H
+  name: MSR_UNC_CBO_3_PERFCTR0
+  scope: Package
+  description: Uncore C-Box 3
+- value: 737H
+  name: MSR_UNC_CBO_3_PERFCTR1
+  scope: Package
+  description: Uncore C-Box 3
+- value: 738H
+  name: MSR_UNC_CBO_3_PERFCTR2
+  scope: Package
+  description: Uncore C-Box 3
+- value: 739H
+  name: MSR_UNC_CBO_3_PERFCTR3
+  scope: Package
+  description: Uncore C-Box 3
+- value: 740H
+  name: MSR_UNC_CBO_4_PERFEVTSEL0
+  scope: Package
+  description: Uncore C-Box 4
+- value: 741H
+  name: MSR_UNC_CBO_4_PERFEVTSEL1
+  scope: Package
+  description: Uncore C-Box 4
+- value: 742H
+  name: MSR_UNC_CBO_4_PERFEVTSEL2
+  scope: Package
+  description: Uncore C-Box 4
+- value: 743H
+  name: MSR_UNC_CBO_4_PERFEVTSEL3
+  scope: Package
+  description: Uncore C-Box 4
+- value: 745H
+  name: MSR_UNC_CBO_4_UNIT_STATUS
+  scope: Package
+  description: Uncore C-Box 4
+- value: 746H
+  name: MSR_UNC_CBO_4_PERFCTR0
+  scope: Package
+  description: Uncore C-Box 4
+- value: 747H
+  name: MSR_UNC_CBO_4_PERFCTR1
+  scope: Package
+  description: Uncore C-Box 4
+- value: 748H
+  name: MSR_UNC_CBO_4_PERFCTR2
+  scope: Package
+  description: Uncore C-Box 4
+- value: 749H
+  name: MSR_UNC_CBO_4_PERFCTR3
+  scope: Package
+  description: Uncore C-Box 4

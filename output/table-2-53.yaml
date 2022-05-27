@@ -1,0 +1,557 @@
+---
+name: Table 2-53
+full_name: Table 2-53. MSRs in the P6 Family Processors
+supported_cpu:
+- P6 Family
+msr:
+- value: 0H
+  name: P5_MC_ADDR
+  description: See Section 2.23
+  see_section:
+  - '2.23'
+- value: 1H
+  name: P5_MC_TYPE
+  description: See Section 2.23
+  see_section:
+  - '2.23'
+- value: 10H
+  name: TSC
+  description: See Section 17.17
+  see_section:
+  - '17.17'
+- value: 17H
+  name: IA32_PLATFORM_ID
+  bitfields:
+  - bit: '49:0'
+    description: Reserved
+  - bit: '52:50'
+    access: R
+    long_description: Platform Id Contains information concerning the intended platform for the processor. 52 51 50 0 0 0 Processor Flag 0 0 0 1 Processor Flag 1 0 1 0 Processor Flag 2 0 1 1 Processor Flag 3 1 0 0 Processor Flag 4 1 0 1 Processor Flag 5 1 1 0 Processor Flag 6 1 1 1 Processor Flag 7
+    description: Platform Id
+  - bit: '56:53'
+    description: L2 Cache Latency Read
+  - bit: '59:57'
+    description: Reserved
+  - bit: '60'
+    description: Clock Frequency Ratio Read
+  - bit: 63:61
+    description: Reserved
+  access: R
+  description: Platform ID
+  long_description: Platform ID The operating system can use this MSR to determine “slot” information for the processor and the proper microcode update to load.
+- value: 1BH
+  name: APIC_BASE
+  bitfields:
+  - bit: '7:0'
+    description: Reserved
+  - bit: '8'
+    long_description: Boot Strap Processor Indicator Bit 1 = BSP
+    description: Boot Strap Processor Indicator Bit
+  - bit: '10:9'
+    description: Reserved
+  - bit: '11'
+    long_description: APIC Global Enable Bit - Permanent till reset 1 = Enabled 0 = Disabled
+    description: APIC Global Enable Bit - Permanent till reset
+  - bit: '31:12'
+    description: APIC Base Address
+  - bit: '63:32'
+    description: Reserved
+  description: Section 10.4.4
+  see_section:
+  - 10.4.4
+- value: 2AH
+  name: EBL_CR_POWERON
+  bitfields:
+  - bit: '0'
+    description: Reserved1
+  - bit: '1'
+    access: R/W
+    long_description: Data Error Checking Enable 1 = Enabled 0 = Disabled
+    description: Data Error Checking Enable
+  - bit: '2'
+    access: R/W
+    long_description: Response Error Checking Enable FRCERR Observation Enable 1 = Enabled 0 = Disabled
+    description: Response Error Checking Enable FRCERR Observation Enable
+  - bit: '3'
+    access: R/W
+    long_description: AERR# Drive Enable 1 = Enabled 0 = Disabled
+    description: AERR# Drive Enable
+  - bit: '4'
+    access: R/W
+    long_description: BERR# Enable for Initiator Bus Requests 1 = Enabled 0 = Disabled
+    description: BERR# Enable for Initiator Bus Requests
+  - bit: '5'
+    description: Reserved
+  - bit: '6'
+    access: R/W
+    long_description: BERR# Driver Enable for Initiator Internal Errors 1 = Enabled 0 = Disabled
+    description: BERR# Driver Enable for Initiator Internal Errors
+  - bit: '7'
+    access: R/W
+    long_description: BINIT# Driver Enable 1 = Enabled 0 = Disabled
+    description: BINIT# Driver Enable
+  - bit: '8'
+    access: R
+    long_description: Output Tri-state Enabled 1 = Enabled 0 = Disabled
+    description: Output Tri-state Enabled
+  - bit: '9'
+    access: R
+    long_description: Execute BIST 1 = Enabled 0 = Disabled
+    description: Execute BIST
+  - bit: '10'
+    access: R
+    long_description: AERR# Observation Enabled 1 = Enabled 0 = Disabled
+    description: AERR# Observation Enabled
+  - bit: '11'
+    description: Reserved
+  - bit: '12'
+    access: R
+    long_description: BINIT# Observation Enabled 1 = Enabled 0 = Disabled
+    description: BINIT# Observation Enabled
+  - bit: '13'
+    access: R
+    long_description: In Order Queue Depth 1 = 1 0 = 8
+    description: In Order Queue Depth
+  - bit: '14'
+    access: R
+    long_description: 1-MByte Power on Reset Vector 1 = 1MByte 0 = 4GBytes
+    description: 1-MByte Power on Reset Vector
+  - bit: '15'
+    access: R
+    long_description: FRC Mode Enable 1 = Enabled 0 = Disabled
+    description: FRC Mode Enable
+  - bit: '17:16'
+    access: R
+    description: APIC Cluster ID
+  - bit: '19:18'
+    access: R
+    long_description: System Bus Frequency 00 = 66MHz 10 = 100Mhz 01 = 133MHz 11 = Reserved
+    description: System Bus Frequency
+  - bit: '21: 20'
+    access: R
+    description: Symmetric Arbitration ID
+  - bit: '25:22'
+    access: R
+    description: Clock Frequency Ratio
+  - bit: '26'
+    access: R/W
+    description: Low Power Mode Enable
+  - bit: '27'
+    description: Clock Frequency Ratio
+  - bit: '63:28'
+    description: Reserved1
+  access: R/W
+  description: Processor Hard Power-On Configuration
+  long_description: Processor Hard Power-On Configuration Enables and disables processor features; (R) indicates current processor configuration.
+- value: 33H
+  name: TEST_CTRL
+  bitfields:
+  - bit: '29:0'
+    description: Reserved
+  - bit: '30'
+    description: Streaming Buffer Disable
+  - bit: '31'
+    long_description: Disable LOCK# Assertion for split locked access.
+    description: Disable LOCK#
+  description: Test Control Register
+- value: 79H
+  name: BIOS_UPDT_TRIG
+  description: BIOS Update Trigger Register
+- value: 88H
+  name: BBL_CR_D0[63:0]
+  description: 'Chunk 0 data register D[63:0]: used to write to and read from the L2'
+- value: 89H
+  name: BBL_CR_D1[63:0]
+  description: 'Chunk 1 data register D[63:0]: used to write to and read from the L2'
+- value: 8AH
+  name: BBL_CR_D2[63:0]
+  description: 'Chunk 2 data register D[63:0]: used to write to and read from the L2'
+- value: 8BH
+  name: BIOS_SIGN/BBL_CR_D3[63:0]
+  description: BIOS Update Signature Register or Chunk 3 data register D[63:0]
+  long_description: BIOS Update Signature Register or Chunk 3 data register D[63:0] Used to write to and read from the L2 depending on the usage model.
+- value: C1H
+  name: PerfCtr0
+  alt_name: PERFCTR0
+  description: Performance Counter Register
+  long_description: Performance Counter Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: C2H
+  name: PerfCtr1
+  alt_name: PERFCTR1
+  description: Performance Counter Register
+  long_description: Performance Counter Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: FEH
+  name: MTRRcap
+  description: Memory Type Range Registers
+- value: 116H
+  name: |-
+    BBL_CR_ADDR [63:0]
+    BBL_CR_ADDR [63:32]
+    BBL_CR_ADDR [31:3]
+    BBL_CR_ADDR [2:0]
+  description: Address register
+  long_description: 'Address register: used to send specified address (A31-A3) to L2 during cache initialization accesses. Reserved, Address bits [35:3] Reserved Set to 0.'
+- value: 118H
+  name: BBL_CR_DECC[63:0]
+  description: 'Data ECC register D[7:0]: used to write ECC and read ECC to/from L2'
+- value: 119H
+  name: "BBL_CR_CTL \nBL_CR_CTL[63:22]\nBBL_CR_CTL[21]"
+  bitfields:
+  - bit: |-
+      BBL_CR_CTL[20:19]
+      BBL_CR_CTL[18]
+      BBL_CR_CTL[17]
+      BBL_CR_CTL[16]
+      BBL_CR_CTL[15:14]
+      BBL_CR_CTL[13:12]
+      BBL_CR_CTL[11:10]
+      BBL_CR_CTL[9:8]
+      BBL_CR_CTL[7]
+      BBL_CR_CTL[6:5]
+    long_description: User supplied ECC Reserved L2 Hit Reserved State from L2 Modified - 11,Exclusive - 10, Shared - 01, Invalid - 00 Way from L2 Way 0 - 00, Way 1 - 01, Way 2 - 10, Way 3 - 11 Way to L2 Reserved State to L2
+    description: User supplied ECC
+  - bit: |-
+      BBL_CR_CTL[4:0]
+      01100
+      01110
+      01111
+      00010
+      00011
+      010 + MESI encode
+      111 + MESI encode
+      100 + MESI encode
+    access: CR
+    long_description: L2 Command Data Read w/ LRU update (RLU) Tag Read w/ Data Read (TRR) Tag Inquire (TI) L2 Control Register Read L2 Control Register Write (CW) Tag Write w/ Data Read (TWR) Tag Write w/ Data Write (TWW) Tag Write (TW)
+    description: L2 Command
+  description: Control register
+  long_description: 'Control register: used to program L2 commands to be issued via cache configuration accesses mechanism. Also receives L2 lookup response Reserved Processor number2 Disable = 1 Enable = 0 Reserved'
+- value: 11AH
+  name: BBL_CR_TRIG
+  description: Trigger register
+  long_description: 'Trigger register: used to initiate a cache configuration accesses access, Write only with Data = 0.'
+- value: 11BH
+  name: BBL_CR_BUSY
+  description: Busy register
+  long_description: 'Busy register: indicates when a cache configuration accesses L2 command is in progress. D[0] = 1 = BUSY'
+- value: 11EH
+  name: "BBL_CR_CTL3\nBBL_CR_CTL3[63:26]\nBBL_CR_CTL3[25]\nBBL_CR_CTL3[24]\nBBL_CR_CTL3[23]\nBBL_CR_CTL3[22:20]\n111\n110 \n101\n100\n011\n010\n001\n000\nBBL_CR_CTL3[19]\nBBL_CR_CTL3[18]"
+  bitfields:
+  - bit: |-
+      BBL_CR_CTL3[17:13
+      00001
+      00010
+      00100
+      01000
+      10000
+      BBL_CR_CTL3[12:11]
+      BBL_CR_CTL3[10:9]
+      00
+      01
+      10
+      11
+      BBL_CR_CTL3[8]
+      BBL_CR_CTL3[7]
+      BBL_CR_CTL3[6]
+      BBL_CR_CTL3[5]
+      BBL_CR_CTL3[4:1]
+      BBL_CR_CTL3[0]
+    long_description: Cache size per bank (read/write) 256KBytes 512KBytes 1MByte 2MByte 4MBytes Number of L2 banks (read only) L2 Associativity (read only) Direct Mapped 2 Way 4 Way Reserved L2 Enabled (read/write) CRTN Parity Check Enable (read/write) Address Parity Check Enable (read/write) ECC Check Enable (read/write) L2 Cache Latency (read/write) L2 Configured (read/write )
+    description: Cache size per bank
+  description: Control register 3
+  long_description: 'Control register 3: used to configure the L2 Cache Reserved Cache bus fraction (read only) Reserved L2 Hardware Disable (read only) L2 Physical Address Range support 64GBytes 32GBytes 16GBytes 8GBytes 4GBytes 2GBytes 1GBytes 512MBytes Reserved Cache State error checking enable (read/write)'
+- value: 174H
+  name: SYSENTER_CS_MSR
+  description: CS register target for CPL 0 code
+- value: 175H
+  name: SYSENTER_ESP_MSR
+  description: Stack pointer for CPL 0 stack
+- value: 176H
+  name: SYSENTER_EIP_MSR
+  description: CPL 0 code entry point
+- value: 179H
+  name: MCG_CAP
+  description: Machine Check Global Control Register
+- value: 17AH
+  name: MCG_STATUS
+  description: Machine Check Error Reporting Register - contains information related to a
+  long_description: Machine Check Error Reporting Register - contains information related to a machine-check error if its VAL (valid) flag is set. Software is responsible for clearing IA32_MCi_STATUS MSRs by explicitly writing 0s to them; writing 1s to them causes a general-protection exception.
+- value: 17BH
+  name: MCG_CTL
+  description: 'Machine Check Error Reporting Register - controls signaling of #MC for'
+  long_description: 'Machine Check Error Reporting Register - controls signaling of #MC for errors produced by a particular hardware unit (or group of hardware units).'
+- value: 186H
+  name: PerfEvtSel0
+  alt_name: EVNTSEL0
+  bitfields:
+  - bit: '7:0'
+    long_description: Event Select Refer to Performance Counter section for a list of event encodings.
+    description: Event Select
+  - bit: '15:8'
+    long_description: UMASK (Unit Mask) Unit mask register set to 0 to enable all count options.
+    description: UMASK
+  - bit: '16'
+    long_description: USER Controls the counting of events at Privilege levels of 1, 2, and 3.
+    description: USER
+  - bit: '17'
+    long_description: OS Controls the counting of events at Privilege level of 0.
+    description: OS
+  - bit: '18'
+    long_description: E O ccurrence/Duration Mode Select 1 = Occurrence 0 = Duration
+    description: E O
+  - bit: '19'
+    long_description: PC Enabled the signaling of performance counter overflow via BP0 pin
+    description: PC
+  - bit: '20'
+    long_description: INT Enables the signaling of counter overflow via input to APIC 1 = Enable 0 = Disable
+    description: INT
+  - bit: '22'
+    long_description: ENABLE Enables the counting of performance events in both counters 1 = Enable 0 = Disable
+    description: ENABLE
+  - bit: '23'
+    long_description: INV Inverts the result of the CMASK condition 1 = Inverted 0 = Non-Inverted
+    description: INV
+  - bit: '31:24'
+    description: CMASK
+  access: R/W
+  description: Performance Event Select Register 0
+- value: 187H
+  name: PerfEvtSel1
+  alt_name: EVNTSEL1
+  bitfields:
+  - bit: '7:0'
+    long_description: Event Select Refer to Performance Counter section for a list of event encodings.
+    description: Event Select
+  - bit: '15:8'
+    long_description: UMASK (Unit Mask) Unit mask register set to 0 to enable all count options.
+    description: UMASK
+  - bit: '16'
+    long_description: USER Controls the counting of events at Privilege levels of 1, 2, and 3.
+    description: USER
+  - bit: '17'
+    long_description: OS Controls the counting of events at Privilege level of 0.
+    description: OS
+  - bit: '18'
+    long_description: E O ccurrence/Duration Mode Select. 1 = Occurrence 0 = Duration
+    description: E O
+  - bit: '19'
+    long_description: PC Enabled the signaling of performance counter overflow via BP0 pin.
+    description: PC
+  - bit: '20'
+    long_description: INT Enables the signaling of counter overflow via input to APIC. 1 = Enable 0 = Disable
+    description: INT
+  - bit: '23'
+    long_description: INV Inverts the result of the CMASK condition. 1 = Inverted 0 = Non-Inverted
+    description: INV
+  - bit: '31:24'
+    description: CMASK
+  access: R/W
+  description: Performance Event Select for Counter 1
+- value: 1D9H
+  name: DEBUGCTLMSR
+  bitfields:
+  - bit: '0'
+    description: Enable/Disable Last Branch Records
+  - bit: '1'
+    description: Branch Trap Flag
+  - bit: '2'
+    description: Performance Monitoring/Break Point Pins
+  - bit: '3'
+    description: Performance Monitoring/Break Point Pins
+  - bit: '4'
+    description: Performance Monitoring/Break Point Pins
+  - bit: '5'
+    description: Performance Monitoring/Break Point Pins
+  - bit: '6'
+    description: Enable/Disable Execution Trace Messages
+  - bit: '31:7'
+    description: Reserved
+  description: Enables last branch
+  long_description: Enables last branch, interrupt, and exception recording; taken branch breakpoints; the breakpoint reporting pins; and trace messages. This register can be written to using the WRMSR instruction, when operating at privilege level 0 or when in real-address mode.
+- value: 1DBH
+  name: LASTBRANCHFROMIP
+  description: 32-bit register for recording the instruction pointers for the last branch
+  long_description: 32-bit register for recording the instruction pointers for the last branch, interrupt, or exception that the processor took prior to a debug exception being generated.
+- value: 1DCH
+  name: LASTBRANCHTOIP
+  description: 32-bit register for recording the instruction pointers for the last branch
+  long_description: 32-bit register for recording the instruction pointers for the last branch, interrupt, or exception that the processor took prior to a debug exception being generated.
+- value: 1DDH
+  name: LASTINTFROMIP
+  description: Last INT from IP
+- value: 1DEH
+  name: LASTINTTOIP
+  description: Last INT to IP
+- value: 200H
+  name: MTRRphysBase0
+  description: Memory Type Range Registers
+- value: 201H
+  name: MTRRphysMask0
+  description: Memory Type Range Registers
+- value: 202H
+  name: MTRRphysBase1
+  description: Memory Type Range Registers
+- value: 203H
+  name: MTRRphysMask1
+  description: Memory Type Range Registers
+- value: 204H
+  name: MTRRphysBase2
+  description: Memory Type Range Registers
+- value: 205H
+  name: MTRRphysMask2
+  description: Memory Type Range Registers
+- value: 206H
+  name: MTRRphysBase3
+  description: Memory Type Range Registers
+- value: 207H
+  name: MTRRphysMask3
+  description: Memory Type Range Registers
+- value: 208H
+  name: MTRRphysBase4
+  description: Memory Type Range Registers
+- value: 209H
+  name: MTRRphysMask4
+  description: Memory Type Range Registers
+- value: 20AH
+  name: MTRRphysBase5
+  description: Memory Type Range Registers
+- value: 20BH
+  name: MTRRphysMask5
+  description: Memory Type Range Registers
+- value: 20CH
+  name: MTRRphysBase6
+  description: Memory Type Range Registers
+- value: 20DH
+  name: MTRRphysMask6
+  description: Memory Type Range Registers
+- value: 20EH
+  name: MTRRphysBase7
+  description: Memory Type Range Registers
+- value: 20FH
+  name: MTRRphysMask7
+  description: Memory Type Range Registers
+- value: 250H
+  name: MTRRfix64K_00000
+  description: Memory Type Range Registers
+- value: 258H
+  name: MTRRfix16K_80000
+  description: Memory Type Range Registers
+- value: 259H
+  name: MTRRfix16K_A0000
+  description: Memory Type Range Registers
+- value: 268H
+  name: MTRRfix4K_C0000
+  description: Memory Type Range Registers
+- value: 269H
+  name: MTRRfix4K_C8000
+  description: Memory Type Range Registers
+- value: 26AH
+  name: MTRRfix4K_D0000
+  description: Memory Type Range Registers
+- value: 26BH
+  name: MTRRfix4K_D8000
+  description: Memory Type Range Registers
+- value: 26CH
+  name: MTRRfix4K_E0000
+  description: Memory Type Range Registers
+- value: 26DH
+  name: MTRRfix4K_E8000
+  description: Memory Type Range Registers
+- value: 26EH
+  name: MTRRfix4K_F0000
+  description: Memory Type Range Registers
+- value: 26FH
+  name: MTRRfix4K_F8000
+  description: Memory Type Range Registers
+- value: 2FFH
+  name: MTRRdefType
+  bitfields:
+  - bit: '2:0'
+    description: Default memory type
+  - bit: '10'
+    description: Fixed MTRR enable
+  - bit: '11'
+    description: MTRR Enable
+  description: Memory Type Range Registers
+- value: 400H
+  name: MC0_CTL
+  description: 'Machine Check Error Reporting Register - controls signaling of #MC for'
+  long_description: 'Machine Check Error Reporting Register - controls signaling of #MC for errors produced by a particular hardware unit (or group of hardware units).'
+- value: 401H
+  name: MC0_STATUS
+  bitfields:
+  - bit: '15:0'
+    description: MC_STATUS_MCACOD
+  - bit: '31:16'
+    description: MC_STATUS_MSCOD
+  - bit: '57'
+    description: MC_STATUS_DAM
+  - bit: '58'
+    description: MC_STATUS_ADDRV
+  - bit: '59'
+    description: MC_STATUS_MISCV
+  - bit: '60'
+    description: MC_STATUS_EN. (Note
+  - bit: '61'
+    description: MC_STATUS_UC
+  - bit: '62'
+    description: MC_STATUS_O
+  - bit: '63'
+    description: MC_STATUS_V
+  description: Machine Check Error Reporting Register - contains information related to a
+  long_description: Machine Check Error Reporting Register - contains information related to a machine-check error if its VAL (valid) flag is set. Software is responsible for clearing IA32_MCi_STATUS MSRs by explicitly writing 0s to them; writing 1s to them causes a general-protection exception.
+- value: 402H
+  name: MC0_ADDR
+- value: 403H
+  name: MC0_MISC
+  description: Defined in MCA architecture but not implemented in the P6 family
+  long_description: Defined in MCA architecture but not implemented in the P6 family processors.
+- value: 404H
+  name: MC1_CTL
+- value: 405H
+  name: MC1_STATUS
+  description: Bit definitions same as MC0_STATUS
+- value: 406H
+  name: MC1_ADDR
+- value: 407H
+  name: MC1_MISC
+  description: Defined in MCA architecture but not implemented in the P6 family
+  long_description: Defined in MCA architecture but not implemented in the P6 family processors.
+- value: 408H
+  name: MC2_CTL
+- value: 409H
+  name: MC2_STATUS
+  description: Bit definitions same as MC0_STATUS
+- value: 40AH
+  name: MC2_ADDR
+- value: 40BH
+  name: MC2_MISC
+  description: Defined in MCA architecture but not implemented in the P6 family
+  long_description: Defined in MCA architecture but not implemented in the P6 family processors.
+- value: 40CH
+  name: MC4_CTL
+- value: 40DH
+  name: MC4_STATUS
+  description: Bit definitions same as MC0_STATUS
+  long_description: Bit definitions same as MC0_STATUS, except bits 0, 4, 57, and 61 are hardcoded to 1.
+- value: 40EH
+  name: MC4_ADDR
+  description: Defined in MCA architecture but not implemented in P6 Family processors
+- value: 40FH
+  name: MC4_MISC
+  description: Defined in MCA architecture but not implemented in the P6 family
+  long_description: Defined in MCA architecture but not implemented in the P6 family processors.
+- value: 410H
+  name: MC3_CTL
+- value: 411H
+  name: MC3_STATUS
+  description: Bit definitions same as MC0_STATUS
+- value: 412H
+  name: MC3_ADDR
+- value: 413H
+  name: MC3_MISC
+  description: Defined in MCA architecture but not implemented in the P6 family
+  long_description: Defined in MCA architecture but not implemented in the P6 family processors.
