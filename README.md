@@ -74,8 +74,6 @@ TODO:
 - [ ] P6 Family -> correct format
 - [ ] Patches
 - [ ] Table 2-53 is badly formatted on the pdf
-- [ ] Alt name broken on table 2-2
-- [ ] Table 2-20 IA32_MONITOR_FILTER_ fix carriage return inregister name
-- [ ] Table 2-32 (and others) 'see table 2-32' is displayed in the list of supported cpus
 - [ ] IA32_MC2_CTL model availability is set to empty list
 - [ ] 18BH-18FH manualk patch for MSR_MCG_RESERVED1 to MSR_MCG_RESERVED5
+- [ ] Table 2-23 p197 give package instead of msr_error_control in register name

@@ -98,6 +98,8 @@ class MSRDescription:
             setattr(self, other, found_see_other)
 
     def guess_format_by_header(self, header: List[str], data: List[str]) -> None:
+        logger.debug("Header: %s" % header)
+        logger.debug("Data: %s"  % data)
         # Sometime when we parse the header, even if it's displayed 'hex' 'dec' in the pdf
         # we are not seeing it in the header list, so i consider those as 'broken' tables
         # or sometimes they just forgot the headers
@@ -131,14 +133,14 @@ class MSRDescription:
             # format: [hex, name/bits, model avail, shared/uniq, bit descr]
             self.bit = data[1]
             data[2] = " ".join(data[2].split("\n"))  # sometimes it's multiline
-            self.model_availability = [model.strip() for model in data[2].strip().split(",")]
+            self.model_availability = [model.strip() for model in data[2].strip().split(",") if model.strip()]
             self.shared = data[3]
             description_idx = 4
         elif header[3].lower() == "model avail- ability":  # it's cut in the middle ffs
             # table 2-48 to 2-50
             # format: [hex, dec, name/bits, model avail, shared/uniq, bit descr]
             data[3] = " ".join(data[3].split("\n"))  # sometimes it's multiline
-            self.model_availability = [model.strip() for model in data[3].strip().split(",")]
+            self.model_availability = [model.strip() for model in data[3].strip().split(",") if model.strip()]
             self.shared = data[4]
             description_idx = 5
         elif header[4].lower() == "comment":
@@ -206,21 +208,35 @@ class MSR(MSRDescription):
     def __init__(self, data: List[str], header: List[str]):
         self.guess_format_by_header(header, data)
         self.value = strip_spaces(data[0]).replace(" ", "")
+        # TODO: test if value is hex or hex and contains "_"
+        # TODO: otherwise raise Exception (i.e end of table 2-23)
+
         # Depends on the header we are changing your way of parsing the table
         # except for the register always position 0
-        # sometimes the bitfield is multiline, so this mean we need to fix it by hand, just display the first line
-        self._set_name(getattr(self, "bit", data[2].split("\n")[0]))  # dirty hack to see if we are in a broken table
+        self._set_name(getattr(self, "bit", data[2]))  # dirty hack to see if we are in a broken table
         self.fields = []
 
     def _set_name(self, data: str) -> None:
         """
         Try to retrieive former MSR name if possible
         """
+        # alt name is guessed only if there is a parenthesis
         if "(" in data:
+            # This might be a register/bitfield on multiline i.e
+            # IA32_MTRR_PHYSBASE0
+            # (MTRRphysBase0)
+            # or everything in a single line i.e `IA32_MCG_CAP (MCG_CAP)`
+            data = "".join(data.split("\n"))
             name, alt_name = data.split("(")
             self.name = name.strip()
             self.alt_name = alt_name.replace(")", "").strip()
         else:
+            # sometimes the register_name bitfield is multiline i.e
+            # IA32_MONITOR_FILTER_
+            # SIZE
+            # so either it's only on 2 lines to display the name or it's broken
+            # so this mean we need to fix it by hand, just display the 2 first lines
+            data = ''.join(data.split("\n")[0:2])
             self.name = data.strip()
 
     def __repr__(self) -> str:
@@ -445,7 +461,7 @@ def parse_pdf(path: str) -> Tuple[Set[str], List[Table]]:
     # MSR are described from page 19 to 394, using man intel vol 4 Order October 2019
     # page 17 to 19 describe available CPU families/models
     # ofc consistency is way too hard, so I added manually 05_09H
-    pdf = PDFHandler(path, pages="17-394")
+    pdf = PDFHandler(path, pages="17-200")
     #pdf = PDFHandler(path, pages="17,353-359")
     tables = pdf.parse()
 
@@ -464,7 +480,7 @@ def parse_pdf(path: str) -> Tuple[Set[str], List[Table]]:
             current_table = Table(table_id, title)
             table_list.append(current_table)
 
-        logger.debug("Working on page %s table %s", table.page, table_id)
+        logger.info("Working on page %s table %s", table.page, table_id)
 
         header = [strip_spaces(header) for header in table.data[0]]
         for data in table.data[2:]:
@@ -500,20 +516,54 @@ def parse_cpus(path: str, cpu_list: Set[str], table_list: List[Table]) -> None:
     for page in pdf.pages[394:470]:
         for idx, elem in enumerate(page.elements):
             # Move until we find the start
-            if elem.text().startswith(INDEX_START):
+            if elem.text().startswith("Location"):
                 break
-        for elem in page.elements[idx+1:]:
+        elem_iterator = iter(page.elements[idx+1:])
+        for elem in elem_iterator:
             text = elem.text()
-            # Format is kinda the same, MSR NAME at first, we ignore it
-            # Then a new line, and for each family or group of cpu it's
-            # displaymodel_family ..... See Table xx
-            # split on points and get first and last elements
-            if not "See Table" in text:
+            # multiple formats
+            # df_dm1, df_dm2 ..... See Table xx
+            # sometimes it's
+            # df_dm1, df_dm2 See Table xx
+            # df_dm3 .........
+            # sometimes it's
+            # df_dm .......... See Table xx and
+            #                  Table yy
+
+            if text.startswith("See Table"):
+                # This might be alone in the line so next line is a multi line with all the cpu families
+                logger.debug("Multi line table detected %s" % text)
+                table_name = text
+                cpu_list = next(elem_iterator).text().replace("\n", "").split(".")[0]
+                logger.debug("CPUs found %s" % cpu_list)
+            elif "." in text and "Vol" not in text:
+                # "Vol. 4 " is the end of the page
+                logger.debug("Dot found in text %s" % text)
+                if not "See Table" in text:
+                    # another broken thing, possibly on next line
+                    cpu_list = text.split(".")[0]
+                    table_name = next(elem_iterator).text()
+                else:
+                    cpu_list, table_name = list(filter(lambda x: x.strip(), text.split(".")))
+            else:
+                logger.debug("Nothing found in text %s" % text)
+                # nothing to see here, probably msr name
                 continue
-            splitted_text = text.split(".")
-            table = get_table_by_name(table_list, splitted_text[-1].strip().replace("See ", ""))
-            if table:
-                table.supported_cpus.extend([cpu.strip() for cpu in splitted_text[0].split(",")])
+
+            logger.debug("Extracted name %s and list %s" % (table_name, cpu_list))
+
+            table_name_list = [table_name]
+    
+            if "and" in table_name:
+                other_table = next(elem_iterator).text()
+
+            cpu_list = [cpu.strip().replace(",", "") for cpu in cpu_list.split()]
+
+            for table_name in table_name_list:
+                table = get_table_by_name(table_list, table_name.replace("See", "").strip())
+    
+                if table:
+                    table.supported_cpus.extend(cpu_list)
 
 
 def dump_tables(table_list: List[Table]) -> None:
