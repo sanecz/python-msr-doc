@@ -2,8 +2,8 @@
 name: Table 2-3
 full_name: Table 2-3. MSRs in Processors Based on Intel® Core™ Microarchitecture
 supported_cpu:
-- 06_0FH
 - 06_17H
+- 06_0FH
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR
@@ -155,6 +155,7 @@ msr:
     access: R/WL
     long_description: SMRR Enable When this bit is set and the lock bit is set, this makes the SMRR_PHYS_BASE and SMRR_PHYS_MASK registers read visible and writeable while in SMM.
     description: SMRR Enable
+    shared: Unique
   shared: Unique
   access: R/W
   description: Control Features in Intel 64 Processor
@@ -323,6 +324,7 @@ msr:
   - bit: '11'
     access: R
     description: SMRR Capability Using MSR 0A0H and 0A1H
+    shared: Unique
   shared: Unique
   description: See Table 2-2
   see_table:
@@ -472,6 +474,7 @@ msr:
     access: R/W
     long_description: Automatic Thermal Control Circuit Enable See Table 2-2.
     description: Automatic Thermal Control Circuit Enable
+    shared: Unique
     see_table:
     - 2-2
   - bit: '6:4'
@@ -480,6 +483,7 @@ msr:
     access: R
     long_description: Performance Monitoring Available See Table 2-2.
     description: Performance Monitoring Available
+    shared: Shared
     see_table:
     - 2-2
   - bit: '8'
@@ -492,22 +496,26 @@ msr:
     access: R/W
     long_description: FERR# Multiplexing Enable 1 = FERR# asserted by the processor to indicate a pending break event within the processor. 0 = Indicates compatible FERR# signaling behavior. This bit must be set to 1 to support XAPIC interrupt model usage.
     description: FERR# Multiplexing Enable
+    shared: Shared
   - bit: '11'
     access: RO
     long_description: Branch Trace Storage Unavailable See Table 2-2.
     description: Branch Trace Storage Unavailable
+    shared: Shared
     see_table:
     - 2-2
   - bit: '12'
     access: RO
     long_description: Processor Event Based Sampling Unavailable See Table 2-2.
     description: Processor Event Based Sampling Unavailable
+    shared: Shared
     see_table:
     - 2-2
   - bit: '13'
     access: R/W
     long_description: TM2 Enable When this bit is set (1) and the thermal sensor indicates that the die temperature is at the pre-determined threshold, the Thermal Monitor 2 mechanism is engaged. TM2 will reduce the bus to core ratio and voltage according to the value last written to MSR_THERM2_CTL bits 15:0.
     description: TM2 Enable
+    shared: Shared
   - long_description: When this bit is clear (0, default), the processor does not change the VID signals or the bus to core ratio when the processor enters a thermally managed state. The BIOS must enable this feature if the TM2 feature flag (CPUID.1:ECX[8]) is set; if the TM2 feature flag is not set, this feature is not supported and BIOS must not alter the contents of the TM2 bit location. The processor is operating out of specification if both this bit and the TM1 bit are set to 0.
     description: When this bit is clear
   - bit: '15:14'
@@ -516,34 +524,40 @@ msr:
     access: R/W
     long_description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
     description: Enhanced Intel SpeedStep Technology Enable
+    shared: Shared
     see_table:
     - 2-2
   - bit: '18'
     access: R/W
     long_description: ENABLE MONITOR FSM See Table 2-2.
     description: ENABLE MONITOR FSM
+    shared: Shared
     see_table:
     - 2-2
   - bit: '19'
     access: R/W
     long_description: Adjacent Cache Line Prefetch Disable When set to 1, the processor fetches the cache line that contains data currently required by the processor. When set to 0, the processor fetches cache lines that comprise a cache line pair (128 bytes). Single processor platforms should not set this bit. Server platforms should set or clear this bit based on platform performance observed in validation and testing. BIOS may contain a setup option that controls the setting of this bit.
     description: Adjacent Cache Line Prefetch Disable
+    shared: Shared
   - bit: '20'
     access: R/WO
     long_description: 'Enhanced Intel SpeedStep Technology Select Lock When set, this bit causes the following bits to become read-only: • Enhanced Intel SpeedStep Technology Select Lock (this bit). • Enhanced Intel SpeedStep Technology Enable bit. The bit must be set before an Enhanced Intel SpeedStep Technology transition is requested. This bit is cleared on reset.'
     description: Enhanced Intel SpeedStep Technology Select Lock
+    shared: Shared
   - bit: '21'
     description: Reserved
   - bit: '22'
     access: R/W
     long_description: Limit CPUID Maxval See Table 2-2.
     description: Limit CPUID Maxval
+    shared: Shared
     see_table:
     - 2-2
   - bit: '23'
     access: R/W
     long_description: xTPR Message Disable See Table 2-2.
     description: xTPR Message Disable
+    shared: Shared
     see_table:
     - 2-2
   - bit: '33:24'
@@ -552,6 +566,7 @@ msr:
     access: R/W
     long_description: XD Bit Disable See Table 2-2.
     description: XD Bit Disable
+    shared: Unique
     see_table:
     - 2-2
   - bit: '36:35'
@@ -560,14 +575,17 @@ msr:
     access: R/W
     long_description: DCU Prefetcher Disable When set to 1, the DCU L1 data cache prefetcher is disabled. The default value after reset is 0. BIOS may write ‘1’ to disable this feature. The DCU prefetcher is an L1 data cache prefetcher. When the DCU prefetcher detects multiple loads from the same line done within a time limit, the DCU prefetcher assumes the next line will be required. The next line is prefetched in to the L1 data cache from memory or L2.
     description: DCU Prefetcher Disable
+    shared: Unique
   - bit: '38'
     access: R/W
     long_description: 'IDA Disable When set to 1 on processors that support IDA, the Intel Dynamic Acceleration feature (IDA) is disabled and the IDA_Enable feature flag will be cleared (CPUID.06H: EAX[1]=0). When set to a 0 on processors that support IDA, CPUID.06H: EAX[1] reports the processor’s support of IDA is enabled. Note: The power-on default value is used by BIOS to detect hardware support of IDA. If the power-on default value is 1, IDA is available in the processor. If the power- on default value is 0, IDA is not available.'
     description: IDA Disable
+    shared: Shared
   - bit: '39'
     access: R/W
     long_description: IP Prefetcher Disable When set to 1, the IP prefetcher is disabled. The default value after reset is 0. BIOS may write ‘1’ to disable this feature. The IP prefetcher is an L1 data cache prefetcher. The IP prefetcher looks for sequential load history to determine whether to prefetch the next expected data into the L1 cache from memory or L2.
     description: IP Prefetcher Disable
+    shared: Unique
   - bit: '63:40'
     description: Reserved
   access: R/W

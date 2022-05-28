@@ -2,13 +2,13 @@
 name: Table 2-6
 full_name: Table 2-6. MSRs Common to the Silvermont Microarchitecture and Newer Microarchitectures for Intel Atom® Processors
 supported_cpu:
+- 06_5CH
+- 06_4AH
+- 06_4DH
+- 06_7AH
+- 06_37H
 - 06_5DH
 - 06_5AH
-- 06_5CH
-- 06_37H
-- 06_4AH
-- 06_7AH
-- 06_4DH
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR
@@ -887,45 +887,20 @@ msr:
   see_table:
   - 2-2
 - value: C000_0081H
-  name: |-
-    IA32_STAR
-    Core
-    System Call Target Address
-  alt_name: |-
-    R/W
-    See Table 2-2.
+  name: IA32_STARCoreSystem Call Target Address
+  alt_name: R/WSee Table 2-2.
 - value: C000_0082H
-  name: |-
-    IA32_LSTAR
-    Core
-    IA-32e Mode System Call Target Address
-  alt_name: |-
-    R/W
-    See Table 2-2.
+  name: IA32_LSTARCoreIA-32e Mode System Call Target Address
+  alt_name: R/WSee Table 2-2.
 - value: C000_0084H
-  name: |-
-    IA32_FMASK
-    Core
-    System Call Flag Mask
-  alt_name: |-
-    R/W
-    See Table 2-2.
+  name: IA32_FMASKCoreSystem Call Flag Mask
+  alt_name: R/WSee Table 2-2.
 - value: C000_0100H
-  name: |-
-    IA32_FS_BASE
-    Core
-    Map of BASE Address of FS
-  alt_name: |-
-    R/W
-    See Table 2-2.
+  name: IA32_FS_BASECoreMap of BASE Address of FS
+  alt_name: R/WSee Table 2-2.
 - value: C000_0101H
-  name: |-
-    IA32_GS_BASE
-    Core
-    Map of BASE Address of GS
-  alt_name: |-
-    R/W
-    See Table 2-2.
+  name: IA32_GS_BASECoreMap of BASE Address of GS
+  alt_name: R/WSee Table 2-2.
 - value: C000_0102H
   name: IA32_KERNEL_GS_BASE
   scope: Core

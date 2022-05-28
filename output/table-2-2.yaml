@@ -2,75 +2,75 @@
 name: Table 2-2
 full_name: Table 2-2. IA-32 Architectural MSRs
 supported_cpu:
-- 06_09H
-- 06_6CH
-- 06_2AH
-- 06_1DH
+- 06_85H
+- 06_05H
 - 06_1CH
-- 06_46H
-- 06_26H
-- 06_8EH
+- 06_1DH
+- 06_6CH
 - 05_02H
-- 06_55H
-- 06_6AH
-- 06_5CH
-- 06_2EH
-- 06_86H
-- 06_5FH
-- 06_4DH
-- 06_57H
-- 06_2CH
-- 0F_02H
-- 06_5AH
-- 06_2FH
-- 06_37H
-- 06_4AH
-- 06_7AH
-- 06_4EH
-- 06_17H
-- 05_04H
-- 06_0AH
-- 06_3FH
 - 0F_01H
 - 06_25H
-- 0F_04H
-- 06_0DH
-- 06_3DH
-- 06_03H
-- 06_66H
-- 06_2DH
-- 05_01H
-- 06_45H
-- 06_3AH
-- 06_0BH
-- 06_7EH
-- 06_35H
-- 06_1AH
-- 06_4FH
-- 06_1EH
 - 06_4CH
-- 06_56H
-- 06_7DH
-- 06_9EH
-- 0F_0H
-- 06_1FH
-- 06_0EH
-- 0F_03H
-- 06_5DH
-- 06_3EH
-- 06_3CH
-- 06_08H
-- 06_7H
-- 06_05H
-- 06_47H
-- 05_09H
-- 0F_06H
-- 06_0FH
-- 06_36H
-- 06_01H
-- 06_85H
-- 06_27H
+- 06_45H
+- 06_6AH
+- 06_66H
 - 06_5EH
+- 06_0BH
+- 06_3FH
+- 06_0EH
+- 06_3DH
+- 06_01H
+- 0F_03H
+- 06_0AH
+- 06_46H
+- 06_2FH
+- 0F_04H
+- 06_7H
+- 06_57H
+- 0F_02H
+- 06_4FH
+- 0F_06H
+- 06_7EH
+- 06_4EH
+- 06_3CH
+- 06_4AH
+- 06_9EH
+- 06_0DH
+- 05_09H
+- 06_8EH
+- 06_09H
+- 06_2DH
+- 06_0FH
+- 06_7DH
+- 06_03H
+- 06_55H
+- 06_7AH
+- 06_27H
+- 06_5DH
+- 06_5CH
+- 06_35H
+- 06_4DH
+- 06_08H
+- 06_3AH
+- 06_37H
+- 06_86H
+- 06_36H
+- 06_1AH
+- 0F_0H
+- 06_47H
+- 06_2AH
+- 06_5AH
+- 06_3EH
+- 06_1EH
+- 06_17H
+- 06_5FH
+- 05_04H
+- 06_2CH
+- 06_1FH
+- 06_56H
+- 06_26H
+- 06_2EH
+- 05_01H
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR
@@ -3301,7 +3301,7 @@ msr:
   description: Resource Association Register
   comments: If ( (CPUID.(EAX=07H, ECX=0):EBX[12] =1) or (CPUID.(EAX=07H, ECX=0):EBX[15] =1 ) )
 - value: C90H-D8FH
-  name: "Reserved MSR Address Space for CAT \nMask Registers"
+  name: Reserved MSR Address Space for CAT Mask Registers
   description: See Section 17.19.4.1
   long_description: See Section 17.19.4.1, “Enumeration and Detection Support of Cache Allocation Technology”.
   see_section:
@@ -3329,7 +3329,7 @@ msr:
   description: L3 CAT Mask for COSn
   comments: n = CPUID.(EAX=10H, ECX=1H):EDX[15:0]
 - value: D10H-D4FH
-  name: "Reserved MSR Address Space for L2 \nCAT Mask Registers"
+  name: Reserved MSR Address Space for L2 CAT Mask Registers
   description: See Section 17.19.4.1
   long_description: See Section 17.19.4.1, “Enumeration and Detection Support of Cache Allocation Technology”.
   see_section:

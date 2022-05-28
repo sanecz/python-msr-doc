@@ -143,6 +143,8 @@ msr:
     access: RW
     long_description: ENABLE_PEBS_NUM_ALT Write 1 to enable alternate PEBS counting logic for specific events requiring additional configuration, see Table 19-19.
     description: ENABLE_PEBS_NUM_ALT
+    see_table:
+    - 19-19
   - bit: '63:1'
     description: Reserved
   scope: Package

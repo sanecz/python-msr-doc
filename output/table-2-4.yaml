@@ -2,11 +2,11 @@
 name: Table 2-4
 full_name: Table 2-4. MSRs in 45 nm and 32 nm Intel Atom® Processor Family
 supported_cpu:
-- 06_26H
-- 06_36H
-- 06_27H
 - 06_35H
 - 06_1CH
+- 06_26H
+- 06_27H
+- 06_36H
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR
@@ -21,9 +21,7 @@ msr:
   see_section:
   - '2.23'
 - value: 6H
-  name: |-
-    IA32_MONITOR_FILTER_
-    SIZE
+  name: IA32_MONITOR_FILTER_SIZE
   shared: Unique
   description: See Section 8.10.5
   long_description: See Section 8.10.5, “Monitor/Mwait Address Range Determination.” and Table 2-2.
@@ -32,9 +30,7 @@ msr:
   see_section:
   - 8.10.5
 - value: 10H
-  name: |-
-    IA32_TIME_STAMP_
-    COUNTER
+  name: IA32_TIME_STAMP_COUNTER
   shared: Unique
   description: See Section 17.17
   long_description: See Section 17.17, “Time-Stamp Counter,” and see Table 2-2.
@@ -471,6 +467,7 @@ msr:
     access: R/W
     long_description: Automatic Thermal Control Circuit Enable See Table 2-2. Default value is 0.
     description: Automatic Thermal Control Circuit Enable
+    shared: Unique
     see_table:
     - 2-2
   - bit: '6:4'
@@ -479,6 +476,7 @@ msr:
     access: R
     long_description: Performance Monitoring Available See Table 2-2.
     description: Performance Monitoring Available
+    shared: Shared
     see_table:
     - 2-2
   - bit: '8'
@@ -489,22 +487,26 @@ msr:
     access: R/W
     long_description: FERR# Multiplexing Enable 1 = FERR# asserted by the processor to indicate a pending break event within the processor. 0 = Indicates compatible FERR# signaling behavior. This bit must be set to 1 to support XAPIC interrupt model usage.
     description: FERR# Multiplexing Enable
+    shared: Shared
   - bit: '11'
     access: RO
     long_description: Branch Trace Storage Unavailable See Table 2-2.
     description: Branch Trace Storage Unavailable
+    shared: Shared
     see_table:
     - 2-2
   - bit: '12'
     access: RO
     long_description: Processor Event Based Sampling Unavailable See Table 2-2.
     description: Processor Event Based Sampling Unavailable
+    shared: Shared
     see_table:
     - 2-2
   - bit: '13'
     access: R/W
     long_description: TM2 Enable When this bit is set (1) and the thermal sensor indicates that the die temperature is at the pre-determined threshold, the Thermal Monitor 2 mechanism is engaged. TM2 will reduce the bus to core ratio and voltage according to the value last written to MSR_THERM2_CTL bits 15:0.
     description: TM2 Enable
+    shared: Shared
   - long_description: When this bit is cleared (0, default), the processor does not change the VID signals or the bus to core ratio when the processor enters a thermally managed state. The BIOS must enable this feature if the TM2 feature flag (CPUID.1:ECX[8]) is set; if the TM2 feature flag is not set, this feature is not supported and BIOS must not alter the contents of the TM2 bit location. The processor is operating out of specification if both this bit and the TM1 bit are set to 0.
     description: When this bit is cleared
   - bit: '15:14'
@@ -513,12 +515,14 @@ msr:
     access: R/W
     long_description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
     description: Enhanced Intel SpeedStep Technology Enable
+    shared: Shared
     see_table:
     - 2-2
   - bit: '18'
     access: R/W
     long_description: ENABLE MONITOR FSM See Table 2-2.
     description: ENABLE MONITOR FSM
+    shared: Shared
     see_table:
     - 2-2
   - bit: '19'
@@ -527,18 +531,21 @@ msr:
     access: R/WO
     long_description: 'Enhanced Intel SpeedStep Technology Select Lock When set, this bit causes the following bits to become read-only: • Enhanced Intel SpeedStep Technology Select Lock (this bit). • Enhanced Intel SpeedStep Technology Enable bit. The bit must be set before an Enhanced Intel SpeedStep Technology transition is requested. This bit is cleared on reset.'
     description: Enhanced Intel SpeedStep Technology Select Lock
+    shared: Shared
   - bit: '21'
     description: Reserved
   - bit: '22'
     access: R/W
     long_description: Limit CPUID Maxval See Table 2-2.
     description: Limit CPUID Maxval
+    shared: Unique
     see_table:
     - 2-2
   - bit: '23'
     access: R/W
     long_description: xTPR Message Disable See Table 2-2.
     description: xTPR Message Disable
+    shared: Shared
     see_table:
     - 2-2
   - bit: '33:24'
@@ -547,6 +554,7 @@ msr:
     access: R/W
     long_description: XD Bit Disable See Table 2-2.
     description: XD Bit Disable
+    shared: Unique
     see_table:
     - 2-2
   - bit: '63:35'

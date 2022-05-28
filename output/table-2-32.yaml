@@ -3,7 +3,6 @@ name: Table 2-32
 full_name: Table 2-32. Additional MSRs Supported by Intel® Xeon® Processor E5 v3 Family
 supported_cpu:
 - 06_3F
-- See Table 2-32
 - 06_3FH
 msr:
 - value: 35H

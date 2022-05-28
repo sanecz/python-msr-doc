@@ -12,11 +12,15 @@ msr:
   long_description: GSNPQ Event Control and Counter Register See Section 18.6.6, “Performance Monitoring on 64-bit Intel Xeon Processor MP with Up to 8- MByte L3 Cache.”
   see_section:
   - 18.6.6
+  model_availability:
+  - 6
 - value: 107CFH
   name: MSR_EMON_L3_CTR_CTL3
   shared: Shared
   access: R/W
   description: GSNPQ Event Control and Counter Register
+  model_availability:
+  - 6
 - value: 107D0H
   name: MSR_EMON_L3_CTR_CTL4
   shared: Shared
@@ -25,18 +29,26 @@ msr:
   long_description: FSB Event Control and Counter Register See Section 18.6.6, “Performance Monitoring on 64-bit Intel Xeon Processor MP with Up to 8- MByte L3 Cache.”
   see_section:
   - 18.6.6
+  model_availability:
+  - 6
 - value: 107D1H
   name: MSR_EMON_L3_CTR_CTL5
   shared: Shared
   access: R/W
   description: FSB Event Control and Counter Register
+  model_availability:
+  - 6
 - value: 107D2H
   name: MSR_EMON_L3_CTR_CTL6
   shared: Shared
   access: R/W
   description: FSB Event Control and Counter Register
+  model_availability:
+  - 6
 - value: 107D3H
   name: MSR_EMON_L3_CTR_CTL7
   shared: Shared
   access: R/W
   description: FSB Event Control and Counter Register
+  model_availability:
+  - 6

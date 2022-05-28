@@ -3,14 +3,23 @@ name: Table 2-20
 full_name: Table 2-20. MSRs Supported by Intel® Processors based on Intel® microarchitecture code name Sandy Bridge
 supported_cpu:
 - 06_2DH
+- 06_5EH
+- 06_46H
+- 06_3FH
+- 06_3CH
+- 06_4EH
+- 06_4FH
+- 06_9EH
+- 06_55H
+- 06_3AH
+- 06_47H
+- 06_3DH
+- 06_2AH
+- 06_56H
+- 06_8EH
 - 06_3EH
 - 06_45H
-- 06_3FH
-- See Table 2-20
-- 06_2AH
-- 06_3AH
-- 06_3CH
-- 06_46H
+- 06_66H
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR
@@ -25,9 +34,7 @@ msr:
   see_section:
   - '2.23'
 - value: 6H
-  name: |-
-    IA32_MONITOR_FILTER_
-    SIZE
+  name: IA32_MONITOR_FILTER_SIZE
   scope: Thread
   description: See Section 8.10.5
   long_description: See Section 8.10.5, “Monitor/Mwait Address Range Determination” and Table 2-2.

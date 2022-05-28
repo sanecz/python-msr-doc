@@ -2,10 +2,14 @@
 name: Table 2-29
 full_name: Table 2-29. Additional MSRs Supported by Processors based on the Haswell or Haswell-E microarchitectures
 supported_cpu:
-- See Table 2-29
-- 06_3CH
-- 06_45H
+- 06_5EH
 - 06_46H
+- 06_3CH
+- 06_9EH
+- 06_56H
+- 06_8EH
+- 06_45H
+- 06_66H
 msr:
 - value: 3BH
   name: IA32_TSC_ADJUST

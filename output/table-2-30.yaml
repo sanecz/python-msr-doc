@@ -2,10 +2,12 @@
 name: Table 2-30
 full_name: Table 2-30. MSRs Supported by 4th Generation Intel® Core™ Processors (Haswell Microarchitecture)
 supported_cpu:
-- 06_3CH
-- 06_45H
-- See Table 2-30
+- 06_5EH
 - 06_46H
+- 06_4EH
+- 06_3CH
+- MSR_PPERF
+- 06_45H
 msr:
 - value: E2H
   name: MSR_PKG_CST_CONFIG_CONTROL

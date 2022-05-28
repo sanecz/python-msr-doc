@@ -2,7 +2,8 @@
 name: Table 2-53
 full_name: Table 2-53. MSRs in the P6 Family Processors
 supported_cpu:
-- P6 Family
+- P6
+- Family
 msr:
 - value: 0H
   name: P5_MC_ADDR
@@ -188,18 +189,14 @@ msr:
   name: MTRRcap
   description: Memory Type Range Registers
 - value: 116H
-  name: |-
-    BBL_CR_ADDR [63:0]
-    BBL_CR_ADDR [63:32]
-    BBL_CR_ADDR [31:3]
-    BBL_CR_ADDR [2:0]
+  name: BBL_CR_ADDR [63:0]BBL_CR_ADDR [63:32]
   description: Address register
   long_description: 'Address register: used to send specified address (A31-A3) to L2 during cache initialization accesses. Reserved, Address bits [35:3] Reserved Set to 0.'
 - value: 118H
   name: BBL_CR_DECC[63:0]
   description: 'Data ECC register D[7:0]: used to write ECC and read ECC to/from L2'
 - value: 119H
-  name: "BBL_CR_CTL \nBL_CR_CTL[63:22]\nBBL_CR_CTL[21]"
+  name: BBL_CR_CTL BL_CR_CTL[63:22]
   bitfields:
   - bit: |-
       BBL_CR_CTL[20:19]
@@ -238,7 +235,7 @@ msr:
   description: Busy register
   long_description: 'Busy register: indicates when a cache configuration accesses L2 command is in progress. D[0] = 1 = BUSY'
 - value: 11EH
-  name: "BBL_CR_CTL3\nBBL_CR_CTL3[63:26]\nBBL_CR_CTL3[25]\nBBL_CR_CTL3[24]\nBBL_CR_CTL3[23]\nBBL_CR_CTL3[22:20]\n111\n110 \n101\n100\n011\n010\n001\n000\nBBL_CR_CTL3[19]\nBBL_CR_CTL3[18]"
+  name: BBL_CR_CTL3BBL_CR_CTL3[63:26]
   bitfields:
   - bit: |-
       BBL_CR_CTL3[17:13
