@@ -42,6 +42,16 @@ class ParseMSRException(Exception):
 def strip_spaces(string: str) -> str:
     return " ".join(string.split())
 
+def str_to_list_int(string: str) -> List[int]:
+    list_int = []
+    for elem in string.split(","):
+        elem = elem.strip()
+        try:
+            list_int.append(int(elem))
+        except ValueError:
+            continue
+    return list_int
+
 
 class MSRDescription:
     long_description: str
@@ -53,9 +63,13 @@ class MSRDescription:
     see_appendix: str
     scope: str
     shared: str
+    model_availability: List[int]
 
 
-    def parse_description(self, data: str) -> None:
+    def parse(self, header: List[str], datas: List[str]) -> None:
+        description_index = self.parse_format_by_header(header, datas)
+        data = datas[description_index]
+
         access_type = ACCESS_REGEXP.search(data)
         if access_type:
             # So many ways to define access
@@ -90,14 +104,14 @@ class MSRDescription:
         for section, regexp in SEE_MAPPING.items():
             # Check for `see table` `see appendix` and `see section`
             # TODO: maybe add see http? for some msr they have an url to biosbit
-            self.get_see_other(section, regexp, data)
+            self.parse_see_other(section, regexp, data)
 
-    def get_see_other(self, other: str, other_regexp: Pattern[str], data: str) -> None:
+    def parse_see_other(self, other: str, other_regexp: Pattern[str], data: str) -> None:
         found_see_other = other_regexp.findall(data)
         if found_see_other:
             setattr(self, other, found_see_other)
 
-    def guess_format_by_header(self, header: List[str], data: List[str]) -> None:
+    def parse_format_by_header(self, header: List[str], data: List[str]) -> int:
         logger.debug("Header: %s" % header)
         logger.debug("Data: %s"  % data)
         # Sometime when we parse the header, even if it's displayed 'hex' 'dec' in the pdf
@@ -133,14 +147,14 @@ class MSRDescription:
             # format: [hex, name/bits, model avail, shared/uniq, bit descr]
             self.bit = data[1]
             data[2] = " ".join(data[2].split("\n"))  # sometimes it's multiline
-            self.model_availability = [model.strip() for model in data[2].strip().split(",") if model.strip()]
+            self.model_availability = str_to_list_int(data[2])
             self.shared = data[3]
             description_idx = 4
         elif header[3].lower() == "model avail- ability":  # it's cut in the middle ffs
             # table 2-48 to 2-50
             # format: [hex, dec, name/bits, model avail, shared/uniq, bit descr]
             data[3] = " ".join(data[3].split("\n"))  # sometimes it's multiline
-            self.model_availability = [model.strip() for model in data[3].strip().split(",") if model.strip()]
+            self.model_availability = str_to_list_int(data[3])
             self.shared = data[4]
             description_idx = 5
         elif header[4].lower() == "comment":
@@ -151,9 +165,9 @@ class MSRDescription:
         else:
             raise ParseMSRException(f"Unknown format {header}")
 
-        self.parse_description(data[description_idx])
+        return description_idx
 
-    def patch(self, patch_dict):
+    def patch(self, patch_dict: Dict[str, Any]) -> None:
         for key, value in patch_dict.items():
             if key in ("bitfield", "msr"):
                 # We do not want to modify this
@@ -166,7 +180,7 @@ class MSRBit(MSRDescription):
 
     def __init__(self, data: List[str], header: List[str]):
         self.bit = data[2]  # may be overriden by guess_format_by_header if the table is broken
-        self.guess_format_by_header(header, data)
+        self.parse(header, data)
 
     def __repr__(self) -> str:
         return f"<MSRBit({self.bit}: {self.description})>"
@@ -175,9 +189,6 @@ class MSRBit(MSRDescription):
         if not isinstance(other, str):
             return NotImplemented
         return other == self.bit
-
-    def patch_bit(self, bitfield):
-        self.patch(bitfield)
 
     def to_dict(self) -> Dict[str,str]:
         description = {
@@ -190,7 +201,8 @@ class MSRBit(MSRDescription):
             "access": getattr(self, "access", None),
             "see_table": getattr(self, "see_table", None),
             "see_section": getattr(self, "see_section", None),
-            "see_appendix": getattr(self, "see_appendix", None)
+            "see_appendix": getattr(self, "see_appendix", None),
+            "model_availability": getattr(self, "model_availability", None)
         }
 
         return {k:v for k, v in description.items() if v}
@@ -202,11 +214,8 @@ class MSR(MSRDescription):
     alt_name: str
     fields: List[MSRBit]
 
-    # Optional fields, depends of the header/table
-    model_availability: List[str]
-
     def __init__(self, data: List[str], header: List[str]):
-        self.guess_format_by_header(header, data)
+        self.parse(header, data)
         self.value = strip_spaces(data[0]).replace(" ", "")
         # TODO: test if value is hex or hex and contains "_"
         # TODO: otherwise raise Exception (i.e end of table 2-23)
@@ -255,9 +264,11 @@ class MSR(MSRDescription):
                 if msr.get("_type") == "delete":
                     self.fields.pop(index)
                 else:
-                    self.fields[index].patch_bit(bitfield)
+                    self.fields[index].patch(bitfield)
             except ValueError:
                 # bitfield from patch not in self.fields, creating a new MSRBit
+                # and avoid __init__
+                # FIX: split init?
                 new_bitfield = MSRBit.__new__(MSRBit)
                 new_bitfield.patch(bitfield)
                 self.fields.append(new_bitfield)
@@ -266,8 +277,8 @@ class MSR(MSRDescription):
     def to_dict(self) -> Dict[str, Union[str, MSRBit]]:
         description =  {
             "value": self.value,
-            "alt_name": getattr(self, "alt_name", None),
             "name": self.name,
+            "alt_name": getattr(self, "alt_name", None),
             "bitfields": [field.to_dict() for field in self.fields],
             "scope": getattr(self, "scope", None),
             "shared": getattr(self, "shared", None),
@@ -280,6 +291,7 @@ class MSR(MSRDescription):
             "comments": getattr(self, "comments", None),
             "model_availability": getattr(self, "model_availability", None)
         }
+
         # clean up everything
         return {k:v for k, v in description.items() if v}
 
@@ -461,8 +473,7 @@ def parse_pdf(path: str) -> Tuple[Set[str], List[Table]]:
     # MSR are described from page 19 to 394, using man intel vol 4 Order October 2019
     # page 17 to 19 describe available CPU families/models
     # ofc consistency is way too hard, so I added manually 05_09H
-    pdf = PDFHandler(path, pages="17-200")
-    #pdf = PDFHandler(path, pages="17,353-359")
+    pdf = PDFHandler(path, pages="17-394")
     tables = pdf.parse()
 
     for table, title in tables:
