@@ -22,7 +22,7 @@ BITFIELD_REGEXP = re.compile(r"\[\d+\:\d+\]")
 # Table is somehow always consistent in the format `Table d-dd.`
 TABLE_REGEXP = re.compile(r"^(Table \d-\d{1,2})\.\s+")
 # At lease this is also close to be consistant
-SEE_TABLE_REGEXP = re.compile(r"(?:(?:See\s+)?Table\s+(\d-\d{1,2}))")
+SEE_TABLE_REGEXP = re.compile(r"(?:(?:See\s+)?Table\s+(\d{1,2}-\d{1,2}))")
 SEE_SECTION_REGEXP = re.compile(r"(?:(?:See\s+)?Section\s+([\d+\.?]+))")
 SEE_APPENDIX_REGEXP = re.compile(r"(?:(?:See\s+)?Appendix\s+(\w\.\d+))")
 
@@ -51,6 +51,8 @@ class MSRDescription:
     see_table: str
     see_section: str
     see_appendix: str
+    scope: str
+    shared: str
 
 
     def parse_description(self, data: str) -> None:
@@ -128,13 +130,15 @@ class MSRDescription:
             # broken table 2-48 to 2-50
             # format: [hex, name/bits, model avail, shared/uniq, bit descr]
             self.bit = data[1]
-            self.model_availability = data[2]
+            data[2] = " ".join(data[2].split("\n"))  # sometimes it's multiline
+            self.model_availability = [model.strip() for model in data[2].strip().split(",")]
             self.shared = data[3]
             description_idx = 4
         elif header[3].lower() == "model avail- ability":  # it's cut in the middle ffs
             # table 2-48 to 2-50
             # format: [hex, dec, name/bits, model avail, shared/uniq, bit descr]
-            self.model_availability = data[3]
+            data[3] = " ".join(data[3].split("\n"))  # sometimes it's multiline
+            self.model_availability = [model.strip() for model in data[3].strip().split(",")]
             self.shared = data[4]
             description_idx = 5
         elif header[4].lower() == "comment":
@@ -147,6 +151,13 @@ class MSRDescription:
 
         self.parse_description(data[description_idx])
 
+    def patch(self, patch_dict):
+        for key, value in patch_dict.items():
+            if key in ("bitfield", "msr"):
+                # We do not want to modify this
+                continue
+            setattr(self, key, value)
+
 
 class MSRBit(MSRDescription):
     bit: str
@@ -158,6 +169,14 @@ class MSRBit(MSRDescription):
     def __repr__(self) -> str:
         return f"<MSRBit({self.bit}: {self.description})>"
 
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, str):
+            return NotImplemented
+        return other == self.bit
+
+    def patch_bit(self, bitfield):
+        self.patch(bitfield)
+
     def to_dict(self) -> Dict[str,str]:
         description = {
             "bit": self.bit,
@@ -165,6 +184,8 @@ class MSRBit(MSRDescription):
             "long_description": getattr(self, "long_description", None),
             "description": self.description,
             "comments": getattr(self, "comments", None),
+            "shared": getattr(self, "shared", None),
+            "access": getattr(self, "access", None),
             "see_table": getattr(self, "see_table", None),
             "see_section": getattr(self, "see_section", None),
             "see_appendix": getattr(self, "see_appendix", None)
@@ -180,16 +201,15 @@ class MSR(MSRDescription):
     fields: List[MSRBit]
 
     # Optional fields, depends of the header/table
-    scope: str
-    shared: str
-    model_availability: str
+    model_availability: List[str]
 
     def __init__(self, data: List[str], header: List[str]):
         self.guess_format_by_header(header, data)
         self.value = strip_spaces(data[0]).replace(" ", "")
         # Depends on the header we are changing your way of parsing the table
         # except for the register always position 0
-        self._set_name(getattr(self, "bit", data[2]))  # dirty hack to see if we are in a broken table
+        # sometimes the bitfield is multiline, so this mean we need to fix it by hand, just display the first line
+        self._set_name(getattr(self, "bit", data[2].split("\n")[0]))  # dirty hack to see if we are in a broken table
         self.fields = []
 
     def _set_name(self, data: str) -> None:
@@ -206,11 +226,32 @@ class MSR(MSRDescription):
     def __repr__(self) -> str:
         return f"<MSRDescription({self.value}): {self.name or self.bit} {len(self.fields) or 1} bitfield(s)>"
 
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, str):
+            return NotImplemented
+        return other == self.value
+
+    def patch_msr(self, msr):
+        self.patch(msr)
+        for bitfield in msr.get("bitfields", []):
+            try:
+                index = self.fields.index(bitfield["bit"])
+                if msr.get("_type") == "delete":
+                    self.fields.pop(index)
+                else:
+                    self.fields[index].patch_bit(bitfield)
+            except ValueError:
+                # bitfield from patch not in self.fields, creating a new MSRBit
+                new_bitfield = MSRBit.__new__(MSRBit)
+                new_bitfield.patch(bitfield)
+                self.fields.append(new_bitfield)
+
+
     def to_dict(self) -> Dict[str, Union[str, MSRBit]]:
         description =  {
-            "name": self.name,
-            "alt_name": getattr(self, "alt_name", None),
             "value": self.value,
+            "alt_name": getattr(self, "alt_name", None),
+            "name": self.name,
             "bitfields": [field.to_dict() for field in self.fields],
             "scope": getattr(self, "scope", None),
             "shared": getattr(self, "shared", None),
@@ -220,7 +261,8 @@ class MSR(MSRDescription):
             "see_table": getattr(self, "see_table", None),
             "see_section": getattr(self, "see_section", None),
             "see_appendix": getattr(self, "see_appendix", None),
-            "comments": getattr(self, "comments", None)
+            "comments": getattr(self, "comments", None),
+            "model_availability": getattr(self, "model_availability", None)
         }
         # clean up everything
         return {k:v for k, v in description.items() if v}
@@ -239,6 +281,30 @@ class Table:
 
         # Table 2-2 is IA32 MSR, all cpus should support it
         self.supported_cpus = []
+
+    def patch_table(self, table) -> None:
+        if table.get("supported_cpu"):
+            self.supported_cpus = table["supported_cpu"]
+
+        if table.get("full_name"):
+            self.full_name = table["full_name"]
+
+        for msr in table.get("msr", []):
+            try:
+                index = self.msr.index(msr["value"])
+            except ValueError as e:
+                # Creating a new msr and push it to the end
+                # and create the bitfields
+                index = -1
+                new_msr = MSR.__new__(MSR)
+                new_msr.fields = []
+                new_msr.patch(msr)
+                self.msr.append(new_msr)
+
+                if msr.get("_type") == "delete":
+                    self.msr.pop(index)
+                else:
+                    self.msr[index].patch_msr(msr)
 
 
     def to_dict(self) -> Dict[str, Union[str, List[Dict[str, Union[str, MSRBit]]], List[str]]]:
@@ -380,6 +446,7 @@ def parse_pdf(path: str) -> Tuple[Set[str], List[Table]]:
     # page 17 to 19 describe available CPU families/models
     # ofc consistency is way too hard, so I added manually 05_09H
     pdf = PDFHandler(path, pages="17-394")
+    #pdf = PDFHandler(path, pages="17,353-359")
     tables = pdf.parse()
 
     for table, title in tables:
@@ -462,19 +529,18 @@ def dump_tables(table_list: List[Table]) -> None:
                 )
             )
 
-
-def apply_patch(table: Table, patch_dict: Dict[str, Any]) -> None:
-    pass
-
-
+    
 def apply_patches(table_list: List[Table]) -> None:
-    # TODO: WIP
     patchdir = Path(__file__).parent.resolve() / Path("patches")
     for patch in patchdir.iterdir():
-        with open(path, "r") as handle:
-            patch_dict = yaml.load(handle)
-        table = get_table_by_name(patch_dict["name"])
-        apply_patch(table, patch_dict)
+
+        with open(patch, "r") as handle:
+            patch_dict = yaml.load(handle, Loader=yaml.SafeLoader)
+
+        table = get_table_by_name(table_list, patch_dict["name"])
+
+        if table:
+            table.patch_table(patch_dict)
 
 
 if __name__ == "__main__":
