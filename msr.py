@@ -15,6 +15,9 @@ import camelot
 import pdfminer
 import yaml
 
+import sys
+# Avoid stack overflow on the man version 2022
+sys.setrecursionlimit(5000)
 
 # Sometimes it's written `Writable for this` or `Write only for`, we just ignore it atm
 ACCESS_REGEXP = re.compile(r"\((([01BCKLMOPRSVWZ\-\/]+)(\s+in\s+SMM)?)\)")
@@ -449,6 +452,7 @@ class PDFHandler(camelot.handlers.PDFHandler):
         logger.info("Start pdf parsing")
         with camelot.utils.TemporaryDirectory() as tempdir:
             parser = camelot.parsers.Lattice(**kwargs) if flavor == "lattice" else camelot.parsers.Stream(**kwargs)
+            self._parse_page(self.pages[0], tempdir, parser, suppress_stdout, layout_kwargs)
             with mp.get_context("spawn").Pool(processes=cpu_count) as pool:
                 jobs = [
                     pool.apply_async(
