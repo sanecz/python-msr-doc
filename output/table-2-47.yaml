@@ -1,155 +1,43 @@
 ---
 name: Table 2-47
-full_name: Table 2-47. Additional MSRs Supported by Intel® Xeon Phi™ Processor 7215, 7285, 7295 Series with DisplayFamily_DisplayModel Signature 06_85H
+full_name: Table 2-47. MSRs Supported by 12th Generation Intel® Core™ Processor P-core
 supported_cpu: []
 msr:
-- value: 9BH
-  name: IA32_SMM_MONITOR_CTL
+- value: 3F7H
+  name: MSR_PEBS_FRONTEND
+  scope: Thread
+  access: R/W
+  description: FrontEnd Precise Event Condition Select
+  long_description: FrontEnd Precise Event Condition Select See Table 2-39.
+  see_table:
+  - 2-39
+- value: 540H
+  name: MSR_THREAD_UARCH_CTL
+  bitfields:
+  - bit: '0'
+    long_description: WB_MEM_STRM_LD_DISABLE Disable streaming behavior for MOVNTDQA loads to WB memory type. If set, these accesses will be treated like regular cacheable loads (Data will be cached).
+    description: WB_MEM_STRM_LD_DISABLE
+  - bit: '63:1'
+    description: Reserved
+  scope: Thread
+  access: R/W
+  description: Thread Microarchitectural Control
+- value: 541H
+  name: MSR_CORE_UARCH_CTL
   scope: Core
   access: R/W
-  description: SMM Monitor Configuration
-  long_description: SMM Monitor Configuration This MSR is readable only if VMX is enabled, and writeable only if VMX is enabled and in SMM mode, and is used to configure the VMX MSEG base address. See Table 2-2.
+  description: Core Microarchitecture Control MSR
+  long_description: Core Microarchitecture Control MSR See Table 2-44.
   see_table:
-  - 2-2
-- value: 480H
-  name: IA32_VMX_BASIC
+  - 2-44
+- value: D10H-D17H
+  name: IA32_L2_QOS_MASK_[0-7]
+  bitfields:
+  - bit: '19:0'
+    long_description: 'WAYS_MASK Setting a 1 in this bit X allows threads with CLOS <n> (where N is [0-7]) to allocate to way X in the MLC. Ones are only allowed to be written to ways that physically exist in the MLC (CPUID.4.2:EBX[31:22] will indicate this). Writing a 1 to a value beyond the highest way or a non-contiguous set of 1s will cause a #GP on the WRMSR to this MSR.'
+    description: WAYS_MASK
+  - bit: '31:20'
+    description: Reserved
   scope: Core
-  access: R/O
-  description: Reporting Register of Basic VMX Capabilities
-  long_description: Reporting Register of Basic VMX Capabilities See Table 2-2.
-  see_table:
-  - 2-2
-- value: 481H
-  name: IA32_VMX_PINBASED_ CTLS
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of Pin-based VM-execution
-  long_description: Capability Reporting Register of Pin-based VM-execution Controls See Table 2-2.
-  see_table:
-  - 2-2
-- value: 482H
-  name: IA32_VMX_PROCBASED_ CTLS
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of Primary Processor-
-  long_description: Capability Reporting Register of Primary Processor- based VM-execution Controls
-- value: 483H
-  name: IA32_VMX_EXIT_CTLS
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of VM-exit Controls
-  long_description: Capability Reporting Register of VM-exit Controls See Table 2-2.
-  see_table:
-  - 2-2
-- value: 484H
-  name: IA32_VMX_ENTRY_CTLS
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of VM-entry Controls
-  long_description: Capability Reporting Register of VM-entry Controls See Table 2-2.
-  see_table:
-  - 2-2
-- value: 485H
-  name: IA32_VMX_MISC
-  scope: Core
-  access: R/O
-  description: Reporting Register of Miscellaneous VMX Capabilities
-  long_description: Reporting Register of Miscellaneous VMX Capabilities See Table 2-2.
-  see_table:
-  - 2-2
-- value: 486H
-  name: IA32_VMX_CR0_FIXED0
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of CR0 Bits Fixed to 0
-  long_description: Capability Reporting Register of CR0 Bits Fixed to 0 See Table 2-2.
-  see_table:
-  - 2-2
-- value: 487H
-  name: IA32_VMX_CR0_FIXED1
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of CR0 Bits Fixed to 1
-  long_description: Capability Reporting Register of CR0 Bits Fixed to 1 See Table 2-2.
-  see_table:
-  - 2-2
-- value: 488H
-  name: IA32_VMX_CR4_FIXED0
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of CR4 Bits Fixed to 0
-  long_description: Capability Reporting Register of CR4 Bits Fixed to 0 See Table 2-2.
-  see_table:
-  - 2-2
-- value: 489H
-  name: IA32_VMX_CR4_FIXED1
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of CR4 Bits Fixed to 1
-  long_description: Capability Reporting Register of CR4 Bits Fixed to 1 See Table 2-2.
-  see_table:
-  - 2-2
-- value: 48AH
-  name: IA32_VMX_VMCS_ENUM
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of VMCS Field Enumeration
-  long_description: Capability Reporting Register of VMCS Field Enumeration See Table 2-2.
-  see_table:
-  - 2-2
-- value: 48BH
-  name: IA32_VMX_PROCBASED_ CTLS2
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of Secondary Processor-
-  long_description: Capability Reporting Register of Secondary Processor- Based VM-Execution Controls See Table 2-2.
-  see_table:
-  - 2-2
-- value: 48CH
-  name: IA32_VMX_EPT_VPID_ENUM
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of EPT and VPID
-  long_description: Capability Reporting Register of EPT and VPID See Table 2-2.
-  see_table:
-  - 2-2
-- value: 48DH
-  name: IA32_VMX_TRUE_PINBASE D_CTLS
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of Pin-Based VM-Execution
-  long_description: Capability Reporting Register of Pin-Based VM-Execution Flex Controls See Table 2-2.
-  see_table:
-  - 2-2
-- value: 48EH
-  name: IA32_VMX_TRUE_PROCBASED_CTLS
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of Primary Processor-
-  long_description: Capability Reporting Register of Primary Processor- Based VM-Execution Flex Controls See Table 2-2.
-  see_table:
-  - 2-2
-- value: 48FH
-  name: IA32_VMX_TRUE_EXIT_CTLS
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of VM-Exit Flex Controls
-  long_description: Capability Reporting Register of VM-Exit Flex Controls See Table 2-2.
-  see_table:
-  - 2-2
-- value: 490H
-  name: IA32_VMX_TRUE_ENTRY_CTLS
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of VM-Entry Flex Controls
-  long_description: Capability Reporting Register of VM-Entry Flex Controls See Table 2-2.
-  see_table:
-  - 2-2
-- value: 491H
-  name: IA32_VMX_FMFUNC
-  scope: Core
-  access: R/O
-  description: Capability Reporting Register of VM-Function Controls
-  long_description: Capability Reporting Register of VM-Function Controls See Table 2-2.
-  see_table:
-  - 2-2
+  description: IA32_CR_L2_QOS_MASK_[0-7]
+  long_description: IA32_CR_L2_QOS_MASK_[0-7] If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] ≥ 0. Controls MLC (L2) Intel RDT allocation. For more details on CAT/RDT, see Chapter 17, “Debug, Branch Profile, TSC, and Intel® Resource Director Technology (Intel® RDT) Features”.

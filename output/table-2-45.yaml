@@ -1,1194 +1,197 @@
 ---
 name: Table 2-45
-full_name: Table 2-45. MSRs Supported by Intel® Xeon® Processor Scalable Family with DisplayFamily_DisplayModel 06_55H
+full_name: Table 2-45. Additional MSRs Supported by 11th Generation Intel® Core™ Processors Based on Tiger Lake Microarchitecture
 supported_cpu:
-- 06_55H
+- 06_8DH
+- 06_8CH
 msr:
-- value: 3AH
-  name: IA32_FEATURE_CONTROL
-  bitfields:
-  - bit: '0'
-    access: R/WL
-    description: Lock
-  - bit: '1'
-    access: R/WL
-    description: Enable VMX Inside SMX Operation
-  - bit: '2'
-    access: R/WL
-    description: Enable VMX Outside SMX Operation
-  - bit: '14:8'
-    access: R/WL
-    description: SENTER Local Functions Enables
-  - bit: '15'
-    access: R/WL
-    description: SENTER Global Functions Enable
-  - bit: '18'
-    access: R/WL
-    description: SGX Global Functions Enable
-  - bit: '20'
-    access: R/WL
-    description: LMCE_ON
-  - bit: '63:21'
-    description: Reserved
-  scope: Thread
-  access: R/W
-  description: Control Features in Intel 64 Processor
-  long_description: Control Features in Intel 64 Processor See Table 2-2.
-  see_table:
-  - 2-2
-- value: 4EH
-  name: MSR_PPIN_CTL
-  bitfields:
-  - bit: '0'
-    access: R/WO
-    long_description: LockOut See Table 2-26.
-    description: LockOut
-    see_table:
-    - 2-26
-  - bit: '1'
-    access: R/W
-    long_description: Enable_PPIN See Table 2-26.
-    description: Enable_PPIN
-    see_table:
-    - 2-26
-  - bit: '63:2'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: Protected Processor Inventory Number Enable Control
-  long_description: Protected Processor Inventory Number Enable Control
-- value: 4FH
-  name: MSR_PPIN
-  bitfields:
-  - bit: '63:0'
-    access: R/O
-    long_description: Protected Processor Inventory Number See Table 2-26.
-    description: Protected Processor Inventory Number
-    see_table:
-    - 2-26
-  scope: Package
-  access: R/O
-  description: Protected Processor Inventory Number
-- value: CEH
-  name: MSR_PLATFORM_INFO
-  bitfields:
-  - bit: '7:0'
-    description: Reserved
-  - bit: '15:8'
-    access: R/O
-    long_description: Maximum Non-Turbo Ratio See Table 2-26.
-    description: Maximum Non-Turbo Ratio
-    see_table:
-    - 2-26
-  - bit: '22:16'
-    description: Reserved
-  - bit: '23'
-    access: R/O
-    long_description: PPIN_CAP See Table 2-26.
-    description: PPIN_CAP
-    see_table:
-    - 2-26
-  - bit: '27:24'
-    description: Reserved
-  - bit: '28'
-    access: R/O
-    long_description: Programmable Ratio Limit for Turbo Mode See Table 2-26.
-    description: Programmable Ratio Limit for Turbo Mode
-    see_table:
-    - 2-26
-  - bit: '29'
-    access: R/O
-    long_description: Programmable TDP Limit for Turbo Mode See Table 2-26.
-    description: Programmable TDP Limit for Turbo Mode
-    see_table:
-    - 2-26
-  - bit: '30'
-    access: R/O
-    long_description: Programmable TJ OFFSET See Table 2-26.
-    description: Programmable TJ OFFSET
-    see_table:
-    - 2-26
-  - bit: '39:31'
-    description: Reserved
-  - bit: '47:40'
-    access: R/O
-    long_description: Maximum Efficiency Ratio See Table 2-26.
-    description: Maximum Efficiency Ratio
-    see_table:
-    - 2-26
-  - bit: '63:48'
-    description: Reserved
-  scope: Package
-  description: Platform Information
-  long_description: Platform Information Contains power management and other model specific features enumeration. See http://biosbits.org.
-- value: E2H
-  name: MSR_PKG_CST_CONFIG_CONTROL
-  bitfields:
-  - bit: '2:0'
-    access: R/W
-    long_description: 'Package C-State Limit Specifies the lowest processor-specific C-state code name (consuming the least power) for the package. The default is set as factory-configured package C- state limit. The following C-state code name encodings are supported: 000b: C0/C1 (no package C-state support) 001b: C2 010b: C6 (non-retention) 011b: C6 (retention) 111b: No Package C state limits. All C states supported by the processor are available.'
-    description: Package C-State Limit
-  - bit: '9:3'
-    description: Reserved
-  - bit: '10'
-    access: R/W
-    description: I/O MWAIT Redirection Enable
-  - bit: '14:11'
-    description: Reserved
-  - bit: '15'
-    access: R/WO
-    description: CFG Lock
-  - bit: '16'
-    access: R/W
-    long_description: Automatic C-State Conversion Enable If 1, the processor will convert HALT or MWAT(C1) to MWAIT(C6).
-    description: Automatic C-State Conversion Enable
-  - bit: '24:17'
-    description: Reserved
-  - bit: '25'
-    access: R/W
-    description: C3 State Auto Demotion Enable
-  - bit: '26'
-    access: R/W
-    description: C1 State Auto Demotion Enable
-  - bit: '27'
-    access: R/W
-    description: Enable C3 Undemotion
-  - bit: '28'
-    access: R/W
-    description: Enable C1 Undemotion
-  - bit: '29'
-    access: R/W
-    description: Package C State Demotion Enable
-  - bit: '30'
-    access: R/W
-    description: Package C State UnDemotion Enable
-  - bit: '63:31'
-    description: Reserved
-  scope: Core
-  access: R/W
-  description: C-State Configuration Control
-  long_description: 'C-State Configuration Control Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states. See http://biosbits.org.'
-- value: 179H
-  name: IA32_MCG_CAP
-  bitfields:
-  - bit: '7:0'
-    description: Count
-  - bit: '8'
-    description: MCG_CTL_P
-  - bit: '9'
-    description: MCG_EXT_P
-  - bit: '10'
-    description: MCP_CMCI_P
-  - bit: '11'
-    description: MCG_TES_P
-  - bit: '15:12'
-    description: Reserved
-  - bit: '23:16'
-    description: MCG_EXT_CNT
-  - bit: '24'
-    description: MCG_SER_P
-  - bit: '25'
-    description: MCG_EM_P
-  - bit: '26'
-    description: MCG_ELOG_P
-  - bit: '63:27'
-    description: Reserved
-  scope: Thread
-  access: R/O
-  description: Global Machine Check Capability
-- value: 17DH
-  name: MSR_SMM_MCA_CAP
-  bitfields:
-  - bit: '57:0'
-    description: Reserved
-  - bit: '58'
-    access: SMM-RO
-    long_description: SMM_Code_Access_Chk If set to 1 indicates that the SMM code access restriction is supported and a host-space interface is available to SMM handler.
-    description: SMM_Code_Access_Chk
-  - bit: '59'
-    access: SMM-RO
-    long_description: Long_Flow_Indication If set to 1 indicates that the SMM long flow indicator is supported and a host-space interface is available to SMM handler.
-    description: Long_Flow_Indication
-  - bit: 63:60
-    description: Reserved
-  scope: THREAD
-  access: SMM-RO
-  description: Enhanced SMM Capabilities
-  long_description: Enhanced SMM Capabilities Reports SMM capability Enhancement. Accessible only while in SMM.
-- value: 19CH
-  name: IA32_THERM_STATUS
-  bitfields:
-  - bit: '0'
-    access: RO
-    long_description: Thermal Status See Table 2-2.
-    description: Thermal Status
-    see_table:
-    - 2-2
-  - bit: '1'
-    access: R/WC0
-    long_description: Thermal Status Log See Table 2-2.
-    description: Thermal Status Log
-    see_table:
-    - 2-2
-  - bit: '2'
-    access: RO
-    long_description: 'PROTCHOT # or FORCEPR# Status See Table 2-2.'
-    description: 'PROTCHOT # or FORCEPR# Status'
-    see_table:
-    - 2-2
-  - bit: '3'
-    access: R/WC0
-    long_description: 'PROTCHOT # or FORCEPR# Log See Table 2-2.'
-    description: 'PROTCHOT # or FORCEPR# Log'
-    see_table:
-    - 2-2
-  - bit: '4'
-    access: RO
-    long_description: Critical Temperature Status See Table 2-2.
-    description: Critical Temperature Status
-    see_table:
-    - 2-2
-  - bit: '5'
-    access: R/WC0
-    long_description: Critical Temperature Status Log See Table 2-2.
-    description: Critical Temperature Status Log
-    see_table:
-    - 2-2
-  - bit: '6'
-    access: RO
-    long_description: 'Thermal Threshold #1 Status See Table 2-2.'
-    description: 'Thermal Threshold #1 Status'
-    see_table:
-    - 2-2
-  - bit: '7'
-    access: R/WC0
-    long_description: 'Thermal Threshold #1 Log See Table 2-2.'
-    description: 'Thermal Threshold #1 Log'
-    see_table:
-    - 2-2
-  - bit: '8'
-    access: RO
-    long_description: 'Thermal Threshold #2 Status See Table 2-2.'
-    description: 'Thermal Threshold #2 Status'
-    see_table:
-    - 2-2
-  - bit: '9'
-    access: R/WC0
-    long_description: 'Thermal Threshold #2 Log See Table 2-2.'
-    description: 'Thermal Threshold #2 Log'
-    see_table:
-    - 2-2
-  - bit: '10'
-    access: RO
-    long_description: Power Limitation Status See Table 2-2.
-    description: Power Limitation Status
-    see_table:
-    - 2-2
-  - bit: '11'
-    access: R/WC0
-    long_description: Power Limitation Log See Table 2-2.
-    description: Power Limitation Log
-    see_table:
-    - 2-2
-  - bit: '12'
-    access: RO
-    long_description: Current Limit Status See Table 2-2.
-    description: Current Limit Status
-    see_table:
-    - 2-2
-  - bit: '13'
-    access: R/WC0
-    long_description: Current Limit Log See Table 2-2.
-    description: Current Limit Log
-    see_table:
-    - 2-2
-  - bit: '14'
-    access: RO
-    long_description: Cross Domain Limit Status See Table 2-2.
-    description: Cross Domain Limit Status
-    see_table:
-    - 2-2
-  - bit: '15'
-    access: R/WC0
-    long_description: Cross Domain Limit Log See Table 2-2.
-    description: Cross Domain Limit Log
-    see_table:
-    - 2-2
-  - bit: '22:16'
-    access: RO
-    long_description: Digital Readout See Table 2-2.
-    description: Digital Readout
-    see_table:
-    - 2-2
-  - bit: '26:23'
-    description: Reserved
-  - bit: '30:27'
-    access: RO
-    long_description: Resolution in Degrees Celsius See Table 2-2.
-    description: Resolution in Degrees Celsius
-    see_table:
-    - 2-2
-  - bit: '31'
-    access: RO
-    long_description: Reading Valid See Table 2-2.
-    description: Reading Valid
-    see_table:
-    - 2-2
-  - bit: '63:32'
-    description: Reserved
-  scope: Core
-  access: R/W
-  description: Thermal Monitor Status
-  long_description: Thermal Monitor Status See Table 2-2.
-  see_table:
-  - 2-2
-- value: 1A2H
-  name: MSR_TEMPERATURE_TARGET
+- value: A0H
+  name: MSR_BIOS_MCU_ERRORCODE
   bitfields:
   - bit: '15:0'
-    description: Reserved
-  - bit: '23:16'
-    access: RO
-    long_description: Temperature Target See Table 2-26.
-    description: Temperature Target
-    see_table:
-    - 2-26
-  - bit: '27:24'
-    access: R/W
-    long_description: TCC Activation Offset See Table 2-26.
-    description: TCC Activation Offset
-    see_table:
-    - 2-26
-  - bit: '63:28'
-    description: Reserved
-  scope: Package
-  description: Temperature Target
-- value: 1ADH
-  name: MSR_TURBO_RATIO_LIMIT
-  bitfields:
-  - bit: '7:0'
-    long_description: RATIO_0 Defines ratio limits.
-    description: RATIO_0
-  - bit: '15:8'
-    long_description: RATIO_1 Defines ratio limits.
-    description: RATIO_1
-  - bit: '23:16'
-    long_description: RATIO_2 Defines ratio limits.
-    description: RATIO_2
-  - bit: '31:24'
-    long_description: RATIO_3 Defines ratio limits.
-    description: RATIO_3
-  - bit: '39:32'
-    long_description: RATIO_4 Defines ratio limits.
-    description: RATIO_4
-  - bit: '47:40'
-    long_description: RATIO_5 Defines ratio limits.
-    description: RATIO_5
-  - bit: '55:48'
-    long_description: RATIO_6 Defines ratio limits.
-    description: RATIO_6
-  - bit: '63:56'
-    long_description: RATIO_7 Defines ratio limits.
-    description: RATIO_7
-  scope: Package
-  description: This register defines the ratio limits
-  long_description: 'This register defines the ratio limits. RATIO[0:7] must be populated in ascending order. RATIO[i+1] must be less than or equal to RATIO[i]. Entries with RATIO[i] will be ignored. If any of the rules above are broken, the configuration is silently rejected. If the programmed ratio is: • Above the fused ratio for that core count, it will be clipped to the fuse limits (assuming !OC). • Below the min supported ratio, it will be clipped.'
-- value: 1AEH
-  name: MSR_TURBO_RATIO_LIMIT_CORES
-  bitfields:
-  - bit: '7:0'
-    long_description: NUMCORE_0 Defines the active core ranges for each frequency point.
-    description: NUMCORE_0
-  - bit: '15:8'
-    long_description: NUMCORE_1 Defines the active core ranges for each frequency point.
-    description: NUMCORE_1
-  - bit: '23:16'
-    long_description: NUMCORE_2 Defines the active core ranges for each frequency point.
-    description: NUMCORE_2
-  - bit: '31:24'
-    long_description: NUMCORE_3 Defines the active core ranges for each frequency point.
-    description: NUMCORE_3
-  - bit: '39:32'
-    long_description: NUMCORE_4 Defines the active core ranges for each frequency point.
-    description: NUMCORE_4
-  - bit: '47:40'
-    long_description: NUMCORE_5 Defines the active core ranges for each frequency point.
-    description: NUMCORE_5
-  - bit: '55:48'
-    long_description: NUMCORE_6 Defines the active core ranges for each frequency point.
-    description: NUMCORE_6
-  - bit: '63:56'
-    long_description: NUMCORE_7 Defines the active core ranges for each frequency point.
-    description: NUMCORE_7
-  scope: Package
-  description: This register defines the active core ranges for each
-  long_description: This register defines the active core ranges for each frequency point. NUMCORE[0:7] must be populated in ascending order. NUMCORE[i+1] must be greater than NUMCORE[i]. Entries with NUMCORE[i] == 0 will be ignored. The last valid entry must have NUMCORE >= the number of cores in the SKU. If any of the rules above are broken, the configuration is silently rejected.
-- value: 280H
-  name: IA32_MC0_CTL2
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 281H
-  name: IA32_MC1_CTL2
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 282H
-  name: IA32_MC2_CTL2
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 283H
-  name: IA32_MC3_CTL2
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 284H
-  name: IA32_MC4_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 285H
-  name: IA32_MC5_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 286H
-  name: IA32_MC6_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 287H
-  name: IA32_MC7_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 288H
-  name: IA32_MC8_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 289H
-  name: IA32_MC9_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 28AH
-  name: IA32_MC10_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 28BH
-  name: IA32_MC11_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 28CH
-  name: IA32_MC12_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 28DH
-  name: IA32_MC13_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 28EH
-  name: IA32_MC14_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 28FH
-  name: IA32_MC15_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 290H
-  name: IA32_MC16_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 291H
-  name: IA32_MC17_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 292H
-  name: IA32_MC18_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 293H
-  name: IA32_MC19_CTL2
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 400H
-  name: IA32_MC0_CTL
-  scope: Core
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC0 reports MC errors from the IFU module.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 401H
-  name: IA32_MC0_STATUS
-  scope: Core
-- value: 402H
-  name: IA32_MC0_ADDR
-  scope: Core
-- value: 403H
-  name: IA32_MC0_MISC
-  scope: Core
-- value: 404H
-  name: IA32_MC1_CTL
-  scope: Core
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC1 reports MC errors from the DCU module.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 405H
-  name: IA32_MC1_STATUS
-  scope: Core
-- value: 406H
-  name: IA32_MC1_ADDR
-  scope: Core
-- value: 407H
-  name: IA32_MC1_MISC
-  scope: Core
-- value: 408H
-  name: IA32_MC2_CTL
-  scope: Core
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC2 reports MC errors from the DTLB module.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 409H
-  name: IA32_MC2_STATUS
-  scope: Core
-- value: 40AH
-  name: IA32_MC2_ADDR
-  scope: Core
-- value: 40BH
-  name: IA32_MC2_MISC
-  scope: Core
-- value: 40CH
-  name: IA32_MC3_CTL
-  scope: Core
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC3 reports MC errors from the MLC module.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 40DH
-  name: IA32_MC3_STATUS
-  scope: Core
-- value: 40EH
-  name: IA32_MC3_ADDR
-  scope: Core
-- value: 40FH
-  name: IA32_MC3_MISC
-  scope: Core
-- value: 410H
-  name: IA32_MC4_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC4 reports MC errors from the PCU module.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 411H
-  name: IA32_MC4_STATUS
-  scope: Package
-- value: 412H
-  name: IA32_MC4_ADDR
-  scope: Package
-- value: 413H
-  name: IA32_MC4_MISC
-  scope: Package
-- value: 414H
-  name: IA32_MC5_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC5 reports MC errors from a link interconnect module.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 415H
-  name: IA32_MC5_STATUS
-  scope: Package
-- value: 416H
-  name: IA32_MC5_ADDR
-  scope: Package
-- value: 417H
-  name: IA32_MC5_MISC
-  scope: Package
-- value: 418H
-  name: IA32_MC6_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC6 reports MC errors from the integrated I/O module.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 419H
-  name: IA32_MC6_STATUS
-  scope: Package
-- value: 41AH
-  name: IA32_MC6_ADDR
-  scope: Package
-- value: 41BH
-  name: IA32_MC6_MISC
-  scope: Package
-- value: 41CH
-  name: IA32_MC7_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC7 reports MC errors from the M2M 0.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 41DH
-  name: IA32_MC7_STATUS
-  scope: Package
-- value: 41EH
-  name: IA32_MC7_ADDR
-  scope: Package
-- value: 41FH
-  name: IA32_MC7_MISC
-  scope: Package
-- value: 420H
-  name: IA32_MC8_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC8 reports MC errors from the M2M 1.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 421H
-  name: IA32_MC8_STATUS
-  scope: Package
-- value: 422H
-  name: IA32_MC8_ADDR
-  scope: Package
-- value: 423H
-  name: IA32_MC8_MISC
-  scope: Package
-- value: 424H
-  name: IA32_MC9_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 - MC11 report MC errors from the CHA
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 425H
-  name: IA32_MC9_STATUS
-  scope: Package
-- value: 426H
-  name: IA32_MC9_ADDR
-  scope: Package
-- value: 427H
-  name: IA32_MC9_MISC
-  scope: Package
-- value: 428H
-  name: IA32_MC10_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 - MC11 report MC errors from the CHA.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 429H
-  name: IA32_MC10_STATUS
-  scope: Package
-- value: 42AH
-  name: IA32_MC10_ADDR
-  scope: Package
-- value: 42BH
-  name: IA32_MC10_MISC
-  scope: Package
-- value: 42CH
-  name: IA32_MC11_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 - MC11 report MC errors from the CHA.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 42DH
-  name: IA32_MC11_STATUS
-  scope: Package
-- value: 42EH
-  name: IA32_MC11_ADDR
-  scope: Package
-- value: 42FH
-  name: IA32_MC11_MISC
-  scope: Package
-- value: 430H
-  name: IA32_MC12_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC12 report MC errors from each channel of a link interconnect module.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 431H
-  name: IA32_MC12_STATUS
-  scope: Package
-- value: 432H
-  name: IA32_MC12_ADDR
-  scope: Package
-- value: 433H
-  name: IA32_MC12_MISC
-  scope: Package
-- value: 434H
-  name: IA32_MC13_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 435H
-  name: IA32_MC13_STATUS
-  scope: Package
-- value: 436H
-  name: IA32_MC13_ADDR
-  scope: Package
-- value: 437H
-  name: IA32_MC13_MISC
-  scope: Package
-- value: 438H
-  name: IA32_MC14_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 439H
-  name: IA32_MC14_STATUS
-  scope: Package
-- value: 43AH
-  name: IA32_MC14_ADDR
-  scope: Package
-- value: 43BH
-  name: IA32_MC14_MISC
-  scope: Package
-- value: 43CH
-  name: IA32_MC15_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 43DH
-  name: IA32_MC15_STATUS
-  scope: Package
-- value: 43EH
-  name: IA32_MC15_ADDR
-  scope: Package
-- value: 43FH
-  name: IA32_MC15_MISC
-  scope: Package
-- value: 440H
-  name: IA32_MC16_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 441H
-  name: IA32_MC16_STATUS
-  scope: Package
-- value: 442H
-  name: IA32_MC16_ADDR
-  scope: Package
-- value: 443H
-  name: IA32_MC16_MISC
-  scope: Package
-- value: 444H
-  name: IA32_MC17_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 445H
-  name: IA32_MC17_STATUS
-  scope: Package
-- value: 446H
-  name: IA32_MC17_ADDR
-  scope: Package
-- value: 447H
-  name: IA32_MC17_MISC
-  scope: Package
-- value: 448H
-  name: IA32_MC18_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 449H
-  name: IA32_MC18_STATUS
-  scope: Package
-- value: 44AH
-  name: IA32_MC18_ADDR
-  scope: Package
-- value: 44BH
-  name: IA32_MC18_MISC
-  scope: Package
-- value: 44CH
-  name: IA32_MC19_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC19 reports MC errors from a link interconnect module.
-  see_section:
-  - 15.3.2.1
-  - 15.3.2.4
-- value: 44DH
-  name: IA32_MC19_STATUS
-  scope: Package
-- value: 44EH
-  name: IA32_MC19_ADDR
-  scope: Package
-- value: 44FH
-  name: IA32_MC19_MISC
-  scope: Package
-- value: 606H
-  name: MSR_RAPL_POWER_UNIT
-  bitfields:
-  - bit: '3:0'
-    long_description: Power Units See Section 14.9.1, “RAPL Interfaces.”
-    description: Power Units
-    see_section:
-    - 14.9.1
-  - bit: '7:4'
-    description: Reserved
-  - bit: '12:8'
-    long_description: Energy Status Units Energy related information (in Joules) is based on the multiplier, 1/2^ESU; where ESU is an unsigned integer represented by bits 12:8. Default value is 0EH (or 61 micro-joules).
-    description: Energy Status Units
-  - bit: '15:13'
-    description: Reserved
-  - bit: '19:16'
-    long_description: Time Units See Section 14.9.1, “RAPL Interfaces.”
-    description: Time Units
-    see_section:
-    - 14.9.1
-  - bit: '63:20'
+    description: Error Codes
+  - bit: '31:16'
     description: Reserved
   scope: Package
   access: R/O
-  description: Unit Multipliers Used in RAPL Interfaces
-- value: 618H
-  name: MSR_DRAM_POWER_LIMIT
-  scope: Package
-  access: R/W
-  description: DRAM RAPL Power Limit Control
-  long_description: DRAM RAPL Power Limit Control See Section 14.9.5, “DRAM RAPL Domain.”
-  see_section:
-  - 14.9.5
-- value: 619H
-  name: MSR_DRAM_ENERGY_STATUS
+  description: BIOS MCU ERRORCODE
+- value: A7H
+  name: MSR_BIOS_DEBUG
   bitfields:
-  - bit: '31:0'
-    long_description: Energy in 15.3 micro-joules. Requires BIOS configuration to enable DRAM RAPL mode 0 (Direct VR).
-    description: Energy in 15
+  - bit: '30:0'
+    description: Reserved
+  - bit: '31'
+    long_description: MCU Partial Success When set to 1, WRMSR 79H skipped part of the functionality during BIOS.
+    description: MCU Partial Success
   - bit: '63:32'
     description: Reserved
+  scope: Thread
+  access: R/O
+  description: BIOS DEBUG
+  long_description: BIOS DEBUG This MSR indicates if WRMSR 79H failed to configure PRM memory and gives a hint to debug BIOS.
+- value: CFH
+  name: IA32_CORE_CAPABILITIES
+  bitfields:
+  - bit: '1:0'
+    description: Reserved
+  - bit: '2'
+    description: FUSA_SUPPORTED
+  - bit: '3'
+    long_description: RSM_IN_CPL0_ONLY When set to 1, the RSM instruction is only allowed in CPL0 (#GP triggered in any CPL != 0). When set to 0, then any CPL may execute the RSM instruction.
+    description: RSM_IN_CPL0_ONLY
+  - bit: '4'
+    description: Reserved
+  - bit: '5'
+    long_description: 'SPLIT_LOCK_DISABLE_SUPPORTED When set to 1, the ability to set MEMORY_CONTROL (MSR 33H) bit 29 enables an #AC to be created when a split lock is detected.'
+    description: SPLIT_LOCK_DISABLE_SUPPORTED
+  - bit: '31:6'
+    description: Reserved
   scope: Package
   access: R/O
-  description: DRAM Energy Status
-  long_description: DRAM Energy Status Energy consumed by DRAM devices.
-- value: 61BH
-  name: MSR_DRAM_PERF_STATUS
-  scope: Package
-  access: R/O
-  description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 14.9.5, “DRAM RAPL Domain.”
-  see_section:
-  - 14.9.5
-- value: 61CH
-  name: MSR_DRAM_POWER_INFO
-  scope: Package
-  access: R/W
-  description: DRAM RAPL Parameters
-  long_description: DRAM RAPL Parameters See Section 14.9.5, “DRAM RAPL Domain.”
-  see_section:
-  - 14.9.5
-- value: 620H
-  name: MSR UNCORE_RATIO_LIMIT
+  description: IA32 Core Capabilities Register
+  long_description: IA32 Core Capabilities Register If CPUID.(EAX=07H, ECX=0):EDX[30] = 1. This MSR provides an architectural enumeration function for model-specific behavior.
+- value: 492H
+  name: IA32_VMX_PROCBASED_CTLS3
   bitfields:
-  - bit: '63:15'
+  - bit: '0'
+    long_description: LOADIWKEY This control determines whether executions of LOADIWKEY cause VM exits.
+    description: LOADIWKEY
+  - bit: '63:1'
     description: Reserved
-  - bit: '14:8'
-    long_description: MIN_RATIO Writing to this field controls the minimum possible ratio of the LLC/Ring.
-    description: MIN_RATIO
-  - bit: '7'
-    description: Reserved
-  - bit: '6:0'
-    long_description: MAX_RATIO This field is used to limit the max ratio of the LLC/Ring.
-    description: MAX_RATIO
-  scope: Package
-  access: R/W
-  description: Uncore Ratio Limit
-  long_description: Uncore Ratio Limit Out of reset, the min_ratio and max_ratio fields represent the widest possible range of uncore frequencies. Writing to these fields allows software to control the minimum and the maximum frequency that hardware will select.
-- value: 639H
-  name: MSR_PP0_ENERGY_STATUS
-  scope: Package
-  access: R/O
-  description: Reserved
-  long_description: Reserved Reads return 0.
-- value: C8DH
-  name: IA32_QM_EVTSEL
+  scope: Core
+  description: IA32_VMX_PROCBASED_CTLS3
+  long_description: IA32_VMX_PROCBASED_CTLS3 This MSR enumerates the allowed 1-settings of the third set of processor-based controls. Specifically, VM entry allows bit X of the tertiary processor-based VM- execution controls to be 1 if and only if bit X of the MSR is set to 1. If bit X of the MSR is cleared to 0, VM entry fails if control X and the “activate tertiary controls” primary processor-based VM-execution control are both 1.
+- value: 601H
+  name: MSR_VR_CURRENT_CONFIG
   bitfields:
-  - bit: '7:0'
-    access: RW
-    long_description: 'EventID Event encoding: 0x00: No monitoring. 0x01: L3 occupancy monitoring. 0x02: Total memory bandwidth monitoring. 0x03: Local memory bandwidth monitoring. All other encoding reserved.'
-    description: EventID
-  - bit: '31:8'
+  - bit: '12:0'
+    long_description: PL4 Value PL4 value in 0.125 A increments. This field is locked by VR_CURRENT_CONFIG[LOCK]. When the LOCK bit is set to 1b, this field becomes Read Only.
+    description: PL4 Value
+  - bit: '30:13'
     description: Reserved
-  - bit: '41:32'
-    access: RW
-    description: RMID
-  - bit: '63:42'
-    description: Reserved
-  scope: THREAD
-  access: R/W
-  description: Monitoring Event Select Register
-  long_description: Monitoring Event Select Register If CPUID.(EAX=07H, ECX=0):EBX.RDT-M[bit 12] = 1.
-- value: C8FH
-  name: IA32_PQR_ASSOC
-  bitfields:
-  - bit: '9:0'
-    description: RMID
-  - bit: '31:10'
-    description: Reserved
-  - bit: '51:32'
-    access: R/W
-    description: COS
-  - bit: '63: 52'
-    description: Reserved
-  scope: THREAD
-  access: R/W
-  description: Resource Association Register
-- value: C90H
-  name: IA32_L3_QOS_MASK_0
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 0 enforcement.'
-    description: CBM
-  - bit: '63:20'
+  - bit: '31'
+    access: LOCK
+    long_description: Lock Indication This bit will lock the CURRENT_LIMIT settings in this register and will also lock this setting. This means that once set to 1b, the CURRENT_LIMIT setting and this bit become Read Only until the next Warm Reset.
+    description: Lock Indication
+  - bit: '62:32'
+    description: Not in use
+  - bit: '63'
     description: Reserved
   scope: Package
+  description: Power Limit 4
+  long_description: Power Limit 4 (PL4) Package-level maximum power limit (in Watts). It is a proactive, instantaneous limit.
+- value: 6A0H
+  name: IA32_U_CET
   access: R/W
-  description: L3 Class Of Service Mask - COS 0
-  long_description: L3 Class Of Service Mask - COS 0 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=0.
-- value: C91H
-  name: IA32_L3_QOS_MASK_1
+  description: Configure User Mode CET
+  long_description: Configure User Mode CET See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A2H
+  name: IA32_S_CET
+  access: R/W
+  description: Configure Supervisor Mode CET
+  long_description: Configure Supervisor Mode CET See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A4H
+  name: IA32_PL0_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on transition to
+  long_description: Linear address to be loaded into SSP on transition to privilege level 0. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A5H
+  name: IA32_PL1_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on transition to
+  long_description: Linear address to be loaded into SSP on transition to privilege level 1. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A6H
+  name: IA32_PL2_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on transition to
+  long_description: Linear address to be loaded into SSP on transition to privilege level 2. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A7H
+  name: IA32_PL3_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on transition to
+  long_description: Linear address to be loaded into SSP on transition to privilege level 3. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A8H
+  name: IA32_INTERRUPT_SSP_TABLE_ADDR
+  access: R/W
+  description: Linear address of a table of seven shadow stack
+  long_description: Linear address of a table of seven shadow stack pointers that are selected in IA-32e mode using the IST index (when not 0) from the interrupt gate descriptor. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 981H
+  name: IA32_TME_CAPABILITY
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 982H
+  name: IA32_TME_ACTIVATE
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 983H
+  name: IA32_TME_EXCLUDE_MASK
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 984H
+  name: IA32_TME_EXCLUDE_BASE
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 990H
+  name: IA32_COPY_STATUS1
+  scope: Thread
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 991H
+  name: IA32_IWKEYBACKUP_STATUS1
+  scope: Platform
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: C82H
+  name: IA32_L2_QOS_CFG
   bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 1 enforcement.'
-    description: CBM
-  - bit: '63:20'
+  - bit: '0'
+    long_description: CDP_ENABLE When set to 1, it will enable the code and data prioritization for the L2 CAT/Intel RDT feature. When set to 0, code and data prioritization is disabled for L2 CAT/Intel RDT. See Chapter 17, “Debug, Branch Profile, TSC, and Intel® Resource Director Technology (Intel® RDT) Features” for further details on CDP.
+    description: CDP_ENABLE
+  - bit: '31:1'
+    description: Reserved
+  scope: Core
+  description: IA32_CR_L2_QOS_CFG
+  long_description: IA32_CR_L2_QOS_CFG This MSR provides software an enumeration of the parameters that L2 QoS (Intel RDT) support in any particular implementation.
+- value: D10H-D17H
+  name: IA32_L2_QOS_MASK_[0-7]
+  bitfields:
+  - bit: '19:0'
+    long_description: 'WAYS_MASK Setting a 1 in this bit X allows threads with CLOS <n> (where N is [0-7]) to allocate to way X in the MLC. Ones are only allowed to be written to ways that physically exist in the MLC (CPUID.4.2:EBX[31:22] will indicate this). Writing a 1 to a value beyond the highest way or a non-contiguous set of 1s will cause a #GP on the WRMSR to this MSR.'
+    description: WAYS_MASK
+  - bit: '31:20'
     description: Reserved
   scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 1
-  long_description: L3 Class Of Service Mask - COS 1 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=1.
-- value: C92H
-  name: IA32_L3_QOS_MASK_2
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 2 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 2
-  long_description: L3 Class Of Service Mask - COS 2 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=2.
-- value: C93H
-  name: IA32_L3_QOS_MASK_3
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 3 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 3
-  long_description: L3 Class Of Service Mask - COS 3 . If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=3.
-- value: C94H
-  name: IA32_L3_QOS_MASK_4
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 4 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 4
-  long_description: L3 Class Of Service Mask - COS 4 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=4.
-- value: C95H
-  name: IA32_L3_QOS_MASK_5
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 5 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 5
-  long_description: L3 Class Of Service Mask - COS 5 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=5.
-- value: C96H
-  name: IA32_L3_QOS_MASK_6
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 6 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 6
-  long_description: L3 Class Of Service Mask - COS 6 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=6.
-- value: C97H
-  name: IA32_L3_QOS_MASK_7
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 7 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 7
-  long_description: L3 Class Of Service Mask - COS 7 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=7.
-- value: C98H
-  name: IA32_L3_QOS_MASK_8
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 8 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 8
-  long_description: L3 Class Of Service Mask - COS 8 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=8.
-- value: C99H
-  name: IA32_L3_QOS_MASK_9
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 9 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 9
-  long_description: L3 Class Of Service Mask - COS 9 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=9.
-- value: C9AH
-  name: IA32_L3_QOS_MASK_10
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 10 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 10
-  long_description: L3 Class Of Service Mask - COS 10 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=10.
-- value: C9BH
-  name: IA32_L3_QOS_MASK_11
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 11 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 11
-  long_description: L3 Class Of Service Mask - COS 11 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=11.
-- value: C9CH
-  name: IA32_L3_QOS_MASK_12
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 12 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 12
-  long_description: L3 Class Of Service Mask - COS 12 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=12.
-- value: C9DH
-  name: IA32_L3_QOS_MASK_13
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 13 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 13
-  long_description: L3 Class Of Service Mask - COS 13 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=13.
-- value: C9EH
-  name: IA32_L3_QOS_MASK_14
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 14 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 14
-  long_description: L3 Class Of Service Mask - COS 14 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=14.
-- value: C9FH
-  name: IA32_L3_QOS_MASK_15
-  bitfields:
-  - bit: 0:19
-    long_description: 'CBM: Bit vector of available L3 ways for COS 15 enforcement.'
-    description: CBM
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: L3 Class Of Service Mask - COS 15
-  long_description: L3 Class Of Service Mask - COS 15 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=15.
+  description: IA32_CR_L2_QOS_MASK_[0-7]
+  long_description: IA32_CR_L2_QOS_MASK_[0-7] Controls MLC (L2) Intel RDT allocation. For more details on CAT/RDT, see Chapter 17, “Debug, Branch Profile, TSC, and Intel® Resource Director Technology (Intel® RDT) Features”.
+- value: D91H
+  name: IA32_COPY_LOCAL_TO_PLATFORM1
+  scope: Thread
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: D92H
+  name: IA32_COPY_PLATFORM_TO_LOCAL1
+  scope: Thread
+  description: See Table 2-2
+  see_table:
+  - 2-2

@@ -2,11 +2,8 @@
 name: Table 2-30
 full_name: Table 2-30. MSRs Supported by 4th Generation Intel® Core™ Processors (Haswell Microarchitecture)
 supported_cpu:
-- 06_5EH
-- 06_46H
-- 06_4EH
 - 06_3CH
-- MSR_PPERF
+- 06_46H
 - 06_45H
 msr:
 - value: E2H
@@ -84,7 +81,7 @@ msr:
     description: Reserved
   scope: Package
   description: Maximum Ratio Limit of Turbo Mode
-  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+  long_description: Maximum Ratio Limit of Turbo Mode R/O if MSR_PLATFORM_INFO.[28] = 0. R/W if MSR_PLATFORM_INFO.[28] = 1.
 - value: 391H
   name: MSR_UNC_PERF_GLOBAL_CTRL
   bitfields:
@@ -259,10 +256,10 @@ msr:
   name: MSR_RAPL_POWER_UNIT
   bitfields:
   - bit: '3:0'
-    long_description: Power Units See Section 14.9.1, “RAPL Interfaces.”
+    long_description: Power Units See Section 14.10.1, “RAPL Interfaces.”
     description: Power Units
     see_section:
-    - 14.9.1
+    - 14.10.1
   - bit: '7:4'
     description: Reserved
   - bit: '12:8'
@@ -271,10 +268,10 @@ msr:
   - bit: '15:13'
     description: Reserved
   - bit: '19:16'
-    long_description: Time Units See Section 14.9.1, “RAPL Interfaces.”
+    long_description: Time Units See Section 14.10.1, “RAPL Interfaces.”
     description: Time Units
     see_section:
-    - 14.9.1
+    - 14.10.1
   - bit: '63:20'
     description: Reserved
   scope: Package
@@ -285,33 +282,33 @@ msr:
   scope: Package
   access: R/O
   description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP0 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.9.4
+  - 14.10.4
 - value: 640H
   name: MSR_PP1_POWER_LIMIT
   scope: Package
   access: R/W
   description: PP1 RAPL Power Limit Control
-  long_description: PP1 RAPL Power Limit Control See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP1 RAPL Power Limit Control See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.9.4
+  - 14.10.4
 - value: 641H
   name: MSR_PP1_ENERGY_STATUS
   scope: Package
   access: R/O
   description: PP1 Energy Status
-  long_description: PP1 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP1 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.9.4
+  - 14.10.4
 - value: 642H
   name: MSR_PP1_POLICY
   scope: Package
   access: R/W
   description: PP1 Balance Policy
-  long_description: PP1 Balance Policy See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP1 Balance Policy See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.9.4
+  - 14.10.4
 - value: 690H
   name: MSR_CORE_PERF_LIMIT_REASONS
   bitfields:

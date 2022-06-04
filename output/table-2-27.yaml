@@ -1,8 +1,7 @@
 ---
 name: Table 2-27
 full_name: Table 2-27. Additional MSRs Supported by Intel® Xeon® Processor E7 v2 Family with DisplayFamily_DisplayModel Signature 06_3EH
-supported_cpu:
-- 06_3EH
+supported_cpu: []
 msr:
 - value: 3AH
   name: IA32_FEATURE_CONTROL
@@ -101,7 +100,7 @@ msr:
     description: Semaphore for Turbo Ratio Limit Configuration
   scope: Package
   description: Maximum Ratio Limit of Turbo Mode
-  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+  long_description: Maximum Ratio Limit of Turbo Mode R/O if MSR_PLATFORM_INFO.[28] = 0. R/W if MSR_PLATFORM_INFO.[28] = 1.
 - value: 29DH
   name: IA32_MC29_CTL2
   scope: Package
@@ -121,41 +120,24 @@ msr:
   see_table:
   - 2-2
 - value: 3F1H
-  name: MSR_PEBS_ENABLE
+  name: IA32_PEBS_ENABLE
+  alt_name: MSR_PEBS_ENABLE
   bitfields:
-  - bit: '0'
+  - bit: n:0
     access: R/W
-    description: Enable PEBS on IA32_PMC0
-  - bit: '1'
-    access: R/W
-    description: Enable PEBS on IA32_PMC1
-  - bit: '2'
-    access: R/W
-    description: Enable PEBS on IA32_PMC2
-  - bit: '3'
-    access: R/W
-    description: Enable PEBS on IA32_PMC3
-  - bit: '31:4'
+    description: Enable PEBS on IA32_PMCx
+  - bit: 31:n+1
     description: Reserved
-  - bit: '32'
+  - bit: 32+m:32
     access: R/W
-    description: Enable Load Latency on IA32_PMC0
-  - bit: '33'
-    access: R/W
-    description: Enable Load Latency on IA32_PMC1
-  - bit: '34'
-    access: R/W
-    description: Enable Load Latency on IA32_PMC2
-  - bit: '35'
-    access: R/W
-    description: Enable Load Latency on IA32_PMC3
-  - bit: '63:36'
+    description: Enable Load Latency on IA32_PMCx
+  - bit: 63:33+m
     description: Reserved
   scope: Thread
-  description: See Section 18.3.1.1.1
-  long_description: See Section 18.3.1.1.1, “Processor Event Based Sampling (PEBS).”
+  description: See Section 19.3.1.1.1
+  long_description: See Section 19.3.1.1.1, “Processor Event Based Sampling (PEBS).”
   see_section:
-  - 18.3.1.1.1
+  - 19.3.1.1.1
 - value: 41BH
   name: IA32_MC6_MISC
   bitfields:

@@ -2,75 +2,86 @@
 name: Table 2-2
 full_name: Table 2-2. IA-32 Architectural MSRs
 supported_cpu:
-- 06_85H
-- 06_05H
-- 06_1CH
-- 06_1DH
-- 06_6CH
-- 05_02H
-- 0F_01H
-- 06_25H
-- 06_4CH
-- 06_45H
-- 06_6AH
-- 06_66H
-- 06_5EH
-- 06_0BH
-- 06_3FH
-- 06_0EH
-- 06_3DH
-- 06_01H
-- 0F_03H
-- 06_0AH
-- 06_46H
-- 06_2FH
-- 0F_04H
-- 06_7H
-- 06_57H
-- 0F_02H
-- 06_4FH
-- 0F_06H
 - 06_7EH
-- 06_4EH
-- 06_3CH
-- 06_4AH
-- 06_9EH
-- 06_0DH
-- 05_09H
-- 06_8EH
-- 06_09H
-- 06_2DH
-- 06_0FH
+- 06_A5H
+- 06_A8H
+- 0F_01H
 - 06_7DH
-- 06_03H
-- 06_55H
-- 06_7AH
-- 06_27H
-- 06_5DH
-- 06_5CH
-- 06_35H
-- 06_4DH
-- 06_08H
-- 06_3AH
+- 06_4AH
 - 06_37H
-- 06_86H
-- 06_36H
-- 06_1AH
+- 06_0AH
+- 06_26H
+- 06_08H
+- 06_3FH
 - 0F_0H
-- 06_47H
-- 06_2AH
+- 06_7AH
+- 06_6AH
+- 06_5EH
+- 06_A7H
+- 06_1AH
+- 06_4FH
+- 06_2FH
+- 0F_02H
+- 06_3DH
+- 06_56H
+- 06_86H
+- 06_97H
+- 06_2DH
 - 06_5AH
+- 06_7H
+- 0F_06H
+- 06_6CH
+- 06_09H
+- 06_36H
+- 06_0FH
+- 06_8DH
+- 06_4DH
+- 06_2CH
+- 0F_03H
+- 06_9AH
+- 06_66H
+- 06_2EH
+- 06_8FH
+- 06_A6H
+- 0F_04H
+- 06_3AH
+- 06_1CH
+- 06_0DH
+- 06_5CH
+- 06_03H
+- 06_8EH
+- 06_4CH
 - 06_3EH
+- 06_4EH
+- 06_35H
+- 06_0EH
+- 06_3CH
+- 06_46H
+- 06_45H
+- 06_57H
 - 06_1EH
+- 05_04H
+- 06_01H
+- 06_1DH
+- 05_09H
 - 06_17H
 - 06_5FH
-- 05_04H
-- 06_2CH
-- 06_1FH
-- 06_56H
-- 06_26H
-- 06_2EH
+- 06_05H
+- 05_02H
+- 06_2AH
+- 06_8CH
+- 06_85H
+- 06_0BH
+- 06_27H
+- 06_5DH
+- 06_96H
 - 05_01H
+- 06_9CH
+- 06_25H
+- 06_9EH
+- 06_1FH
+- 06_55H
+- 06_47H
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR
@@ -109,12 +120,12 @@ msr:
   - bit: '49:0'
     description: Reserved
   - bit: '52:50'
-    access: RO
+    access: R/O
     long_description: Platform Id Contains information concerning the intended platform for the processor. 52 51 50 0 0 0 Processor Flag 0 0 0 1 Processor Flag 1 0 1 0 Processor Flag 2 0 1 1 Processor Flag 3 1 0 0 Processor Flag 4 1 0 1 Processor Flag 5 1 1 0 Processor Flag 6 1 1 1 Processor Flag 7
     description: Platform Id
   - bit: '63:53'
     description: Reserved
-  access: RO
+  access: R/O
   description: Platform ID
   long_description: Platform ID The operating system can use this MSR to determine “slot” information for the processor and the proper microcode update to load.
   comments: 06_01H
@@ -199,7 +210,6 @@ msr:
     description: Reserved
   access: R/W
   description: Control Features in Intel 64 Processor
-  long_description: Control Features in Intel 64 Processor
   comments: If any one enumeration condition for defined bit field holds.
 - value: 3BH
   name: IA32_TSC_ADJUST
@@ -243,6 +253,34 @@ msr:
   description: Prediction Command
   long_description: Prediction Command Gives software a way to issue commands that affect the state of predictors.
   comments: If any one of the enumeration conditions for defined bit field positions holds.
+- value: 4EH
+  name: IA32_PPIN_CTL
+  bitfields:
+  - bit: '0'
+    access: R/WO
+    long_description: LockOut If 0, indicates that further writes to IA32_PPIN_CTL is allowed. If 1, indicates that further writes to IA32_PPIN_CTL is disallowed. Writing 1 to this bit is only permitted if the Enable_PPIN bit is clear. The Privileged System Software Inventory Agent should read IA32_PPIN_CTL[bit 1] to determine if IA32_PPIN is accessible. The Privileged System Software Inventory Agent is not expected to write to this MSR.
+    description: LockOut
+  - bit: '1'
+    access: R/W
+    long_description: 'Enable_PPIN If 1, indicates that IA32_PPIN is accessible using RDMSR. If 0, indicates that IA32_PPIN is inaccessible using RDMSR. Any attempt to read IA32_PPIN will cause #GP.'
+    description: Enable_PPIN
+  - bit: '63:2'
+    description: Reserved
+  access: R/W
+  description: Protected Processor Inventory Number
+  long_description: Protected Processor Inventory Number Enable Control
+  comments: If CPUID.(EAX=07H, ECX=01H):EBX[0]=11
+- value: 4FH
+  name: IA32_PPIN
+  bitfields:
+  - bit: '63:0'
+    access: R/O
+    long_description: Protected Processor Inventory Number A unique value within a given CPUID family/model/stepping signature that a privileged inventory initialization agent can access to identify each physical processor, when access to IA32_PPIN is enabled. Access to IA32_PPIN is permitted only if IA32_PPIN_CTL[bits 1:0] = ‘10b’.
+    description: Protected Processor Inventory Number
+  access: R/O
+  description: Protected Processor Inventory Number
+  long_description: Protected Processor Inventory Number
+  comments: If CPUID.(EAX=07H, ECX=01H):EBX[0]=11
 - value: 79H
   name: IA32_BIOS_UPDT_TRIG
   alt_name: BIOS_UPDT_TRIG
@@ -261,7 +299,7 @@ msr:
   - bit: '63:32'
     long_description: It is recommended that this field be pre- loaded with zero prior to executing CPUID. If the field remains zero following the execution of CPUID, this indicates that no microcode update is loaded. Any non-zero value is the microcode update signature.
     description: It is recommended that this field be pre-
-  access: RO
+  access: R/W
   description: BIOS Update Signature
   long_description: BIOS Update Signature Returns the microcode update signature following the execution of CPUID.01H. A processor may prevent writing to this MSR when loading guest states on VM entries or saving guest states on VM exits.
   comments: 06_01H
@@ -295,11 +333,11 @@ msr:
   - bit: '1'
     description: Reserved
   - bit: '2'
-    long_description: Controls SMI unblocking by VMXOFF (see Section 34.14.4).
+    long_description: Controls SMI unblocking by VMXOFF (see Section 31.14.4).
     description: Controls SMI unblocking by VMXOFF
     comments: If IA32_VMX_MISC[28]
     see_section:
-    - 34.14.4
+    - 31.14.4
   - bit: '11:3'
     description: Reserved
   - bit: '31:12'
@@ -313,8 +351,22 @@ msr:
 - value: 9EH
   name: IA32_SMBASE
   description: Base address of the logical processor’s
-  long_description: Base address of the logical processor’s SMRAM image (RO, SMM only).
+  long_description: Base address of the logical processor’s SMRAM image (R/O, SMM only).
   comments: If IA32_VMX_MISC[15]
+- value: BCH
+  name: IA32_MISC_PACKAGE_CTLS
+  bitfields:
+  - bit: '0'
+    access: R/W
+    long_description: ENERGY_FILTERING_ENABLE If set, RAPL MSRs report filtered processor power consumption data. This bit can be changed from 0 to 1, but cannot be changed from 1 to 0. After setting, all attempts to clear it are ignored until the next processor reset.
+    description: ENERGY_FILTERING_ENABLE
+    comments: If IA32_ARCH_CAPABILITIES [11] = 1
+  - bit: '63:1'
+    description: Reserved
+  access: R/W
+  description: Power Filtering Control
+  long_description: Power Filtering Control This MSR has a value of 0 after reset and is unaffected by INIT# or SIPI#.
+  comments: If IA32_ARCH_CAPABILITIES [10] = 1
 - value: C1H
   name: IA32_PMC0
   alt_name: PERFCTR0
@@ -360,16 +412,11 @@ msr:
 - value: CFH
   name: IA32_CORE_CAPABILITIES
   bitfields:
-  - bit: '4:0'
+  - bit: '63:0'
     description: Reserved
-  - bit: '5'
-    access: '0'
-    long_description: '#AC exception for split locked accesses supported.'
-    description: '#AC exception for split locked accesses'
-  - bit: '31:6'
-    description: Reserved
+    comments: No architecturally defined bits.
   description: IA32 Core Capabilities Register
-  comments: 06_86H
+  comments: If CPUID.(EAX=07H, ECX=0):EDX[30] = 1
 - value: E1H
   name: IA32_UMWAIT_CONTROL
   bitfields:
@@ -421,7 +468,7 @@ msr:
     description: PRMRR supported when set
   - bit: '63:13'
     description: Reserved
-  access: RO
+  access: R/O
   description: MTRR Capability
   long_description: MTRR Capability See Section 11.11.2.1, “IA32_MTRR_DEF_TYPE MSR.”
   see_section:
@@ -445,10 +492,36 @@ msr:
   - bit: '4'
     long_description: 'SSB_NO: Processor is not susceptible to Speculative Store Bypass.'
     description: SSB_NO
-  - bit: '63:5'
+  - bit: '5'
+    long_description: 'MDS_NO: Processor is not susceptible to Microarchitectural Data Sampling (MDS).'
+    description: MDS_NO
+  - bit: '6'
+    long_description: 'IF_PSCHANGE_MC_NO: The processor is not susceptible to a machine check error due to modifying the size of a code page without TLB invalidation.'
+    description: IF_PSCHANGE_MC_NO
+  - bit: '7'
+    long_description: 'TSX_CTRL: If 1, indicates presence of IA32_TSX_CTRL MSR.'
+    description: TSX_CTRL
+  - bit: '8'
+    long_description: 'TAA_NO: If 1, processor is not affected by TAA.'
+    description: TAA_NO
+  - bit: '9'
     description: Reserved
-  access: RO
+  - bit: '10'
+    long_description: 'MISC_PACKAGE_CTLS: The processor supports IA32_MISC_PACKAGE_CTLS MSR.'
+    description: MISC_PACKAGE_CTLS
+  - bit: '11'
+    long_description: 'ENERGY_FILTERING_CTL: The processor supports setting and reading the IA32_MISC_PACKAGE_CTLS[0] (ENERGY_FILTERING_ENABLE) bit.'
+    description: ENERGY_FILTERING_CTL
+  - bit: '22:12'
+    description: Reserved
+  - bit: '23'
+    long_description: 'OVERCLOCKING_STATUS: If set, the IA32_OVERLOCKING STATUS MSR exists.'
+    description: OVERCLOCKING_STATUS
+  - bit: '63:24'
+    description: Reserved
+  access: R/O
   description: Enumeration of Architectural Features
+  long_description: Enumeration of Architectural Features
   comments: If CPUID.(EAX=07H, ECX=0):EDX[29]=1
 - value: 10BH
   name: IA32_FLUSH_CMD
@@ -463,6 +536,19 @@ msr:
   description: Flush Command
   long_description: Flush Command Gives software a way to invalidate structures with finer granularity than other architectural methods.
   comments: If any one of the enumeration conditions for defined bit field positions holds.
+- value: 122H
+  name: IA32_TSX_CTRL
+  bitfields:
+  - bit: '0'
+    long_description: 'RTM_DISABLE: When set to 1, XBEGIN will always abort with EAX code 0.'
+    description: RTM_DISABLE
+  - bit: '1'
+    long_description: 'TSX_CPUID_CLEAR: When set to 1, CPUID.07H.EBX.RTM [bit 11] and CPUID.07H.EBX.HLE [bit 4] report 0. When set to 0 and the SKU supports TSX, these bits will return 1.'
+    description: TSX_CPUID_CLEAR
+  - bit: '63:2'
+    description: Reserved
+  description: IA32_TSX_CTRL
+  comments: Thread scope. Not architecturally serializing. Available when CPUID.ARCH_CAP(EAX=7H, ECX = 0):EDX[29] = 1 and IA32_ARCH_CAPABILITIES. bit 7 = 1.
 - value: 174H
   name: IA32_SYSENTER_CS
   bitfields:
@@ -526,7 +612,7 @@ msr:
     comments: 06_3EH
   - bit: '63:28'
     description: Reserved
-  access: RO
+  access: R/O
   description: Global Machine Check Capability
   comments: 06_01H
 - value: 17AH
@@ -544,7 +630,7 @@ msr:
     comments: 06_01H
   - bit: '3'
     description: LMCE_S
-    comments: If IA32_MCG_CAP.LMCE_P[2 7] =1
+    comments: If IA32_MCG_CAP.LMCE_P[27 ] =1
   - bit: '63:4'
     description: Reserved
   access: R/W0
@@ -558,7 +644,7 @@ msr:
   comments: If IA32_MCG_CAP.CTL_P[8] =1
 - value: 180H-185H
   name: Reserved
-  comments: 06_0EH1
+  comments: 06_0EH2
 - value: 186H
   name: IA32_PERFEVTSEL0
   alt_name: PERFEVTSEL0
@@ -612,9 +698,49 @@ msr:
   access: R/W
   description: Performance Event Select Register 3
   comments: 'If CPUID.0AH: EAX[15:8] > 3'
-- value: 18AH-197H
+- value: 18AH
+  name: IA32_PERFEVTSEL4
+  access: R/W
+  description: Performance Event Select Register 4
+  comments: 'If CPUID.0AH: EAX[15:8] > 4'
+- value: 18BH
+  name: IA32_PERFEVTSEL5
+  access: R/W
+  description: Performance Event Select Register 5
+  comments: 'If CPUID.0AH: EAX[15:8] > 5'
+- value: 18CH
+  name: IA32_PERFEVTSEL6
+  access: R/W
+  description: Performance Event Select Register 6
+  comments: 'If CPUID.0AH: EAX[15:8] > 6'
+- value: 18DH
+  name: IA32_PERFEVTSEL7
+  access: R/W
+  description: Performance Event Select Register 7
+  comments: 'If CPUID.0AH: EAX[15:8] > 7'
+- value: 18AH-194H
   name: Reserved
-  comments: 06_0EH2
+  comments: 06_0EH3
+- value: 195H
+  name: IA32_OVERCLOCKING_STATUS
+  bitfields:
+  - bit: '0'
+    long_description: 'Overclocking Utilized Indicates if specific forms of overclocking have been enabled on this boot or reset cycle: 0 indicates no, 1 indicates yes.'
+    description: Overclocking Utilized
+  - bit: '1'
+    long_description: 'Undervolt Protection Indicates if the “Dynamic OC Undervolt Protection” security feature is active: 0 indicates disabled, 1indicates enabled.'
+    description: Undervolt Protection
+  - bit: '2'
+    long_description: 'Overclocking Secure Status Indicates that overclocking capabilities have been unlocked by BIOS, with or without overclocking: 0 indicates Not Secured, 1 indicates Secure.'
+    description: Overclocking Secure Status
+  - bit: '63:4'
+    description: Reserved
+  access: R/O
+  description: Overclocking Status
+  long_description: Overclocking Status IA32_ARCH_CAPABILITIES[bit 23] enumerates support for this MSR.
+- value: 196H-197H
+  name: Reserved
+  comments: 06_0EH3
 - value: 198H
   name: IA32_PERF_STATUS
   bitfields:
@@ -622,7 +748,7 @@ msr:
     description: Current performance State Value
   - bit: '63:16'
     description: Reserved
-  access: RO
+  access: R/O
   description: Current Performance Status
   long_description: Current Performance Status See Section 14.1.1, “Software Interface For Initiating Performance State Transitions”.
   see_section:
@@ -667,9 +793,9 @@ msr:
     description: Reserved
   access: R/W
   description: Clock Modulation Control
-  long_description: Clock Modulation Control See Section 14.7.3, “Software Controlled Clock Modulation.”
+  long_description: Clock Modulation Control See Section 14.8.3, “Software Controlled Clock Modulation.”
   see_section:
-  - 14.7.3
+  - 14.8.3
   comments: If CPUID.01H:EDX[22] = 1
 - value: 19BH
   name: IA32_THERM_INTERRUPT
@@ -710,15 +836,15 @@ msr:
     description: Reserved
   access: R/W
   description: Thermal Interrupt Control
-  long_description: Thermal Interrupt Control Enables and disables the generation of an interrupt on temperature transitions detected with the processor’s thermal sensors and thermal monitor. See Section 14.7.2, “Thermal Monitor.”
+  long_description: Thermal Interrupt Control Enables and disables the generation of an interrupt on temperature transitions detected with the processor’s thermal sensors and thermal monitor. See Section 14.8.2, “Thermal Monitor.”
   see_section:
-  - 14.7.2
+  - 14.8.2
   comments: If CPUID.01H:EDX[22] = 1
 - value: 19CH
   name: IA32_THERM_STATUS
   bitfields:
   - bit: '0'
-    access: RO
+    access: R/O
     description: Thermal Status
     comments: If CPUID.01H:EDX[22] = 1
   - bit: '1'
@@ -726,7 +852,7 @@ msr:
     description: Thermal Status Log
     comments: If CPUID.01H:EDX[22] = 1
   - bit: '2'
-    access: RO
+    access: R/O
     description: 'PROCHOT # or FORCEPR# event'
     comments: If CPUID.01H:EDX[22] = 1
   - bit: '3'
@@ -734,7 +860,7 @@ msr:
     description: 'PROCHOT # or FORCEPR# log'
     comments: If CPUID.01H:EDX[22] = 1
   - bit: '4'
-    access: RO
+    access: R/O
     description: Critical Temperature Status
     comments: If CPUID.01H:EDX[22] = 1
   - bit: '5'
@@ -742,7 +868,7 @@ msr:
     description: Critical Temperature Status log
     comments: If CPUID.01H:EDX[22] = 1
   - bit: '6'
-    access: RO
+    access: R/O
     description: 'Thermal Threshold #1 Status'
     comments: If CPUID.01H:ECX[8] = 1
   - bit: '7'
@@ -750,7 +876,7 @@ msr:
     description: 'Thermal Threshold #1 log'
     comments: If CPUID.01H:ECX[8] = 1
   - bit: '8'
-    access: RO
+    access: R/O
     description: 'Thermal Threshold #2 Status'
     comments: If CPUID.01H:ECX[8] = 1
   - bit: '9'
@@ -758,7 +884,7 @@ msr:
     description: 'Thermal Threshold #2 log'
     comments: If CPUID.01H:ECX[8] = 1
   - bit: '10'
-    access: RO
+    access: R/O
     description: Power Limitation Status
     comments: If CPUID.06H:EAX[4] = 1
   - bit: '11'
@@ -766,7 +892,7 @@ msr:
     description: Power Limitation log
     comments: If CPUID.06H:EAX[4] = 1
   - bit: '12'
-    access: RO
+    access: R/O
     description: Current Limit Status
     comments: If CPUID.06H:EAX[7] = 1
   - bit: '13'
@@ -774,7 +900,7 @@ msr:
     description: Current Limit log
     comments: If CPUID.06H:EAX[7] = 1
   - bit: '14'
-    access: RO
+    access: R/O
     description: Cross Domain Limit Status
     comments: If CPUID.06H:EAX[7] = 1
   - bit: '15'
@@ -782,26 +908,26 @@ msr:
     description: Cross Domain Limit log
     comments: If CPUID.06H:EAX[7] = 1
   - bit: '22:16'
-    access: RO
+    access: R/O
     description: Digital Readout
     comments: If CPUID.06H:EAX[0] = 1
   - bit: '26:23'
     description: Reserved
   - bit: '30:27'
-    access: RO
+    access: R/O
     description: Resolution in Degrees Celsius
     comments: If CPUID.06H:EAX[0] = 1
   - bit: '31'
-    access: RO
+    access: R/O
     description: Reading Valid
     comments: If CPUID.06H:EAX[0] = 1
   - bit: '63:32'
     description: Reserved
-  access: RO
+  access: R/O
   description: Thermal Status Information
-  long_description: Thermal Status Information Contains status information about the processor’s thermal sensor and automatic thermal monitoring facilities. See Section 14.7.2, “Thermal Monitor”.
+  long_description: Thermal Status Information Contains status information about the processor’s thermal sensor and automatic thermal monitoring facilities. See Section 14.8.2, “Thermal Monitor”.
   see_section:
-  - 14.7.2
+  - 14.8.2
   comments: If CPUID.01H:EDX[22] = 1
 - value: 1A0H
   name: IA32_MISC_ENABLE
@@ -827,12 +953,12 @@ msr:
   - bit: '10:8'
     description: Reserved
   - bit: '11'
-    access: RO
+    access: R/O
     long_description: Branch Trace Storage Unavailable 1 = Processor doesn’t support branch trace storage (BTS). 0 = BTS is supported.
     description: Branch Trace Storage Unavailable
     comments: 0F_0H
   - bit: '12'
-    access: RO
+    access: R/O
     long_description: Processor Event Based Sampling (PEBS) Unavailable 1 = PEBS is not supported. 0 = PEBS is supported.
     description: Processor Event Based Sampling
     comments: 06_0FH
@@ -868,7 +994,7 @@ msr:
     access: R/W
     long_description: 'XD Bit Disable When set to 1, the Execute Disable Bit feature (XD Bit) is disabled and the XD Bit extended feature flag will be clear (CPUID.80000001H: EDX[20]=0). When set to a 0 (default), the Execute Disable Bit feature (if available) allows the OS to enable PAE paging and take advantage of data only pages. BIOS must not alter the contents of this bit location, if XD bit is not supported. Writing this bit to 1 when the XD Bit extended feature flag is set to 0 may generate a #GP exception.'
     description: XD Bit Disable
-    comments: If CPUID.80000001H:EDX[2 0] = 1
+    comments: If CPUID.80000001H:EDX[20 ] = 1
   - bit: '63:35'
     description: Reserved
   access: R/W
@@ -889,54 +1015,60 @@ msr:
   name: IA32_PACKAGE_THERM_STATUS
   bitfields:
   - bit: '0'
-    access: RO
+    access: R/O
     description: Pkg Thermal Status
   - bit: '1'
     access: R/W
     description: Pkg Thermal Status Log
   - bit: '2'
-    access: RO
+    access: R/O
     description: 'Pkg PROCHOT # event'
   - bit: '3'
     access: R/WC0
     description: 'Pkg PROCHOT # log'
   - bit: '4'
-    access: RO
+    access: R/O
     description: Pkg Critical Temperature Status
   - bit: '5'
     access: R/WC0
     long_description: Pkg Critical Temperature Status Log
     description: Pkg Critical Temperature Status Log
   - bit: '6'
-    access: RO
+    access: R/O
     description: 'Pkg Thermal Threshold #1 Status'
   - bit: '7'
     access: R/WC0
-    description: 'Pkg Thermal Threshold #1 log'
+    description: 'Pkg Thermal Threshold #1 Log'
   - bit: '8'
-    access: RO
+    access: R/O
     description: 'Pkg Thermal Threshold #2 Status'
   - bit: '9'
     access: R/WC0
-    description: 'Pkg Thermal Threshold #1 log'
+    description: 'Pkg Thermal Threshold #1 Log'
   - bit: '10'
-    access: RO
+    access: R/O
     description: Pkg Power Limitation Status
   - bit: '11'
     access: R/WC0
-    description: Pkg Power Limitation log
+    description: Pkg Power Limitation Log
   - bit: '15:12'
     description: Reserved
   - bit: '22:16'
-    access: RO
+    access: R/O
     description: Pkg Digital Readout
-  - bit: '63:23'
+  - bit: '25:23'
     description: Reserved
-  access: RO
+  - bit: '26'
+    long_description: Hardware Feedback Interface Structure Change Status
+    description: Hardware Feedback Interface Structure
+    comments: If CPUID.06H:EAX.[19] = 1
+  - bit: '63:27'
+    description: Reserved
+  access: R/O
   description: Package Thermal Status Information
-  long_description: Package Thermal Status Information Contains status information about the package’s thermal sensor. See Section 14.8, “Package Level Thermal Management.”
+  long_description: Package Thermal Status Information Contains status information about the package’s thermal sensor. See Section 14.9, “Package Level Thermal Management.”
   see_section:
-  - '14.8'
+  - '14.9'
   comments: 'If CPUID.06H: EAX[6] = 1'
 - value: 1B2H
   name: IA32_PACKAGE_THERM_INTERRUPT
@@ -963,13 +1095,16 @@ msr:
     description: 'Pkg Threshold #2 Interrupt Enable'
   - bit: '24'
     description: Pkg Power Limit Notification Enable
-  - bit: '63:25'
+  - bit: '25'
+    description: Hardware Feedback Interrupt Enable
+    comments: If CPUID.06H:EAX.[19] = 1
+  - bit: '63:26'
     description: Reserved
   access: R/W
   description: Pkg Thermal Interrupt Control
-  long_description: Pkg Thermal Interrupt Control Enables and disables the generation of an interrupt on temperature transitions detected with the package’s thermal sensor. See Section 14.8, “Package Level Thermal Management.”
+  long_description: Pkg Thermal Interrupt Control Enables and disables the generation of an interrupt on temperature transitions detected with the package’s thermal sensor. See Section 14.9, “Package Level Thermal Management.”
   see_section:
-  - '14.8'
+  - '14.9'
   comments: 'If CPUID.06H: EAX[6] = 1'
 - value: 1D9H
   name: IA32_DEBUGCTL
@@ -1030,6 +1165,54 @@ msr:
   access: R/W
   description: Trace/Profile Resource Control
   comments: 06_0EH
+- value: 1DDH
+  name: IA32_LER_FROM_IP
+  bitfields:
+  - bit: '63:0'
+    long_description: FROM_IP The source IP of the recorded branch or event, in canonical form.
+    description: FROM_IP
+    comments: 'Reset Value: 0'
+  access: R/W
+  description: Last Event Record Source IP Register
+- value: 1DEH
+  name: IA32_LER_TO_IP
+  bitfields:
+  - bit: '63:0'
+    long_description: TO_IP The destination IP of the recorded branch or event, in canonical form.
+    description: TO_IP
+    comments: 'Reset Value: 0'
+  access: R/W
+  description: Last Event Record Destination IP Register
+  long_description: Last Event Record Destination IP Register
+- value: 1E0H
+  name: IA32_LER_INFO
+  bitfields:
+  - bit: '55:0'
+    long_description: Undefined, may be zero or non-zero. Writes of non- zero values do not fault, but reads may return a different value.
+    description: Undefined
+    comments: 'Reset Value: 0'
+  - bit: '59:56'
+    long_description: BR_TYPE The branch type recorded by this LBR. Encodings match those of IA32_LBR_x_INFO.
+    description: BR_TYPE
+    comments: 'Reset Value: 0'
+  - bit: '60'
+    long_description: Undefined, may be zero or non-zero. Writes of non- zero values do not fault, but reads may return a different value.
+    description: Undefined
+    comments: 'Reset Value: 0'
+  - bit: '61'
+    long_description: TSX_ABORT This LBR record is a TSX abort. On processors that do not support Intel® TSX (CPUID.07H.EBX.HLE[bit 4]=0 and CPUID.07H.EBX.RTM[bit 11]=0), this bit is undefined.
+    description: TSX_ABORT
+    comments: 'Reset Value: 0'
+  - bit: '62'
+    long_description: IN_TSX This LBR record records a branch that retired during a TSX transaction. On processors that do not support Intel® TSX (CPUID.07H.EBX.HLE[bit 4]=0 and CPUID.07H.EBX.RTM[bit 11]=0), this bit is undefined.
+    description: IN_TSX
+    comments: 'Reset Value: 0'
+  - bit: '63'
+    long_description: MISPRED The recorded branch taken/not-taken resolution (for conditional branches) or target (for any indirect branch, including RETs) was mispredicted.
+    description: MISPRED
+    comments: 'Reset Value: 0'
+  access: R/W
+  description: Last Event Record Info Register
 - value: 1F2H
   name: IA32_SMRR_PHYSBASE
   bitfields:
@@ -1095,7 +1278,7 @@ msr:
   - bit: '25'
     description: Reserved
   - bit: '26'
-    long_description: 'HW_BLOCK: Set when DCA is blocked by HW (e.g. CR0.CD = 1).'
+    long_description: 'HW_BLOCK: Set when DCA is blocked by HW (e.g., CR0.CD = 1).'
     description: HW_BLOCK
   - bit: '31:27'
     description: Reserved
@@ -1108,83 +1291,83 @@ msr:
   long_description: See Section 11.11.2.3, “Variable Range MTRRs.”
   see_section:
   - 11.11.2.3
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 0
 - value: 201H
   name: IA32_MTRR_PHYSMASK0
   description: MTRRphysMask0
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 0
 - value: 202H
   name: IA32_MTRR_PHYSBASE1
   description: MTRRphysBase1
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 1
 - value: 203H
   name: IA32_MTRR_PHYSMASK1
   description: MTRRphysMask1
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 1
 - value: 204H
   name: IA32_MTRR_PHYSBASE2
   description: MTRRphysBase2
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 2
 - value: 205H
   name: IA32_MTRR_PHYSMASK2
   description: MTRRphysMask2
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 2
 - value: 206H
   name: IA32_MTRR_PHYSBASE3
   description: MTRRphysBase3
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 3
 - value: 207H
   name: IA32_MTRR_PHYSMASK3
   description: MTRRphysMask3
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 3
 - value: 208H
   name: IA32_MTRR_PHYSBASE4
   description: MTRRphysBase4
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 4
 - value: 209H
   name: IA32_MTRR_PHYSMASK4
   description: MTRRphysMask4
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 4
 - value: 20AH
   name: IA32_MTRR_PHYSBASE5
   description: MTRRphysBase5
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 5
 - value: 20BH
   name: IA32_MTRR_PHYSMASK5
   description: MTRRphysMask5
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 5
 - value: 20CH
   name: IA32_MTRR_PHYSBASE6
   description: MTRRphysBase6
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 6
 - value: 20DH
   name: IA32_MTRR_PHYSMASK6
   description: MTRRphysMask6
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 6
 - value: 20EH
   name: IA32_MTRR_PHYSBASE7
   description: MTRRphysBase7
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 7
 - value: 20FH
   name: IA32_MTRR_PHYSMASK7
   description: MTRRphysMask7
-  comments: 'If CPUID.01H: EDX.MTRR[12] =1'
+  comments: If IA32_MTRRCAP[7:0] > 7
 - value: 210H
   name: IA32_MTRR_PHYSBASE8
   description: MTRRphysBase8
-  comments: if IA32_MTRRCAP[7:0] > 8
+  comments: If IA32_MTRRCAP[7:0] > 8
 - value: 211H
   name: IA32_MTRR_PHYSMASK8
   description: MTRRphysMask8
-  comments: if IA32_MTRRCAP[7:0] > 8
+  comments: If IA32_MTRRCAP[7:0] > 8
 - value: 212H
   name: IA32_MTRR_PHYSBASE9
   description: MTRRphysBase9
-  comments: if IA32_MTRRCAP[7:0] > 9
+  comments: If IA32_MTRRCAP[7:0] > 9
 - value: 213H
   name: IA32_MTRR_PHYSMASK9
   description: MTRRphysMask9
-  comments: if IA32_MTRRCAP[7:0] > 9
+  comments: If IA32_MTRRCAP[7:0] > 9
 - value: 250H
   name: IA32_MTRR_FIX64K_00000
   description: MTRRfix64K_00000
@@ -1494,7 +1677,7 @@ msr:
     long_description: '1: Full width of counter writable via IA32_A_PMCx.'
     description: '1'
   - bit: '14'
-    description: Reserved
+    description: PEBS_BASELINE
   - bit: '15'
     description: '1'
   - bit: '16'
@@ -1503,7 +1686,7 @@ msr:
     comments: If CPUID.0x7.0.EBX[25]=1
   - bit: '63:17'
     description: Reserved
-  access: RO
+  access: R/O
   description: Read Only MSR that enumerates the
   long_description: Read Only MSR that enumerates the existence of performance monitoring features.
   comments: 'If CPUID.01H: ECX[15] = 1'
@@ -1517,9 +1700,9 @@ msr:
     long_description: 'EN0_Usr: Enable Fixed Counter 0 to count while CPL > 0.'
     description: EN0_Usr
   - bit: '2'
-    long_description: 'AnyThread: When set to 1, it enables counting the associated event conditions occurring across all logical processors sharing a processor core. When set to 0, the counter only increments the associated event conditions occurring in the logical processor which programmed the MSR.'
-    description: AnyThread
-    comments: 'If CPUID.0AH: EAX[7:0] > 2'
+    long_description: 'AnyThr0: When set to 1, it enables counting the associated event conditions occurring across all logical processors sharing a processor core. When set to 0, the counter only increments the associated event conditions occurring in the logical processor which programmed the MSR.'
+    description: AnyThr0
+    comments: If CPUID.0AH:EAX[7:0] > 2 && CPUID.0AH:EDX[15]=0
   - bit: '3'
     long_description: 'EN0_PMI: Enable PMI when fixed counter 0 overflows.'
     description: EN0_PMI
@@ -1530,9 +1713,9 @@ msr:
     long_description: 'EN1_Usr: Enable Fixed Counter 1to count while CPL > 0.'
     description: EN1_Usr
   - bit: '6'
-    long_description: 'AnyThread: When set to 1, it enables counting the associated event conditions occurring across all logical processors sharing a processor core. When set to 0, the counter only increments the associated event conditions occurring in the logical processor which programmed the MSR.'
-    description: AnyThread
-    comments: 'If CPUID.0AH: EAX[7:0] > 2'
+    long_description: 'AnyThr1: When set to 1, it enables counting the associated event conditions occurring across all logical processors sharing a processor core. When set to 0, the counter only increments the associated event conditions occurring in the logical processor which programmed the MSR.'
+    description: AnyThr1
+    comments: If CPUID.0AH:EAX[7:0] > 2 && CPUID.0AH:EDX[15]=0
   - bit: '7'
     long_description: 'EN1_PMI: Enable PMI when fixed counter 1 overflows.'
     description: EN1_PMI
@@ -1543,13 +1726,24 @@ msr:
     long_description: 'EN2_Usr: Enable Fixed Counter 2 to count while CPL > 0.'
     description: EN2_Usr
   - bit: '10'
-    long_description: 'AnyThread: When set to 1, it enables counting the associated event conditions occurring across all logical processors sharing a processor core. When set to 0, the counter only increments the associated event conditions occurring in the logical processor which programmed the MSR.'
-    description: AnyThread
-    comments: 'If CPUID.0AH: EAX[7:0] > 2'
+    long_description: 'AnyThr2: When set to 1, it enables counting the associated event conditions occurring across all logical processors sharing a processor core. When set to 0, the counter only increments the associated event conditions occurring in the logical processor which programmed the MSR.'
+    description: AnyThr2
+    comments: If CPUID.0AH:EAX[7:0] > 2 && CPUID.0AH:EDX[15]=0
   - bit: '11'
     long_description: 'EN2_PMI: Enable PMI when fixed counter 2 overflows.'
     description: EN2_PMI
-  - bit: '63:12'
+  - bit: '12'
+    long_description: 'EN3_OS: Enable Fixed Counter 3 to count while CPL = 0.'
+    description: EN3_OS
+  - bit: '13'
+    long_description: 'EN3_Usr: Enable Fixed Counter 3 to count while CPL > 0.'
+    description: EN3_Usr
+  - bit: '14'
+    description: Reserved
+  - bit: '15'
+    long_description: 'EN3_PMI: Enable PMI when fixed counter 3 overflows.'
+    description: EN3_PMI
+  - bit: '63:16'
     description: Reserved
   access: R/W
   description: Fixed-Function Performance Counter
@@ -1570,7 +1764,10 @@ msr:
   - bit: '3'
     description: Ovf_PMC3
     comments: 'If CPUID.0AH: EAX[15:8] > 3'
-  - bit: '31:4'
+  - bit: n
+    description: Ovf_PMCn
+    comments: 'If CPUID.0AH: EAX[15:8] > n'
+  - bit: 31:n+1
     description: Reserved
   - bit: '32'
     long_description: 'Ovf_FixedCtr0: Overflow status of IA32_FIXED_CTR0.'
@@ -1594,7 +1791,7 @@ msr:
   - bit: '55'
     long_description: 'Trace_ToPA_PMI: A PMI occurred due to a ToPA entry memory buffer that was completely filled.'
     description: Trace_ToPA_PMI
-    comments: If (CPUID.(EAX=07H, ECX=0):EBX[25] = 1) && IA32_RTIT_CTL.ToPA = 1
+    comments: If CPUID.(EAX=07H, ECX=0):EBX[25] = 1 && CPUID.(EAX=014H, ECX=0):ECX[0] = 1
   - bit: '57:56'
     description: Reserved
   - bit: '58'
@@ -1621,9 +1818,9 @@ msr:
     long_description: 'CondChgd: Status bits of this register have changed.'
     description: CondChgd
     comments: 'If CPUID.0AH: EAX[7:0] > 0'
-  access: RO
+  access: R/O
   description: Global Performance Counter Status
-  comments: 'If CPUID.0AH: EAX[7:0] > 0'
+  comments: 'If CPUID.0AH: EAX[7:0] > 0 II (CPUID.(EAX=07H, ECX=0):EBX[25] = 1 && CPUID.(EAX=014H, ECX=0):ECX[0] = 1)'
 - value: 38FH
   name: IA32_PERF_GLOBAL_CTRL
   bitfields:
@@ -1742,7 +1939,7 @@ msr:
     description: Reserved
   - bit: '55'
     description: Set 1 to Clear Trace_ToPA_PMI bit
-    comments: If (CPUID.(EAX=07H, ECX=0):EBX[25] = 1) && IA32_RTIT_CTL.ToPA[8] = 1
+    comments: If CPUID.(EAX=07H, ECX=0):EBX[25] = 1 && CPUID.(EAX=014H, ECX=0):ECX[0] = 1
   - bit: '57:56'
     description: Reserved
   - bit: '58'
@@ -1766,7 +1963,7 @@ msr:
   access: R/W
   description: Global Performance Counter Overflow
   long_description: Global Performance Counter Overflow Reset Control
-  comments: 'If CPUID.0AH: EAX[7:0] > 3'
+  comments: 'If CPUID.0AH: EAX[7:0] > 3 II (CPUID.(EAX=07H, ECX=0):EBX[25] = 1 && CPUID.(EAX=014H, ECX=0):ECX[0] = 1)'
 - value: 391H
   name: IA32_PERF_GLOBAL_STATUS_SET
   bitfields:
@@ -1802,7 +1999,7 @@ msr:
     description: Reserved
   - bit: '55'
     description: Set 1 to cause Trace_ToPA_PMI = 1
-    comments: 'If CPUID.0AH: EAX[7:0] > 3'
+    comments: If CPUID.(EAX=07H, ECX=0):EBX[25] = 1 && CPUID.(EAX=014H, ECX=0):ECX[0] = 1
   - bit: '57:56'
     description: Reserved
   - bit: '58'
@@ -1825,7 +2022,7 @@ msr:
   access: R/W
   description: Global Performance Counter Overflow Set
   long_description: Global Performance Counter Overflow Set Control
-  comments: 'If CPUID.0AH: EAX[7:0] > 3'
+  comments: 'If CPUID.0AH: EAX[7:0] > 3 II (CPUID.(EAX=07H, ECX=0):EBX[25] = 1 && CPUID.(EAX=014H, ECX=0):ECX[0] = 1)'
 - value: 392H
   name: IA32_PERF_GLOBAL_INUSE
   bitfields:
@@ -1852,7 +2049,7 @@ msr:
     description: Reserved or model specific
   - bit: '63'
     description: PMI in use
-  access: RO
+  access: R/O
   description: Indicator that core perfmon interface is in
   long_description: Indicator that core perfmon interface is in use.
   comments: 'If CPUID.0AH: EAX[7:0] > 3'
@@ -2363,8 +2560,8 @@ msr:
 - value: 483H
   name: IA32_VMX_EXIT_CTLS
   access: R/O
-  description: Capability Reporting Register of VM-Exit
-  long_description: Capability Reporting Register of VM-Exit Controls See Appendix A.4, “VM-Exit Controls.”
+  description: Capability Reporting Register of Primary
+  long_description: Capability Reporting Register of Primary VM-Exit Controls See Appendix A.4.1, “Primary VM-Exit Controls.”
   see_appendix:
   - A.4
   comments: If CPUID.01H:ECX.[5] = 1
@@ -2478,6 +2675,22 @@ msr:
   description: Capability Reporting Register of VM-
   long_description: Capability Reporting Register of VM- Function Controls
   comments: If( CPUID.01H:ECX.[5] = 1 && IA32_VMX_BASIC[55] )
+- value: 492H
+  name: IA32_VMX_PROCBASED_CTLS3
+  access: R/O
+  description: Capability Reporting Register of Tertiary
+  long_description: Capability Reporting Register of Tertiary Processor-Based VM-Execution Controls See Appendix A.3.4, “Tertiary Processor- Based VM-Execution Controls.”
+  see_appendix:
+  - A.3
+  comments: If ( CPUID.01H:ECX.[5] && IA32_VMX_PROCBASED_C TLS[49])
+- value: 493H
+  name: IA32_VMX_EXIT_CTLS2
+  access: R/O
+  description: Capability Reporting Register of Secondary
+  long_description: Capability Reporting Register of Secondary VM-Exit Controls See Appendix A.4.2, “Secondary VM-Exit Controls.”
+  see_appendix:
+  - A.4
+  comments: If ( CPUID.01H:ECX.[5] && IA32_VMX_EXIT_CTLS[63)
 - value: 4C1H
   name: IA32_A_PMC0
   access: R/W
@@ -2536,15 +2749,15 @@ msr:
   bitfields:
   - bit: '0'
     description: Lock
-    comments: See Section 41.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
+    comments: See Section 38.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
   - bit: '15:1'
     description: Reserved
   - bit: '23:16'
     description: SGX_SVN_SINIT
-    comments: See Section 41.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
+    comments: See Section 38.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
   - bit: '63:24'
     description: Reserved
-  access: RO
+  access: R/O
   description: Status and SVN Threshold of SGX Support
   long_description: Status and SVN Threshold of SGX Support for ACM .
   comments: 'If CPUID.(EAX=07H, ECX=0H): EBX[2] = 1'
@@ -2553,13 +2766,13 @@ msr:
   bitfields:
   - bit: '6:0'
     description: Reserved
-  - bit: MAXPHYADDR3-1:7
+  - bit: MAXPHYADDR4-1:7
     description: Base physical address
   - bit: 63:MAXPHYADDR
     description: Reserved
   access: R/W
   description: Trace Output Base Register
-  comments: 'If ((CPUID.(EAX=07H, ECX=0):EBX[25] = 1) && ( (CPUID.(EAX=14H,ECX=0): ECX[0] = 1) || (CPUID.(EAX=14H,ECX=0): ECX[2] = 1) ) )'
+  comments: If ((CPUID.(EAX=07H, ECX=0):EBX[25] = 1) && ( (CPUID.(EAX=14H,ECX=0):E CX[0] = 1) || (CPUID.(EAX=14H,ECX=0):E CX[2] = 1) ) )
 - value: 561H
   name: IA32_RTIT_OUTPUT_MASK_PTRS
   bitfields:
@@ -2571,7 +2784,7 @@ msr:
     description: Output Offset
   access: R/W
   description: Trace Output Mask Pointers Register
-  comments: 'If ((CPUID.(EAX=07H, ECX=0):EBX[25] = 1) && ( (CPUID.(EAX=14H,ECX=0): ECX[0] = 1) || (CPUID.(EAX=14H,ECX=0): ECX[2] = 1) ) )'
+  comments: If ((CPUID.(EAX=07H, ECX=0):EBX[25] = 1) && ( (CPUID.(EAX=14H,ECX=0):E CX[0] = 1) || (CPUID.(EAX=14H,ECX=0):E CX[2] = 1) ) )
 - value: 570H
   name: IA32_RTIT_CTL
   bitfields:
@@ -2586,8 +2799,10 @@ msr:
     description: User
   - bit: '4'
     description: PwrEvtEn
+    comments: If (CPUID.(EAX=07H, ECX=1):EBX[5] = 1)
   - bit: '5'
     description: FUPonPTW
+    comments: If (CPUID.(EAX=07H, ECX=1):EBX[4] = 1)
   - bit: '6'
     description: FabricEn
     comments: If (CPUID.(EAX=07H, ECX=0):ECX[3] = 1)
@@ -2604,6 +2819,7 @@ msr:
     description: DisRETC
   - bit: '12'
     description: PTWEn
+    comments: If (CPUID.(EAX=07H, ECX=1):EBX[4] = 1)
   - bit: '13'
     description: BranchEn
   - bit: '17:14'
@@ -2633,7 +2849,12 @@ msr:
   - bit: '47:44'
     description: ADDR3_CFG
     comments: If (CPUID.(EAX=07H, ECX=1):EAX[2:0] > 3)
-  - bit: '63:48'
+  - bit: '55:48'
+    description: Reserved
+  - bit: '56'
+    description: InjectPsbPmiOnEnable
+    comments: If (CPUID.(EAX=07H, ECX=1):EBX[6] = 1)
+  - bit: '63:57'
     description: Reserved
   access: R/W
   description: Trace Control Register
@@ -2654,7 +2875,13 @@ msr:
     description: Error
   - bit: '5'
     description: Stopped
-  - bit: '31:6'
+  - bit: '6'
+    description: PendPSB
+    comments: If (CPUID.(EAX=07H, ECX=0):EBX[6] = 1)
+  - bit: '7'
+    description: PendToPAPMI
+    comments: If (CPUID.(EAX=07H, ECX=0):EBX[6] = 1)
+  - bit: '31:8'
     description: Reserved
   - bit: '48:32'
     description: PacketByteCnt
@@ -2767,16 +2994,99 @@ msr:
     description: Reserved if not in IA-32e mode
   access: R/W
   description: DS Save Area
-  long_description: DS Save Area Points to the linear address of the first byte of the DS buffer management area, which is used to manage the BTS and PEBS buffers. See Section 18.6.3.4, “Debug Store (DS) Mechanism.”
+  long_description: DS Save Area Points to the linear address of the first byte of the DS buffer management area, which is used to manage the BTS and PEBS buffers. See Section 19.6.3.4, “Debug Store (DS) Mechanism.”
   see_section:
-  - 18.6.3.4
+  - 19.6.3.4
   comments: If( CPUID.01H:EDX.DS[21] = 1
+- value: 6A0H
+  name: IA32_U_CET
+  bitfields:
+  - bit: '0'
+    long_description: 'SH_STK_EN: When set to 1, enable shadow stacks at CPL3.'
+    description: SH_STK_EN
+  - bit: '1'
+    long_description: 'WR_SHSTK_EN: When set to 1, enables the WRSSD/WRSSQ instructions.'
+    description: WR_SHSTK_EN
+  - bit: '2'
+    long_description: 'ENDBR_EN: When set to 1, enables indirect branch tracking.'
+    description: ENDBR_EN
+  - bit: '3'
+    long_description: 'LEG_IW_EN: Enable legacy compatibility treatment for indirect branch tracking.'
+    description: LEG_IW_EN
+  - bit: '4'
+    long_description: 'NO_TRACK_EN: When set to 1, enables use of no-track prefix for indirect branch tracking.'
+    description: NO_TRACK_EN
+  - bit: '5'
+    long_description: 'SUPPRESS_DIS: When set to 1, disables suppression of CET indirect branch tracking on legacy compatibility.'
+    description: SUPPRESS_DIS
+  - bit: '9:6'
+    description: Reserved; must be zero
+  - bit: '10'
+    long_description: 'SUPPRESS: When set to 1, indirect branch tracking is suppressed. This bit can be written to 1 only if TRACKER is written as IDLE.'
+    description: SUPPRESS
+  - bit: '11'
+    access: '0'
+    long_description: 'TRACKER: Value of the indirect branch tracking state machine. Values: IDLE , WAIT_FOR_ENDBRANCH(1).'
+    description: TRACKER
+  - bit: '63:12'
+    long_description: 'EB_LEG_BITMAP_BASE: Linear address bits 63:12 of a legacy code page bitmap used for legacy compatibility when indirect branch tracking is enabled. If the processor does not support Intel 64 architecture, these fields have only 32 bits; bits 63:32 of the MSRs are reserved. On processors that support Intel 64 architecture this value cannot represent a non-canonical address. In protected mode, only 31:0 are loaded. The linear address written must be aligned to 8 bytes and bits 2:0 must be 0 (hardware requires bits 1:0 to be 0).'
+    description: EB_LEG_BITMAP_BASE
+  access: R/W
+  description: Configure User Mode CET
+  comments: Bits 1:0 are defined if CPUID.(EAX=07H, ECX=0H):ECX.CET_SS[07] = 1. Bits 5:2 and bits 63:10 are defined if CPUID.(EAX=07H, ECX=0H):EDX.CET_IBT[20] = 1.
+- value: 6A2H
+  name: IA32_S_CET
+  access: R/W
+  description: Configure Supervisor Mode CET
+  comments: See IA32_U_CET (6A0H) for reference; similar format.
+- value: 6A4H
+  name: IA32_PL0_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on
+  long_description: Linear address to be loaded into SSP on transition to privilege level 0. If the processor does not support Intel 64 architecture, these fields have only 32 bits; bits 63:32 of the MSRs are reserved. On processors that support Intel 64 architecture this value cannot represent a non-canonical address. In protected mode, only 31:0 are loaded. The linear address written must be aligned to 8 bytes and bits 2:0 must be 0 (hardware requires bits 1:0 to be 0).
+  comments: If CPUID.(EAX=07H, ECX=0H):ECX.CET_SS[07] = 1
+- value: 6A5H
+  name: IA32_PL1_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on
+  long_description: Linear address to be loaded into SSP on transition to privilege level 1. If the processor does not support Intel 64 architecture, these fields have only 32 bits; bits 63:32 of the MSRs are reserved. On processors that support Intel 64 architecture this value cannot represent a non-canonical address. In protected mode, only 31:0 are loaded. The linear address written must be aligned to 8 bytes and bits 2:0 must be 0 (hardware requires bits 1:0 to be 0).
+  comments: If CPUID.(EAX=07H, ECX=0H):ECX.CET_SS[07] = 1
+- value: 6A6H
+  name: IA32_PL2_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on
+  long_description: Linear address to be loaded into SSP on transition to privilege level 2. If the processor does not support Intel 64 architecture, these fields have only 32 bits; bits 63:32 of the MSRs are reserved. On processors that support Intel 64 architecture this value cannot represent a non-canonical address. In protected mode, only 31:0 are loaded. The linear address written must be aligned to 8 bytes and bits 2:0 must be 0 (hardware requires bits 1:0 to be 0).
+  comments: If CPUID.(EAX=07H, ECX=0H):ECX.CET_SS[07] = 1
+- value: 6A7H
+  name: IA32_PL3_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on
+  long_description: Linear address to be loaded into SSP on transition to privilege level 3. If the processor does not support Intel 64 architecture, these fields have only 32 bits; bits 63:32 of the MSRs are reserved. On processors that support Intel 64 architecture this value cannot represent a non-canonical address. In protected mode, only 31:0 are loaded. The linear address written must be aligned to 8 bytes and bits 2:0 must be 0 (hardware requires bits 1:0 to be 0).
+  comments: If CPUID.(EAX=07H, ECX=0H):ECX.CET_SS[07] = 1
+- value: 6A8H
+  name: IA32_INTERRUPT_SSP_TABLE_ADDR
+  access: R/W
+  description: Linear address of a table of seven shadow
+  long_description: Linear address of a table of seven shadow stack pointers that are selected in IA-32e mode using the IST index (when not 0) from the interrupt gate descriptor. This MSR is not present on processors that do not support Intel 64 architecture. This field cannot represent a non-canonical address.
+  comments: If CPUID.(EAX=07H, ECX=0H):ECX.CET_SS[07] = 1
 - value: 6E0H
   name: IA32_TSC_DEADLINE
   access: R/W
   description: TSC Target of Local APIC’s TSC Deadline
   long_description: TSC Target of Local APIC’s TSC Deadline Mode
   comments: If CPUID.01H:ECX.[24] = 1
+- value: 6E1H
+  name: IA32_PKRS
+  bitfields:
+  - bit: '31:0'
+    long_description: For domain i (i between 0 and 15), bits 2i and 2i+1 contain the AD and WD permissions, respectively.
+    description: For domain i
+  - bit: '63:32'
+    description: Reserved
+  access: R/W
+  description: Specifies the PK permissions associated
+  long_description: Specifies the PK permissions associated with each protection domain for supervisor pages
+  comments: If CPUID.(EAX=07H, ECX=0H):ECX.PKS [31] = 1
 - value: 770H
   name: IA32_PM_ENABLE
   bitfields:
@@ -2820,8 +3130,9 @@ msr:
     - 14.4.3
   - bit: '63:32'
     description: Reserved
-  access: RO
+  access: R/O
   description: HWP Performance Range Enumeration
+  long_description: HWP Performance Range Enumeration
   comments: If CPUID.06H:EAX.[7] = 1
 - value: 772H
   name: IA32_HWP_REQUEST_PKG
@@ -2927,6 +3238,48 @@ msr:
   description: Power Management Control Hints to a
   long_description: Power Management Control Hints to a Logical Processor
   comments: If CPUID.06H:EAX.[7] = 1
+- value: 775H
+  name: IA32_PECI_HWP_REQUEST_INFO
+  bitfields:
+  - bit: '7:0'
+    long_description: 'Minimum Performance (MINIMUM_PERFORMANCE): Used by OS to read the latest value of PECI minimum performance input. Default value is 0.'
+    description: Minimum Performance
+  - bit: '15:8'
+    long_description: 'Maximum Performance (MAXIMUM_PERFORMANCE): Used by OS to read the latest value of PECI maximum performance input. Default value is 0.'
+    description: Maximum Performance
+  - bit: '23:16'
+    description: Reserved
+  - bit: '31:24'
+    long_description: 'Energy Performance Preference (ENERGY_PERFORMANCE_PREFERENCE): Used by OS to read the latest value of PECI Energy Performance Preference input. Default value is 0.'
+    description: Energy Performance Preference
+  - bit: '59:32'
+    description: Reserved
+  - bit: '60'
+    access: '0'
+    long_description: 'EPP PECI Override (EPP_PECI_OVERRIDE): Indicates whether PECI is currently overriding the Energy Performance Preference input. If set to ‘1’, PECI is overriding the Energy Performance Preference input. If clear , OS has control over Energy Performance Preference input. Default value is 0.'
+    description: EPP PECI Override (EPP_PECI_OVERRIDE)
+  - bit: '61'
+    description: Reserved
+  - bit: '62'
+    access: '0'
+    long_description: 'Max PECI Override (MAX_PECI_OVERRIDE): Indicates whether PECI is currently overriding the Maximum Performance input. If set to ‘1’, PECI is overriding the Maximum Performance input. If clear , OS has control over Maximum Performance input. Default value is 0.'
+    description: Max PECI Override (MAX_PECI_OVERRIDE)
+  - bit: '63'
+    access: '0'
+    long_description: 'Min PECI Override (MIN_PECI_OVERRIDE): Indicates whether PECI is currently overriding the Minimum Performance input. If set to ‘1’, PECI is overriding the Minimum Performance input. If clear , OS has control over Minimum Performance input. Default value is 0.'
+    description: Min PECI Override (MIN_PECI_OVERRIDE)
+  description: IA32_PECI_HWP_REQUEST_INFO
+- value: 776H
+  name: IA32_HWP_CTL
+  bitfields:
+  - bit: '0'
+    long_description: PKG_CTL_POLARITY Defines which HWP Request MSR is used whether Thread level or package level. When package MSR is used, the thread MSR valid bits define which thread MSR fields override the package. Default value is 0.
+    description: PKG_CTL_POLARITY
+    comments: If CPUID.06H:EAX.[22] = 1
+  - bit: '63:1'
+    description: Reserved
+  description: IA32_HWP_CTL
+  comments: If CPUID.06H:EAX.[22] = 1
 - value: 777H
   name: IA32_HWP_STATUS
   bitfields:
@@ -2949,7 +3302,7 @@ msr:
   - bit: '63:3'
     description: Reserved
   access: R/W
-  description: Log bits indicating changes to Guaranteed
+  description: Log bits indicating changes to Guaranteed &
   long_description: Log bits indicating changes to Guaranteed & excursions to Minimum
   comments: If CPUID.06H:EAX.[7] = 1
 - value: 802H
@@ -3198,6 +3551,129 @@ msr:
   access: W/O
   description: x2APIC Self IPI Register
   comments: If CPUID.01H:ECX.[21] = 1 && IA32_APIC_BASE.[10] = 1
+- value: 981H
+  name: IA32_TME_CAPABILITY
+  bitfields:
+  - bit: '0'
+    long_description: Support for AES-XTS 128-bit encryption algorithm. (NIST standard)
+    description: Support for AES-XTS 128-bit encryption
+  - bit: '1'
+    long_description: Support for AES-XTS 128-bit encryption with integrity algorithm.
+    description: Support for AES-XTS 128-bit encryption
+  - bit: '2'
+    long_description: Support for AES-XTS 256-bit encryption algorithm.
+    description: Support for AES-XTS 256-bit encryption
+  - bit: '30:3'
+    description: Reserved
+  - bit: '31'
+    description: TME encryption bypass supported
+  - bit: '35:32'
+    long_description: MK_TME_MAX_KEYID_BITS Number of bits which can be allocated for usage as key identifiers for multi-key memory encryption. 4 bits allow for a maximum value of 15, which could address 32K keys. Zero if MKTME is not supported.
+    description: MK_TME_MAX_KEYID_BITS
+  - bit: '50:36'
+    long_description: MK_TME_MAX_KEYS Indicates the maximum number of keys which are available for usage. This value may not be a power of 2. KeyID 0 is specially reserved and is not accounted for in this field.
+    description: MK_TME_MAX_KEYS
+  - bit: '63:51'
+    description: Reserved
+  description: Memory Encryption Capability MSR
+  comments: If CPUID.07H:ECX.[13] = 1
+- value: 982H
+  name: IA32_TME_ACTIVATE
+  bitfields:
+  - bit: '0'
+    long_description: Lock R/O – Will be set upon successful WRMSR (or first SMI); written value ignored.
+    description: Lock R/O – Will be set upon successful
+  - bit: '1'
+    long_description: Hardware Encryption Enable This bit also enables MKTME; MKTME cannot be enabled without enabling encryption hardware.
+    description: Hardware Encryption Enable
+  - bit: '2'
+    long_description: 'Key Select 0: Create a new TME key (expected cold/warm boot). 1: Restore the TME key from storage (Expected when resume from standby).'
+    description: Key Select
+  - bit: '3'
+    long_description: 'Save TME Key for Standby Save key into storage to be used when resume from standby. Note: This may not be supported in all processors.'
+    description: Save TME Key for Standby
+  - bit: '7:4'
+    long_description: 'TME Policy/Encryption Algorithm Only algorithms enumerated in IA32_TME_CAPABILITY are allowed. For example: 0000 – AES-XTS-128. 0001 – AES-XTS-128 with integrity. 0010 – AES-XTS-256. Other values are invalid.'
+    description: TME Policy/Encryption Algorithm
+  - bit: '30:8'
+    description: Reserved
+  - bit: '31'
+    long_description: 'TME Encryption Bypass Enable When encryption hardware is enabled: • Total Memory Encryption is enabled using a CPU generated ephemeral key based on a hardware random number generator when this bit is set to 0. • Total Memory Encryption is bypassed (no encryption/decryption for KeyID0) when this bit is set to 1. Software must inspect Hardware Encryption Enable (bit 1) and TME encryption bypass Enable (bit 31) to determine if TME encryption is enabled.'
+    description: TME Encryption Bypass Enable
+  - bit: '35:32'
+    long_description: 'MK_TME_KEYID_BITS Reserved if MKTME is not enumerated, otherwise: The number of key identifier bits to allocate to MKTME usage. Similar to enumeration, this is an encoded value. Writing a value greater than MK_TME_MAX_KEYID_BITS will result in #GP. Writing a non-zero value to this field will #GP if bit 1 of EAX (Hardware Encryption Enable) is not also set to ‘1, as encryption hardware must be enabled to use MKTME. Example: To support 255 keys, this field would be set to a value of 8.'
+    description: MK_TME_KEYID_BITS
+  - bit: '47:36'
+    description: Reserved
+  - bit: '63:48'
+    long_description: 'MK_TME_CRYPTO_ALGS Reserved if MKTME is not enumerated, otherwise: Bit 48: AES-XTS 128. Bit 49: AES-XTS 128 with integrity. Bit 50: AES-XTS 256. Bit 63:51: Reserved (#GP) Bitmask for BIOS to set which encryption algorithms are allowed for MKTME, would be later enforced by the key loading ISA (‘1 = allowed).'
+    description: MK_TME_CRYPTO_ALGS
+  description: Memory Encryption Activation MSR
+  long_description: Memory Encryption Activation MSR This MSR is used to lock the MSRs listed below. Any write to the following MSRs will be ignored after they are locked. The lock is reset when CPU is reset. • IA32_TME_ACTIVATE • IA32_TME_EXCLUDE_MASK • IA32_TME_EXCLUDE_BASE Note that IA32_TME_EXCLUDE_MASK and IA32_TME_EXCLUDE_BASE must be configured before IA32_TME_ACTIVATE.
+  comments: If CPUID.07H:ECX.[13] = 1
+- value: 983H
+  name: IA32_TME_EXCLUDE_MASK
+  bitfields:
+  - bit: '10:0'
+    description: Reserved
+  - bit: '11'
+    long_description: 'Enable: When set to ‘1’, then TME_EXCLUDE_BASE and TME_EXCLUDE_MASK are used to define an exclusion region for TME/MKTME (for KeyID=0).'
+    description: Enable
+  - bit: MAXPHYSADDR-1:12
+    long_description: 'TMEEMASK: This field indicates the bits that must match TMEEBASE in order to qualify as a TME/MKTME (for KeyID=0) exclusion memory range access.'
+    description: TMEEMASK
+  - bit: 63:MAXPHYSADDR
+    description: Reserved; must be zero
+  description: Memory Encryption Exclude Mask
+  comments: If CPUID.07H:ECX.[13] = 1
+- value: 984H
+  name: IA32_TME_EXCLUDE_BASE
+  bitfields:
+  - bit: '11:0'
+    description: Reserved
+  - bit: MAXPHYSADDR-1:12
+    long_description: 'TMEEBASE: Base physical address to be excluded for TME/MKTME (for KeyID=0) encryption.'
+    description: TMEEBASE
+  - bit: 63:MAXPHYSADDR
+    description: Reserved; must be zero
+  description: Memory Encryption Exclude Base
+  comments: If CPUID.07H:ECX.[13] = 1
+- value: 990H
+  name: IA32_COPY_STATUS5
+  bitfields:
+  - bit: '0'
+    long_description: 'IWKEY_COPY_SUCCESSFUL: Status of most recent copy to or from IWKeyBackup'
+    description: IWKEY_COPY_SUCCESSFUL
+    comments: IF ((CPUID.19H:EBX[4] = 1) && (CPUID.(07H,0).ECX[23] = 1))
+  - bit: '63:1'
+    description: Reserved
+  access: R/O
+  description: Status of Most Recent Platform to Local or
+  long_description: Status of Most Recent Platform to Local or Local to Platform Copies
+  comments: IF ((CPUID.19H:EBX[4] = 1) && (CPUID.(07H,0).ECX[23] = 1))
+- value: 991H
+  name: IA32_IWKEYBACKUP_STATUS4
+  bitfields:
+  - bit: '0'
+    long_description: Backup/Restore Valid Cleared when a write to IWKeyBackup is initiated, and then set when the latest write of IWKeyBackup has been written to storage that persists across S3/S4 sleep state. If S3/S4 is entered between when an IWKeyBackup write occurs and when this bit is set, then IWKeyBackup may not be recovered after S3/S4 exit. During S3/S4 sleep state exit (system wake up), this bit is cleared. It is set again when IWKeyBackup is restored from persistent storage and thus available to be copied to IWKey using IA32_COPY_PLATFORM_TO_LOCAL MSR. Another write to IWKeyBackup (via IA32_COPY_LOCAL_TO_PLATFORM MSR) may fail if a previous write has not yet set this bit.
+    description: Backup/Restore Valid
+    comments: IF ((CPUID.19H:EBX[4] = 1) && (CPUID.(07H,0).ECX[23] =1))
+  - bit: '1'
+    description: Reserved
+  - bit: '2'
+    long_description: Backup Key Storage Read/Write Error Updated prior to backup/restore valid being set. Set when an error is encountered while backing up or restoring a key to persistent storage.
+    description: Backup Key Storage Read/Write Error
+    comments: IF ((CPUID.19H:EBX[4] = 1) && (CPUID.(07H,0).ECX[23] =1))
+  - bit: '3'
+    long_description: IWKeyBackup Consumed Set after the previous backup operation has been consumed by the platform. This does not indicate that the system is ready for a second IWKeyBackup write as the previous IWKeyBackup write may still need to set Backup/restore valid.
+    description: IWKeyBackup Consumed
+    comments: IF ((CPUID.19H:EBX[4] = 1) && (CPUID.(07H,0).ECX[23] =1))
+  - bit: '63:4'
+    description: Reserved
+  access: R/O
+  description: Information about IWKeyBackup Register
+  long_description: Information about IWKeyBackup Register
+  comments: IF ((CPUID.19H:EBX[4] = 1) && (CPUID.(07H,0).ECX[23] =1))
 - value: C80H
   name: IA32_DEBUG_INTERFACE
   bitfields:
@@ -3372,6 +3848,30 @@ msr:
   description: Supervisor State of MPX Configuration
   long_description: Supervisor State of MPX Configuration
   comments: If (CPUID.(EAX=07H, ECX=0H):EBX[14] = 1)
+- value: D91H
+  name: IA32_COPY_LOCAL_TO_PLATFORM4
+  bitfields:
+  - bit: '0'
+    long_description: IWKeyBackup Copy IWKey to IWKeyBackup
+    description: IWKeyBackup
+    comments: IF ((CPUID.19H:EBX[4] = 1) && (CPUID.(EAX=07H, ECX=0H).ECX[23] = 1))
+  - bit: '63:1'
+    description: Reserved
+  access: W
+  description: Copy Local State to Platform State
+  comments: IF ((CPUID.19H:EBX[4] = 1) && (CPUID.(EAX=07H, ECX=0H).ECX[23] = 1))
+- value: D92H
+  name: IA32_COPY_PLATFORM_TO_LOCAL4
+  bitfields:
+  - bit: '0'
+    long_description: IWKeyBackup Copy IWKeyBackup to IWKey
+    description: IWKeyBackup
+    comments: IF ((CPUID.19H:EBX[4] = 1) && (CPUID.(EAX=07H, ECX=0H).ECX[23] = 1))
+  - bit: '63:1'
+    description: Reserved
+  access: W
+  description: Copy Platform State to Local State
+  comments: IF ((CPUID.19H:EBX[4] = 1) && (CPUID.(EAX=07H, ECX=0H).ECX[23] = 1))
 - value: DA0H
   name: IA32_XSS
   bitfields:
@@ -3440,6 +3940,207 @@ msr:
   description: Per-Logical_Processor HDC Idle Residency
   long_description: Per-Logical_Processor HDC Idle Residency
   comments: If CPUID.06H:EAX.[13] = 1
+- value: 1200H-121FH
+  name: IA32_LBR_x_INFO
+  bitfields:
+  - bit: '15:0'
+    long_description: CYC_CNT The elapsed CPU cycles (saturating) since the last LBR was recorded. See Section 18.1.3.3.
+    description: CYC_CNT
+    comments: 'Reset Value: 0'
+    see_section:
+    - 18.1.3.3.
+  - bit: '55:16'
+    long_description: Undefined, may be zero or non-zero. Writes of non- zero values do not fault, but reads may return a different value.
+    description: Undefined
+    comments: 'Reset Value: 0'
+  - bit: '59:56'
+    long_description: 'BR_TYPE The branch type recorded by this LBR. Encodings: 0000B: COND 0001B: JMP Indirect 0010B: JMP Direct 0011B: CALL Indirect 0100B: CALL Direct 0101B: RET 011xB: Reserved 1xxxB: Other Branch'
+    description: BR_TYPE
+    comments: 'Reset Value: 0'
+  - bit: '60'
+    long_description: CYC_CNT_VALID CYC_CNT value is valid. See Section 18.1.3.3.
+    description: CYC_CNT_VALID
+    comments: 'Reset Value: 0'
+    see_section:
+    - 18.1.3.3.
+  - bit: '61'
+    long_description: TSX_ABORT This LBR record is a TSX abort. On processors that do not support Intel TSX (CPUID.07H.EBX.HLE[bit 4]=0 and CPUID.07H.EBX.RTM[bit 11]=0), this bit is undefined.
+    description: TSX_ABORT
+    comments: 'Reset Value: 0'
+  - bit: '62'
+    long_description: IN_TSX This LBR record records a branch that retired during a TSX transaction. On processors that do not support Intel TSX (CPUID.07H.EBX.HLE[bit 4]=0 and CPUID.07H.EBX.RTM[bit 11]=0), this bit is undefined.
+    description: IN_TSX
+    comments: 'Reset Value: 0'
+  - bit: '63'
+    long_description: MISPRED The recorded branch direction (conditional branch) or target (indirect branch) was mispredicted.
+    description: MISPRED
+    comments: 'Reset Value: 0'
+  access: R/W
+  description: Last Branch Record Entry X Info Register
+  long_description: 'Last Branch Record Entry X Info Register An attempt to read or write IA32_LBR_x_INFO such that x ≥ IA32_LBR_DEPTH.DEPTH will #GP.'
+- value: 14CEH
+  name: IA32_LBR_CTL
+  bitfields:
+  - bit: '0'
+    long_description: LBREn When set, enables LBR recording.
+    description: LBREn
+    comments: 'Reset Value: 0'
+  - bit: '1'
+    long_description: OS When set, allows LBR recording when CPL == 0.
+    description: OS
+    comments: 'Reset Value: 0'
+  - bit: '2'
+    long_description: USR When set, allows LBR recording when CPL != 0.
+    description: USR
+    comments: 'Reset Value: 0'
+  - bit: '3'
+    long_description: CALL_STACK When set, records branches in call-stack mode. See Section 18.1.2.4.
+    description: CALL_STACK
+    comments: 'Reset Value: 0'
+    see_section:
+    - 18.1.2.4.
+  - bit: '15:4'
+    description: Reserved
+    comments: 'Reset Value: 0'
+  - bit: '16'
+    long_description: COND When set, records taken conditional branches. See Section 18.1.2.3.
+    description: COND
+    see_section:
+    - 18.1.2.3.
+  - bit: '17'
+    long_description: NEAR_REL_JMP When set, records near relative JMPs. See Section 18.1.2.3.
+    description: NEAR_REL_JMP
+    see_section:
+    - 18.1.2.3.
+  - bit: '18'
+    long_description: NEAR_IND_JMP When set, records near indirect JMPs. See Section 18.1.2.3.
+    description: NEAR_IND_JMP
+    see_section:
+    - 18.1.2.3.
+  - bit: '19'
+    long_description: NEAR_REL_CALL When set, records near relative CALLs. See Section 18.1.2.3.
+    description: NEAR_REL_CALL
+    see_section:
+    - 18.1.2.3.
+  - bit: '20'
+    long_description: NEAR_IND_CALL When set, records near indirect CALLs. See Section 18.1.2.3.
+    description: NEAR_IND_CALL
+    see_section:
+    - 18.1.2.3.
+  - bit: '21'
+    long_description: NEAR_RET When set, records near RETs. See Section 18.1.2.3.
+    description: NEAR_RET
+    see_section:
+    - 18.1.2.3.
+  - bit: '22'
+    long_description: OTHER_BRANCH When set, records other branches. See Section 18.1.2.3.
+    description: OTHER_BRANCH
+    see_section:
+    - 18.1.2.3.
+  - bit: '63:23'
+    description: Reserved
+  access: R/W
+  description: Last Branch Record Enabling and
+  long_description: Last Branch Record Enabling and Configuration Register
+- value: 14CFH
+  name: IA32_LBR_DEPTH
+  bitfields:
+  - bit: N:0
+    long_description: 'DEPTH The number of LBRs to be used for recording. Supported values are indicated by the bitmap in CPUID.(EAX=01CH,ECX=0):EAX[7:0]. The reset value will match the maximum supported by the CPU. Writes of unsupported values will #GP fault.'
+    description: DEPTH
+    comments: 'Reset Value: Varies'
+  - bit: 63:N+1
+    description: Reserved
+    comments: 'Reset Value: 0'
+  access: R/W
+  description: Last Branch Record Maximum Stack Depth
+  long_description: Last Branch Record Maximum Stack Depth Register
+- value: 1500H-151FH
+  name: IA32_LBR_x_FROM_IP
+  bitfields:
+  - bit: '63:0'
+    long_description: FROM_IP The source IP of the recorded branch or event, in canonical form. Writes to bits above MAXLINADDR-1 are ignored.
+    description: FROM_IP
+    comments: 'Reset Value: 0'
+  access: R/W
+  description: Last Branch Record entry X source IP
+  long_description: 'Last Branch Record entry X source IP register . An attempt to read or write IA32_LBR_x_FROM_IP such that x ≥ IA32_LBR_DEPTH.DEPTH will #GP.'
+- value: 1600H-161FH
+  name: IA32_LBR_x_TO_IP
+  bitfields:
+  - bit: '63:0'
+    long_description: TO_IP The destination IP of the recorded branch or event, in canonical form. Writes to bits above MAXLINADDR-1 are ignored.
+    description: TO_IP
+    comments: 'Reset Value: 0'
+  access: R/W
+  description: Last Branch Record Entry X Destination IP
+  long_description: 'Last Branch Record Entry X Destination IP Register An attempt to read or write IA32_LBR_x_TO_IP such that x ≥ IA32_LBR_DEPTH.DEPTH will #GP.'
+- value: 17D0H
+  name: IA32_HW_FEEDBACK_PTR
+  bitfields:
+  - bit: '0'
+    access: R/W
+    long_description: Valid When set to 1, indicates a valid pointer is programmed into the ADDR field of the MSR.
+    description: Valid
+  - bit: '11:1'
+    description: Reserved
+  - bit: (MAXPHYADDR-1):12
+    access: R/W
+    long_description: ADDR Physical address of the page frame of the first page of the hardware feedback interface structure.
+    description: ADDR
+  - bit: 63:MAXPHYADDR
+    description: Reserved
+  description: Hardware Feedback Interface Pointer
+  comments: If CPUID.06H:EAX.[19] = 1
+- value: 17D1H
+  name: IA32_HW_FEEDBACK_CONFIG
+  bitfields:
+  - bit: '0'
+    access: R/W
+    long_description: Enable When set to 1, enables the hardware feedback interface.
+    description: Enable
+  - bit: '63:1'
+    description: Reserved
+  description: Hardware Feedback Interface Configuration
+  comments: If CPUID.06H:EAX.[19] = 1
+- value: 17D2H
+  name: IA32_THREAD_FEEDBACK_CHAR
+  bitfields:
+  - bit: '7:0'
+    long_description: Application Class ID, pointing into the Intel Thread Director structure.
+    description: Application Class ID
+  - bit: '62:8'
+    description: Reserved
+  - bit: '63'
+    long_description: Valid bit. When set to 1 the OS Scheduler can use the Class ID (in bits 7:0) for its scheduling decisions. If this bit is 0, the Class ID field should be ignored. It is recommended that the OS uses the last known Class ID of the software thread for its scheduling decisions.
+    description: Valid bit
+  access: R/O
+  description: Thread Feedback Characteristics
+  comments: If CPUID.06H:EAX.[23] = 1
+- value: 17D4H
+  name: IA32_HW_FEEDBACK_THREAD_CONFIG
+  bitfields:
+  - bit: '0'
+    long_description: Enables Intel Thread Director. When set to 1, logical processor scope Intel Thread Director is enabled. Default is 0 (disabled).
+    description: Enables Intel Thread Director
+  - bit: '63:1'
+    description: Reserved
+  access: R/W
+  description: Hardware Feedback Thread Configuration
+  long_description: Hardware Feedback Thread Configuration
+- value: 17DAH
+  name: IA32_HRESET_ENABLE
+  bitfields:
+  - bit: '0'
+    long_description: Enable reset of the Intel Thread Director history.
+    description: Enable reset of the Intel Thread Director
+  - bit: '31:1'
+    long_description: Reserved for other capabilities that can be reset by the HRESET instruction.
+    description: Reserved for other capabilities that can be
+  - bit: '63:32'
+    description: Reserved
+  access: R/W
+  description: History Reset Enable
 - value: 4000_0000H-4000_00FFH
   name: Reserved MSR Address Space
   description: All existing and future processors will not
@@ -3515,6 +4216,6 @@ msr:
     description: AUX
   - bit: '63:32'
     description: Reserved
-  access: RW
+  access: R/W
   description: Auxiliary TSC
-  comments: 'If CPUID.80000001H: EDX[27] = 1 or CPUID.(EAX=7,ECX=0):ECX [bit 22] = 1'
+  comments: 'If CPUID.80000001H: EDX[27] = 1 or CPUID.(EAX=7,ECX=0):ECX[ bit 22] = 1'

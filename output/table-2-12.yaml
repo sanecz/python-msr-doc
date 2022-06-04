@@ -2,7 +2,6 @@
 name: Table 2-12
 full_name: Table 2-12. MSRs in Intel Atom® Processors Based on the Goldmont Microarchitecture
 supported_cpu:
-- 06_86H
 - 06_5CH
 - 06_7AH
 msr:
@@ -188,13 +187,13 @@ msr:
   - bit: '10:8'
     description: Reserved
   - bit: '11'
-    access: RO
+    access: R/O
     long_description: Branch Trace Storage Unavailable See Table 2-2.
     description: Branch Trace Storage Unavailable
     see_table:
     - 2-2
   - bit: '12'
-    access: RO
+    access: R/O
     long_description: Processor Event Based Sampling Unavailable See Table 2-2.
     description: Processor Event Based Sampling Unavailable
     see_table:
@@ -309,7 +308,7 @@ msr:
     long_description: Maximum Ratio Limit for Active Cores in Group 7 Maximum turbo ratio limit when the number of active cores is less than or equal to the Group 7 threshold, and greater than the Group 6 threshold.
     description: Maximum Ratio Limit for Active Cores in Group 7
   scope: Package
-  access: RW
+  access: R/W
   description: Maximum Ratio Limit of Turbo Mode by Core Groups
   long_description: Maximum Ratio Limit of Turbo Mode by Core Groups Specifies Maximum Ratio Limit for each Core Group. Max ratio for groups with more cores must decrease monotonically. For groups with less than 4 cores, the max ratio must be 32 or less. For groups with 4-5 cores, the max ratio must be 22 or less. For groups with more than 5 cores, the max ratio must be 16 or less.
 - value: 1AEH
@@ -340,7 +339,7 @@ msr:
     long_description: Group 7 Core Count Threshold Maximum number of active cores to operate under the Group 7 Max Turbo Ratio limit. Must be greater than the Group 6 Core Count, and not less than the total number of processor cores in the package. E.g., specify 255.
     description: Group 7 Core Count Threshold
   scope: Package
-  access: RW
+  access: R/W
   description: Group Size of Active Cores for Turbo Mode Operation
   long_description: Group Size of Active Cores for Turbo Mode Operation Writes of 0 threshold is ignored.
 - value: 1C8H
@@ -517,12 +516,12 @@ msr:
   - bit: '63'
     description: CondChgd
   scope: Core
-  description: See Table 2-2. See Section 18.2.4
-  long_description: See Table 2-2. See Section 18.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 19.2.4
+  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 18.2.4
+  - 19.2.4
 - value: 390H
   name: IA32_PERF_GLOBAL_STATUS_RESET
   bitfields:
@@ -561,12 +560,12 @@ msr:
   - bit: '63'
     description: Set 1 to clear CondChgd
   scope: Core
-  description: See Table 2-2. See Section 18.2.4
-  long_description: See Table 2-2. See Section 18.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 19.2.4
+  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 18.2.4
+  - 19.2.4
 - value: 391H
   name: IA32_PERF_GLOBAL_STATUS_SET
   bitfields:
@@ -605,12 +604,12 @@ msr:
   - bit: '63'
     description: Reserved
   scope: Core
-  description: See Table 2-2. See Section 18.2.4
-  long_description: See Table 2-2. See Section 18.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 19.2.4
+  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 18.2.4
+  - 19.2.4
 - value: 392H
   name: IA32_PERF_GLOBAL_INUSE
   scope: Core
@@ -618,19 +617,20 @@ msr:
   see_table:
   - 2-2
 - value: 3F1H
-  name: MSR_PEBS_ENABLE
+  name: IA32_PEBS_ENABLE
+  alt_name: MSR_PEBS_ENABLE
   bitfields:
   - bit: '0'
     access: R/W
     long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMC0.
     description: Enable PEBS trigger and recording for the
   scope: Core
-  description: See Table 2-2. See Section 18.6.2.4
-  long_description: See Table 2-2. See Section 18.6.2.4, “Processor Event Based Sampling (PEBS).”
+  description: See Table 2-2. See Section 19.6.2.4
+  long_description: See Table 2-2. See Section 19.6.2.4, “Processor Event Based Sampling (PEBS).”
   see_table:
   - 2-2
   see_section:
-  - 18.6.2.4
+  - 19.6.2.4
 - value: 3F8H
   name: MSR_PKG_C3_RESIDENCY
   bitfields:
@@ -748,21 +748,21 @@ msr:
   name: IA32_SGX_SVN_STATUS
   bitfields:
   - bit: '0'
-    long_description: Lock See Section 41.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
+    long_description: Lock See Section 38.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
     description: Lock
     see_section:
-    - 41.11.3
+    - 38.11.3
   - bit: '15:1'
     description: Reserved
   - bit: '23:16'
-    long_description: SGX_SVN_SINIT See Section 41.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
+    long_description: SGX_SVN_SINIT See Section 38.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
     description: SGX_SVN_SINIT
     see_section:
-    - 41.11.3
+    - 38.11.3
   - bit: '63:24'
     description: Reserved
   scope: Core
-  access: RO
+  access: R/O
   description: Status and SVN Threshold of SGX Support for ACM
   long_description: Status and SVN Threshold of SGX Support for ACM
 - value: 560H
@@ -929,9 +929,9 @@ msr:
   scope: Package
   access: R/O
   description: Unit Multipliers used in RAPL Interfaces
-  long_description: Unit Multipliers used in RAPL Interfaces See Section 14.9.1, “RAPL Interfaces.”
+  long_description: Unit Multipliers used in RAPL Interfaces See Section 14.10.1, “RAPL Interfaces.”
   see_section:
-  - 14.9.1
+  - 14.10.1
 - value: 60AH
   name: MSR_PKGC3_IRTL
   bitfields:
@@ -1022,50 +1022,50 @@ msr:
   scope: Package
   access: R/W
   description: PKG RAPL Power Limit Control
-  long_description: PKG RAPL Power Limit Control See Section 14.9.3, “Package RAPL Domain.”
+  long_description: PKG RAPL Power Limit Control See Section 14.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.9.3
+  - 14.10.3
 - value: 611H
   name: MSR_PKG_ENERGY_STATUS
   scope: Package
   access: R/O
   description: PKG Energy Status
-  long_description: PKG Energy Status See Section 14.9.3, “Package RAPL Domain.”
+  long_description: PKG Energy Status See Section 14.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.9.3
+  - 14.10.3
 - value: 613H
   name: MSR_PKG_PERF_STATUS
   scope: Package
   access: R/O
   description: PKG Perf Status
-  long_description: PKG Perf Status See Section 14.9.3, “Package RAPL Domain.”
+  long_description: PKG Perf Status See Section 14.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.9.3
+  - 14.10.3
 - value: 614H
   name: MSR_PKG_POWER_INFO
   bitfields:
   - bit: '14:0'
     access: R/W
-    long_description: Thermal Spec Power See Section 14.9.3, “Package RAPL Domain.”
+    long_description: Thermal Spec Power See Section 14.10.3, “Package RAPL Domain.”
     description: Thermal Spec Power
     see_section:
-    - 14.9.3
+    - 14.10.3
   - bit: '15'
     description: Reserved
   - bit: '30:16'
     access: R/W
-    long_description: Minimum Power See Section 14.9.3, “Package RAPL Domain.”
+    long_description: Minimum Power See Section 14.10.3, “Package RAPL Domain.”
     description: Minimum Power
     see_section:
-    - 14.9.3
+    - 14.10.3
   - bit: '31'
     description: Reserved
   - bit: '46:32'
     access: R/W
-    long_description: Maximum Power See Section 14.9.3, “Package RAPL Domain.”
+    long_description: Maximum Power See Section 14.10.3, “Package RAPL Domain.”
     description: Maximum Power
     see_section:
-    - 14.9.3
+    - 14.10.3
   - bit: '47'
     description: Reserved
   - bit: '54:48'
@@ -1082,33 +1082,33 @@ msr:
   scope: Package
   access: R/W
   description: DRAM RAPL Power Limit Control
-  long_description: DRAM RAPL Power Limit Control See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM RAPL Power Limit Control See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 619H
   name: MSR_DRAM_ENERGY_STATUS
   scope: Package
   access: R/O
   description: DRAM Energy Status
-  long_description: DRAM Energy Status See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM Energy Status See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 61BH
   name: MSR_DRAM_PERF_STATUS
   scope: Package
   access: R/O
   description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM Performance Throttling Status See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 61CH
   name: MSR_DRAM_POWER_INFO
   scope: Package
   access: R/W
   description: DRAM RAPL Parameters
-  long_description: DRAM RAPL Parameters See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM RAPL Parameters See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 632H
   name: MSR_PKG_C10_RESIDENCY
   bitfields:
@@ -1124,17 +1124,17 @@ msr:
   scope: Package
   access: R/O
   description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP0 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.9.4
+  - 14.10.4
 - value: 641H
   name: MSR_PP1_ENERGY_STATUS
   scope: Package
   access: R/O
   description: PP1 Energy Status
-  long_description: PP1 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP1 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.9.4
+  - 14.10.4
 - value: 64CH
   name: MSR_TURBO_ACTIVATION_RATIO
   bitfields:

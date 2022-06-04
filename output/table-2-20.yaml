@@ -1,25 +1,15 @@
 ---
 name: Table 2-20
-full_name: Table 2-20. MSRs Supported by Intel® Processors based on Intel® microarchitecture code name Sandy Bridge
+full_name: Table 2-20. MSRs Supported by Intel® Processors Based on Sandy Bridge Microarchitecture
 supported_cpu:
-- 06_2DH
-- 06_5EH
-- 06_46H
-- 06_3FH
-- 06_3CH
-- 06_4EH
-- 06_4FH
-- 06_9EH
-- 06_55H
-- 06_3AH
-- 06_47H
-- 06_3DH
-- 06_2AH
-- 06_56H
-- 06_8EH
-- 06_3EH
 - 06_45H
-- 06_66H
+- 06_3EH
+- 06_2AH
+- 06_3CH
+- 06_3FH
+- 06_3AH
+- 06_46H
+- 06_2DH
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR
@@ -115,7 +105,7 @@ msr:
 - value: 8BH
   name: IA32_BIOS_SIGN_ID
   scope: Thread
-  access: RO
+  access: R/W
   description: BIOS Update Signature ID
   long_description: BIOS Update Signature ID See Table 2-2.
   see_table:
@@ -261,7 +251,7 @@ msr:
 - value: E7H
   name: IA32_MPERF
   scope: Thread
-  access: RW
+  access: R/W
   description: Maximum Performance Frequency Clock Count
   long_description: Maximum Performance Frequency Clock Count See Table 2-2.
   see_table:
@@ -269,7 +259,7 @@ msr:
 - value: E8H
   name: IA32_APERF
   scope: Thread
-  access: RW
+  access: R/W
   description: Actual Performance Frequency Clock Count
   long_description: Actual Performance Frequency Clock Count See Table 2-2.
   see_table:
@@ -437,7 +427,7 @@ msr:
   name: IA32_THERM_STATUS
   bitfields:
   - bit: '0'
-    access: RO
+    access: R/O
     long_description: Thermal Status See Table 2-2.
     description: Thermal Status
     see_table:
@@ -449,7 +439,7 @@ msr:
     see_table:
     - 2-2
   - bit: '2'
-    access: RO
+    access: R/O
     long_description: 'PROTCHOT # or FORCEPR# Status See Table 2-2.'
     description: 'PROTCHOT # or FORCEPR# Status'
     see_table:
@@ -461,7 +451,7 @@ msr:
     see_table:
     - 2-2
   - bit: '4'
-    access: RO
+    access: R/O
     long_description: Critical Temperature Status See Table 2-2.
     description: Critical Temperature Status
     see_table:
@@ -473,7 +463,7 @@ msr:
     see_table:
     - 2-2
   - bit: '6'
-    access: RO
+    access: R/O
     long_description: 'Thermal Threshold #1 Status See Table 2-2.'
     description: 'Thermal Threshold #1 Status'
     see_table:
@@ -485,7 +475,7 @@ msr:
     see_table:
     - 2-2
   - bit: '8'
-    access: RO
+    access: R/O
     long_description: 'Thermal Threshold #2 Status See Table 2-2.'
     description: 'Thermal Threshold #2 Status'
     see_table:
@@ -497,7 +487,7 @@ msr:
     see_table:
     - 2-2
   - bit: '10'
-    access: RO
+    access: R/O
     long_description: Power Limitation Status See Table 2-2.
     description: Power Limitation Status
     see_table:
@@ -511,7 +501,7 @@ msr:
   - bit: '15:12'
     description: Reserved
   - bit: '22:16'
-    access: RO
+    access: R/O
     long_description: Digital Readout See Table 2-2.
     description: Digital Readout
     see_table:
@@ -519,13 +509,13 @@ msr:
   - bit: '26:23'
     description: Reserved
   - bit: '30:27'
-    access: RO
+    access: R/O
     long_description: Resolution in Degrees Celsius See Table 2-2.
     description: Resolution in Degrees Celsius
     see_table:
     - 2-2
   - bit: '31'
-    access: RO
+    access: R/O
     long_description: Reading Valid See Table 2-2.
     description: Reading Valid
     see_table:
@@ -557,13 +547,13 @@ msr:
   - bit: '10:8'
     description: Reserved
   - bit: '11'
-    access: RO
+    access: R/O
     long_description: Branch Trace Storage Unavailable See Table 2-2.
     description: Branch Trace Storage Unavailable
     see_table:
     - 2-2
   - bit: '12'
-    access: RO
+    access: R/O
     long_description: Processor Event Based Sampling Unavailable See Table 2-2.
     description: Processor Event Based Sampling Unavailable
     see_table:
@@ -1110,12 +1100,12 @@ msr:
     description: Ovf_BufDSSAVE
   - bit: '63'
     description: CondChgd
-  description: See Table 2-2. See Section 18.6.2.2
-  long_description: See Table 2-2. See Section 18.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 19.6.2.2
+  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 18.6.2.2
+  - 19.6.2.2
 - value: 38FH
   name: IA32_PERF_GLOBAL_CTRL
   bitfields:
@@ -1150,12 +1140,12 @@ msr:
   - bit: '63:35'
     description: Reserved
   scope: Thread
-  description: See Table 2-2. See Section 18.6.2.2
-  long_description: See Table 2-2. See Section 18.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 19.6.2.2
+  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 18.6.2.2
+  - 19.6.2.2
 - value: 390H
   name: IA32_PERF_GLOBAL_OVF_CTRL
   bitfields:
@@ -1191,14 +1181,15 @@ msr:
     description: Set 1 to clear Ovf_BufDSSAVE
   - bit: '63'
     description: Set 1 to clear CondChgd
-  description: See Table 2-2. See Section 18.6.2.2
-  long_description: See Table 2-2. See Section 18.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 19.6.2.2
+  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 18.6.2.2
+  - 19.6.2.2
 - value: 3F1H
-  name: MSR_PEBS_ENABLE
+  name: IA32_PEBS_ENABLE
+  alt_name: MSR_PEBS_ENABLE
   bitfields:
   - bit: '0'
     access: R/W
@@ -1232,10 +1223,10 @@ msr:
     access: R/W
     description: Enable Precise Store
   scope: Thread
-  description: See Section 18.3.1.1.1
-  long_description: See Section 18.3.1.1.1, “Processor Event Based Sampling (PEBS).”
+  description: See Section 19.3.1.1.1
+  long_description: See Section 19.3.1.1.1, “Processor Event Based Sampling (PEBS).”
   see_section:
-  - 18.3.1.1.1
+  - 19.3.1.1.1
 - value: 3F6H
   name: MSR_PEBS_LD_LAT
   bitfields:
@@ -1246,10 +1237,10 @@ msr:
   - bit: '63:36'
     description: Reserved
   scope: Thread
-  description: See Section 18.3.1.1.2
-  long_description: See Section 18.3.1.1.2, “Load Latency Performance Monitoring Facility.”
+  description: See Section 19.3.1.1.2
+  long_description: See Section 19.3.1.1.2, “Load Latency Performance Monitoring Facility.”
   see_section:
-  - 18.3.1.1.2
+  - 19.3.1.1.2
 - value: 3F8H
   name: MSR_PKG_C3_RESIDENCY
   bitfields:
@@ -1647,19 +1638,19 @@ msr:
   scope: Thread
   access: R/W
   description: DS Save Area
-  long_description: DS Save Area See Table 2-2. See Section 18.6.3.4, “Debug Store (DS) Mechanism.”
+  long_description: DS Save Area See Table 2-2. See Section 19.6.3.4, “Debug Store (DS) Mechanism.”
   see_table:
   - 2-2
   see_section:
-  - 18.6.3.4
+  - 19.6.3.4
 - value: 606H
   name: MSR_RAPL_POWER_UNIT
   scope: Package
   access: R/O
   description: Unit Multipliers used in RAPL Interfaces
-  long_description: Unit Multipliers used in RAPL Interfaces See Section 14.9.1, “RAPL Interfaces.”
+  long_description: Unit Multipliers used in RAPL Interfaces See Section 14.10.1, “RAPL Interfaces.”
   see_section:
-  - 14.9.1
+  - 14.10.1
 - value: 60AH
   name: MSR_PKGC3_IRTL
   bitfields:
@@ -1721,33 +1712,33 @@ msr:
   scope: Package
   access: R/W
   description: PKG RAPL Power Limit Control
-  long_description: PKG RAPL Power Limit Control See Section 14.9.3, “Package RAPL Domain.”
+  long_description: PKG RAPL Power Limit Control See Section 14.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.9.3
+  - 14.10.3
 - value: 611H
   name: MSR_PKG_ENERGY_STATUS
   scope: Package
   access: R/O
   description: PKG Energy Status
-  long_description: PKG Energy Status See Section 14.9.3, “Package RAPL Domain.”
+  long_description: PKG Energy Status See Section 14.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.9.3
+  - 14.10.3
 - value: 614H
   name: MSR_PKG_POWER_INFO
   scope: Package
   access: R/W
-  description: PKG RAPL Parameters See Section 14.9.3
-  long_description: PKG RAPL Parameters See Section 14.9.3, “Package RAPL Domain.”
+  description: PKG RAPL Parameters See Section 14.10.3
+  long_description: PKG RAPL Parameters See Section 14.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.9.3
+  - 14.10.3
 - value: 638H
   name: MSR_PP0_POWER_LIMIT
   scope: Package
   access: R/W
   description: PP0 RAPL Power Limit Control
-  long_description: PP0 RAPL Power Limit Control See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP0 RAPL Power Limit Control See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.9.4
+  - 14.10.4
 - value: 680H
   name: MSR_LASTBRANCH_0_FROM_IP
   scope: Thread

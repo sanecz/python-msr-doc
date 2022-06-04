@@ -2,24 +2,25 @@
 name: Table 2-36
 full_name: Table 2-36. Additional MSRs Common to Intel® Xeon® Processor D and Intel Xeon Processors E5 v4 Family Based on the Broadwell Microarchitecture
 supported_cpu:
-- 06_56H
 - 06_4FH
+- 06_56H
 msr:
 - value: 4EH
-  name: MSR_PPIN_CTL
+  name: IA32_PPIN_CTL
+  alt_name: MSR_PPIN_CTL
   bitfields:
   - bit: '0'
     access: R/WO
-    long_description: LockOut See Table 2-26.
+    long_description: LockOut See Table 2-2.
     description: LockOut
     see_table:
-    - 2-26
+    - 2-2
   - bit: '1'
     access: R/W
-    long_description: Enable_PPIN See Table 2-26.
+    long_description: Enable_PPIN See Table 2-2.
     description: Enable_PPIN
     see_table:
-    - 2-26
+    - 2-2
   - bit: '63:2'
     description: Reserved
   scope: Package
@@ -27,14 +28,15 @@ msr:
   description: Protected Processor Inventory Number Enable Control
   long_description: Protected Processor Inventory Number Enable Control
 - value: 4FH
-  name: MSR_PPIN
+  name: IA32_PPIN
+  alt_name: MSR_PPIN
   bitfields:
   - bit: '63:0'
     access: R/O
-    long_description: Protected Processor Inventory Number See Table 2-26.
+    long_description: Protected Processor Inventory Number See Table 2-2.
     description: Protected Processor Inventory Number
     see_table:
-    - 2-26
+    - 2-2
   scope: Package
   access: R/O
   description: Protected Processor Inventory Number
@@ -188,7 +190,7 @@ msr:
   name: IA32_THERM_STATUS
   bitfields:
   - bit: '0'
-    access: RO
+    access: R/O
     long_description: Thermal Status See Table 2-2.
     description: Thermal Status
     see_table:
@@ -200,7 +202,7 @@ msr:
     see_table:
     - 2-2
   - bit: '2'
-    access: RO
+    access: R/O
     long_description: 'PROTCHOT # or FORCEPR# Status See Table 2-2.'
     description: 'PROTCHOT # or FORCEPR# Status'
     see_table:
@@ -212,7 +214,7 @@ msr:
     see_table:
     - 2-2
   - bit: '4'
-    access: RO
+    access: R/O
     long_description: Critical Temperature Status See Table 2-2.
     description: Critical Temperature Status
     see_table:
@@ -224,7 +226,7 @@ msr:
     see_table:
     - 2-2
   - bit: '6'
-    access: RO
+    access: R/O
     long_description: 'Thermal Threshold #1 Status See Table 2-2.'
     description: 'Thermal Threshold #1 Status'
     see_table:
@@ -236,7 +238,7 @@ msr:
     see_table:
     - 2-2
   - bit: '8'
-    access: RO
+    access: R/O
     long_description: 'Thermal Threshold #2 Status See Table 2-2.'
     description: 'Thermal Threshold #2 Status'
     see_table:
@@ -248,7 +250,7 @@ msr:
     see_table:
     - 2-2
   - bit: '10'
-    access: RO
+    access: R/O
     long_description: Power Limitation Status See Table 2-2.
     description: Power Limitation Status
     see_table:
@@ -260,7 +262,7 @@ msr:
     see_table:
     - 2-2
   - bit: '12'
-    access: RO
+    access: R/O
     long_description: Current Limit Status See Table 2-2.
     description: Current Limit Status
     see_table:
@@ -272,7 +274,7 @@ msr:
     see_table:
     - 2-2
   - bit: '14'
-    access: RO
+    access: R/O
     long_description: Cross Domain Limit Status See Table 2-2.
     description: Cross Domain Limit Status
     see_table:
@@ -284,7 +286,7 @@ msr:
     see_table:
     - 2-2
   - bit: '22:16'
-    access: RO
+    access: R/O
     long_description: Digital Readout See Table 2-2.
     description: Digital Readout
     see_table:
@@ -292,13 +294,13 @@ msr:
   - bit: '26:23'
     description: Reserved
   - bit: '30:27'
-    access: RO
+    access: R/O
     long_description: Resolution in Degrees Celsius See Table 2-2.
     description: Resolution in Degrees Celsius
     see_table:
     - 2-2
   - bit: '31'
-    access: RO
+    access: R/O
     long_description: Reading Valid See Table 2-2.
     description: Reading Valid
     see_table:
@@ -317,7 +319,7 @@ msr:
   - bit: '15:0'
     description: Reserved
   - bit: '23:16'
-    access: RO
+    access: R/O
     long_description: Temperature Target See Table 2-26.
     description: Temperature Target
     see_table:
@@ -353,7 +355,7 @@ msr:
     description: Maximum Ratio Limit for 8C
   scope: Package
   description: Maximum Ratio Limit of Turbo Mode
-  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+  long_description: Maximum Ratio Limit of Turbo Mode R/O if MSR_PLATFORM_INFO.[28] = 0. R/W if MSR_PLATFORM_INFO.[28] = 1.
 - value: 1AEH
   name: MSR_TURBO_RATIO_LIMIT1
   bitfields:
@@ -375,15 +377,15 @@ msr:
     description: Maximum Ratio Limit for 16C
   scope: Package
   description: Maximum Ratio Limit of Turbo Mode
-  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+  long_description: Maximum Ratio Limit of Turbo Mode R/O if MSR_PLATFORM_INFO.[28] = 0. R/W if MSR_PLATFORM_INFO.[28] = 1.
 - value: 606H
   name: MSR_RAPL_POWER_UNIT
   bitfields:
   - bit: '3:0'
-    long_description: Power Units See Section 14.9.1, “RAPL Interfaces.”
+    long_description: Power Units See Section 14.10.1, “RAPL Interfaces.”
     description: Power Units
     see_section:
-    - 14.9.1
+    - 14.10.1
   - bit: '7:4'
     description: Reserved
   - bit: '12:8'
@@ -392,10 +394,10 @@ msr:
   - bit: '15:13'
     description: Reserved
   - bit: '19:16'
-    long_description: Time Units See Section 14.9.1, “RAPL Interfaces.”
+    long_description: Time Units See Section 14.10.1, “RAPL Interfaces.”
     description: Time Units
     see_section:
-    - 14.9.1
+    - 14.10.1
   - bit: '63:20'
     description: Reserved
   scope: Package
@@ -406,9 +408,9 @@ msr:
   scope: Package
   access: R/W
   description: DRAM RAPL Power Limit Control
-  long_description: DRAM RAPL Power Limit Control See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM RAPL Power Limit Control See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 619H
   name: MSR_DRAM_ENERGY_STATUS
   bitfields:
@@ -426,17 +428,17 @@ msr:
   scope: Package
   access: R/O
   description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM Performance Throttling Status See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 61CH
   name: MSR_DRAM_POWER_INFO
   scope: Package
   access: R/W
   description: DRAM RAPL Parameters
-  long_description: DRAM RAPL Parameters See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM RAPL Parameters See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 620H
   name: MSR UNCORE_RATIO_LIMIT
   bitfields:
@@ -599,7 +601,7 @@ msr:
   - bit: '1:0'
     description: Reserved
   - bit: '2'
-    access: RO
+    access: R/O
     description: Excursion to Minimum
   - bit: '63:3'
     description: Reserved
@@ -611,17 +613,17 @@ msr:
   name: IA32_QM_EVTSEL
   bitfields:
   - bit: '7:0'
-    access: RW
+    access: R/W
     long_description: 'EventID Event encoding: 0x00: No monitoring. 0x01: L3 occupancy monitoring. 0x02: Total memory bandwidth monitoring. 0x03: Local memory bandwidth monitoring. All other encoding reserved.'
     description: EventID
   - bit: '31:8'
     description: Reserved
   - bit: '41:32'
-    access: RW
+    access: R/W
     description: RMID
   - bit: '63:42'
     description: Reserved
-  scope: THREAD
+  scope: Thread
   access: R/W
   description: Monitoring Event Select Register
   long_description: Monitoring Event Select Register If CPUID.(EAX=07H, ECX=0):EBX.RDT-M[bit 12] = 1.

@@ -1,9 +1,7 @@
 ---
 name: Table 2-41
 full_name: Table 2-41. Additional MSRs Supported by 7th Generation and 8th Generation Intel® Core™ Processors Based on Kaby Lake Microarchitecture and Coffee Lake Microarchitecture
-supported_cpu:
-- 06_9EH
-- 06_8EH
+supported_cpu: []
 msr:
 - value: 80H
   name: MSR_TRACE_HUB_STH_ACPIBAR_BASE
@@ -75,20 +73,20 @@ msr:
   access: R/W
   description: Valid PRMRR Configurations
 - value: 2F4H
-  name: MSR_UNCORE_PRMRR_PHYS_BASE
+  name: MSR_UNCORE_PRMRR_PHYS_BASE1
   bitfields:
   - bit: '11:0'
     description: Reserved
-  - bit: '38:12'
-    long_description: Range Base This field corresponds to bits 38:12 of the base address memory range which is allocated to PRMRR memory.
+  - bit: PAWIDTH-1:12
+    long_description: Range Base This field corresponds to bits PAWIDTH-1:12 of the base address memory range which is allocated to PRMRR memory.
     description: Range Base
-  - bit: '63:39'
+  - bit: 63:PAWIDTH
     description: Reserved
   scope: Package
   access: R/W
-  long_description: The PRMRR range is used to protect Xucode memory from unauthorized reads and writes. Any IO access to this range is aborted. This register controls the location of the PRMRR range by indicating its starting address. It functions in tandem with the PRMRR mask register.
+  long_description: The PRMRR range is used to protect the processor reserved memory from unauthorized reads and writes. Any IO access to this range is aborted. This register controls the location of the PRMRR range by indicating its starting address. It functions in tandem with the PRMRR mask register.
 - value: 2F5H
-  name: MSR_UNCORE_PRMRR_PHYS_MASK
+  name: MSR_UNCORE_PRMRR_PHYS_MASK1
   bitfields:
   - bit: '9:0'
     description: Reserved

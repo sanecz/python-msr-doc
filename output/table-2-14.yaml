@@ -4,7 +4,7 @@ full_name: Table 2-14. MSRs in Intel Atom® Processors Based on the Tremont Micr
 supported_cpu: []
 msr:
 - value: 33H
-  name: TEST_CTRL
+  name: MSR_MEMORY_CTRL
   bitfields:
   - bit: '28:0'
     description: Reserved
@@ -15,18 +15,42 @@ msr:
   - bit: '30'
     description: Reserved
   - bit: '31'
-    description: Disable LOCK# assertion for split locked access
+    description: Reserved
   scope: Core
-  description: Test Control Register
+  description: Memory Control Register
 - value: CFH
   name: IA32_CORE_CAPABILITIES
+  bitfields:
+  - bit: '4:0'
+    description: Reserved
+  - bit: '5'
+    long_description: Bit 29 of MSR_MEMORY_CTRL (address 33H) supported.
+    description: Bit 29 of MSR_MEMORY_CTRL
+  - bit: '63:6'
+    description: Reserved
   scope: Core
   description: IA32 Core Capabilities Register
-  long_description: IA32 Core Capabilities Register See Table 2-2.
-  see_table:
-  - 2-2
+  long_description: IA32 Core Capabilities Register If CPUID.(EAX=07H, ECX=0):EDX[30] = 1.
+- value: 2A0H
+  name: MSR_PRMRR_BASE_0
+  bitfields:
+  - bit: '2:0'
+    description: MEMTYPE
+  - bit: '3'
+    description: CONFIGURED
+  - bit: '11:4'
+    description: Reserved
+  - bit: '51:12'
+    description: BASE
+  - bit: '63:52'
+    description: Reserved
+  scope: Core
+  access: R/W
+  description: Processor Reserved Memory Range Register - Physical
+  long_description: Processor Reserved Memory Range Register - Physical Base Control Register
 - value: 3F1H
-  name: MSR_PEBS_ENABLE
+  name: IA32_PEBS_ENABLE
+  alt_name: MSR_PEBS_ENABLE
   bitfields:
   - bit: n:0
     long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMCx. The maximum value n can be determined from CPUID.0AH:EAX[15:8].
@@ -47,12 +71,12 @@ msr:
     description: Reserved
   scope: Core
   access: R/W
-  description: See Table 2-2. See Section 18.6.2.4
-  long_description: See Table 2-2. See Section 18.6.2.4, “Processor Event Based Sampling (PEBS)”.
+  description: See Table 2-2. See Section 19.6.2.4
+  long_description: See Table 2-2. See Section 19.6.2.4, “Processor Event Based Sampling (PEBS)”.
   see_table:
   - 2-2
   see_section:
-  - 18.6.2.4
+  - 19.6.2.4
 - value: 1309H-130BH
   name: MSR_RELOAD_FIXED_CTRx
   bitfields:
@@ -63,7 +87,7 @@ msr:
     description: Reserved
   access: R/W
   description: Reload value for IA32_FIXED_CTRx
-- value: 14C1H-14C8H
+- value: 14C1H-14C4H
   name: MSR_RELOAD_PMCx
   bitfields:
   - bit: '47:0'
@@ -71,5 +95,7 @@ msr:
     description: Value loaded into IA32_PMCx when a PEBS record is
   - bit: '63:48'
     description: Reserved
+  scope: Core
   access: R/W
   description: Reload value for IA32_PMCx
+- value: SeeTable2-6,Table2-12,Table2-13andTable2-14forMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_86H.

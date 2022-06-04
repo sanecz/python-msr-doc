@@ -1,6 +1,6 @@
 ---
 name: Table 2-25
-full_name: Table 2-25. Additional MSRs Supported by 3rd Generation Intel® Core™ Processors (based on Intel® microarchitecture code name Ivy Bridge)
+full_name: Table 2-25. These processors have a CPUID signature with DisplayFamily_DisplayModel of 06_3AH. Table 2-25. Additional MSRs Supported by 3rd Generation Intel® Core™ Processors (Based on Ivy Bridge Microarchitecture)
 supported_cpu:
 - 06_3AH
 msr:
@@ -96,9 +96,9 @@ msr:
   scope: Package
   access: R/O
   description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP0 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.9.4
+  - 14.10.4
 - value: 648H
   name: MSR_CONFIG_TDP_NOMINAL
   bitfields:

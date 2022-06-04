@@ -2,18 +2,12 @@
 name: Table 2-29
 full_name: Table 2-29. Additional MSRs Supported by Processors based on the Haswell or Haswell-E microarchitectures
 supported_cpu:
-- 06_5EH
-- 06_46H
 - 06_3CH
-- 06_9EH
-- 06_56H
-- 06_8EH
+- 06_46H
 - 06_45H
-- 06_66H
 msr:
-- value: 3BH
-  name: IA32_TSC_ADJUST
-  scope: Thread
+- value: 3BH59
+  name: Thread
   access: R/W
   description: Per-Logical-Processor TSC ADJUST
   long_description: Per-Logical-Processor TSC ADJUST See Table 2-2.
@@ -67,10 +61,10 @@ msr:
   name: IA32_PERFEVTSEL0
   bitfields:
   - bit: '32'
-    long_description: 'IN_TX: See Section 18.3.6.5.1. When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
+    long_description: 'IN_TX: See Section 19.3.6.5.1. When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
     description: IN_TX
     see_section:
-    - 18.3.6.5.1.
+    - 19.3.6.5.1.
   scope: Thread
   access: R/W
   description: Performance Event Select for Counter 0
@@ -81,10 +75,10 @@ msr:
   name: IA32_PERFEVTSEL1
   bitfields:
   - bit: '32'
-    long_description: 'IN_TX: See Section 18.3.6.5.1. When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
+    long_description: 'IN_TX: See Section 19.3.6.5.1. When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
     description: IN_TX
     see_section:
-    - 18.3.6.5.1.
+    - 19.3.6.5.1.
   scope: Thread
   access: R/W
   description: Performance Event Select for Counter 1
@@ -95,15 +89,15 @@ msr:
   name: IA32_PERFEVTSEL2
   bitfields:
   - bit: '32'
-    long_description: 'IN_TX: See Section 18.3.6.5.1. When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
+    long_description: 'IN_TX: See Section 19.3.6.5.1. When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
     description: IN_TX
     see_section:
-    - 18.3.6.5.1.
+    - 19.3.6.5.1.
   - bit: '33'
-    long_description: 'IN_TXCP: See Section 18.3.6.5.1. When IN_TXCP=1 & IN_TX=1 and in sampling, a spurious PMI may occur and transactions may continuously abort near overflow conditions. Software should favor using IN_TXCP for counting over sampling. If sampling, software should use large “sample-after” value after clearing the counter configured to use IN_TXCP and also always reset the counter even when no overflow condition was reported.'
+    long_description: 'IN_TXCP: See Section 19.3.6.5.1. When IN_TXCP=1 & IN_TX=1 and in sampling, a spurious PMI may occur and transactions may continuously abort near overflow conditions. Software should favor using IN_TXCP for counting over sampling. If sampling, software should use large “sample-after” value after clearing the counter configured to use IN_TXCP and also always reset the counter even when no overflow condition was reported.'
     description: IN_TXCP
     see_section:
-    - 18.3.6.5.1.
+    - 19.3.6.5.1.
   scope: Thread
   access: R/W
   description: Performance Event Select for Counter 2
@@ -114,10 +108,10 @@ msr:
   name: IA32_PERFEVTSEL3
   bitfields:
   - bit: '32'
-    long_description: 'IN_TX: See Section 18.3.6.5.1 When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
+    long_description: 'IN_TX: See Section 19.3.6.5.1 When IN_TX (bit 32) is set, AnyThread (bit 21) should be cleared to prevent incorrect results.'
     description: IN_TX
     see_section:
-    - 18.3.6.5.1
+    - 19.3.6.5.1
   scope: Thread
   access: R/W
   description: Performance Event Select for Counter 3
@@ -252,25 +246,25 @@ msr:
   scope: Package
   access: R/O
   description: PKG Perf Status
-  long_description: PKG Perf Status See Section 14.9.3, “Package RAPL Domain.”
+  long_description: PKG Perf Status See Section 14.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.9.3
+  - 14.10.3
 - value: 619H
   name: MSR_DRAM_ENERGY_STATUS
   scope: Package
   access: R/O
   description: DRAM Energy Status
-  long_description: DRAM Energy Status See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM Energy Status See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 61BH
   name: MSR_DRAM_PERF_STATUS
   scope: Package
   access: R/O
   description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM Performance Throttling Status See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 648H
   name: MSR_CONFIG_TDP_NOMINAL
   bitfields:

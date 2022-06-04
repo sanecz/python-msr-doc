@@ -1,1616 +1,279 @@
 ---
 name: Table 2-46
-full_name: Table 2-46. Selected MSRs Supported by Intel® Xeon Phi™ Processors with DisplayFamily_DisplayModel Signatures 06_57H and 06_85H
-supported_cpu:
-- 06_57H
-- 06_85H
+full_name: Table 2-46. Additional MSRs Supported by 12th Generation Intel® Core™ Processors Supporting Performance Hybrid Architecture
+supported_cpu: []
 msr:
-- value: 0H
-  name: IA32_P5_MC_ADDR
-  scope: Module
-  description: See Section 2.23
-  see_section:
-  - '2.23'
-- value: 1H
-  name: IA32_P5_MC_TYPE
-  scope: Module
-  description: See Section 2.23
-  see_section:
-  - '2.23'
-- value: 6H
-  name: IA32_MONITOR_FILTER_SIZE
-  scope: Thread
-  description: See Section 8.10.5
-  long_description: See Section 8.10.5, “Monitor/Mwait Address Range Determination.” See Table 2-2.
-  see_table:
-  - 2-2
-  see_section:
-  - 8.10.5
-- value: 10H
-  name: IA32_TIME_STAMP_COUNTER
-  scope: Thread
-  description: See Section 17.17
-  long_description: See Section 17.17, “Time-Stamp Counter,” and see Table 2-2.
-  see_table:
-  - 2-2
-  see_section:
-  - '17.17'
-- value: 17H
-  name: IA32_PLATFORM_ID
-  scope: Package
-  access: R
-  description: Platform ID
-  long_description: Platform ID See Table 2-2.
-  see_table:
-  - 2-2
-- value: 1BH
-  name: IA32_APIC_BASE
-  scope: Thread
-  description: See Section 10.4.4
-  long_description: See Section 10.4.4, “Local APIC Status and Location,” and Table 2-2.
-  see_table:
-  - 2-2
-  see_section:
-  - 10.4.4
-- value: 34H
-  name: MSR_SMI_COUNT
+- value: 33H
+  name: MSR_MEMORY_CTRL
   bitfields:
-  - bit: '31:0'
-    access: R/O
-    description: SMI Count
-  - bit: '63:32'
+  - bit: '26:0'
     description: Reserved
-  scope: Thread
-  access: R/O
-  description: SMI Counter
-- value: 3AH
-  name: IA32_FEATURE_CONTROL
-  bitfields:
-  - bit: '0'
-    access: R/WL
-    description: Lock
-  - bit: '1'
-    description: Reserved
-  - bit: '2'
-    access: R/WL
-    description: Enable VMX outside SMX operation
-  scope: Thread
-  access: R/W
-  description: Control Features in Intel 64Processor
-  long_description: Control Features in Intel 64Processor See Table 2-2.
-  see_table:
-  - 2-2
-- value: 3BH
-  name: IA32_TSC_ADJUST
-  scope: THREAD
-  access: R/W
-  description: Per-Logical-Processor TSC ADJUST
-  long_description: Per-Logical-Processor TSC ADJUST See Table 2-2.
-  see_table:
-  - 2-2
-- value: 4EH
-  name: MSR_PPIN_CTL
-  bitfields:
-  - bit: '0'
-    access: R/WO
-    long_description: LockOut Set 1 to prevent further writes to MSR_PPIN_CTL. Writing 1 to MSR_PPINCTL[bit 0] is permitted only if MSR_PPIN_CTL[bit 1] is clear. Default is 0. BIOS should provide an opt-in menu to enable the user to turn on MSR_PPIN_CTL[bit 1] for a privileged inventory initialization agent to access MSR_PPIN. After reading MSR_PPIN, the privileged inventory initialization agent should write ‘01b’ to MSR_PPIN_CTL to disable further access to MSR_PPIN and prevent unauthorized modification to MSR_PPIN_CTL.
-    description: LockOut
-  - bit: '1'
-    access: R/W
-    long_description: 'Enable_PPIN If 1, enables MSR_PPIN to be accessible using RDMSR. Once set, an attempt to write 1 to MSR_PPIN_CTL[bit 0] will cause #GP. If 0, an attempt to read MSR_PPIN will cause #GP. Default is 0.'
-    description: Enable_PPIN
-  - bit: '63:2'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: Protected Processor Inventory Number Enable Control
-  long_description: Protected Processor Inventory Number Enable Control
-- value: 4FH
-  name: MSR_PPIN
-  bitfields:
-  - bit: '63:0'
-    access: R/O
-    long_description: Protected Processor Inventory Number A unique value within a given CPUID family/model/stepping signature that a privileged inventory initialization agent can access to identify each physical processor, when access to MSR_PPIN is enabled. Access to MSR_PPIN is permitted only if MSR_PPIN_CTL[bits 1:0] = ‘10b’.
-    description: Protected Processor Inventory Number
-  scope: Package
-  access: R/O
-  description: Protected Processor Inventory Number
-- value: 79H
-  name: IA32_BIOS_UPDT_TRIG
-  scope: Core
-  access: W
-  description: BIOS Update Trigger Register
-  long_description: BIOS Update Trigger Register See Table 2-2.
-  see_table:
-  - 2-2
-- value: 8BH
-  name: IA32_BIOS_SIGN_ID
-  scope: THREAD
-  access: RO
-  description: BIOS Update Signature ID
-  long_description: BIOS Update Signature ID See Table 2-2.
-  see_table:
-  - 2-2
-- value: C1H
-  name: IA32_PMC0
-  scope: THREAD
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
-  see_table:
-  - 2-2
-- value: C2H
-  name: IA32_PMC1
-  scope: THREAD
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
-  see_table:
-  - 2-2
-- value: CEH
-  name: MSR_PLATFORM_INFO
-  bitfields:
-  - bit: '7:0'
-    description: Reserved
-  - bit: '15:8'
-    access: R/O
-    long_description: Maximum Non-Turbo Ratio This is the ratio of the frequency that invariant TSC runs at. Frequency = ratio * 100 MHz.
-    description: Maximum Non-Turbo Ratio
-  - bit: '27:16'
-    description: Reserved
-  - bit: '28'
-    access: R/O
-    long_description: Programmable Ratio Limit for Turbo Mode When set to 1, indicates that Programmable Ratio Limit for Turbo mode is enabled. When set to 0, indicates Programmable Ratio Limit for Turbo mode is disabled.
-    description: Programmable Ratio Limit for Turbo Mode
-  - bit: '29'
-    access: R/O
-    long_description: Programmable TDP Limit for Turbo Mode When set to 1, indicates that TDP Limit for Turbo mode is programmable. When set to 0, indicates TDP Limit for Turbo mode is not programmable.
-    description: Programmable TDP Limit for Turbo Mode
-  - bit: '39:30'
-    description: Reserved
-  - bit: '47:40'
-    access: R/O
-    long_description: Maximum Efficiency Ratio This is the minimum ratio (maximum efficiency) that the processor can operate, in units of 100MHz.
-    description: Maximum Efficiency Ratio
-  - bit: '63:48'
-    description: Reserved
-  scope: Package
-  description: Platform Information
-  long_description: Platform Information Contains power management and other model specific features enumeration. See http://biosbits.org.
-- value: E2H
-  name: MSR_PKG_CST_CONFIG_CONTROL
-  bitfields:
-  - bit: '2:0'
-    access: R/W
-    long_description: 'Package C-State Limit Specifies the lowest C-state for the package. This feature does not limit the processor core C-state. The power-on default value from bit[2:0] of this register reports the deepest package C-state the processor is capable to support when manufactured. It is recommended that BIOS always read the power-on default value reported from this bit field to determine the supported deepest C-state on the processor and leave it as default without changing it. 000b - C0/C1 (No package C-state support) 001b - C2 010b - C6 (non retention)* 011b - C6 (Retention)* 100b - Reserved 101b - Reserved 110b - Reserved 111b - No package C-state limit. All C-States supported by the processor are available. Note: C6 retention mode provides more power saving than C6 non-retention mode. Limiting the package to C6 non retention mode does prevent the MSR_PKG_C6_RESIDENCY counter (MSR 3F9h) from being incremented.'
-    description: Package C-State Limit
-  - bit: '9:3'
-    description: Reserved
-  - bit: '10'
-    access: R/W
-    long_description: I/O MWAIT Redirection Enable When set, will map IO_read instructions sent to IO registers at MSR_PMG_IO_CAPTURE_BASE[15:0] to MWAIT instructions.
-    description: I/O MWAIT Redirection Enable
-  - bit: '14:11'
-    description: Reserved
-  - bit: '15'
-    access: RO
-    long_description: CFG Lock When set, locks bits [15:0] of this register for further writes until the next reset occurs.
-    description: CFG Lock
-  - bit: '25'
-    description: Reserved
-  - bit: '26'
-    access: R/W
-    long_description: C1 State Auto Demotion Enable When set, the processor will conditionally demote C3/C6/C7 requests to C1 based on uncore auto-demote information.
-    description: C1 State Auto Demotion Enable
   - bit: '27'
-    description: Reserved
+    long_description: UC_STORE_THROTTLE If set to 1, when enabled, the processor will only allow one in-progress UC store at a time.
+    description: UC_STORE_THROTTLE
   - bit: '28'
-    access: R/W
-    long_description: C1 State Auto Undemotion Enable When set, enables Undemotion from Demoted C1.
-    description: C1 State Auto Undemotion Enable
+    long_description: 'UC_LOCK_DISABLE If set to 1, a UC load lock will trigger a #GP fault.'
+    description: UC_LOCK_DISABLE
   - bit: '29'
-    access: R/W
-    long_description: PKG C-State Auto Demotion Enable When set, enables Package C state demotion.
-    description: PKG C-State Auto Demotion Enable
-  - bit: '63:30'
+    access: '0'
+    long_description: 'Enable #AC exception for split locked accesses: Cause #AC exception for split locked access at all CPL irrespective of CR0.AM or EFLAGS.AC. If bits 29 and 31 are both set, bit 29 takes precedence.'
+    description: 'Enable #AC exception for split locked accesses'
+  - bit: '30'
     description: Reserved
+  - bit: '31'
+    description: Reserved
+  scope: Core
+  description: Memory Control Register
+- value: BCH
+  name: IA32_MISC_PACKAGE_CTLS
   scope: Package
   access: R/W
-  description: C-State Configuration Control
-- value: E4H
-  name: MSR_PMG_IO_CAPTURE_BASE
-  bitfields:
-  - bit: '15:0'
-    access: R/W
-    long_description: LVL_2 Base Address Microcode will compare IO-read zone to this base address to determine if an MWAIT(C2/3/4) needs to be issued instead of the IO-read. Should be programmed to the chipset Plevel_2 IO address.
-    description: LVL_2 Base Address
-  - bit: '22:16'
-    access: R/W
-    long_description: C-State Range The IO-port block size in which IO-redirection will be executed (0-127). Should be programmed based on the number of LVLx registers existing in the chipset.
-    description: C-State Range
-  - bit: '63:23'
-    description: Reserved
-  scope: Tile
+  description: Power Filtering Control
+  long_description: Power Filtering Control IA32_ARCH_CAPABILITIES[bit 10] enumerates support for this MSR. See Table 2-2.
+  see_table:
+  - 2-2
+- value: C7H
+  name: IA32_PMC6
+  scope: Core
   access: R/W
-  description: Power Management IO Capture Base
-- value: E7H
-  name: IA32_MPERF
-  scope: Thread
-  access: RW
-  description: Maximum Performance Frequency Clock Count
-  long_description: Maximum Performance Frequency Clock Count See Table 2-2.
+  description: General Performance Counter 6
+  long_description: General Performance Counter 6 See Table 2-2.
   see_table:
   - 2-2
-- value: E8H
-  name: IA32_APERF
-  scope: Thread
-  access: RW
-  description: Actual Performance Frequency Clock Count
-  long_description: Actual Performance Frequency Clock Count See Table 2-2.
-  see_table:
-  - 2-2
-- value: FEH
-  name: IA32_MTRRCAP
+- value: C8H
+  name: IA32_PMC7
   scope: Core
-  access: R
-  description: Memory Type Range Register
-  long_description: Memory Type Range Register See Table 2-2.
+  access: R/W
+  description: General Performance Counter 7
+  long_description: General Performance Counter 7 See Table 2-2.
   see_table:
   - 2-2
-- value: 13CH
-  name: MSR_FEATURE_CONFIG
-  bitfields:
-  - bit: '1:0'
-    access: RW-L
-    long_description: 'AES Configuration Upon a successful read of this MSR, the configuration of AES instruction set availability is as follows: 11b: AES instructions are not available until next RESET. Otherwise, AES instructions are available. Note, the AES instruction set is not available if read is unsuccessful. If the configuration is not 01b, AES instructions can be mis-configured if a privileged agent unintentionally writes 11b.'
-    description: AES Configuration
-  - bit: '63:2'
-    description: Reserved
-  scope: Core
-  access: RW-L
-  description: AES Configuration
-  long_description: 'AES Configuration Privileged post-BIOS agent must provide a #GP handler to handle unsuccessful read of this MSR.'
-- value: 140H
-  name: MISC_FEATURE_ENABLES
+- value: CFH
+  name: IA32_CORE_CAPABILITIES
   bitfields:
   - bit: '0'
-    description: Reserved
+    long_description: 'STLB_QOS_SUPPORTED When set to 1, the STLB QoS feature is supported and the STLB QoS MSRs (1A8FH -1A97H) are accessible. When set to 0, access to these MSRs will #GP.'
+    description: STLB_QOS_SUPPORTED
   - bit: '1'
-    access: R/W
-    long_description: User Mode MONITOR and MWAIT If set to 1, the MONITOR and MWAIT instructions do not cause invalid-opcode exceptions when executed with CPL > 0 or in virtual-8086 mode. If MWAIT is executed when CPL > 0 or in virtual-8086 mode, and if EAX indicates a C-state other than C0 or C1, the instruction operates as if EAX indicated the C-state C1.
-    description: User Mode MONITOR and MWAIT
-  - bit: '63:2'
     description: Reserved
-  scope: Thread
-  description: MISC_FEATURE_ENABLES
-- value: 174H
-  name: IA32_SYSENTER_CS
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 175H
-  name: IA32_SYSENTER_ESP
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 176H
-  name: IA32_SYSENTER_EIP
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 179H
-  name: IA32_MCG_CAP
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 17AH
-  name: IA32_MCG_STATUS
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 17DH
-  name: MSR_SMM_MCA_CAP
-  bitfields:
-  - bit: '31:0'
-    access: SMM-RO
-    long_description: Bank Support One bit per MCA bank. If the bit is set, that bank supports Enhanced MCA (Default all 0; does not support EMCA).
-    description: Bank Support
-  - bit: '55:32'
+  - bit: '2'
+    description: FUSA_SUPPORTED
+  - bit: '3'
+    long_description: RSM_IN_CPL0_ONLY When set to 1, the RSM instruction is only allowed in CPL0 (#GP triggered in any CPL != 0). When set to 0, then any CPL may execute the RSM instruction.
+    description: RSM_IN_CPL0_ONLY
+  - bit: '4'
+    long_description: UC_LOCK_DISABLE_SUPPORTED When set to 1, processor supports UC load lock disable feature.
+    description: UC_LOCK_DISABLE_SUPPORTED
+  - bit: '5'
+    long_description: 'SPLIT_LOCK_DISABLE_SUPPORTED When set to 1, the ability to set MEMORY_CONTROL (MSR 33H) bit 29 enables an #AC to be created when a split lock is detected.'
+    description: SPLIT_LOCK_DISABLE_SUPPORTED
+  - bit: '6'
+    long_description: 'SNOOP_FILTER_QOS_SUPPORTED When set to 1, the Snoop Filter Qos Mask MSRs are supported. When set to 0, access to these MSRs will #GP.'
+    description: SNOOP_FILTER_QOS_SUPPORTED
+  - bit: '7'
+    long_description: UC_STORE_THROTTLING_SUPPORTED When set 1, UC Store throttle capability exist through MSR_MEMORY_CTRL (33H) bit 27.
+    description: UC_STORE_THROTTLING_SUPPORTED
+  - bit: '31:8'
     description: Reserved
-  - bit: '56'
-    access: SMM-RO
-    long_description: Targeted SMI Set if targeted SMI is supported.
-    description: Targeted SMI
-  - bit: '57'
-    access: SMM-RO
-    long_description: SMM_CPU_SVRSTR Set if SMM SRAM save/restore feature is supported.
-    description: SMM_CPU_SVRSTR
-  - bit: '58'
-    access: SMM-RO
-    long_description: SMM_CODE_ACCESS_CHK Set if SMM code access check feature is supported.
-    description: SMM_CODE_ACCESS_CHK
-  - bit: '59'
-    access: SMM-RO
-    long_description: Long_Flow_Indication If set to 1, indicates that the SMM long flow indicator is supported and a host-space interface available to SMM handler.
-    description: Long_Flow_Indication
-  - bit: 63:60
-    description: Reserved
-  scope: Thread
-  access: SMM-RO
-  description: Enhanced SMM Capabilities
-  long_description: Enhanced SMM Capabilities Reports SMM capability Enhancement. Accessible only while in SMM.
-- value: 186H
-  name: IA32_PERFEVTSEL0
+  scope: Package
+  access: R/O
+  description: IA32 Core Capabilities Register
+  long_description: IA32 Core Capabilities Register If CPUID.(EAX=07H, ECX=0):EDX[30] = 1. This MSR provides an architectural enumeration function for model-specific behavior.
+- value: E1H
+  name: IA32_UMWAIT_CONTROL
+  access: R/W
+  description: UMWAIT Control
+  long_description: UMWAIT Control See Table 2-2.
+  see_table:
+  - 2-2
+- value: 10AH
+  name: IA32_ARCH_CAPABILITIES
+  access: R/O
+  description: Enumeration of Architectural Features
+  long_description: Enumeration of Architectural Features See Table 2-2.
+  see_table:
+  - 2-2
+- value: 18CH
+  name: IA32_PERFEVTSEL6
+  scope: Core
+  description: See Table 2-20
+  see_table:
+  - 2-20
+- value: 18DH
+  name: IA32_PERFEVTSEL7
+  scope: Core
+  description: See Table 2-20
+  see_table:
+  - 2-20
+- value: 195H
+  name: IA32_OVERCLOCKING_STATUS
+  scope: Package
+  access: R/O
+  description: Overclocking Status
+  long_description: Overclocking Status IA32_ARCH_CAPABILITIES[bit 23] enumerates support for this MSR. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 1ADH
+  name: MSR_PRIMARY_TURBO_RATIO_LIMIT
   bitfields:
   - bit: '7:0'
-    description: Event Select
+    long_description: 'MAX_TURBO_GROUP_0: Maximum turbo ratio limit with 1 core active.'
+    description: MAX_TURBO_GROUP_0
   - bit: '15:8'
-    description: UMask
-  - bit: '16'
-    description: USR
-  - bit: '17'
-    description: OS
-  - bit: '18'
-    description: Edge
-  - bit: '19'
-    description: PC
-  - bit: '20'
-    description: INT
-  - bit: '21'
-    description: AnyThread
-  - bit: '22'
-    description: EN
-  - bit: '23'
-    description: INV
-  - bit: '31:24'
-    description: CMASK
-  - bit: '63:32'
-    description: Reserved
-  scope: Thread
-  access: R/W
-  description: Performance Monitoring Event Select Register
-  long_description: Performance Monitoring Event Select Register See Table 2-2.
-  see_table:
-  - 2-2
-- value: 187H
-  name: IA32_PERFEVTSEL1
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 198H
-  name: IA32_PERF_STATUS
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 199H
-  name: IA32_PERF_CTL
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 19AH
-  name: IA32_CLOCK_MODULATION
-  scope: Thread
-  access: R/W
-  description: Clock Modulation
-  long_description: Clock Modulation See Table 2-2.
-  see_table:
-  - 2-2
-- value: 19BH
-  name: IA32_THERM_INTERRUPT
-  scope: Module
-  access: R/W
-  description: Thermal Interrupt Control
-  long_description: Thermal Interrupt Control See Table 2-2.
-  see_table:
-  - 2-2
-- value: 19CH
-  name: IA32_THERM_STATUS
-  bitfields:
-  - bit: '0'
-    access: RO
-    description: Thermal Status
-  - bit: '1'
-    access: R/WC0
-    description: Thermal Status Log
-  - bit: '2'
-    access: RO
-    description: 'PROTCHOT # or FORCEPR# Status'
-  - bit: '3'
-    access: R/WC0
-    description: 'PROTCHOT # or FORCEPR# Log'
-  - bit: '4'
-    access: RO
-    description: Critical Temperature Status
-  - bit: '5'
-    access: R/WC0
-    description: Critical Temperature Status Log
-  - bit: '6'
-    access: RO
-    description: 'Thermal Threshold #1 Status'
-  - bit: '7'
-    access: R/WC0
-    description: 'Thermal Threshold #1 Log'
-  - bit: '8'
-    access: RO
-    description: 'Thermal Threshold #2 Status'
-  - bit: '9'
-    access: R/WC0
-    description: 'Thermal Threshold #2 Log'
-  - bit: '10'
-    access: RO
-    description: Power Limitation Status
-  - bit: '11'
-    access: RWC0
-    description: Power Limitation Log
-  - bit: '15:12'
-    description: Reserved
-  - bit: '22:16'
-    access: RO
-    description: Digital Readout
-  - bit: '26:23'
-    description: Reserved
-  - bit: '30:27'
-    access: RO
-    description: Resolution in Degrees Celsius
-  - bit: '31'
-    access: RO
-    description: Reading Valid
-  - bit: '63:32'
-    description: Reserved
-  scope: Module
-  access: R/W
-  description: Thermal Monitor Status
-  long_description: Thermal Monitor Status See Table 2-2.
-  see_table:
-  - 2-2
-- value: 1A0H
-  name: IA32_MISC_ENABLE
-  bitfields:
-  - bit: '0'
-    description: Fast-Strings Enable
-  - bit: '2:1'
-    description: Reserved
-  - bit: '3'
-    access: R/W
-    description: Automatic Thermal Control Circuit Enable
-  - bit: '6:4'
-    description: Reserved
-  - bit: '7'
-    access: R
-    description: Performance Monitoring Available
-  - bit: '10:8'
-    description: Reserved
-  - bit: '11'
-    access: RO
-    description: Branch Trace Storage Unavailable
-  - bit: '12'
-    access: RO
-    description: Processor Event Based Sampling Unavailable
-  - bit: '15:13'
-    description: Reserved
-  - bit: '16'
-    access: R/W
-    description: Enhanced Intel SpeedStep Technology Enable
-  - bit: '18'
-    access: R/W
-    description: ENABLE MONITOR FSM
-  - bit: '21:19'
-    description: Reserved
-  - bit: '22'
-    access: R/W
-    description: Limit CPUID Maxval
-  - bit: '23'
-    access: R/W
-    description: xTPR Message Disable
-  - bit: '33:24'
-    description: Reserved
-  - bit: '34'
-    access: R/W
-    description: XD Bit Disable
-  - bit: '37:35'
-    description: Reserved
-  - bit: '38'
-    access: R/W
-    description: Turbo Mode Disable
-  - bit: '63:39'
-    description: Reserved
-  scope: Thread
-  access: R/W
-  description: Enable Misc
-  long_description: Enable Misc. Processor Features Allows a variety of processor functions to be enabled and disabled.
-- value: 1A2H
-  name: MSR_TEMPERATURE_TARGET
-  bitfields:
-  - bit: '15:0'
-    description: Reserved
+    long_description: 'MAX_TURBO_GROUP_1: Maximum turbo ratio limit with 2 cores active.'
+    description: MAX_TURBO_GROUP_1
   - bit: '23:16'
-    access: R
-    description: Temperature Target
-  - bit: '29:24'
-    access: R/W
-    description: Target Offset
-  - bit: '63:30'
-    description: Reserved
+    long_description: 'MAX_TURBO_GROUP_2: Maximum turbo ratio limit with 3 cores active.'
+    description: MAX_TURBO_GROUP_2
+  - bit: '31:24'
+    long_description: 'MAX_TURBO_GROUP_3: Maximum turbo ratio limit with 4 cores active.'
+    description: MAX_TURBO_GROUP_3
+  - bit: '39:32'
+    long_description: 'MAX_TURBO_GROUP_4: Maximum turbo ratio limit with 5 cores active.'
+    description: MAX_TURBO_GROUP_4
+  - bit: '47:40'
+    long_description: 'MAX_TURBO_GROUP_5: Maximum turbo ratio limit with 6 cores active.'
+    description: MAX_TURBO_GROUP_5
+  - bit: '55:48'
+    long_description: 'MAX_TURBO_GROUP_6: Maximum turbo ratio limit with 7 cores active.'
+    description: MAX_TURBO_GROUP_6
+  - bit: '63:56'
+    long_description: 'MAX_TURBO_GROUP_7: Maximum turbo ratio limit with 8 cores active.'
+    description: MAX_TURBO_GROUP_7
   scope: Package
-  description: Temperature Target
-- value: 1A4H
-  name: MSR_MISC_FEATURE_CONTROL
+  access: R/W
+  description: Primary Maximum Turbo Ratio Limit
+  long_description: Primary Maximum Turbo Ratio Limit Software can configure these limits when MSR_PLATFORM_INFO[28] = 1. Specifies Maximum Ratio Limit for each group. Maximum ratio for groups with more cores must decrease monotonically.
+- value: 493H
+  name: IA32_VMX_EXIT_CTLS2
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 4C7H
+  name: IA32_A_PMC6
+  access: R/W
+  description: Full Width Writable IA32_PMC6 Alias
+  long_description: Full Width Writable IA32_PMC6 Alias See Table 2-2.
+  see_table:
+  - 2-2
+- value: 4C8H
+  name: IA32_A_PMC7
+  access: R/W
+  description: Full Width Writable IA32_PMC7 Alias
+  long_description: Full Width Writable IA32_PMC7 Alias See Table 2-2.
+  see_table:
+  - 2-2
+- value: 650H
+  name: MSR_SECONDARY_TURBO_RATIO_LIMIT
   bitfields:
-  - bit: '0'
-    access: R/W
-    long_description: DCU Hardware Prefetcher Disable If 1, disables the L1 data cache prefetcher.
-    description: DCU Hardware Prefetcher Disable
-  - bit: '1'
-    access: R/W
-    long_description: L2 Hardware Prefetcher Disable If 1, disables the L2 hardware prefetcher.
-    description: L2 Hardware Prefetcher Disable
-  - bit: '63:2'
-    description: Reserved
-  access: R/W
-  description: Miscellaneous Feature Control
-- value: 1A6H
-  name: MSR_OFFCORE_RSP_0
-  scope: Shared
-  access: R/W
-  description: Offcore Response Event Select Register
-- value: 1A7H
-  name: MSR_OFFCORE_RSP_1
-  scope: Shared
-  access: R/W
-  description: Offcore Response Event Select Register
-- value: 1ADH
-  name: MSR_TURBO_RATIO_LIMIT
-  bitfields:
-  - bit: '0'
-    description: Reserved
-  - bit: '7:1'
-    long_description: Maximum Number of Cores in Group 0 Number active processor cores which operates under the maximum ratio limit for group 0.
-    description: Maximum Number of Cores in Group 0
+  - bit: '7:0'
+    long_description: 'MAX_TURBO_GROUP_0: Maximum turbo ratio limit with 1 core active.'
+    description: MAX_TURBO_GROUP_0
   - bit: '15:8'
-    long_description: Maximum Ratio Limit for Group 0 Maximum turbo ratio limit when the number of active cores are not more than the group 0 maximum core count.
-    description: Maximum Ratio Limit for Group 0
-  - bit: '20:16'
-    long_description: Number of Incremental Cores Added to Group 1 Group 1, which includes the specified number of additional cores plus the cores in group 0, operates under the group 1 turbo max ratio limit = “group 0 Max ratio limit” - “group ratio delta for group 1”.
-    description: Number of Incremental Cores Added to Group 1
-  - bit: '23:21'
-    long_description: Group Ratio Delta for Group 1 An unsigned integer specifying the ratio decrement relative to the Max ratio limit to Group 0.
-    description: Group Ratio Delta for Group 1
-  - bit: '28:24'
-    long_description: Number of Incremental Cores Added to Group 2 Group 2, which includes the specified number of additional cores plus all the cores in group 1, operates under the group 2 turbo max ratio limit = “group 1 Max ratio limit” - “group ratio delta for group 2”.
-    description: Number of Incremental Cores Added to Group 2
-  - bit: '31:29'
-    long_description: Group Ratio Delta for Group 2 An unsigned integer specifying the ratio decrement relative to the Max ratio limit for Group 1.
-    description: Group Ratio Delta for Group 2
-  - bit: '36:32'
-    long_description: Number of Incremental Cores Added to Group 3 Group 3, which includes the specified number of additional cores plus all the cores in group 2, operates under the group 3 turbo max ratio limit = “group 2 Max ratio limit” - “group ratio delta for group 3”.
-    description: Number of Incremental Cores Added to Group 3
-  - bit: '39:37'
-    long_description: Group Ratio Delta for Group 3 An unsigned integer specifying the ratio decrement relative to the Max ratio limit for Group 2.
-    description: Group Ratio Delta for Group 3
-  - bit: '44:40'
-    long_description: Number of Incremental Cores Added to Group 4 Group 4, which includes the specified number of additional cores plus all the cores in group 3, operates under the group 4 turbo max ratio limit = “group 3 Max ratio limit” - “group ratio delta for group 4”.
-    description: Number of Incremental Cores Added to Group 4
-  - bit: '47:45'
-    long_description: Group Ratio Delta for Group 4 An unsigned integer specifying the ratio decrement relative to the Max ratio limit for Group 3.
-    description: Group Ratio Delta for Group 4
-  - bit: '52:48'
-    long_description: Number of Incremental Cores Added to Group 5 Group 5, which includes the specified number of additional cores plus all the cores in group 4, operates under the group 5 turbo max ratio limit = “group 4 Max ratio limit” - “group ratio delta for group 5”.
-    description: Number of Incremental Cores Added to Group 5
-  - bit: '55:53'
-    long_description: Group Ratio Delta for Group 5 An unsigned integer specifying the ratio decrement relative to the Max ratio limit for Group 4.
-    description: Group Ratio Delta for Group 5
-  - bit: '60:56'
-    long_description: Number of Incremental Cores Added to Group 6 Group 6, which includes the specified number of additional cores plus all the cores in group 5, operates under the group 6 turbo max ratio limit = “group 5 Max ratio limit” - “group ratio delta for group 6”.
-    description: Number of Incremental Cores Added to Group 6
-  - bit: 63:61
-    long_description: Group Ratio Delta for Group 6 An unsigned integer specifying the ratio decrement relative to the Max ratio limit for Group 5.
-    description: Group Ratio Delta for Group 6
+    long_description: 'MAX_TURBO_GROUP_1: Maximum turbo ratio limit with 2 cores active.'
+    description: MAX_TURBO_GROUP_1
+  - bit: '23:16'
+    long_description: 'MAX_TURBO_GROUP_2: Maximum turbo ratio limit with 3 cores active.'
+    description: MAX_TURBO_GROUP_2
+  - bit: '31:24'
+    long_description: 'MAX_TURBO_GROUP_3: Maximum turbo ratio limit with 4 cores active.'
+    description: MAX_TURBO_GROUP_3
+  - bit: '39:32'
+    long_description: 'MAX_TURBO_GROUP_4: Maximum turbo ratio limit with 5 cores active.'
+    description: MAX_TURBO_GROUP_4
+  - bit: '47:40'
+    long_description: 'MAX_TURBO_GROUP_5: Maximum turbo ratio limit with 6 cores active.'
+    description: MAX_TURBO_GROUP_5
+  - bit: '55:48'
+    long_description: 'MAX_TURBO_GROUP_6: Maximum turbo ratio limit with 7 cores active.'
+    description: MAX_TURBO_GROUP_6
+  - bit: '63:56'
+    long_description: 'MAX_TURBO_GROUP_7: Maximum turbo ratio limit with 8 cores active.'
+    description: MAX_TURBO_GROUP_7
   scope: Package
-  access: RW
-  description: Maximum Ratio Limit of Turbo Mode for Groups of Cores
-  long_description: Maximum Ratio Limit of Turbo Mode for Groups of Cores
-- value: 1B0H
-  name: IA32_ENERGY_PERF_BIAS
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 1B1H
-  name: IA32_PACKAGE_THERM_STATUS
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 1B2H
-  name: IA32_PACKAGE_THERM_INTERRUPT
-  scope: Package
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 1C8H
-  name: MSR_LBR_SELECT
-  bitfields:
-  - bit: '0'
-    description: CPL_EQ_0
-  - bit: '1'
-    description: CPL_NEQ_0
-  - bit: '2'
-    description: JCC
-  - bit: '3'
-    description: NEAR_REL_CALL
-  - bit: '4'
-    description: NEAR_IND_CALL
-  - bit: '5'
-    description: NEAR_RET
-  - bit: '6'
-    description: NEAR_IND_JMP
-  - bit: '7'
-    description: NEAR_REL_JMP
-  - bit: '8'
-    description: FAR_BRANCH
-  - bit: '63:9'
-    description: Reserved
-  scope: Thread
   access: R/W
-  description: Last Branch Record Filtering Select Register
-  long_description: Last Branch Record Filtering Select Register See Section 17.9.2, “Filtering of Last Branch Records.”
-  see_section:
-  - 17.9.2
-- value: 1C9H
-  name: MSR_LASTBRANCH_TOS
-  scope: Thread
-  access: R/W
-  description: Last Branch Record Stack TOS
-  long_description: Last Branch Record Stack TOS Contains an index (bits 0-2) that points to the MSR containing the most recent branch record. See MSR_LASTBRANCH_0_FROM_IP.
-- value: 1D9H
-  name: IA32_DEBUGCTL
-  bitfields:
-  - bit: '0'
-    long_description: LBR Setting this bit to 1 enables the processor to record a running trace of the most recent branches taken by the processor in the LBR stack.
-    description: LBR
-  - bit: '1'
-    long_description: BTF Setting this bit to 1 enables the processor to treat EFLAGS.TF as single-step on branches instead of single- step on instructions.
-    description: BTF
-  - bit: '5:2'
-    description: Reserved
-  - bit: '6'
-    long_description: TR Setting this bit to 1 enables branch trace messages to be sent.
-    description: TR
-  - bit: '7'
-    long_description: BTS Setting this bit enables branch trace messages (BTMs) to be logged in a BTS buffer.
-    description: BTS
-  - bit: '8'
-    long_description: BTINT When clear, BTMs are logged in a BTS buffer in circular fashion. When this bit is set, an interrupt is generated by the BTS facility when the BTS buffer is full.
-    description: BTINT
-  - bit: '9'
-    long_description: BTS_OFF_OS When set, BTS or BTM is skipped if CPL = 0.
-    description: BTS_OFF_OS
-  - bit: '10'
-    long_description: BTS_OFF_USR When set, BTS or BTM is skipped if CPL > 0.
-    description: BTS_OFF_USR
-  - bit: '11'
-    long_description: FREEZE_LBRS_ON_PMI When set, the LBR stack is frozen on a PMI request.
-    description: FREEZE_LBRS_ON_PMI
-  - bit: '12'
-    long_description: FREEZE_PERFMON_ON_PMI When set, each ENABLE bit of the global counter control MSR are frozen (address 3BFH) on a PMI request.
-    description: FREEZE_PERFMON_ON_PMI
-  - bit: '13'
-    description: Reserved
-  - bit: '14'
-    long_description: FREEZE_WHILE_SMM When set, freezes perfmon and trace messages while in SMM.
-    description: FREEZE_WHILE_SMM
-  - bit: '31:15'
-    description: Reserved
-  scope: Thread
-  access: R/W
-  description: Debug Control
-- value: 1DDH
-  name: MSR_LER_FROM_LIP
-  scope: Thread
-  access: R
-  description: Last Exception Record from Linear IP
-- value: 1DEH
-  name: MSR_LER_TO_LIP
-  scope: Thread
-  access: R
-  description: Last Exception Record to Linear IP
-- value: 1F2H
-  name: IA32_SMRR_PHYSBASE
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 1F3H
-  name: IA32_SMRR_PHYSMASK
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 200H
-  name: IA32_MTRR_PHYSBASE0
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 201H
-  name: IA32_MTRR_PHYSMASK0
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 202H
-  name: IA32_MTRR_PHYSBASE1
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 203H
-  name: IA32_MTRR_PHYSMASK1
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 204H
-  name: IA32_MTRR_PHYSBASE2
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 205H
-  name: IA32_MTRR_PHYSMASK2
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 206H
-  name: IA32_MTRR_PHYSBASE3
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 207H
-  name: IA32_MTRR_PHYSMASK3
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 208H
-  name: IA32_MTRR_PHYSBASE4
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 209H
-  name: IA32_MTRR_PHYSMASK4
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 20AH
-  name: IA32_MTRR_PHYSBASE5
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 20BH
-  name: IA32_MTRR_PHYSMASK5
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 20CH
-  name: IA32_MTRR_PHYSBASE6
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 20DH
-  name: IA32_MTRR_PHYSMASK6
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 20EH
-  name: IA32_MTRR_PHYSBASE7
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 20FH
-  name: IA32_MTRR_PHYSMASK7
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 250H
-  name: IA32_MTRR_FIX64K_00000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 258H
-  name: IA32_MTRR_FIX16K_80000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 259H
-  name: IA32_MTRR_FIX16K_A0000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 268H
-  name: IA32_MTRR_FIX4K_C0000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 269H
-  name: IA32_MTRR_FIX4K_C8000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 26AH
-  name: IA32_MTRR_FIX4K_D0000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 26BH
-  name: IA32_MTRR_FIX4K_D8000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 26CH
-  name: IA32_MTRR_FIX4K_E0000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 26DH
-  name: IA32_MTRR_FIX4K_E8000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 26EH
-  name: IA32_MTRR_FIX4K_F0000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 26FH
-  name: IA32_MTRR_FIX4K_F8000
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 277H
-  name: IA32_PAT
-  scope: Core
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 2FFH
-  name: IA32_MTRR_DEF_TYPE
-  scope: Core
-  access: R/W
-  description: Default Memory Types
-  long_description: Default Memory Types See Table 2-2.
-  see_table:
-  - 2-2
-- value: 309H
-  name: IA32_FIXED_CTR0
-  scope: Thread
-  access: R/W
-  description: Fixed-Function Performance Counter Register 0
-  long_description: Fixed-Function Performance Counter Register 0 See Table 2-2.
-  see_table:
-  - 2-2
-- value: 30AH
-  name: IA32_FIXED_CTR1
-  scope: Thread
-  access: R/W
-  description: Fixed-Function Performance Counter Register 1
-  long_description: Fixed-Function Performance Counter Register 1 See Table 2-2.
-  see_table:
-  - 2-2
-- value: 30BH
-  name: IA32_FIXED_CTR2
-  scope: Thread
-  access: R/W
-  description: Fixed-Function Performance Counter Register 2
-  long_description: Fixed-Function Performance Counter Register 2 See Table 2-2.
-  see_table:
-  - 2-2
-- value: 345H
-  name: IA32_PERF_CAPABILITIES
-  scope: Package
-  description: See Table 2-2. See Section 17.4.1
-  long_description: See Table 2-2. See Section 17.4.1, “IA32_DEBUGCTL MSR.”
-  see_table:
-  - 2-2
-  see_section:
-  - 17.4.1
-- value: 38DH
-  name: IA32_FIXED_CTR_CTRL
-  scope: Thread
-  access: R/W
-  description: Fixed-Function-Counter Control Register
-  long_description: Fixed-Function-Counter Control Register See Table 2-2.
-  see_table:
-  - 2-2
-- value: 38EH
-  name: IA32_PERF_GLOBAL_STATUS
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 38FH
-  name: IA32_PERF_GLOBAL_CTRL
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 390H
-  name: IA32_PERF_GLOBAL_OVF_CTRL
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 3F1H
-  name: MSR_PEBS_ENABLE
-  scope: Thread
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 3F8H
-  name: MSR_PKG_C3_RESIDENCY
+  description: Secondary Maximum Turbo Ratio Limit
+  long_description: Secondary Maximum Turbo Ratio Limit Software can configure these limits when MSR_PLATFORM_INFO[28] = 1. Specifies Maximum Ratio Limit for each group. Maximum ratio for groups with more cores must decrease monotonically.
+- value: 664H
+  name: MSR_MC6_RESIDENCY_COUNTER
   bitfields:
   - bit: '63:0'
-    access: R/O
-    description: Package C3 Residency Counter
-  scope: Package
-  description: Note
-  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
-- value: 3F9H
-  name: MSR_PKG_C6_RESIDENCY
-  bitfields:
-  - bit: '63:0'
-    access: R/O
-    description: Package C6 Residency Counter
-  scope: Package
-- value: 3FAH
-  name: MSR_PKG_C7_RESIDENCY
-  bitfields:
-  - bit: '63:0'
-    access: R/O
-    description: Package C7 Residency Counter
-  scope: Package
-- value: 3FCH
-  name: MSR_MC0_RESIDENCY
-  bitfields:
-  - bit: '63:0'
-    access: R/O
-    description: Module C0 Residency Counter
+    long_description: Time that this module is in module-specific C6 states since last reset. Counts at 1 Mhz frequency.
+    description: Time that this module is in module-specific C6 states
   scope: Module
-  description: Note
-  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
-- value: 3FDH
-  name: MSR_MC6_RESIDENCY
-  bitfields:
-  - bit: '63:0'
-    access: R/O
-    description: Module C6 Residency Counter
-  scope: Module
-- value: 3FFH
-  name: MSR_CORE_C6_RESIDENCY
-  bitfields:
-  - bit: '63:0'
-    access: R/O
-    description: CORE C6 Residency Counter
-  scope: Core
-  description: Note
-  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
-- value: 400H
-  name: IA32_MC0_CTL
-  scope: Core
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 401H
-  name: IA32_MC0_STATUS
-  scope: Core
-  description: See Section 15.3.2.2
-  see_section:
-  - 15.3.2.2
-- value: 402H
-  name: IA32_MC0_ADDR
-  scope: Core
-  description: See Section 15.3.2.3
-  see_section:
-  - 15.3.2.3
-- value: 404H
-  name: IA32_MC1_CTL
-  scope: Core
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 405H
-  name: IA32_MC1_STATUS
-  scope: Core
-  description: See Section 15.3.2.2
-  see_section:
-  - 15.3.2.2
-- value: 408H
-  name: IA32_MC2_CTL
-  scope: Core
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 409H
-  name: IA32_MC2_STATUS
-  scope: Core
-  description: See Section 15.3.2.2
-  see_section:
-  - 15.3.2.2
-- value: 40AH
-  name: IA32_MC2_ADDR
-  scope: Core
-  description: See Section 15.3.2.3
-  see_section:
-  - 15.3.2.3
-- value: 40CH
-  name: IA32_MC3_CTL
-  scope: Core
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 40DH
-  name: IA32_MC3_STATUS
-  scope: Core
-  description: See Section 15.3.2.2
-  see_section:
-  - 15.3.2.2
-- value: 40EH
-  name: IA32_MC3_ADDR
-  scope: Core
-  description: See Section 15.3.2.3
-  see_section:
-  - 15.3.2.3
-- value: 410H
-  name: IA32_MC4_CTL
-  scope: Core
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 411H
-  name: IA32_MC4_STATUS
-  scope: Core
-  description: See Section 15.3.2.2
-  see_section:
-  - 15.3.2.2
-- value: 412H
-  name: IA32_MC4_ADDR
-  scope: Core
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
-  see_section:
-  - 15.3.2.3
-- value: 414H
-  name: IA32_MC5_CTL
-  scope: Package
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 415H
-  name: IA32_MC5_STATUS
-  scope: Package
-  description: See Section 15.3.2.2
-  see_section:
-  - 15.3.2.2
-- value: 416H
-  name: IA32_MC5_ADDR
-  scope: Package
-  description: See Section 15.3.2.3
-  see_section:
-  - 15.3.2.3
-- value: 4C1H
-  name: IA32_A_PMC0
-  scope: Thread
+  access: R/0
+  description: Module C6 Residency Counter
+  long_description: 'Module C6 Residency Counter Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
+- value: 6E1H
+  name: IA32_PKRS
+  access: R/W
+  description: Specifies the PK permissions associated with each
+  long_description: Specifies the PK permissions associated with each protection domain for supervisor pages See Table 2-2.
+  see_table:
+  - 2-2
+- value: 776H
+  name: IA32_HWP_CTL
   description: See Table 2-2
   see_table:
   - 2-2
-- value: 4C2H
-  name: IA32_A_PMC1
-  scope: Thread
-  description: See Table 2-2
+- value: 981H
+  name: IA32_TME_CAPABILITY
+  description: Memory Encryption Capability MSR
+  long_description: Memory Encryption Capability MSR See Table 2-2.
   see_table:
   - 2-2
-- value: 600H
-  name: IA32_DS_AREA
-  scope: Thread
+- value: 1200H-121FH
+  name: IA32_LBR_x_INFO
   access: R/W
-  description: DS Save Area
-  long_description: DS Save Area See Table 2-2.
+  description: Last Branch Record Entry X Info Register
+  long_description: Last Branch Record Entry X Info Register See Table 2-2.
   see_table:
   - 2-2
-- value: 606H
-  name: MSR_RAPL_POWER_UNIT
-  bitfields:
-  - bit: '3:0'
-    long_description: Power Units See Section 14.9.1, “RAPL Interfaces.”
-    description: Power Units
-    see_section:
-    - 14.9.1
-  - bit: '7:4'
-    description: Reserved
-  - bit: '12:8'
-    long_description: Energy Status Units Energy related information (in Joules) is based on the multiplier, 1/2^ESU; where ESU is an unsigned integer represented by bits 12:8. Default value is 0EH (or 61 micro-joules).
-    description: Energy Status Units
-  - bit: '15:13'
-    description: Reserved
-  - bit: '19:16'
-    long_description: Time Units See Section 14.9.1, “RAPL Interfaces.”
-    description: Time Units
-    see_section:
-    - 14.9.1
-  - bit: '63:20'
-    description: Reserved
-  scope: Package
-  access: R/O
-  description: Unit Multipliers Used in RAPL Interfaces
-- value: 60DH
-  name: MSR_PKG_C2_RESIDENCY
-  bitfields:
-  - bit: '63:0'
-    access: R/O
-    description: Package C2 Residency Counter
-  scope: Package
-  description: Note
-  long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
-- value: 610H
-  name: MSR_PKG_POWER_LIMIT
-  scope: Package
+- value: 14CEH
+  name: IA32_LBR_CTL
   access: R/W
-  description: PKG RAPL Power Limit Control
-  long_description: PKG RAPL Power Limit Control See Section 14.9.3, “Package RAPL Domain.”
-  see_section:
-  - 14.9.3
-- value: 611H
-  name: MSR_PKG_ENERGY_STATUS
-  scope: Package
-  access: R/O
-  description: PKG Energy Status
-  long_description: PKG Energy Status See Section 14.9.3, “Package RAPL Domain.”
-  see_section:
-  - 14.9.3
-- value: 613H
-  name: MSR_PKG_PERF_STATUS
-  scope: Package
-  access: R/O
-  description: PKG Perf Status
-  long_description: PKG Perf Status See Section 14.9.3, “Package RAPL Domain.”
-  see_section:
-  - 14.9.3
-- value: 614H
-  name: MSR_PKG_POWER_INFO
-  scope: Package
-  access: R/W
-  description: PKG RAPL Parameters
-  long_description: PKG RAPL Parameters See Section 14.9.3, “Package RAPL Domain.”
-  see_section:
-  - 14.9.3
-- value: 618H
-  name: MSR_DRAM_POWER_LIMIT
-  scope: Package
-  access: R/W
-  description: DRAM RAPL Power Limit Control
-  long_description: DRAM RAPL Power Limit Control See Section 14.9.5, “DRAM RAPL Domain.”
-  see_section:
-  - 14.9.5
-- value: 619H
-  name: MSR_DRAM_ENERGY_STATUS
-  scope: Package
-  access: R/O
-  description: DRAM Energy Status
-  long_description: DRAM Energy Status See Section 14.9.5, “DRAM RAPL Domain.”
-  see_section:
-  - 14.9.5
-- value: 61BH
-  name: MSR_DRAM_PERF_STATUS
-  scope: Package
-  access: R/O
-  description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 14.9.5, “DRAM RAPL Domain.”
-  see_section:
-  - 14.9.5
-- value: 61CH
-  name: MSR_DRAM_POWER_INFO
-  scope: Package
-  access: R/W
-  description: DRAM RAPL Parameters
-  long_description: DRAM RAPL Parameters See Section 14.9.5, “DRAM RAPL Domain.”
-  see_section:
-  - 14.9.5
-- value: 638H
-  name: MSR_PP0_POWER_LIMIT
-  scope: Package
-  access: R/W
-  description: PP0 RAPL Power Limit Control
-  long_description: PP0 RAPL Power Limit Control See Section 14.9.4, “PP0/PP1 RAPL Domains.”
-  see_section:
-  - 14.9.4
-- value: 639H
-  name: MSR_PP0_ENERGY_STATUS
-  scope: Package
-  access: R/O
-  description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
-  see_section:
-  - 14.9.4
-- value: 648H
-  name: MSR_CONFIG_TDP_NOMINAL
-  scope: Package
-  access: R/O
-  description: Base TDP Ratio
-  long_description: Base TDP Ratio See Table 2-25.
-  see_table:
-  - 2-25
-- value: 649H
-  name: MSR_CONFIG_TDP_LEVEL1
-  scope: Package
-  access: R/O
-  description: ConfigTDP Level 1 ratio and power level
-  long_description: ConfigTDP Level 1 ratio and power level See Table 2-25.
-  see_table:
-  - 2-25
-- value: 64AH
-  name: MSR_CONFIG_TDP_LEVEL2
-  scope: Package
-  access: R/O
-  description: ConfigTDP Level 2 ratio and power level
-  long_description: ConfigTDP Level 2 ratio and power level See Table 2-25.
-  see_table:
-  - 2-25
-- value: 64BH
-  name: MSR_CONFIG_TDP_CONTROL
-  scope: Package
-  access: R/W
-  description: ConfigTDP Control
-  long_description: ConfigTDP Control See Table 2-25.
-  see_table:
-  - 2-25
-- value: 64CH
-  name: MSR_TURBO_ACTIVATION_RATIO
-  scope: Package
-  access: R/W
-  description: ConfigTDP Control
-  long_description: ConfigTDP Control See Table 2-25.
-  see_table:
-  - 2-25
-- value: 690H
-  name: MSR_CORE_PERF_LIMIT_REASONS
-  bitfields:
-  - bit: '0'
-    access: R0
-    description: PROCHOT Status
-  - bit: '1'
-    access: R0
-    description: Thermal Status
-  - bit: '5:2'
-    description: Reserved
-  - bit: '6'
-    access: R0
-    description: VR Therm Alert Status
-  - bit: '7'
-    description: Reserved
-  - bit: '8'
-    access: R0
-    description: Electrical Design Point Status
-  - bit: '63:9'
-    description: Reserved
-  scope: Package
-  access: R/W
-  description: Indicator of Frequency Clipping in Processor Cores
-  long_description: Indicator of Frequency Clipping in Processor Cores (Frequency refers to processor core frequency.)
-- value: 6E0H
-  name: IA32_TSC_DEADLINE
-  scope: Core
-  access: R/W
-  description: TSC Target of Local APIC’s TSC Deadline Mode
-  long_description: TSC Target of Local APIC’s TSC Deadline Mode See Table 2-2.
+  description: Last Branch Record Enabling and Configuration
+  long_description: Last Branch Record Enabling and Configuration Register See Table 2-2.
   see_table:
   - 2-2
-- value: 802H
-  name: IA32_X2APIC_APICID
-  scope: Thread
-  access: R/O
-  description: x2APIC ID Register
-- value: 803H
-  name: IA32_X2APIC_VERSION
-  scope: Thread
-  access: R/O
-  description: x2APIC Version Register
-- value: 808H
-  name: IA32_X2APIC_TPR
-  scope: Thread
+- value: 14CFH
+  name: IA32_LBR_DEPTH
   access: R/W
-  description: x2APIC Task Priority Register
-- value: 80AH
-  name: IA32_X2APIC_PPR
-  scope: Thread
-  access: R/O
-  description: x2APIC Processor Priority Register
-- value: 80BH
-  name: IA32_X2APIC_EOI
-  scope: Thread
-  access: W/O
-  description: x2APIC EOI Register
-- value: 80DH
-  name: IA32_X2APIC_LDR
-  scope: Thread
-  access: R/O
-  description: x2APIC Logical Destination Register
-- value: 80FH
-  name: IA32_X2APIC_SIVR
-  scope: Thread
-  access: R/W
-  description: x2APIC Spurious Interrupt Vector Register
-- value: 810H
-  name: IA32_X2APIC_ISR0
-  scope: Thread
-  access: R/O
-  description: x2APIC In-Service Register Bits [31:0]
-- value: 811H
-  name: IA32_X2APIC_ISR1
-  scope: Thread
-  access: R/O
-  description: x2APIC In-Service Register Bits [63:32]
-- value: 812H
-  name: IA32_X2APIC_ISR2
-  scope: Thread
-  access: R/O
-  description: x2APIC In-Service Register Bits [95:64]
-- value: 813H
-  name: IA32_X2APIC_ISR3
-  scope: Thread
-  access: R/O
-  description: x2APIC In-Service Register Bits [127:96]
-- value: 814H
-  name: IA32_X2APIC_ISR4
-  scope: Thread
-  access: R/O
-  description: x2APIC In-Service Register Bits [159:128]
-- value: 815H
-  name: IA32_X2APIC_ISR5
-  scope: Thread
-  access: R/O
-  description: x2APIC In-Service Register Bits [191:160]
-- value: 816H
-  name: IA32_X2APIC_ISR6
-  scope: Thread
-  access: R/O
-  description: x2APIC In-Service Register Bits [223:192]
-- value: 817H
-  name: IA32_X2APIC_ISR7
-  scope: Thread
-  access: R/O
-  description: x2APIC In-Service Register Bits [255:224]
-- value: 818H
-  name: IA32_X2APIC_TMR0
-  scope: Thread
-  access: R/O
-  description: x2APIC Trigger Mode Register Bits [31:0]
-- value: 819H
-  name: IA32_X2APIC_TMR1
-  scope: Thread
-  access: R/O
-  description: x2APIC Trigger Mode Register Bits [63:32]
-- value: 81AH
-  name: IA32_X2APIC_TMR2
-  scope: Thread
-  access: R/O
-  description: x2APIC Trigger Mode Register Bits [95:64]
-- value: 81BH
-  name: IA32_X2APIC_TMR3
-  scope: Thread
-  access: R/O
-  description: x2APIC Trigger Mode Register Bits [127:96]
-- value: 81CH
-  name: IA32_X2APIC_TMR4
-  scope: Thread
-  access: R/O
-  description: x2APIC Trigger Mode Register Bits [159:128]
-- value: 81DH
-  name: IA32_X2APIC_TMR5
-  scope: Thread
-  access: R/O
-  description: x2APIC Trigger Mode Register Bits [191:160]
-- value: 81EH
-  name: IA32_X2APIC_TMR6
-  scope: Thread
-  access: R/O
-  description: x2APIC Trigger Mode Register Bits [223:192]
-- value: 81FH
-  name: IA32_X2APIC_TMR7
-  scope: Thread
-  access: R/O
-  description: x2APIC Trigger Mode Register Bits [255:224]
-- value: 820H
-  name: IA32_X2APIC_IRR0
-  scope: Thread
-  access: R/O
-  description: x2APIC Interrupt Request Register Bits [31:0]
-- value: 821H
-  name: IA32_X2APIC_IRR1
-  scope: Thread
-  access: R/O
-  description: x2APIC Interrupt Request Register Bits [63:32]
-- value: 822H
-  name: IA32_X2APIC_IRR2
-  scope: Thread
-  access: R/O
-  description: x2APIC Interrupt Request Register Bits [95:64]
-- value: 823H
-  name: IA32_X2APIC_IRR3
-  scope: Thread
-  access: R/O
-  description: x2APIC Interrupt Request Register Bits [127:96]
-- value: 824H
-  name: IA32_X2APIC_IRR4
-  scope: Thread
-  access: R/O
-  description: x2APIC Interrupt Request Register Bits [159:128]
-- value: 825H
-  name: IA32_X2APIC_IRR5
-  scope: Thread
-  access: R/O
-  description: x2APIC Interrupt Request Register Bits [191:160]
-- value: 826H
-  name: IA32_X2APIC_IRR6
-  scope: Thread
-  access: R/O
-  description: x2APIC Interrupt Request Register Bits [223:192]
-- value: 827H
-  name: IA32_X2APIC_IRR7
-  scope: Thread
-  access: R/O
-  description: x2APIC Interrupt Request Register Bits [255:224]
-- value: 828H
-  name: IA32_X2APIC_ESR
-  scope: Thread
-  access: R/W
-  description: x2APIC Error Status Register
-- value: 82FH
-  name: IA32_X2APIC_LVT_CMCI
-  scope: Thread
-  access: R/W
-  description: x2APIC LVT Corrected Machine Check Interrupt Register
-  long_description: x2APIC LVT Corrected Machine Check Interrupt Register
-- value: 830H
-  name: IA32_X2APIC_ICR
-  scope: Thread
-  access: R/W
-  description: x2APIC Interrupt Command Register
-- value: 832H
-  name: IA32_X2APIC_LVT_TIMER
-  scope: Thread
-  access: R/W
-  description: x2APIC LVT Timer Interrupt Register
-- value: 833H
-  name: IA32_X2APIC_LVT_THERMAL
-  scope: Thread
-  access: R/W
-  description: x2APIC LVT Thermal Sensor Interrupt Register
-- value: 834H
-  name: IA32_X2APIC_LVT_PMI
-  scope: Thread
-  access: R/W
-  description: x2APIC LVT Performance Monitor Register
-- value: 835H
-  name: IA32_X2APIC_LVT_LINT0
-  scope: Thread
-  access: R/W
-  description: x2APIC LVT LINT0 Register
-- value: 836H
-  name: IA32_X2APIC_LVT_LINT1
-  scope: Thread
-  access: R/W
-  description: x2APIC LVT LINT1 Register
-- value: 837H
-  name: IA32_X2APIC_LVT_ERROR
-  scope: Thread
-  access: R/W
-  description: x2APIC LVT Error Register
-- value: 838H
-  name: IA32_X2APIC_INIT_COUNT
-  scope: Thread
-  access: R/W
-  description: x2APIC Initial Count Register
-- value: 839H
-  name: IA32_X2APIC_CUR_COUNT
-  scope: Thread
-  access: R/O
-  description: x2APIC Current Count Register
-- value: 83EH
-  name: IA32_X2APIC_DIV_CONF
-  scope: Thread
-  access: R/W
-  description: x2APIC Divide Configuration Register
-- value: 83FH
-  name: IA32_X2APIC_SELF_IPI
-  scope: Thread
-  access: W/O
-  description: x2APIC Self IPI Register
-- value: C000_0080H
-  name: IA32_EFER
-  scope: Thread
-  description: Extended Feature Enables
-  long_description: Extended Feature Enables See Table 2-2.
+  description: Last Branch Record Maximum Stack Depth Register
+  long_description: Last Branch Record Maximum Stack Depth Register See Table 2-2.
   see_table:
   - 2-2
-- value: C000_0081H
-  name: IA32_STAR
-  scope: Thread
+- value: 1500H-151FH
+  name: IA32_LBR_x_FROM_IP
   access: R/W
-  description: System Call Target Address
-  long_description: System Call Target Address See Table 2-2.
+  description: Last Branch Record Entry X Source IP Register
+  long_description: Last Branch Record Entry X Source IP Register See Table 2-2.
   see_table:
   - 2-2
-- value: C000_0082H
-  name: IA32_LSTAR
-  scope: Thread
+- value: 1600H-161FH
+  name: IA32_LBR_x_TO_IP
   access: R/W
-  description: IA-32e Mode System Call Target Address
-  long_description: IA-32e Mode System Call Target Address See Table 2-2.
+  description: Last Branch Record Entry X Destination IP Register
+  long_description: Last Branch Record Entry X Destination IP Register See Table 2-2.
   see_table:
   - 2-2
-- value: C000_0084H
-  name: IA32_FMASK
-  scope: Thread
-  access: R/W
-  description: System Call Flag Mask
-  long_description: System Call Flag Mask See Table 2-2.
+- value: 17D2H
+  name: IA32_THREAD_FEEDBACK_CHAR
+  access: R/O
+  description: Thread Feedback Characteristics
+  long_description: Thread Feedback Characteristics See Table 2-2.
   see_table:
   - 2-2
-- value: C000_0100H
-  name: IA32_FS_BASE
-  scope: Thread
+- value: 17D4H
+  name: IA32_HW_FEEDBACK_THREAD_CONFIG
   access: R/W
-  description: Map of BASE Address of FS
-  long_description: Map of BASE Address of FS See Table 2-2.
+  description: Hardware Feedback Thread Configuration
+  long_description: Hardware Feedback Thread Configuration See Table 2-2.
   see_table:
   - 2-2
-- value: C000_0101H
-  name: IA32_GS_BASE
-  scope: Thread
+- value: 17DAH6106
   access: R/W
-  description: Map of BASE Address of GS
-  long_description: Map of BASE Address of GS See Table 2-2.
-  see_table:
-  - 2-2
-- value: C000_0102H
-  name: IA32_KERNEL_GS_BASE
-  scope: Thread
-  access: R/W
-  description: Swap Target of BASE Address of GS
-  long_description: Swap Target of BASE Address of GS See Table 2-2.
-  see_table:
-  - 2-2
-- value: C000_0103H
-  name: Thread
-  access: R/W
-  description: AUXILIARY TSC Signature
-  long_description: AUXILIARY TSC Signature See Table 2-2
+  description: History Reset Enable
+  long_description: History Reset Enable See Table 2-2.
   see_table:
   - 2-2

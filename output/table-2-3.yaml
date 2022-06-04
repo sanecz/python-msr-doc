@@ -223,7 +223,7 @@ msr:
 - value: 8BH
   name: IA32_BIOS_SIGN_ID
   shared: Unique
-  access: RO
+  access: R/W
   description: BIOS Update Signature ID
   long_description: BIOS Update Signature ID See Table 2-2.
   see_table:
@@ -276,14 +276,12 @@ msr:
   - bit: '2:0'
     long_description: '• 101B: 100 MHz (FSB 400) • 001B: 133 MHz (FSB 533) • 011B: 167 MHz (FSB 667) • 010B: 200 MHz (FSB 800) • 000B: 267 MHz (FSB 1067) • 100B: 333 MHz (FSB 1333)'
     description: •
-  - long_description: 133.33 MHz should be utilized if performing calculation with System Bus Speed when encoding is 001B. 166.67 MHz should be utilized if performing calculation with System Bus Speed when encoding is 011B.
+  - long_description: 133.33 MHz should be utilized if performing calculation with System Bus Speed when encoding is 001B. 166.67 MHz should be utilized if performing calculation with System Bus Speed when encoding is 011B. 266.67 MHz should be utilized if performing calculation with System Bus Speed when encoding is 000B. 333.33 MHz should be utilized if performing calculation with System Bus Speed when encoding is 100B.
     description: '133'
-  - long_description: 266.67 MHz should be utilized if performing calculation with System Bus Speed when encoding is 000B. 333.33 MHz should be utilized if performing calculation with System Bus Speed when encoding is 100B.
-    description: '266'
   - bit: '63:3'
     description: Reserved
   shared: Shared
-  access: RO
+  access: R/O
   description: Scaleable Bus Speed
   long_description: Scaleable Bus Speed This field indicates the intended scaleable bus clock speed for processors based on Intel Core microarchitecture.
 - value: CDH
@@ -292,20 +290,18 @@ msr:
   - bit: '2:0'
     long_description: '• 101B: 100 MHz (FSB 400) • 001B: 133 MHz (FSB 533) • 011B: 167 MHz (FSB 667) • 010B: 200 MHz (FSB 800) • 000B: 267 MHz (FSB 1067) • 100B: 333 MHz (FSB 1333) • 110B: 400 MHz (FSB 1600)'
     description: •
-  - long_description: 133.33 MHz should be utilized if performing calculation with System Bus Speed when encoding is 001B. 166.67 MHz should be utilized if performing calculation with System Bus Speed when encoding is 011B.
+  - long_description: 133.33 MHz should be utilized if performing calculation with System Bus Speed when encoding is 001B. 166.67 MHz should be utilized if performing calculation with System Bus Speed when encoding is 011B. 266.67 MHz should be utilized if performing calculation with System Bus Speed when encoding is 110B. 333.33 MHz should be utilized if performing calculation with System Bus Speed when encoding is 111B.
     description: '133'
-  - long_description: 266.67 MHz should be utilized if performing calculation with System Bus Speed when encoding is 110B. 333.33 MHz should be utilized if performing calculation with System Bus Speed when encoding is 111B.
-    description: '266'
   - bit: '63:3'
     description: Reserved
   shared: Shared
-  access: RO
+  access: R/O
   description: Scaleable Bus Speed
   long_description: Scaleable Bus Speed This field indicates the intended scaleable bus clock speed for processors based on Enhanced Intel Core microarchitecture.
 - value: E7H
   name: IA32_MPERF
   shared: Unique
-  access: RW
+  access: R/W
   description: Maximum Performance Frequency Clock Count
   long_description: Maximum Performance Frequency Clock Count See Table 2-2.
   see_table:
@@ -313,7 +309,7 @@ msr:
 - value: E8H
   name: IA32_APERF
   shared: Unique
-  access: RW
+  access: R/W
   description: Actual Performance Frequency Clock Count
   long_description: Actual Performance Frequency Clock Count See Table 2-2.
   see_table:
@@ -498,14 +494,14 @@ msr:
     description: FERR# Multiplexing Enable
     shared: Shared
   - bit: '11'
-    access: RO
+    access: R/O
     long_description: Branch Trace Storage Unavailable See Table 2-2.
     description: Branch Trace Storage Unavailable
     shared: Shared
     see_table:
     - 2-2
   - bit: '12'
-    access: RO
+    access: R/O
     long_description: Processor Event Based Sampling Unavailable See Table 2-2.
     description: Processor Event Based Sampling Unavailable
     shared: Shared
@@ -842,8 +838,8 @@ msr:
   - bit: '63:8'
     description: Reserved
   shared: Unique
-  description: RO
-  long_description: RO. This applies to processors that do not support architectural perfmon version 2.
+  description: R/O
+  long_description: R/O. This applies to processors that do not support architectural perfmon version 2.
 - value: 38DH
   name: IA32_FIXED_CTR_CTRL
   shared: Unique
@@ -855,61 +851,62 @@ msr:
 - value: 38EH
   name: IA32_PERF_GLOBAL_STATUS
   shared: Unique
-  description: See Table 2-2. See Section 18.6.2.2
-  long_description: See Table 2-2. See Section 18.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 19.6.2.2
+  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 18.6.2.2
+  - 19.6.2.2
 - value: 38EH
   name: MSR_PERF_GLOBAL_STATUS
   shared: Unique
-  description: See Section 18.6.2.2
+  description: See Section 19.6.2.2
   see_section:
-  - 18.6.2.2
+  - 19.6.2.2
 - value: 38FH
   name: IA32_PERF_GLOBAL_CTRL
   shared: Unique
-  description: See Table 2-2. See Section 18.6.2.2
-  long_description: See Table 2-2. See Section 18.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 19.6.2.2
+  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 18.6.2.2
+  - 19.6.2.2
 - value: 38FH
   name: MSR_PERF_GLOBAL_CTRL
   shared: Unique
-  description: See Section 18.6.2.2
+  description: See Section 19.6.2.2
   see_section:
-  - 18.6.2.2
+  - 19.6.2.2
 - value: 390H
   name: IA32_PERF_GLOBAL_OVF_CTRL
   shared: Unique
-  description: See Table 2-2. See Section 18.6.2.2
-  long_description: See Table 2-2. See Section 18.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 19.6.2.2
+  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 18.6.2.2
+  - 19.6.2.2
 - value: 390H
   name: MSR_PERF_GLOBAL_OVF_CTRL
   shared: Unique
-  description: See Section 18.6.2.2
+  description: See Section 19.6.2.2
   see_section:
-  - 18.6.2.2
+  - 19.6.2.2
 - value: 3F1H
-  name: MSR_PEBS_ENABLE
+  name: IA32_PEBS_ENABLE
+  alt_name: MSR_PEBS_ENABLE
   bitfields:
   - bit: '0'
     access: R/W
     description: Enable PEBS on IA32_PMC0
   shared: Unique
-  description: See Table 2-2. See Section 18.6.2.4
-  long_description: See Table 2-2. See Section 18.6.2.4, “Processor Event Based Sampling (PEBS).”
+  description: See Table 2-2. See Section 19.6.2.4
+  long_description: See Table 2-2. See Section 19.6.2.4, “Processor Event Based Sampling (PEBS).”
   see_table:
   - 2-2
   see_section:
-  - 18.6.2.4
+  - 19.6.2.4
 - value: 400H
   name: IA32_MC0_CTL
   shared: Unique
@@ -1156,11 +1153,11 @@ msr:
   shared: Unique
   access: R/W
   description: DS Save Area
-  long_description: DS Save Area See Table 2-2. See Section 18.6.3.4, “Debug Store (DS) Mechanism.”
+  long_description: DS Save Area See Table 2-2. See Section 19.6.3.4, “Debug Store (DS) Mechanism.”
   see_table:
   - 2-2
   see_section:
-  - 18.6.3.4
+  - 19.6.3.4
 - value: 107CCH
   name: MSR_EMON_L3_CTR_CTL0
   shared: Unique

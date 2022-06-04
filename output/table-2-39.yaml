@@ -1,12 +1,18 @@
 ---
 name: Table 2-39
-full_name: Table 2-39. Additional MSRs Supported by 6th Generation Intel® Core™ Processors and the Intel® Xeon® Processor Scalable Family Based on Skylake Microarchitecture, 7th Generation Intel® Core™ Processors Based on Kaby Lake Microarchitecture, 8th Generation and 9th Generation Intel® Core™ Processors and Intel® Xeon® E Processors Based on Coffee Lake Microarchitecture, and 8th Generation Intel® Core™ i3 Processors Based on Cannon Lake Microarchitecture
+full_name: Table 2-39. Additional MSRs Supported by 6th Generation, 7th Generation, 8th Generation, 9th Generation, 10th Generation, 11th Generation, and 12th Generation Intel® Core™ Processors, Intel® Xeon® Processor Scalable Family, 2nd and 3rd Generation Intel® Xeon® Processor Scalable Family, 8th Generation Intel® Core™ i3 Processors, and Intel® Xeon® E Processors
 supported_cpu:
+- 06_7DH
 - 06_5EH
-- 06_4EH
-- 06_9EH
-- 06_55H
 - 06_8EH
+- 06_6CH
+- 06_7EH
+- 06_4EH
+- 06_8DH
+- 06_9EH
+- 06_8CH
+- 06_6AH
+- 06_55H
 - 06_66H
 msr:
 - value: 3AH
@@ -21,14 +27,14 @@ msr:
   name: IA32_MTRRCAP
   scope: Thread
   description: MTRR Capability
-  long_description: MTRR Capability (RO, Architectural) See Table 2-2
+  long_description: MTRR Capability (R/O, Architectural) See Table 2-2
   see_table:
   - 2-2
 - value: 19CH
   name: IA32_THERM_STATUS
   bitfields:
   - bit: '0'
-    access: RO
+    access: R/O
     long_description: Thermal Status See Table 2-2.
     description: Thermal Status
     see_table:
@@ -40,7 +46,7 @@ msr:
     see_table:
     - 2-2
   - bit: '2'
-    access: RO
+    access: R/O
     long_description: 'PROTCHOT # or FORCEPR# Status See Table 2-2.'
     description: 'PROTCHOT # or FORCEPR# Status'
     see_table:
@@ -52,7 +58,7 @@ msr:
     see_table:
     - 2-2
   - bit: '4'
-    access: RO
+    access: R/O
     long_description: Critical Temperature Status See Table 2-2.
     description: Critical Temperature Status
     see_table:
@@ -64,7 +70,7 @@ msr:
     see_table:
     - 2-2
   - bit: '6'
-    access: RO
+    access: R/O
     long_description: 'Thermal threshold #1 Status See Table 2-2.'
     description: 'Thermal threshold #1 Status'
     see_table:
@@ -76,7 +82,7 @@ msr:
     see_table:
     - 2-2
   - bit: '8'
-    access: RO
+    access: R/O
     long_description: 'Thermal Threshold #2 Status See Table 2-2.'
     description: 'Thermal Threshold #2 Status'
     see_table:
@@ -88,7 +94,7 @@ msr:
     see_table:
     - 2-2
   - bit: '10'
-    access: RO
+    access: R/O
     long_description: Power Limitation Status See Table 2-2.
     description: Power Limitation Status
     see_table:
@@ -100,7 +106,7 @@ msr:
     see_table:
     - 2-2
   - bit: '12'
-    access: RO
+    access: R/O
     long_description: Current Limit Status See Table 2-2.
     description: Current Limit Status
     see_table:
@@ -112,7 +118,7 @@ msr:
     see_table:
     - 2-2
   - bit: '14'
-    access: RO
+    access: R/O
     long_description: Cross Domain Limit Status See Table 2-2.
     description: Cross Domain Limit Status
     see_table:
@@ -124,7 +130,7 @@ msr:
     see_table:
     - 2-2
   - bit: '22:16'
-    access: RO
+    access: R/O
     long_description: Digital Readout See Table 2-2.
     description: Digital Readout
     see_table:
@@ -132,13 +138,13 @@ msr:
   - bit: '26:23'
     description: Reserved
   - bit: '30:27'
-    access: RO
+    access: R/O
     long_description: Resolution in Degrees Celsius See Table 2-2.
     description: Resolution in Degrees Celsius
     see_table:
     - 2-2
   - bit: '31'
-    access: RO
+    access: R/O
     long_description: Reading Valid See Table 2-2.
     description: Reading Valid
     see_table:
@@ -170,7 +176,7 @@ msr:
     description: Reserved
   scope: Package
   description: Maximum Ratio Limit of Turbo Mode
-  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0, RW if MSR_PLATFORM_INFO.[28] = 1
+  long_description: Maximum Ratio Limit of Turbo Mode R/O if MSR_PLATFORM_INFO.[28] = 0, R/W if MSR_PLATFORM_INFO.[28] = 1
 - value: 1C9H
   name: MSR_LASTBRANCH_TOS
   scope: Thread
@@ -190,12 +196,12 @@ msr:
     description: Reserved
   - bit: '19'
     access: R/W
-    long_description: Disable Race to Halt Optimization Setting this bit disables the Race to Halt optimization and avoids this optimization limitation to execute below the most efficient frequency ratio. Default value is 0 for processors that support Race to Halt optimization. Default value is 1 for processors that do not support Race to Halt optimization.
-    description: Disable Race to Halt Optimization
-  - bit: '20'
-    access: R/W
     long_description: Disable Energy Efficiency Optimization Setting this bit disables the P-States energy efficiency optimization. Default value is 0. Disable/enable the energy efficiency optimization in P-State legacy mode (when IA32_PM_ENABLE[HWP_ENABLE] = 0), has an effect only in the turbo range or into PERF_MIN_CTL value if it is not zero set. In HWP mode (IA32_PM_ENABLE[HWP_ENABLE] == 1), has an effect between the OS desired or OS maximize to the OS minimize performance setting.
     description: Disable Energy Efficiency Optimization
+  - bit: '20'
+    access: R/W
+    long_description: Disable Race to Halt Optimization Setting this bit disables the Race to Halt optimization and avoids this optimization limitation to execute below the most efficient frequency ratio. Default value is 0 for processors that support Race to Halt optimization.
+    description: Disable Race to Halt Optimization
   - bit: '63:21'
     description: Reserved
   scope: Core
@@ -266,12 +272,12 @@ msr:
     description: Ovf_BufDSSAVE
   - bit: '63'
     description: CondChgd
-  description: See Table 2-2. See Section 18.2.4
-  long_description: See Table 2-2. See Section 18.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 19.2.4
+  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 18.2.4
+  - 19.2.4
 - value: 390H
   name: IA32_PERF_GLOBAL_STATUS_RESET
   bitfields:
@@ -317,12 +323,12 @@ msr:
     description: Set 1 to clear Ovf_BufDSSAVE
   - bit: '63'
     description: Set 1 to clear CondChgd
-  description: See Table 2-2. See Section 18.2.4
-  long_description: See Table 2-2. See Section 18.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 19.2.4
+  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 18.2.4
+  - 19.2.4
 - value: 391H
   name: IA32_PERF_GLOBAL_STATUS_SET
   bitfields:
@@ -372,12 +378,12 @@ msr:
     description: Set 1 to cause Ovf_BufDSSAVE
   - bit: '63'
     description: Reserved
-  description: See Table 2-2. See Section 18.2.4
-  long_description: See Table 2-2. See Section 18.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 19.2.4
+  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 18.2.4
+  - 19.2.4
 - value: 392H
   name: IA32_PERF_GLOBAL_INUSE
   scope: Thread
@@ -408,22 +414,23 @@ msr:
   name: IA32_SGX_SVN_STATUS
   bitfields:
   - bit: '0'
-    long_description: Lock See Section 41.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
+    long_description: Lock See Section 38.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
     description: Lock
     see_section:
-    - 41.11.3
+    - 38.11.3
   - bit: '15:1'
     description: Reserved
   - bit: '23:16'
-    long_description: SGX_SVN_SINIT See Section 41.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
+    long_description: SGX_SVN_SINIT See Section 38.11.3, “Interactions with Authenticated Code Modules (ACMs)”.
     description: SGX_SVN_SINIT
     see_section:
-    - 41.11.3
+    - 38.11.3
   - bit: '63:24'
     description: Reserved
   scope: Thread
-  access: RO
+  access: R/O
   description: Status and SVN Threshold of SGX Support for ACM
+  long_description: Status and SVN Threshold of SGX Support for ACM
 - value: 560H
   name: IA32_RTIT_OUTPUT_BASE
   scope: Thread
@@ -569,9 +576,9 @@ msr:
   scope: Package
   access: R/O
   description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 14.9.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP0 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.9.4
+  - 14.10.4
 - value: 64DH
   name: MSR_PLATFORM_ENERGY_COUNTER
   bitfields:

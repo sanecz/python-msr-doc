@@ -1,9 +1,7 @@
 ---
 name: Table 2-40
-full_name: Table 2-40. Uncore PMU MSRs Supported by 6th Generation, 7th Generation, and 8th Generation Intel® Core™ Processors, and Future Intel® Core™ Processors
-supported_cpu:
-- 06_5EH
-- 06_4EH
+full_name: Table 2-40. Uncore PMU MSRs Supported by 6th Generation, 7th Generation, and 8th Generation Intel® Core™ Processors, and 8th generation Intel® Core™ i3 Processors
+supported_cpu: []
 msr:
 - value: 394H
   name: MSR_UNC_PERF_FIXED_CTRL

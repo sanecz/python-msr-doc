@@ -1,435 +1,201 @@
 ---
 name: Table 2-52
-full_name: Table 2-52. MSRs in Pentium M Processors
-supported_cpu:
-- 06_09H
+full_name: Table 2-52. Additional MSRs Supported by Future Intel® Xeon® Processors with a DisplayFamily_DisplayModel Signature of 06_8FH
+supported_cpu: []
 msr:
-- value: 0H0
-  name: P5_MC_ADDR
-  description: See Section 2.23
-  see_section:
-  - '2.23'
-- value: 1H
-  name: P5_MC_TYPE
-  description: See Section 2.23
-  see_section:
-  - '2.23'
-- value: 10H
-  name: IA32_TIME_STAMP_COUNTER
-  description: See Section 17.17
-  see_table:
-  - 2-2
-  see_section:
-  - '17.17'
-- value: 17H
-  name: IA32_PLATFORM_ID
-  access: R
-  description: Platform ID
-  long_description: Platform ID See Table 2-2. The operating system can use this MSR to determine “slot” information for the processor and the proper microcode update to load.
-  see_table:
-  - 2-2
-- value: 2AH
-  name: MSR_EBL_CR_POWERON
+- value: CFH
+  name: IA32_CORE_CAPABILITY
   bitfields:
   - bit: '0'
     description: Reserved
   - bit: '1'
-    access: R
-    long_description: Data Error Checking Enable 0 = Disabled Always 0 on the Pentium M processor.
-    description: Data Error Checking Enable
+    description: Reserved
   - bit: '2'
-    access: R
-    long_description: Response Error Checking Enable 0 = Disabled Always 0 on the Pentium M processor.
-    description: Response Error Checking Enable
+    long_description: INTEGRITY_CAPABILITIES When set to 1, the processor supports MSR_INTEGRITY_CAPABILITIES.
+    description: INTEGRITY_CAPABILITIES
   - bit: '3'
-    access: R
-    long_description: MCERR# Drive Enable 0 = Disabled Always 0 on the Pentium M processor.
-    description: MCERR# Drive Enable
+    long_description: 'RSM_IN_CPL0_ONLY Indicates that RSM will only be allowed in CPL0 and will #GP for all non-CPL0 privilege levels.'
+    description: RSM_IN_CPL0_ONLY
   - bit: '4'
-    access: R
-    long_description: Address Parity Enable 0 = Disabled Always 0 on the Pentium M processor.
-    description: Address Parity Enable
-  - bit: '6:5'
+    long_description: UC_LOCK_DISABLE_SUPPORTED When set to 1, processor supports UC load lock disable feature.
+    description: UC_LOCK_DISABLE_SUPPORTED
+  - bit: '5'
+    long_description: 'SPLIT_LOCK_DISABLE_SUPPORTED Indicates that there is core support for #AC on split lock detection feature.'
+    description: SPLIT_LOCK_DISABLE_SUPPORTED
+  - bit: '6'
     description: Reserved
   - bit: '7'
-    access: R
-    long_description: BINIT# Driver Enable 1 = Enabled; 0 = Disabled Always 0 on the Pentium M processor.
-    description: BINIT# Driver Enable
-  - bit: '8'
-    access: R/O
-    long_description: Output Tri-state Enabled 1 = Enabled; 0 = Disabled
-    description: Output Tri-state Enabled
-  - bit: '9'
-    access: R/O
-    long_description: Execute BIST 1 = Enabled; 0 = Disabled
-    description: Execute BIST
-  - bit: '10'
-    access: R/O
-    long_description: MCERR# Observation Enabled 1 = Enabled; 0 = Disabled Always 0 on the Pentium M processor.
-    description: MCERR# Observation Enabled
-  - bit: '11'
+    long_description: UC_STORE_THROTTLING_SUPPORTED Indicates that the snoop filter quality of service MSRs are supported on this core. This is based on the existence of a non-inclusive cache and the L2/MLC QoS feature supported.
+    description: UC_STORE_THROTTLING_SUPPORTED
+  - bit: '63:8'
     description: Reserved
-  - bit: '12'
-    access: R/O
-    long_description: BINIT# Observation Enabled 1 = Enabled; 0 = Disabled Always 0 on the Pentium M processor.
-    description: BINIT# Observation Enabled
-  - bit: '13'
-    description: Reserved
-  - bit: '14'
-    access: R/O
-    long_description: 1 MByte Power on Reset Vector 1 = 1 MByte; 0 = 4 GBytes Always 0 on the Pentium M processor.
-    description: 1 MByte Power on Reset Vector
-  - bit: '15'
-    description: Reserved
-  - bit: '17:16'
-    access: R/O
-    long_description: APIC Cluster ID Always 00B on the Pentium M processor.
-    description: APIC Cluster ID
-  - bit: '18'
-    access: R/O
-    long_description: System Bus Frequency 0 = 100 MHz 1 = Reserved Always 0 on the Pentium M processor.
-    description: System Bus Frequency
-  - bit: '19'
-    description: Reserved
-  - bit: '21: 20'
-    access: R/O
-    long_description: Symmetric Arbitration ID Always 00B on the Pentium M processor.
-    description: Symmetric Arbitration ID
-  - bit: '26:22'
-    access: R/O
-    description: Clock Frequency Ratio
+  scope: Core
   access: R/W
-  description: Processor Hard Power-On Configuration
-  long_description: Processor Hard Power-On Configuration Enables and disables processor features. (R) Indicates current processor configuration.
-- value: 40H
-  name: MSR_LASTBRANCH_0
-  access: R/W
-  description: Last Branch Record 0
-  long_description: 'Last Branch Record 0 One of 8 last branch record registers on the last branch record stack: bits 31-0 hold the ‘from’ address and bits 63-32 hold the to address. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.15, “Last Branch, Interrupt, and Exception Recording (Pentium M Processors)”.'
-  see_section:
-  - '17.15'
-- value: 41H
-  name: MSR_LASTBRANCH_1
-  access: R/W
-  description: Last Branch Record 1
-  long_description: Last Branch Record 1 See description of MSR_LASTBRANCH_0.
-- value: 42H
-  name: MSR_LASTBRANCH_2
-  access: R/W
-  description: Last Branch Record 2
-  long_description: Last Branch Record 2 See description of MSR_LASTBRANCH_0.
-- value: 43H
-  name: MSR_LASTBRANCH_3
-  access: R/W
-  description: Last Branch Record 3
-  long_description: Last Branch Record 3 See description of MSR_LASTBRANCH_0.
-- value: 44H
-  name: MSR_LASTBRANCH_4
-  access: R/W
-  description: Last Branch Record 4
-  long_description: Last Branch Record 4 See description of MSR_LASTBRANCH_0.
-- value: 45H
-  name: MSR_LASTBRANCH_5
-  access: R/W
-  description: Last Branch Record 5
-  long_description: Last Branch Record 5 See description of MSR_LASTBRANCH_0.
-- value: 46H
-  name: MSR_LASTBRANCH_6
-  access: R/W
-  description: Last Branch Record 6
-  long_description: Last Branch Record 6 See description of MSR_LASTBRANCH_0.
-- value: 47H
-  name: MSR_LASTBRANCH_7
-  access: R/W
-  description: Last Branch Record 7
-  long_description: Last Branch Record 7 See description of MSR_LASTBRANCH_0.
-- value: 119H
-  name: MSR_BBL_CR_CTL
+  description: IA32 Core Capabilities Register
+  long_description: IA32 Core Capabilities Register If CPUID.(EAX=07H, ECX=0):EDX[30] = 1. This MSR provides an architectural enumeration function for model-specific behavior.
+- value: 2C2H
+  name: MSR_COPY_SCAN_HASHES
   bitfields:
   - bit: '63:0'
-    description: Reserved
-  description: Control Register
-  long_description: Control Register Used to program L2 commands to be issued via cache configuration accesses mechanism. Also receives L2 lookup response.
-- value: 11EH
-  name: MSR_BBL_CR_CTL3
-  bitfields:
-  - bit: '0'
-    access: RO
-    long_description: L2 Hardware Enabled 1 = If the L2 is hardware-enabled. 0 = Indicates if the L2 is hardware-disabled.
-    description: L2 Hardware Enabled
-  - bit: '4:1'
-    description: Reserved
-  - bit: '5'
-    access: RO
-    long_description: ECC Check Enable This bit enables ECC checking on the cache data bus. ECC is always generated on write cycles. 0 = Disabled (default) 1 = Enabled For the Pentium M processor, ECC checking on the cache data bus is always enabled.
-    description: ECC Check Enable
-  - bit: '7:6'
-    description: Reserved
-  - bit: '8'
-    access: R/W
-    long_description: L2 Enabled 1 = L2 cache has been initialized 0 = Disabled (default) Until this bit is set the processor will not respond to the WBINVD instruction or the assertion of the FLUSH# input.
-    description: L2 Enabled
-  - bit: '22:9'
-    description: Reserved
-  - bit: '23'
-    access: RO
-    long_description: L2 Not Present 0 = L2 Present 1 = L2 Not Present
-    description: L2 Not Present
-  - bit: '63:24'
-    description: Reserved
-  description: Control register 3
-  long_description: Control register 3 Used to configure the L2 Cache.
-- value: 179H
-  name: IA32_MCG_CAP
-  bitfields:
-  - bit: '7:0'
-    access: RO
-    long_description: Count Indicates the number of hardware unit error reporting banks available in the processor.
-    description: Count
-  - bit: '8'
-    access: RO
-    long_description: IA32_MCG_CTL Present 1 = Indicates that the processor implements the MSR_MCG_CTL register found at MSR 17BH. 0 = Not supported.
-    description: IA32_MCG_CTL Present
-  - bit: '63:9'
-    description: Reserved
-  description: Read-only register that provides information about the machine-check
-  long_description: Read-only register that provides information about the machine-check architecture of the processor.
-- value: 17AH
-  name: IA32_MCG_STATUS
-  bitfields:
-  - bit: '0'
-    long_description: RIPV When set, this bit indicates that the instruction addressed by the instruction pointer pushed on the stack (when the machine check was generated) can be used to restart the program. If this bit is cleared, the program cannot be reliably restarted.
-    description: RIPV
-  - bit: '1'
-    long_description: EIPV When set, this bit indicates that the instruction addressed by the instruction pointer pushed on the stack (when the machine check was generated) is directly associated with the error.
-    description: EIPV
-  - bit: '2'
-    long_description: MCIP When set, this bit indicates that a machine check has been generated. If a second machine check is detected while this bit is still set, the processor enters a shutdown state. Software should write this bit to 0 after processing a machine check exception.
-    description: MCIP
-  - bit: '63:3'
-    description: Reserved
-  description: Global Machine Check Status
-- value: 198H
-  name: IA32_PERF_STATUS
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 199H
-  name: IA32_PERF_CTL
-  description: See Table 2-2
-  see_table:
-  - 2-2
-- value: 19AH
-  name: IA32_CLOCK_MODULATION
-  access: R/W
-  description: Clock Modulation
-  long_description: Clock Modulation . See Table 2-2. See Section 14.7.3, “Software Controlled Clock Modulation.”
-  see_table:
-  - 2-2
-  see_section:
-  - 14.7.3
-- value: 19BH
-  name: IA32_THERM_INTERRUPT
-  access: R/W
-  description: Thermal Interrupt Control
-  long_description: Thermal Interrupt Control See Table 2-2. See Section 14.7.2, “Thermal Monitor.”
-  see_table:
-  - 2-2
-  see_section:
-  - 14.7.2
-- value: 19CH
-  name: IA32_THERM_STATUS
-  access: R/W
-  description: Thermal Monitor Status
-  long_description: Thermal Monitor Status See Table 2-2. See Section 14.7.2, “Thermal Monitor.”
-  see_table:
-  - 2-2
-  see_section:
-  - 14.7.2
-- value: 19DH
-  name: MSR_THERM2_CTL
+    long_description: SCAN_HASH_ADDR Contains the linear address of the SCAN Test HASH Binary loaded into memory.
+    description: SCAN_HASH_ADDR
+  scope: Die
+  access: W
+  description: COPY_SCAN_HASHES
+- value: 2C3H
+  name: MSR_SCAN_HASHES_STATUS
   bitfields:
   - bit: '15:0'
+    long_description: CHUNK_SIZE Chunk size of the test in KB.
+    description: CHUNK_SIZE
+  - bit: '23:16'
+    long_description: NUM_CHUNKS Total number of chunks.
+    description: NUM_CHUNKS
+  - bit: '31:24'
     description: Reserved
-  - bit: '16'
-    access: R/W
-    long_description: 'TM_SELECT Mode of automatic thermal monitor: 0 = Thermal Monitor 1 (thermally-initiated on-die modulation of the stop-clock duty cycle) 1 = Thermal Monitor 2 (thermally-initiated frequency transitions) If bit 3 of the IA32_MISC_ENABLE register is cleared, TM_SELECT has no effect. Neither TM1 nor TM2 will be enabled.'
-    description: TM_SELECT
-  - bit: '63:16'
+  - bit: '39:32'
+    long_description: 'ERROR_CODE The error-code refers to the LP that runs WRMSR(2C2H). 0x0: No error reported. 0x1: Attempt to copy scan-hashes when copy already in progress. 0x2: Secure Memory not set up correctly. 0x3: Scan-image header Image_info.ProgramID doesn''t match RDMSR(2D9H)[31:24], or scan-image header Processor-Signature doesn''t match F/M/S, or scan-image header Processor-Flags doesn''t match PlatformID. 0x4: Reserved 0x5: Integrity check failed. 0x6: Re-install of scan test image attempted when current scan test image is in use by other LPs.'
+    description: ERROR_CODE
+  - bit: '50:40'
     description: Reserved
-  description: Thermal Monitor 2 Control
-- value: 1A0H
-  name: IA32_MISC_ENABLE
+  - bit: '62:51'
+    long_description: MAX_CORE_LIMIT Maximum Number of cores that can run Intel® In-field Scan simultaneously minus 1. 0 means 1 core at a time.
+    description: MAX_CORE_LIMIT
+  - bit: '63'
+    long_description: Valid Valid bit is set when COPY_SCAN_HASHES has completed successfully.
+    description: Valid
+  access: R/O
+  description: SCAN_HASHES_STATUS
+- value: 2C4H
+  name: MSR_AUTHENTICATE_AND_COPY_CHUNK
   bitfields:
-  - bit: '2:0'
+  - bit: '7:0'
+    long_description: CHUNK_INDEX Chunk Index, should be less than the total number of chunks defined by NUM_CHUNKS (MSR_SCAN_HASHES_STATUS[23:16]).
+    description: CHUNK_INDEX
+  - bit: '63:8'
+    long_description: CHUNK_ADDR Bits 63:8 of 256B aligned Linear address of scan chunk in memory.
+    description: CHUNK_ADDR
+  scope: Die
+  access: W
+  description: AUTHENTICATE_AND_COPY_CHUNK
+- value: 2C5H
+  name: MSR_CHUNKS_AUTHENTICATION_STATUS
+  bitfields:
+  - bit: '7:0'
+    long_description: VALID_CHUNKS Total number of Valid (authenticated) chunks.
+    description: VALID_CHUNKS
+  - bit: '15:8'
+    long_description: TOTAL_CHUNKS Total number of chunks.
+    description: TOTAL_CHUNKS
+  - bit: '31:16'
     description: Reserved
-  - bit: '3'
-    access: R/W
-    long_description: Automatic Thermal Control Circuit Enable 1 = Setting this bit enables the thermal control circuit (TCC) portion of the Intel Thermal Monitor feature. This allows processor clocks to be automatically modulated based on the processor's thermal sensor operation. 0 = Disabled (default). The automatic thermal control circuit enable bit determines if the thermal control circuit (TCC) will be activated when the processor's internal thermal sensor determines the processor is about to exceed its maximum operating temperature. When the TCC is activated and TM1 is enabled, the processors clocks will be forced to a 50% duty cycle. BIOS must enable this feature. The bit should not be confused with the on-demand thermal control circuit enable bit.
-    description: Automatic Thermal Control Circuit Enable
-  - bit: '6:4'
+  - bit: '39:32'
+    long_description: 'ERROR_CODE The error code refers to the LP that runs WRMSR(2C4H). 0x0: No error reported. 0x1: Attempt to authenticate a CHUNK which is already marked as authentic or is currently being installed by another core. 0x2: CHUNK authentication error. HASH of chunk did not match expected value.'
+    description: ERROR_CODE
+  - bit: '63:40'
     description: Reserved
-  - bit: '7'
-    access: R
-    long_description: Performance Monitoring Available 1 = Performance monitoring enabled. 0 = Performance monitoring disabled.
-    description: Performance Monitoring Available
-  - bit: '9:8'
+  access: R/O
+  description: CHUNKS_AUTHENTICATION_STATUS
+- value: 2C6H
+  name: MSR_ACTIVATE_SCAN
+  bitfields:
+  - bit: '7:0'
+    long_description: CHUNK_START_INDEX Indicates chunk index to start from.
+    description: CHUNK_START_INDEX
+  - bit: '15:8'
+    long_description: CHUNK_STOP_INDEX Indicates what chunk index to stop at (inclusive).
+    description: CHUNK_STOP_INDEX
+  - bit: '31:16'
     description: Reserved
-  - bit: '10'
-    access: R/W
-    long_description: FERR# Multiplexing Enable 1 = FERR# asserted by the processor to indicate a pending break event within the processor. 0 = Indicates compatible FERR# signaling behavior. This bit must be set to 1 to support XAPIC interrupt model usage.
-    description: FERR# Multiplexing Enable
-  - access: RO
-    long_description: Branch Trace Storage Unavailable 1 = Processor doesn’t support branch trace storage (BTS) 0 = BTS is supported
-    description: Branch Trace Storage Unavailable
-  - bit: '12'
-    access: RO
-    long_description: Processor Event Based Sampling Unavailable 1 = Processor does not support processor event based sampling (PEBS); 0 = PEBS is supported. The Pentium M processor does not support PEBS.
-    description: Processor Event Based Sampling Unavailable
-  - bit: '15:13'
+  - bit: '62:32'
+    long_description: THREAD_WAIT_DELAY TSC based delay to allow threads to rendezvous.
+    description: THREAD_WAIT_DELAY
+  - bit: '63'
+    long_description: SIGNAL_MCE If 1, then on scan-error log MC in MC4_STATUS and signal MCE if machine check signaling enabled in MC4_CTL[0]. If 0, then no logging/no signaling.
+    description: SIGNAL_MCE
+  scope: Thread
+  access: W
+  description: ACTIVATE_SCAN
+- value: 2C7H
+  name: MSR_SCAN_STATUS
+  bitfields:
+  - bit: '7:0'
+    long_description: CHUNK_NUM SCAN Chunk that was reached.
+    description: CHUNK_NUM
+  - bit: '15:8'
+    long_description: CHUNK_STOP_INDEX Indicates what chunk index to stop at (inclusive). Maps to same field in WRMSR(ACTIVATE_SCAN).
+    description: CHUNK_STOP_INDEX
+  - bit: '31:16'
     description: Reserved
-  - bit: '16'
-    access: R/W
-    long_description: Enhanced Intel SpeedStep Technology Enable 1 = Enhanced Intel SpeedStep Technology enabled. On the Pentium M processor, this bit may be configured to be read-only.
-    description: Enhanced Intel SpeedStep Technology Enable
-  - bit: '22:17'
+  - bit: '39:32'
+    access: LP
+    long_description: 'ERROR_CODE 0x0: No error. 0x1: SCAN operation did not start. Other thread did not join in time. 0x2: SCAN operation did not start. Interrupt occurred prior to threads rendezvous. 0x3: SCAN operation did not start. Power Management conditions are inadequate to run Intel In- field Scan. 0x4: SCAN operation did not start. Non-valid chunks in the range CHUNK_STOP_INDEX : CHUNK_START_INDEX. 0x5: SCAN operation did not start. Mismatch in arguments between threads T0/T1. 0x6: SCAN operation did not start. Core not capable of performing SCAN currently. 0x8: SCAN operation did not start. Exceeded number of Logical Processors allowed to run Intel In-field Scan concurrently. MAX_CORE_LIMIT exceeded. 0x9: Interrupt occurred. Scan operation aborted prematurely, not all chunks requested have been executed.'
+    description: ERROR_CODE
+  - bit: '61:40'
     description: Reserved
-  - bit: '23'
-    access: R/W
-    long_description: xTPR Message Disable When set to 1, xTPR messages are disabled. xTPR messages are optional messages that allow the processor to inform the chipset of its priority. The default is processor specific.
-    description: xTPR Message Disable
-  - bit: '63:24'
-    description: Reserved
-  access: R/W
-  description: Enable Miscellaneous Processor Features
-  long_description: Enable Miscellaneous Processor Features Allows a variety of processor functions to be enabled and disabled.
-- value: 1C9H
-  name: MSR_LASTBRANCH_TOS
-  access: R/W
-  description: Last Branch Record Stack TOS
-  long_description: 'Last Branch Record Stack TOS Contains an index (bits 0-3) that points to the MSR containing the most recent branch record. See also: • MSR_LASTBRANCH_0_FROM_IP (at 40H). • Section 17.15, “Last Branch, Interrupt, and Exception Recording (Pentium M Processors)”.'
-  see_section:
-  - '17.15'
-- value: 1D9H
-  name: MSR_DEBUGCTLB
-  access: R/W
-  description: Debug Control
-  long_description: Debug Control Controls how several debug features are used. Bit definitions are discussed in the referenced section. See Section 17.15, “Last Branch, Interrupt, and Exception Recording (Pentium M Processors).”
-  see_section:
-  - '17.15'
-- value: 1DDH
-  name: MSR_LER_TO_LIP
-  access: R
-  description: Last Exception Record To Linear IP
-  long_description: Last Exception Record To Linear IP This area contains a pointer to the target of the last branch instruction that the processor executed prior to the last exception that was generated or the last interrupt that was handled. See Section 17.15, “Last Branch, Interrupt, and Exception Recording (Pentium M Processors)” and Section 17.16.2, “Last Branch and Last Exception MSRs.”
-  see_section:
-  - '17.15'
-  - 17.16.2
-- value: 1DEH
-  name: MSR_LER_FROM_LIP
-  access: R
-  description: Last Exception Record From Linear IP
-  long_description: Last Exception Record From Linear IP Contains a pointer to the last branch instruction that the processor executed prior to the last exception that was generated or the last interrupt that was handled. See Section 17.15, “Last Branch, Interrupt, and Exception Recording (Pentium M Processors)” and Section 17.16.2, “Last Branch and Last Exception MSRs.”
-  see_section:
-  - '17.15'
-  - 17.16.2
-- value: 2FFH
-  name: IA32_MTRR_DEF_TYPE
-  access: R/W
-  description: Default Memory Types
-  long_description: Default Memory Types Sets the memory type for the regions of physical memory that are not mapped by the MTRRs. See Section 11.11.2.1, “IA32_MTRR_DEF_TYPE MSR.”
-  see_section:
-  - 11.11.2.1
-- value: 400H
-  name: IA32_MC0_CTL
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 401H
-  name: IA32_MC0_STATUS
-  description: See Section 15.3.2.2
-  see_section:
-  - 15.3.2.2
-- value: 402H
-  name: IA32_MC0_ADDR
-  description: See Section 14.3.2.3.
-  long_description: See Section 14.3.2.3., “IA32_MCi_ADDR MSRs”. The IA32_MC0_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
-  see_section:
-  - 14.3.2.3.
-- value: 404H
-  name: IA32_MC1_CTL
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 405H
-  name: IA32_MC1_STATUS
-  description: See Section 15.3.2.2
-  see_section:
-  - 15.3.2.2
-- value: 406H
-  name: IA32_MC1_ADDR
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC1_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC1_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
-  see_section:
-  - 15.3.2.3
-- value: 408H
-  name: IA32_MC2_CTL
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 409H
-  name: IA32_MC2_STATUS
-  description: See Chapter 15.3.2.2
-- value: 40AH
-  name: IA32_MC2_ADDR
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
-  see_section:
-  - 15.3.2.3
-- value: 40CH
-  name: MSR_MC4_CTL
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 40DH
-  name: MSR_MC4_STATUS
-  description: See Section 15.3.2.2
-  see_section:
-  - 15.3.2.2
-- value: 40EH
-  name: MSR_MC4_ADDR
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
-  see_section:
-  - 15.3.2.3
-- value: 410H
-  name: MSR_MC3_CTL
-  description: See Section 15.3.2.1
-  see_section:
-  - 15.3.2.1
-- value: 411H
-  name: MSR_MC3_STATUS
-  description: See Section 15.3.2.2
-  see_section:
-  - 15.3.2.2
-- value: 412H
-  name: MSR_MC3_ADDR
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC3_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
-  see_section:
-  - 15.3.2.3
-- value: 600H
-  name: IA32_DS_AREA
+  - bit: '62'
+    long_description: SCAN_CONTROL_ERROR Scan-System-Controller malfunction.
+    description: SCAN_CONTROL_ERROR
+  - bit: '63'
+    long_description: SCAN_SIGNATURE_ERROR Core failed SCAN-SIGNATURE checking for this chunk.
+    description: SCAN_SIGNATURE_ERROR
+  access: R/O
+  description: SCAN_STATUS
+- value: 2C8H
+  name: MSR_SCAN_MODULE_ID
   bitfields:
   - bit: '31:0'
-    long_description: DS Buffer Management Area Linear address of the first byte of the DS buffer management area.
-    description: DS Buffer Management Area
+    long_description: RevID of the currently installed scan test image. Maps to Revision field in external header (offset 4).
+    description: RevID of the currently installed scan test image
   - bit: '63:32'
     description: Reserved
-  access: R/W
-  description: DS Save Area
-  long_description: DS Save Area See Table 2-2. Points to the DS buffer management area, which is used to manage the BTS and PEBS buffers. See Section 18.6.3.4, “Debug Store (DS) Mechanism.”
-  see_table:
-  - 2-2
+  scope: Module
+  access: R/O
+  description: SCAN_MODULE_ID
+- value: 2C9H
+  name: MSR_LAST_SAF_WP
+  bitfields:
+  - bit: '31:0'
+    long_description: LAST_WP Provides information about the core when the last WRMSR(ACTIVATE_SCAN) was executed. Available only if enumerated in MSR_INTEGRITY_CAPABILITIES[10:9].
+    description: LAST_WP
+  - bit: '63:32'
+    description: Reserved
+  scope: Core
+  access: R/O
+  description: LAST_SAF_WP
+- value: 2D9H
+  name: MSR_INTEGRITY_CAPABILITIES
+  bitfields:
+  - bit: '0'
+    long_description: STARTUP_SCAN_BIST When set, supports Intel In-field Scan.
+    description: STARTUP_SCAN_BIST
+  - bit: '3:1'
+    description: Reserved
+  - bit: '4'
+    long_description: PERIODIC_SCAN_BIST When set, supports Intel In-field Scan.
+    description: PERIODIC_SCAN_BIST
+  - bit: '23:5'
+    description: Reserved
+  - bit: '31:24'
+    long_description: ID of the scan programs supported for this part. WRMSR(2C2H) verifies this value against the corresponding value in the scan-image header, i.e., Image_info.
+    description: ID of the scan programs supported for this part
+  scope: Module
+  access: R/O
+  description: INTEGRITY_CAPABILITIES
+- value: 410H
+  name: IA32_MC4_CTL
+  scope: Package
+  description: See Section 15.3.2.1
+  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC4 reports MC errors from the PCU module. If SIGNAL_MCE is set, a Scan Status is logged in MC4_STATUS and MC4_MISC.
   see_section:
-  - 18.6.3.4
+  - 15.3.2.1
+  - 15.3.2.4
+- value: 411H
+  name: IA32_MC4_STATUS
+  scope: Package
+- value: 412H
+  name: IA32_MC4_ADDR
+  scope: Package
+- value: 413H
+  name: IA32_MC4_MISC
+  scope: Package

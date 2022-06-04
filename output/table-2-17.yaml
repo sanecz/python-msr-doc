@@ -1672,7 +1672,7 @@ msr:
 - value: 3B5H
   name: MSR_UNCORE_PMC5
   scope: Package
-  description: See Section 18.3.1.2.2
-  long_description: See Section 18.3.1.2.2, “Uncore Performance Event Configuration Facility.”
+  description: See Section 19.3.1.2.2
+  long_description: See Section 19.3.1.2.2, “Uncore Performance Event Configuration Facility.”
   see_section:
-  - 18.3.1.2.2
+  - 19.3.1.2.2

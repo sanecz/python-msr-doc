@@ -2,8 +2,8 @@
 name: Table 2-37
 full_name: Table 2-37. Additional MSRs Supported by Intel® Xeon® Processor D with DisplayFamily_DisplayModel 06_56H
 supported_cpu:
-- 06_56H
 - 06_4FH
+- 06_56H
 msr:
 - value: 1ACH
   name: MSR_TURBO_RATIO_LIMIT3
@@ -15,7 +15,7 @@ msr:
     description: Semaphore for Turbo Ratio Limit Configuration
   scope: Package
   description: Config Ratio Limit of Turbo Mode
-  long_description: Config Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+  long_description: Config Ratio Limit of Turbo Mode R/O if MSR_PLATFORM_INFO.[28] = 0. R/W if MSR_PLATFORM_INFO.[28] = 1.
 - value: 286H
   name: IA32_MC6_CTL2
   scope: Package

@@ -9,30 +9,30 @@ msr:
   name: MSR_CORE_THREAD_COUNT
   bitfields:
   - bit: '15:0'
-    access: RO
+    access: R/O
     long_description: THREAD_COUNT The number of logical processors that are currently enabled (by either factory configuration or BIOS configuration) in the physical package.
     description: THREAD_COUNT
   - bit: '31:16'
-    access: RO
+    access: R/O
     long_description: Core_COUNT The number of processor cores that are currently enabled (by either factory configuration or BIOS configuration) in the physical package.
     description: Core_COUNT
   - bit: '63:32'
     description: Reserved
   scope: Package
-  access: RO
+  access: R/O
   description: Configured State of Enabled Processor Core Count and
   long_description: Configured State of Enabled Processor Core Count and Logical Processor Count • After a Power-On RESET, enumerates factory configuration of the number of processor cores and logical processors in the physical package. • Following the sequence of (i) BIOS modified a Configuration Mask which selects a subset of processor cores to be active post RESET and (ii) a RESET event after the modification, enumerates the current configuration of enabled processor core count and logical processor count in the physical package.
 - value: 53H
   name: MSR_THREAD_ID_INFO
   bitfields:
   - bit: '7:0'
-    access: RO
+    access: R/O
     long_description: Logical_Processor_ID An implementation-specific numerical value physically assigned to each logical processor. This ID is not related to Initial APIC ID or x2APIC ID, it is unique within a physical package.
     description: Logical_Processor_ID
   - bit: '63:8'
     description: Reserved
   scope: Thread
-  access: RO
+  access: R/O
   description: A Hardware Assigned ID for the Logical Processor
 - value: E2H
   name: MSR_PKG_CST_CONFIG_CONTROL
@@ -167,7 +167,7 @@ msr:
     description: Maximum Ratio Limit for 8C
   scope: Package
   description: Maximum Ratio Limit of Turbo Mode
-  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+  long_description: Maximum Ratio Limit of Turbo Mode R/O if MSR_PLATFORM_INFO.[28] = 0. R/W if MSR_PLATFORM_INFO.[28] = 1.
 - value: 1AEH
   name: MSR_TURBO_RATIO_LIMIT1
   bitfields:
@@ -197,7 +197,7 @@ msr:
     description: Maximum Ratio Limit for16C
   scope: Package
   description: Maximum Ratio Limit of Turbo Mode
-  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+  long_description: Maximum Ratio Limit of Turbo Mode R/O if MSR_PLATFORM_INFO.[28] = 0. R/W if MSR_PLATFORM_INFO.[28] = 1.
 - value: 1AFH
   name: MSR_TURBO_RATIO_LIMIT2
   bitfields:
@@ -214,7 +214,7 @@ msr:
     description: Semaphore for Turbo Ratio Limit Configuration
   scope: Package
   description: Maximum Ratio Limit of Turbo Mode
-  long_description: Maximum Ratio Limit of Turbo Mode RO if MSR_PLATFORM_INFO.[28] = 0. RW if MSR_PLATFORM_INFO.[28] = 1.
+  long_description: Maximum Ratio Limit of Turbo Mode R/O if MSR_PLATFORM_INFO.[28] = 0. R/W if MSR_PLATFORM_INFO.[28] = 1.
 - value: 414H
   name: IA32_MC5_CTL
   scope: Package
@@ -508,10 +508,10 @@ msr:
   name: MSR_RAPL_POWER_UNIT
   bitfields:
   - bit: '3:0'
-    long_description: Power Units See Section 14.9.1, “RAPL Interfaces.”
+    long_description: Power Units See Section 14.10.1, “RAPL Interfaces.”
     description: Power Units
     see_section:
-    - 14.9.1
+    - 14.10.1
   - bit: '7:4'
     description: Reserved
   - bit: '12:8'
@@ -520,10 +520,10 @@ msr:
   - bit: '15:13'
     description: Reserved
   - bit: '19:16'
-    long_description: Time Units See Section 14.9.1, “RAPL Interfaces.”
+    long_description: Time Units See Section 14.10.1, “RAPL Interfaces.”
     description: Time Units
     see_section:
-    - 14.9.1
+    - 14.10.1
   - bit: '63:20'
     description: Reserved
   scope: Package
@@ -534,9 +534,9 @@ msr:
   scope: Package
   access: R/W
   description: DRAM RAPL Power Limit Control
-  long_description: DRAM RAPL Power Limit Control See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM RAPL Power Limit Control See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 619H
   name: MSR_DRAM_ENERGY_STATUS
   bitfields:
@@ -554,17 +554,17 @@ msr:
   scope: Package
   access: R/O
   description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM Performance Throttling Status See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 61CH
   name: MSR_DRAM_POWER_INFO
   scope: Package
   access: R/W
   description: DRAM RAPL Parameters
-  long_description: DRAM RAPL Parameters See Section 14.9.5, “DRAM RAPL Domain.”
+  long_description: DRAM RAPL Parameters See Section 14.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.9.5
+  - 14.10.5
 - value: 61EH
   name: MSR_PCIE_PLL_RATIO
   bitfields:
@@ -714,13 +714,13 @@ msr:
   name: IA32_QM_EVTSEL
   bitfields:
   - bit: '7:0'
-    access: RW
+    access: R/W
     long_description: 'EventID Event encoding: 0x0: No monitoring. 0x1: L3 occupancy monitoring. All other encoding reserved.'
     description: EventID
   - bit: '31:8'
     description: Reserved
   - bit: '41:32'
-    access: RW
+    access: R/W
     description: RMID
   - bit: '63:42'
     description: Reserved
