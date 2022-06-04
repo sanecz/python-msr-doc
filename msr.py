@@ -37,6 +37,26 @@ SEE_MAPPING = {
 
 INDEX_START = "MSR Name and CPUID DisplayFamily_DisplayModel"
 
+# P6 Family
+# Intel Pentium III Xeon processor, Intel Pentium III processor
+# Intel Pentium II Xeon processor, Intel Pentium II processor
+# Intel Pentium Pro processor
+P6_FAMILY = [
+    "06_0BH", "06_08H", "06_07H",
+    "06_06H", "06_05H", "06_03H",
+    "06_01H", "06_0AH"
+]
+
+# NetBurst Family
+# Intel Xeon Processor, Intel Pentium 4 processors
+# Intel Xeon processor 7100, 5000 Series
+# Intel Xeon processor MP, Pentium D processors
+NETBURST_FAMILY = [
+    "0F_06H", "0F_03H", "0F_04H",
+    "0F_02H", "0F_0H",  "0F_01H"
+]
+
+
 logger = logging.getLogger(__name__)
 
 class ParseMSRException(Exception):
@@ -77,7 +97,6 @@ class MSRDescription:
         if access_type:
             # So many ways to define access
             # See table 2-1 in section 2-2 in vol 2 there is 27 ways to define it
-            # TODO: maybe parse it ?
             self.access = strip_spaces(access_type.groups()[0])
             data = data.replace(access_type.group(), "")  # remove from description
 
@@ -342,7 +361,7 @@ class Table:
         return {
             "name": self.name,
             "full_name": self.full_name,
-            "supported_cpu": list(set(self.supported_cpus)),  # clean garbage then back to list
+            "supported_cpu": list(sorted(set(self.supported_cpus))),  # clean garbage then back to list
             "msr": [msr.to_dict() for msr in self.msr]
         }
 
@@ -475,6 +494,7 @@ def parse_pdf(path: str) -> Tuple[Set[str], List[Table]]:
     logger.info("Reading pdf")
 
     # MSR are described from page 19 to 394, using man intel vol 4 Order October 2019
+    # MSR are described from page 19 to 504, using man intel vol 4 Order 2022
     # page 17 to 19 describe available CPU families/models
     # ofc consistency is way too hard, so I added manually 05_09H
     pdf = PDFHandler(path, pages="17-end")
@@ -527,7 +547,7 @@ def parse_cpus(path: str, cpu_list: Set[str], table_list: List[Table]) -> None:
     table = get_table_by_name(table_list, "Table 2-2")
     table.supported_cpus = cpu_list
 
-    # MSR index is from page 394 to page 470
+    # MSR index is from page 426 to page 506 in man version 2022
     for page in pdf.pages[426:506]:
         for idx, elem in enumerate(page.elements):
             # Move until we find the start
@@ -570,9 +590,21 @@ def parse_cpus(path: str, cpu_list: Set[str], table_list: List[Table]) -> None:
             table_name_list = [table_name]
     
             if "and" in table_name:
-                other_table = next(elem_iterator).text()
+                table_name_list.append(next(elem_iterator).text())
 
-            cpu_list = [cpu.strip().replace(",", "") for cpu in cpu_list.split()]
+            cpu_list = [cpu.strip() for cpu in cpu_list.split(",")]
+
+            if "0FH" in cpu_list:
+                # replace by the whole family
+                cpu_list.pop(cpu_list.index("0FH"))
+                cpu_list.extend(NETBURST_FAMILY)
+
+            if "P6 Family" in cpu_list:
+                # if there is p6 family in list, replace with all the
+                # cpufamily_cpumodel in this p6 family
+                cpu_list.pop(cpu_list.index("P6 Family"))
+                cpu_list.extend(P6_FAMILY)
+
 
             for table_name in table_name_list:
                 table = get_table_by_name(table_list, table_name.replace("See", "").strip())
