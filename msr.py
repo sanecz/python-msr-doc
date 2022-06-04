@@ -27,7 +27,7 @@ TABLE_REGEXP = re.compile(r"^(Table \d-\d{1,2})\.\s+")
 # At lease this is also close to be consistant
 SEE_TABLE_REGEXP = re.compile(r"(?:(?:See\s+)?Table\s+(\d{1,2}-\d{1,2}))")
 SEE_SECTION_REGEXP = re.compile(r"(?:(?:See\s+)?Section\s+([\d+\.?]+))")
-SEE_APPENDIX_REGEXP = re.compile(r"(?:(?:See\s+)?Appendix\s+(\w\.\d+))")
+SEE_APPENDIX_REGEXP = re.compile(r"(?:(?:See\s+)?Appendix\s+(\w[\.?\d+]+))")
 
 SEE_MAPPING = {
     "see_table": SEE_TABLE_REGEXP,
