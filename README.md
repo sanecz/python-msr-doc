@@ -72,6 +72,13 @@ msr:
 
 TODO:
 - [ ] README :)
+- [ ] Table 2-12: is 06_5FH a goldmont too? should be included
+- [ ] Table 2-14: supported cpu:06_86H, 06_96H, or 06_9CH
+- [ ] Table 2-47/2-48: missin supported cpu 06_97H, 06_9AH, and 06_BFH.
+- [ ] Table 2-49: missin supported cpu pcore/ecore
+- [ ] Table 2-52: missing 06_8FH
+- [ ] Table 2-54: missing 06_85H
+- [ ] Table 2-61: missing pentium supported cpu
 - [ ] Verify that displayname / family is correct for all tables
 - [ ] Table 2-53 is badly formatted on the pdf
 - [ ] 18BH-18FH manualk patch for MSR_MCG_RESERVED1 to MSR_MCG_RESERVED5
