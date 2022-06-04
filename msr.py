@@ -477,7 +477,7 @@ def parse_pdf(path: str) -> Tuple[Set[str], List[Table]]:
     # MSR are described from page 19 to 394, using man intel vol 4 Order October 2019
     # page 17 to 19 describe available CPU families/models
     # ofc consistency is way too hard, so I added manually 05_09H
-    pdf = PDFHandler(path, pages="17-394")
+    pdf = PDFHandler(path, pages="17-end")
     tables = pdf.parse()
 
     for table, title in tables:
@@ -528,7 +528,7 @@ def parse_cpus(path: str, cpu_list: Set[str], table_list: List[Table]) -> None:
     table.supported_cpus = cpu_list
 
     # MSR index is from page 394 to page 470
-    for page in pdf.pages[394:470]:
+    for page in pdf.pages[426:506]:
         for idx, elem in enumerate(page.elements):
             # Move until we find the start
             if elem.text().startswith("Location"):
