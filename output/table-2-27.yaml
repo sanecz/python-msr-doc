@@ -211,4 +211,3 @@ msr:
 - value: 47FH
   name: IA32_MC31_MISC
   scope: Package
-- value: SeeTable2-20,Table2-26forotherMSRdefinitionsapplicabletoIntelXeonprocessorE7v2withCPUIDsignature06_3AH.

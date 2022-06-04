@@ -99,4 +99,3 @@ msr:
   scope: Core
   access: R/W
   description: Reload value for IA32_PMCx
-- value: SeeTable2-6,Table2-12,Table2-13andTable2-14forMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_86H.

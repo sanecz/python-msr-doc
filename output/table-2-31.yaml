@@ -77,4 +77,3 @@ msr:
   scope: Package
   description: Note
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
-- value: SeeTable2-20,Table2-21,Table2-22,Table2-29,Table2-30forotherMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_45H.

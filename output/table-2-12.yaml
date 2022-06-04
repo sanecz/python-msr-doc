@@ -1940,4 +1940,3 @@ msr:
   description: See Table 2-2
   see_table:
   - 2-2
-- value: SeeTable2-6,andTable2-12forMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_5CH.

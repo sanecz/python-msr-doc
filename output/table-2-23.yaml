@@ -570,4 +570,3 @@ msr:
   long_description: PP0 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 14.10.4
-- value: SeeTable2-20,Table2-23,andTable2-24forMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_2DH.

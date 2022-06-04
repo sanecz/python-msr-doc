@@ -198,4 +198,3 @@ msr:
   scope: Package
   access: R/W
   description: ConfigTDP Control
-- value: SeeTable2-20,Table2-21andTable2-22forotherMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_3AH.

@@ -635,4 +635,3 @@ msr:
   name: MSR_UNC_CBO_3_PERFCTR1
   scope: Package
   description: Uncore C-Box 3
-- value: SeeTable2-20,Table2-21,Table2-22,Table2-25,Table2-29forotherMSRdefinitionsapplicabletoprocessorswithCPUIDsignatures063CH,06_46H.

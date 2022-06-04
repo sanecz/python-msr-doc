@@ -2,7 +2,6 @@
 name: Table 2-38
 full_name: Table 2-38. Additional MSRs Supported by Intel® Xeon® Processors with DisplayFamily_DisplayModel 06_4FH
 supported_cpu:
-- 06_4F
 - 06_4FH
 msr:
 - value: 1ACH
@@ -418,4 +417,3 @@ msr:
   scope: Package
   access: R/W
   description: Cache Allocation Technology Configuration
-- value: SeeTable2-20,Table2-21,Table2-29,andTable2-30forotherMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_45H.

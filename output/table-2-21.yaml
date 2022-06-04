@@ -88,4 +88,3 @@ msr:
   long_description: PP1 Balance Policy See Section 14.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 14.10.4
-- value: SeeTable2-20,Table2-21,andTable2-22forMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_2AH.

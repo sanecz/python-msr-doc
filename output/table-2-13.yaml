@@ -373,4 +373,3 @@ msr:
   access: R/W
   description: Last Branch Record 31 Additional Information
   long_description: Last Branch Record 31 Additional Information See description of MSR_LASTBRANCH_INFO_0.
-- value: SeeTable2-6,Table2-12andTable2-13forMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_7AH.

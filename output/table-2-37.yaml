@@ -177,4 +177,3 @@ msr:
 - value: 44FH
   name: IA32_MC19_MISC
   scope: Package
-- value: SeeTable2-20,Table2-29,Table2-34,andTable2-36forotherMSRdefinitionsapplicabletoprocessorswithCPUIDsignature06_56H.
