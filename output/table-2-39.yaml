@@ -2,18 +2,18 @@
 name: Table 2-39
 full_name: Table 2-39. Additional MSRs Supported by 6th Generation, 7th Generation, 8th Generation, 9th Generation, 10th Generation, 11th Generation, and 12th Generation Intel® Core™ Processors, Intel® Xeon® Processor Scalable Family, 2nd and 3rd Generation Intel® Xeon® Processor Scalable Family, 8th Generation Intel® Core™ i3 Processors, and Intel® Xeon® E Processors
 supported_cpu:
-- 06_8DH
+- 06_4EH
+- 06_55H
+- 06_5EH
+- 06_66H
+- 06_6AH
 - 06_6CH
 - 06_7DH
-- 06_55H
-- 06_6AH
-- 06_8CH
-- 06_8EH
 - 06_7EH
-- 06_66H
+- 06_8CH
+- 06_8DH
+- 06_8EH
 - 06_9EH
-- 06_4EH
-- 06_5EH
 msr:
 - value: 3AH
   name: IA32_FEATURE_CONTROL

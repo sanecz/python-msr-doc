@@ -2,8 +2,8 @@
 name: Table 2-45
 full_name: Table 2-45. Additional MSRs Supported by 11th Generation Intel® Core™ Processors Based on Tiger Lake Microarchitecture
 supported_cpu:
-- 06_8DH
 - 06_8CH
+- 06_8DH
 msr:
 - value: A0H
   name: MSR_BIOS_MCU_ERRORCODE

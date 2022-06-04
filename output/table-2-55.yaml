@@ -2,7 +2,12 @@
 name: Table 2-55
 full_name: Table 2-55. MSRs in the Pentium® 4 and Intel® Xeon® Processors
 supported_cpu:
-- 0FH
+- 0F_01H
+- 0F_02H
+- 0F_03H
+- 0F_04H
+- 0F_06H
+- 0F_0H
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR

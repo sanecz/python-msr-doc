@@ -2,8 +2,8 @@
 name: Table 2-37
 full_name: Table 2-37. Additional MSRs Supported by Intel® Xeon® Processor D with DisplayFamily_DisplayModel 06_56H
 supported_cpu:
-- 06_56H
 - 06_4FH
+- 06_56H
 msr:
 - value: 1ACH
   name: MSR_TURBO_RATIO_LIMIT3

@@ -3,8 +3,8 @@ name: Table 2-7
 full_name: Table 2-7. MSRs Common to the Silvermont and Airmont Microarchitectures
 supported_cpu:
 - 06_37H
-- 06_4DH
 - 06_4AH
+- 06_4DH
 - 06_5AH
 - 06_5DH
 msr:

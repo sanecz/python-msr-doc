@@ -2,8 +2,14 @@
 name: Table 2-60
 full_name: Table 2-60. MSRs in the P6 Family Processors
 supported_cpu:
-- P6
-- Family
+- 06_01H
+- 06_03H
+- 06_05H
+- 06_06H
+- 06_07H
+- 06_08H
+- 06_0AH
+- 06_0BH
 msr:
 - value: 0H
   name: P5_MC_ADDR

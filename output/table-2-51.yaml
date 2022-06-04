@@ -2,8 +2,8 @@
 name: Table 2-51
 full_name: Table 2-51. MSRs Supported by 3rd Generation Intel® Xeon® Processor Scalable Family with DisplayFamily_DisplayModel Signatures of 06_6AH and 06_6CH
 supported_cpu:
-- 06_6CH
 - 06_6AH
+- 06_6CH
 msr:
 - value: 612H1554
   name: Package

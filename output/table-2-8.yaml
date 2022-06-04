@@ -4,9 +4,9 @@ full_name: Table 2-8. Specific MSRs Supported by Intel Atom® Processors with CP
 supported_cpu:
 - 06_37H
 - 06_4AH
+- 06_4CH
 - 06_5AH
 - 06_5DH
-- 06_4CH
 msr:
 - value: CDH
   name: MSR_FSB_FREQ

@@ -2,8 +2,8 @@
 name: Table 2-36
 full_name: Table 2-36. Additional MSRs Common to Intel® Xeon® Processor D and Intel Xeon Processors E5 v4 Family Based on the Broadwell Microarchitecture
 supported_cpu:
-- 06_56H
 - 06_4FH
+- 06_56H
 msr:
 - value: 4EH
   name: IA32_PPIN_CTL

@@ -3,10 +3,10 @@ name: Table 2-6
 full_name: Table 2-6. MSRs Common to the Silvermont Microarchitecture and Newer Microarchitectures for Intel Atom® Processors
 supported_cpu:
 - 06_37H
-- 06_4DH
-- 06_5CH
 - 06_4AH
+- 06_4DH
 - 06_5AH
+- 06_5CH
 - 06_5DH
 - 06_7AH
 msr:

@@ -2,8 +2,8 @@
 name: Table 2-41
 full_name: Table 2-41. Additional MSRs Supported by 7th Generation and 8th Generation Intel® Core™ Processors Based on Kaby Lake Microarchitecture and Coffee Lake Microarchitecture
 supported_cpu:
-- 06_9EH
 - 06_8EH
+- 06_9EH
 msr:
 - value: 80H
   name: MSR_TRACE_HUB_STH_ACPIBAR_BASE
