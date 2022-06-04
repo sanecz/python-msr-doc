@@ -70,9 +70,6 @@ msr:
 TODO:
 - [ ] README :)
 - [ ] Verify that displayname / family is correct for all tables
-- [ ] Properly reformat `access`
-- [ ] P6 Family -> correct format / in supported cpus p6 family is splitted on space...
-- [ ] Patches
 - [ ] Table 2-53 is badly formatted on the pdf
 - [ ] 18BH-18FH manualk patch for MSR_MCG_RESERVED1 to MSR_MCG_RESERVED5
 - [ ] Table 2-23 p197 give package instead of msr_error_control in register name
