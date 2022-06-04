@@ -1,6 +1,9 @@
 ## Running it
 
-This might take a lot amount of ram to parse the whole PDF (~10G)
+This might take a lot amount of ram to parse the whole PDF ~19G
+
+3m50 to run the msr.py on a 2x Xeon E5-2678v3 @2.50Ghz
+
 
 ```
 pip install -r requirements.txt
@@ -16,7 +19,7 @@ Because I ended up too many times reading the wrong table for the MSR I was sear
 This can help but the man is still the source of truth.
 
 Source used: Intel® 64 and IA-32 Architectures Software Developer’s Manual
-Volume 4: Model-Specific Registers October 2019.
+Volume 4: Model-Specific Registers April 2022.
 
 This has not been tested with other versions and might break and/or display wrong results.
 
@@ -74,4 +77,3 @@ TODO:
 - [ ] 18BH-18FH manualk patch for MSR_MCG_RESERVED1 to MSR_MCG_RESERVED5
 - [ ] Table 2-23 p197 give package instead of msr_error_control in register name
 - [ ] Table 2-6 p96 broken AF
-- [ ] MSR_PPERF shown in supported cpu
