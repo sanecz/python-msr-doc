@@ -5,9 +5,6 @@ supported_cpu:
 - 06_3CH
 - 06_45H
 - 06_46H
-- 06_4EH
-- 06_5EH
-- MSR_PPERF
 msr:
 - value: E2H
   name: MSR_PKG_CST_CONFIG_CONTROL

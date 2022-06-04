@@ -7,7 +7,6 @@ supported_cpu:
 - 06_1FH
 - 06_25H
 - 06_2CH
-- 06_2DH
 - 06_2EH
 - 06_2FH
 msr:
