@@ -580,6 +580,12 @@ def parse_cpus(path: str, cpu_list: Set[str], table_list: List[Table]) -> None:
                     table_name = next(elem_iterator).text()
                 else:
                     cpu_list, table_name = list(filter(lambda x: x.strip(), text.split(".")))
+            elif "H," in text:
+                # like we have "XX_XXH, YY_YYH" instead of the msr name
+                #        match here  ^^
+                # broken case
+                cpu_list = text.replace("\n", "").split(".")[0]
+                table_name = next(elem_iterator).text().replace("\n", "")
             else:
                 logger.debug("Nothing found in text %s" % text)
                 # nothing to see here, probably msr name
@@ -592,7 +598,7 @@ def parse_cpus(path: str, cpu_list: Set[str], table_list: List[Table]) -> None:
             if "and" in table_name:
                 table_name_list.append(next(elem_iterator).text())
 
-            cpu_list = [cpu.strip() for cpu in cpu_list.split(",")]
+            cpu_list = [cpu.strip() for cpu in cpu_list.strip().split(",") if cpu.strip()]
 
             if "0FH" in cpu_list:
                 # replace by the whole family
