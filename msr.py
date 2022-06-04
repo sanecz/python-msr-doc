@@ -239,6 +239,10 @@ class MSR(MSRDescription):
     def __init__(self, data: List[str], header: List[str]):
         self.parse(header, data)
         self.value = strip_spaces(data[0]).replace(" ", "")
+        if "SeeTable" in self.value:
+            # sometime there is a cell with "See Table xx for other msr"
+            # so we trash this cell
+            raise ParseMSRException(f"Invalid value name: {data[0]}")
         # TODO: test if value is hex or hex and contains "_"
         # TODO: otherwise raise Exception (i.e end of table 2-23)
 
@@ -611,6 +615,8 @@ def parse_cpus(path: str, cpu_list: Set[str], table_list: List[Table]) -> None:
                 cpu_list.pop(cpu_list.index("P6 Family"))
                 cpu_list.extend(P6_FAMILY)
 
+            # cleanup bad cpuid
+            cpu_list = [cpu if "H" in cpu else f"{cpu}H" for cpu in cpu_list]
 
             for table_name in table_name_list:
                 table = get_table_by_name(table_list, table_name.replace("See", "").strip())
