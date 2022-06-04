@@ -2,9 +2,16 @@
 name: Table 2-29
 full_name: Table 2-29. Additional MSRs Supported by Processors based on the Haswell or Haswell-E microarchitectures
 supported_cpu:
+- 06_7DH
+- 06_56H
 - 06_3CH
-- 06_46H
+- 06_8EH
 - 06_45H
+- 06_7EH
+- 06_66H
+- 06_9EH
+- 06_46H
+- 06_5EH
 msr:
 - value: 3BH59
   name: Thread

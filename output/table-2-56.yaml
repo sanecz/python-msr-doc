@@ -1,0 +1,75 @@
+---
+name: Table 2-56
+full_name: Table 2-56. MSRs Unique to 64-bit Intel® Xeon® Processor MP with Up to an 8 MB L3 Cache
+supported_cpu:
+- 0F_03H
+- 0F_04H
+msr:
+- value: 107CDH
+  name: MSR_IFSB_BUSQ1
+  shared: Shared
+  access: R/W
+  description: IFSB BUSQ Event Control and Counter Register
+  model_availability:
+  - 3
+  - 4
+- value: 107CEH
+  name: MSR_IFSB_SNPQ0
+  shared: Shared
+  access: R/W
+  description: IFSB SNPQ Event Control and Counter Register
+  long_description: IFSB SNPQ Event Control and Counter Register See Section 19.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
+  see_section:
+  - 19.6.6
+  model_availability:
+  - 3
+  - 4
+- value: 107CFH
+  name: MSR_IFSB_SNPQ1
+  shared: Shared
+  access: R/W
+  description: IFSB SNPQ Event Control and Counter Register
+  model_availability:
+  - 3
+  - 4
+- value: 107D0H
+  name: MSR_EFSB_DRDY0
+  shared: Shared
+  access: R/W
+  description: EFSB DRDY Event Control and Counter Register
+  long_description: EFSB DRDY Event Control and Counter Register See Section 19.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
+  see_section:
+  - 19.6.6
+  model_availability:
+  - 3
+  - 4
+- value: 107D1H
+  name: MSR_EFSB_DRDY1
+  shared: Shared
+  access: R/W
+  description: EFSB DRDY Event Control and Counter Register
+  model_availability:
+  - 3
+  - 4
+- value: 107D2H
+  name: MSR_IFSB_CTL6
+  shared: Shared
+  access: R/W
+  description: IFSB Latency Event Control Register
+  long_description: IFSB Latency Event Control Register See Section 19.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
+  see_section:
+  - 19.6.6
+  model_availability:
+  - 3
+  - 4
+- value: 107D3H
+  name: MSR_IFSB_CNTR7
+  shared: Shared
+  access: R/W
+  description: IFSB Latency Event Counter Register
+  long_description: IFSB Latency Event Counter Register See Section 19.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
+  see_section:
+  - 19.6.6
+  model_availability:
+  - 3
+  - 4

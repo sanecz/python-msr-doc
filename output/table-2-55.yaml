@@ -2808,3 +2808,621 @@ msr:
   - 3
   - 4
   - 6
+- value: 40FH
+  name: IA32_MC3_MISC
+  shared: Shared
+  description: See Section 15.3.2.4
+  long_description: See Section 15.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC3_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.4
+  model_availability:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 6
+- value: 410H
+  name: IA32_MC4_CTL
+  shared: Shared
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+  model_availability:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 6
+- value: 411H
+  name: IA32_MC4_STATUS
+  shared: Shared
+  description: See Section 15.3.2.2
+  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS.”
+  see_section:
+  - 15.3.2.2
+  model_availability:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 6
+- value: 412H
+  name: IA32_MC4_ADDR
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 413H
+  name: IA32_MC4_MISC
+  description: See Section 15.3.2.4
+  long_description: See Section 15.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC2_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.4
+- value: 480H
+  name: IA32_VMX_BASIC
+  shared: Unique
+  access: R/O
+  description: Reporting Register of Basic VMX Capabilities
+  long_description: Reporting Register of Basic VMX Capabilities See Table 2-2. See Appendix A.1, “Basic VMX Information.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.1
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 481H
+  name: IA32_VMX_PINBASED_CTLS
+  shared: Unique
+  access: R/O
+  description: Capability Reporting Register of Pin-Based
+  long_description: Capability Reporting Register of Pin-Based VM-Execution Controls See Table 2-2. See Appendix A.3, “VM-Execution Controls.”
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.3
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 482H
+  name: IA32_VMX_PROCBASED_CTLS
+  shared: Unique
+  access: R/O
+  description: Capability Reporting Register of Primary
+  long_description: Capability Reporting Register of Primary Processor-Based VM-Execution Controls See Appendix A.3, “VM-Execution Controls,” and see Table 2-2.
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.3
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 483H
+  name: IA32_VMX_EXIT_CTLS
+  shared: Unique
+  access: R/O
+  description: Capability Reporting Register of VM-Exit
+  long_description: Capability Reporting Register of VM-Exit Controls See Appendix A.4, “VM-Exit Controls,” and see Table 2-2.
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.4
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 484H
+  name: IA32_VMX_ENTRY_CTLS
+  shared: Unique
+  access: R/O
+  description: Capability Reporting Register of VM-Entry
+  long_description: Capability Reporting Register of VM-Entry Controls See Appendix A.5, “VM-Entry Controls,” and see Table 2-2.
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.5
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 485H
+  name: IA32_VMX_MISC
+  shared: Unique
+  access: R/O
+  description: Reporting Register of Miscellaneous VMX
+  long_description: Reporting Register of Miscellaneous VMX Capabilities See Appendix A.6, “Miscellaneous Data,” and see Table 2-2.
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.6
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 486H
+  name: IA32_VMX_CR0_FIXED0
+  shared: Unique
+  access: R/O
+  description: Capability Reporting Register of CR0 Bits Fixed
+  long_description: Capability Reporting Register of CR0 Bits Fixed to 0 See Appendix A.7, “VMX-Fixed Bits in CR0,” and see Table 2-2.
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.7
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 487H
+  name: IA32_VMX_CR0_FIXED1
+  shared: Unique
+  access: R/O
+  description: Capability Reporting Register of CR0 Bits Fixed
+  long_description: Capability Reporting Register of CR0 Bits Fixed to 1 See Appendix A.7, “VMX-Fixed Bits in CR0,” and see Table 2-2.
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.7
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 488H
+  name: IA32_VMX_CR4_FIXED0
+  shared: Unique
+  access: R/O
+  description: Capability Reporting Register of CR4 Bits Fixed
+  long_description: Capability Reporting Register of CR4 Bits Fixed to 0 See Appendix A.8, “VMX-Fixed Bits in CR4,” and see Table 2-2.
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.8
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 489H
+  name: IA32_VMX_CR4_FIXED1
+  shared: Unique
+  access: R/O
+  description: Capability Reporting Register of CR4 Bits Fixed
+  long_description: Capability Reporting Register of CR4 Bits Fixed to 1 See Appendix A.8, “VMX-Fixed Bits in CR4,” and see Table 2-2.
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.8
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 48AH
+  name: IA32_VMX_VMCS_ENUM
+  shared: Unique
+  access: R/O
+  description: Capability Reporting Register of VMCS Field
+  long_description: Capability Reporting Register of VMCS Field Enumeration See Appendix A.9, “VMCS Enumeration,” and see Table 2-2.
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.9
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 48BH
+  name: IA32_VMX_PROCBASED_CTLS2
+  shared: Unique
+  access: R/O
+  description: Capability Reporting Register of Secondary
+  long_description: Capability Reporting Register of Secondary Processor-Based VM-Execution Controls See Appendix A.3, “VM-Execution Controls,” and see Table 2-2.
+  see_table:
+  - 2-2
+  see_appendix:
+  - A.3
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 600H
+  name: IA32_DS_AREA
+  shared: Unique
+  access: R/W
+  description: DS Save Area
+  long_description: DS Save Area See Table 2-2. See Section 19.6.3.4, “Debug Store (DS) Mechanism.”
+  see_table:
+  - 2-2
+  see_section:
+  - 19.6.3.4
+  model_availability:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 6
+- value: 680H
+  name: MSR_LASTBRANCH_0_FROM_IP
+  bitfields:
+  - long_description: The MSRs at 680H-68FH, 6C0H-6CfH are not available in processor releases before family 0FH, model 03H. These MSRs replace MSRs previously located at 1DBH-1DEH.which performed the same function for early releases. See Section 17.12, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Skylake Microarchitecture.”
+    description: The MSRs at 680H-68FH
+    see_section:
+    - '17.12'
+  shared: Unique
+  access: R/W
+  description: Last Branch Record 0
+  long_description: Last Branch Record 0 One of 16 pairs of last branch record registers on the last branch record stack (680H-68FH). This part of the stack contains pointers to the source instruction for one of the last 16 branches, exceptions, or interrupts taken by the processor.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 681H
+  name: MSR_LASTBRANCH_1_FROM_IP
+  shared: Unique
+  description: Last Branch Record 1
+  long_description: Last Branch Record 1 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 682H
+  name: MSR_LASTBRANCH_2_FROM_IP
+  shared: Unique
+  description: Last Branch Record 2
+  long_description: Last Branch Record 2 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 683H
+  name: MSR_LASTBRANCH_3_FROM_IP
+  shared: Unique
+  description: Last Branch Record 3
+  long_description: Last Branch Record 3 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 684H
+  name: MSR_LASTBRANCH_4_FROM_IP
+  shared: Unique
+  description: Last Branch Record 4
+  long_description: Last Branch Record 4 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 685H
+  name: MSR_LASTBRANCH_5_FROM_IP
+  shared: Unique
+  description: Last Branch Record 5
+  long_description: Last Branch Record 5 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 686H
+  name: MSR_LASTBRANCH_6_FROM_IP
+  shared: Unique
+  description: Last Branch Record 6
+  long_description: Last Branch Record 6 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 687H
+  name: MSR_LASTBRANCH_7_FROM_IP
+  shared: Unique
+  description: Last Branch Record 7
+  long_description: Last Branch Record 7 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 688H
+  name: MSR_LASTBRANCH_8_FROM_IP
+  shared: Unique
+  description: Last Branch Record 8
+  long_description: Last Branch Record 8 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 689H
+  name: MSR_LASTBRANCH_9_FROM_IP
+  shared: Unique
+  description: Last Branch Record 9
+  long_description: Last Branch Record 9 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 68AH
+  name: MSR_LASTBRANCH_10_FROM_IP
+  shared: Unique
+  description: Last Branch Record 10
+  long_description: Last Branch Record 10 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 68BH
+  name: MSR_LASTBRANCH_11_FROM_IP
+  shared: Unique
+  description: Last Branch Record 11
+  long_description: Last Branch Record 11 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 68CH
+  name: MSR_LASTBRANCH_12_FROM_IP
+  shared: Unique
+  description: Last Branch Record 12
+  long_description: Last Branch Record 12 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 68DH
+  name: MSR_LASTBRANCH_13_FROM_IP
+  shared: Unique
+  description: Last Branch Record 13
+  long_description: Last Branch Record 13 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 68EH
+  name: MSR_LASTBRANCH_14_FROM_IP
+  shared: Unique
+  description: Last Branch Record 14
+  long_description: Last Branch Record 14 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 68FH
+  name: MSR_LASTBRANCH_15_FROM_IP
+  shared: Unique
+  description: Last Branch Record 15
+  long_description: Last Branch Record 15 See description of MSR_LASTBRANCH_0 at 680H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6C0H
+  name: MSR_LASTBRANCH_0_TO_IP
+  shared: Unique
+  access: R/W
+  description: Last Branch Record 0
+  long_description: Last Branch Record 0 One of 16 pairs of last branch record registers on the last branch record stack (6C0H-6CFH). This part of the stack contains pointers to the destination instruction for one of the last 16 branches, exceptions, or interrupts that the processor took. See Section 17.12, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Skylake Microarchitecture.”
+  see_section:
+  - '17.12'
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6C1H
+  name: MSR_LASTBRANCH_1_TO_IP
+  shared: Unique
+  description: Last Branch Record 1
+  long_description: Last Branch Record 1 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6C2H
+  name: MSR_LASTBRANCH_2_TO_IP
+  shared: Unique
+  description: Last Branch Record 2
+  long_description: Last Branch Record 2 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6C3H
+  name: MSR_LASTBRANCH_3_TO_IP
+  shared: Unique
+  description: Last Branch Record 3
+  long_description: Last Branch Record 3 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6C4H
+  name: MSR_LASTBRANCH_4_TO_IP
+  shared: Unique
+  description: Last Branch Record 4
+  long_description: Last Branch Record 4 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6C5H
+  name: MSR_LASTBRANCH_5_TO_IP
+  shared: Unique
+  description: Last Branch Record 5
+  long_description: Last Branch Record 5 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6C6H
+  name: MSR_LASTBRANCH_6_TO_IP
+  shared: Unique
+  description: Last Branch Record 6
+  long_description: Last Branch Record 6 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6C7H
+  name: MSR_LASTBRANCH_7_TO_IP
+  shared: Unique
+  description: Last Branch Record 7
+  long_description: Last Branch Record 7 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6C8H
+  name: MSR_LASTBRANCH_8_TO_IP
+  shared: Unique
+  description: Last Branch Record 8
+  long_description: Last Branch Record 8 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6C9H
+  name: MSR_LASTBRANCH_9_TO_IP
+  shared: Unique
+  description: Last Branch Record 9
+  long_description: Last Branch Record 9 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6CAH
+  name: MSR_LASTBRANCH_10_TO_IP
+  shared: Unique
+  description: Last Branch Record 10
+  long_description: Last Branch Record 10 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6CBH
+  name: MSR_LASTBRANCH_11_TO_IP
+  shared: Unique
+  description: Last Branch Record 11
+  long_description: Last Branch Record 11 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6CCH
+  name: MSR_LASTBRANCH_12_TO_IP
+  shared: Unique
+  description: Last Branch Record 12
+  long_description: Last Branch Record 12 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6CDH
+  name: MSR_LASTBRANCH_13_TO_IP
+  shared: Unique
+  description: Last Branch Record 13
+  long_description: Last Branch Record 13 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6CEH
+  name: MSR_LASTBRANCH_14_TO_IP
+  shared: Unique
+  description: Last Branch Record 14
+  long_description: Last Branch Record 14 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: 6CFH
+  name: MSR_LASTBRANCH_15_TO_IP
+  shared: Unique
+  description: Last Branch Record 15
+  long_description: Last Branch Record 15 See description of MSR_LASTBRANCH_0 at 6C0H.
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: C000_0080H
+  name: IA32_EFER
+  shared: Unique
+  description: Extended Feature Enables
+  long_description: Extended Feature Enables See Table 2-2.
+  see_table:
+  - 2-2
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: C000_0081H
+  name: IA32_STAR
+  shared: Unique
+  access: R/W
+  description: System Call Target Address
+  long_description: System Call Target Address See Table 2-2.
+  see_table:
+  - 2-2
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: C000_0082H
+  name: IA32_LSTAR
+  shared: Unique
+  access: R/W
+  description: IA-32e Mode System Call Target Address
+  long_description: IA-32e Mode System Call Target Address See Table 2-2.
+  see_table:
+  - 2-2
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: C000_0084H
+  name: IA32_FMASK
+  shared: Unique
+  access: R/W
+  description: System Call Flag Mask
+  long_description: System Call Flag Mask See Table 2-2.
+  see_table:
+  - 2-2
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: C000_0100H
+  name: IA32_FS_BASE
+  shared: Unique
+  access: R/W
+  description: Map of BASE Address of FS
+  long_description: Map of BASE Address of FS See Table 2-2.
+  see_table:
+  - 2-2
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: C000_0101H
+  name: IA32_GS_BASE
+  shared: Unique
+  access: R/W
+  description: Map of BASE Address of GS
+  long_description: Map of BASE Address of GS See Table 2-2.
+  see_table:
+  - 2-2
+  model_availability:
+  - 3
+  - 4
+  - 6
+- value: C000_0102H
+  name: IA32_KERNEL_GS_BASE
+  shared: Unique
+  access: R/W
+  description: Swap Target of BASE Address of GS
+  long_description: Swap Target of BASE Address of GS See Table 2-2.
+  see_table:
+  - 2-2
+  model_availability:
+  - 3
+  - 4
+  - 6

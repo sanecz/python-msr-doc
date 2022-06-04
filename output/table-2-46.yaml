@@ -1,7 +1,10 @@
 ---
 name: Table 2-46
 full_name: Table 2-46. Additional MSRs Supported by 12th Generation Intel® Core™ Processors Supporting Performance Hybrid Architecture
-supported_cpu: []
+supported_cpu:
+- 06_BFH
+- 06_9AH
+- 06_97H
 msr:
 - value: 33H
   name: MSR_MEMORY_CTRL

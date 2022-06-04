@@ -2,10 +2,10 @@
 name: Table 2-16
 full_name: Table 2-16. Additional MSRs in Intel® Xeon® Processor 5500 and 3400 Series
 supported_cpu:
-- 06_1AH
 - 06_25H
-- 06_2CH
+- 06_1AH
 - 06_1FH
+- 06_2CH
 - 06_1EH
 msr:
 - value: 1ADH

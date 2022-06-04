@@ -1,0 +1,435 @@
+---
+name: Table 2-59
+full_name: Table 2-59. MSRs in Pentium M Processors
+supported_cpu:
+- 06_09H
+msr:
+- value: 0H0
+  name: P5_MC_ADDR
+  description: See Section 2.23
+  see_section:
+  - '2.23'
+- value: 1H
+  name: P5_MC_TYPE
+  description: See Section 2.23
+  see_section:
+  - '2.23'
+- value: 10H
+  name: IA32_TIME_STAMP_COUNTER
+  description: See Section 17.17
+  see_table:
+  - 2-2
+  see_section:
+  - '17.17'
+- value: 17H
+  name: IA32_PLATFORM_ID
+  access: R
+  description: Platform ID
+  long_description: Platform ID See Table 2-2. The operating system can use this MSR to determine “slot” information for the processor and the proper microcode update to load.
+  see_table:
+  - 2-2
+- value: 2AH
+  name: MSR_EBL_CR_POWERON
+  bitfields:
+  - bit: '0'
+    description: Reserved
+  - bit: '1'
+    access: R
+    long_description: Data Error Checking Enable 0 = Disabled Always 0 on the Pentium M processor.
+    description: Data Error Checking Enable
+  - bit: '2'
+    access: R
+    long_description: Response Error Checking Enable 0 = Disabled Always 0 on the Pentium M processor.
+    description: Response Error Checking Enable
+  - bit: '3'
+    access: R
+    long_description: MCERR# Drive Enable 0 = Disabled Always 0 on the Pentium M processor.
+    description: MCERR# Drive Enable
+  - bit: '4'
+    access: R
+    long_description: Address Parity Enable 0 = Disabled Always 0 on the Pentium M processor.
+    description: Address Parity Enable
+  - bit: '6:5'
+    description: Reserved
+  - bit: '7'
+    access: R
+    long_description: BINIT# Driver Enable 1 = Enabled; 0 = Disabled Always 0 on the Pentium M processor.
+    description: BINIT# Driver Enable
+  - bit: '8'
+    access: R/O
+    long_description: Output Tri-state Enabled 1 = Enabled; 0 = Disabled
+    description: Output Tri-state Enabled
+  - bit: '9'
+    access: R/O
+    long_description: Execute BIST 1 = Enabled; 0 = Disabled
+    description: Execute BIST
+  - bit: '10'
+    access: R/O
+    long_description: MCERR# Observation Enabled 1 = Enabled; 0 = Disabled Always 0 on the Pentium M processor.
+    description: MCERR# Observation Enabled
+  - bit: '11'
+    description: Reserved
+  - bit: '12'
+    access: R/O
+    long_description: BINIT# Observation Enabled 1 = Enabled; 0 = Disabled Always 0 on the Pentium M processor.
+    description: BINIT# Observation Enabled
+  - bit: '13'
+    description: Reserved
+  - bit: '14'
+    access: R/O
+    long_description: 1 MByte Power on Reset Vector 1 = 1 MByte; 0 = 4 GBytes Always 0 on the Pentium M processor.
+    description: 1 MByte Power on Reset Vector
+  - bit: '15'
+    description: Reserved
+  - bit: '17:16'
+    access: R/O
+    long_description: APIC Cluster ID Always 00B on the Pentium M processor.
+    description: APIC Cluster ID
+  - bit: '18'
+    access: R/O
+    long_description: System Bus Frequency 0 = 100 MHz 1 = Reserved Always 0 on the Pentium M processor.
+    description: System Bus Frequency
+  - bit: '19'
+    description: Reserved
+  - bit: '21: 20'
+    access: R/O
+    long_description: Symmetric Arbitration ID Always 00B on the Pentium M processor.
+    description: Symmetric Arbitration ID
+  - bit: '26:22'
+    access: R/O
+    description: Clock Frequency Ratio
+  access: R/W
+  description: Processor Hard Power-On Configuration
+  long_description: Processor Hard Power-On Configuration Enables and disables processor features. (R) Indicates current processor configuration.
+- value: 40H
+  name: MSR_LASTBRANCH_0
+  access: R/W
+  description: Last Branch Record 0
+  long_description: 'Last Branch Record 0 One of 8 last branch record registers on the last branch record stack: bits 31-0 hold the ‘from’ address and bits 63-32 hold the to address. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.15, “Last Branch, Interrupt, and Exception Recording (Pentium M Processors)”.'
+  see_section:
+  - '17.15'
+- value: 41H
+  name: MSR_LASTBRANCH_1
+  access: R/W
+  description: Last Branch Record 1
+  long_description: Last Branch Record 1 See description of MSR_LASTBRANCH_0.
+- value: 42H
+  name: MSR_LASTBRANCH_2
+  access: R/W
+  description: Last Branch Record 2
+  long_description: Last Branch Record 2 See description of MSR_LASTBRANCH_0.
+- value: 43H
+  name: MSR_LASTBRANCH_3
+  access: R/W
+  description: Last Branch Record 3
+  long_description: Last Branch Record 3 See description of MSR_LASTBRANCH_0.
+- value: 44H
+  name: MSR_LASTBRANCH_4
+  access: R/W
+  description: Last Branch Record 4
+  long_description: Last Branch Record 4 See description of MSR_LASTBRANCH_0.
+- value: 45H
+  name: MSR_LASTBRANCH_5
+  access: R/W
+  description: Last Branch Record 5
+  long_description: Last Branch Record 5 See description of MSR_LASTBRANCH_0.
+- value: 46H
+  name: MSR_LASTBRANCH_6
+  access: R/W
+  description: Last Branch Record 6
+  long_description: Last Branch Record 6 See description of MSR_LASTBRANCH_0.
+- value: 47H
+  name: MSR_LASTBRANCH_7
+  access: R/W
+  description: Last Branch Record 7
+  long_description: Last Branch Record 7 See description of MSR_LASTBRANCH_0.
+- value: 119H
+  name: MSR_BBL_CR_CTL
+  bitfields:
+  - bit: '63:0'
+    description: Reserved
+  description: Control Register
+  long_description: Control Register Used to program L2 commands to be issued via cache configuration accesses mechanism. Also receives L2 lookup response.
+- value: 11EH
+  name: MSR_BBL_CR_CTL3
+  bitfields:
+  - bit: '0'
+    access: R/O
+    long_description: L2 Hardware Enabled 1 = If the L2 is hardware-enabled. 0 = Indicates if the L2 is hardware-disabled.
+    description: L2 Hardware Enabled
+  - bit: '4:1'
+    description: Reserved
+  - bit: '5'
+    access: R/O
+    long_description: ECC Check Enable This bit enables ECC checking on the cache data bus. ECC is always generated on write cycles. 0 = Disabled (default) 1 = Enabled For the Pentium M processor, ECC checking on the cache data bus is always enabled.
+    description: ECC Check Enable
+  - bit: '7:6'
+    description: Reserved
+  - bit: '8'
+    access: R/W
+    long_description: L2 Enabled 1 = L2 cache has been initialized 0 = Disabled (default) Until this bit is set the processor will not respond to the WBINVD instruction or the assertion of the FLUSH# input.
+    description: L2 Enabled
+  - bit: '22:9'
+    description: Reserved
+  - bit: '23'
+    access: R/O
+    long_description: L2 Not Present 0 = L2 Present 1 = L2 Not Present
+    description: L2 Not Present
+  - bit: '63:24'
+    description: Reserved
+  description: Control register 3
+  long_description: Control register 3 Used to configure the L2 Cache.
+- value: 179H
+  name: IA32_MCG_CAP
+  bitfields:
+  - bit: '7:0'
+    access: R/O
+    long_description: Count Indicates the number of hardware unit error reporting banks available in the processor.
+    description: Count
+  - bit: '8'
+    access: R/O
+    long_description: IA32_MCG_CTL Present 1 = Indicates that the processor implements the MSR_MCG_CTL register found at MSR 17BH. 0 = Not supported.
+    description: IA32_MCG_CTL Present
+  - bit: '63:9'
+    description: Reserved
+  description: Read-only register that provides information about the machine-check
+  long_description: Read-only register that provides information about the machine-check architecture of the processor.
+- value: 17AH
+  name: IA32_MCG_STATUS
+  bitfields:
+  - bit: '0'
+    long_description: RIPV When set, this bit indicates that the instruction addressed by the instruction pointer pushed on the stack (when the machine check was generated) can be used to restart the program. If this bit is cleared, the program cannot be reliably restarted.
+    description: RIPV
+  - bit: '1'
+    long_description: EIPV When set, this bit indicates that the instruction addressed by the instruction pointer pushed on the stack (when the machine check was generated) is directly associated with the error.
+    description: EIPV
+  - bit: '2'
+    long_description: MCIP When set, this bit indicates that a machine check has been generated. If a second machine check is detected while this bit is still set, the processor enters a shutdown state. Software should write this bit to 0 after processing a machine check exception.
+    description: MCIP
+  - bit: '63:3'
+    description: Reserved
+  description: Global Machine Check Status
+- value: 198H
+  name: IA32_PERF_STATUS
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 199H
+  name: IA32_PERF_CTL
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 19AH
+  name: IA32_CLOCK_MODULATION
+  access: R/W
+  description: Clock Modulation
+  long_description: Clock Modulation . See Table 2-2. See Section 14.8.3, “Software Controlled Clock Modulation.”
+  see_table:
+  - 2-2
+  see_section:
+  - 14.8.3
+- value: 19BH
+  name: IA32_THERM_INTERRUPT
+  access: R/W
+  description: Thermal Interrupt Control
+  long_description: Thermal Interrupt Control See Table 2-2. See Section 14.8.2, “Thermal Monitor.”
+  see_table:
+  - 2-2
+  see_section:
+  - 14.8.2
+- value: 19CH
+  name: IA32_THERM_STATUS
+  access: R/W
+  description: Thermal Monitor Status
+  long_description: Thermal Monitor Status See Table 2-2. See Section 14.8.2, “Thermal Monitor.”
+  see_table:
+  - 2-2
+  see_section:
+  - 14.8.2
+- value: 19DH
+  name: MSR_THERM2_CTL
+  bitfields:
+  - bit: '15:0'
+    description: Reserved
+  - bit: '16'
+    access: R/W
+    long_description: 'TM_SELECT Mode of automatic thermal monitor: 0 = Thermal Monitor 1 (thermally-initiated on-die modulation of the stop-clock duty cycle) 1 = Thermal Monitor 2 (thermally-initiated frequency transitions) If bit 3 of the IA32_MISC_ENABLE register is cleared, TM_SELECT has no effect. Neither TM1 nor TM2 will be enabled.'
+    description: TM_SELECT
+  - bit: '63:16'
+    description: Reserved
+  description: Thermal Monitor 2 Control
+- value: 1A0H
+  name: IA32_MISC_ENABLE
+  bitfields:
+  - bit: '2:0'
+    description: Reserved
+  - bit: '3'
+    access: R/W
+    long_description: Automatic Thermal Control Circuit Enable 1 = Setting this bit enables the thermal control circuit (TCC) portion of the Intel Thermal Monitor feature. This allows processor clocks to be automatically modulated based on the processor's thermal sensor operation. 0 = Disabled (default). The automatic thermal control circuit enable bit determines if the thermal control circuit (TCC) will be activated when the processor's internal thermal sensor determines the processor is about to exceed its maximum operating temperature. When the TCC is activated and TM1 is enabled, the processors clocks will be forced to a 50% duty cycle. BIOS must enable this feature. The bit should not be confused with the on-demand thermal control circuit enable bit.
+    description: Automatic Thermal Control Circuit Enable
+  - bit: '6:4'
+    description: Reserved
+  - bit: '7'
+    access: R
+    long_description: Performance Monitoring Available 1 = Performance monitoring enabled. 0 = Performance monitoring disabled.
+    description: Performance Monitoring Available
+  - bit: '9:8'
+    description: Reserved
+  - bit: '10'
+    access: R/W
+    long_description: FERR# Multiplexing Enable 1 = FERR# asserted by the processor to indicate a pending break event within the processor. 0 = Indicates compatible FERR# signaling behavior. This bit must be set to 1 to support XAPIC interrupt model usage.
+    description: FERR# Multiplexing Enable
+  - access: R/O
+    long_description: Branch Trace Storage Unavailable 1 = Processor doesn’t support branch trace storage (BTS) 0 = BTS is supported
+    description: Branch Trace Storage Unavailable
+  - bit: '12'
+    access: R/O
+    long_description: Processor Event Based Sampling Unavailable 1 = Processor does not support processor event based sampling (PEBS); 0 = PEBS is supported. The Pentium M processor does not support PEBS.
+    description: Processor Event Based Sampling Unavailable
+  - bit: '15:13'
+    description: Reserved
+  - bit: '16'
+    access: R/W
+    long_description: Enhanced Intel SpeedStep Technology Enable 1 = Enhanced Intel SpeedStep Technology enabled. On the Pentium M processor, this bit may be configured to be read-only.
+    description: Enhanced Intel SpeedStep Technology Enable
+  - bit: '22:17'
+    description: Reserved
+  - bit: '23'
+    access: R/W
+    long_description: xTPR Message Disable When set to 1, xTPR messages are disabled. xTPR messages are optional messages that allow the processor to inform the chipset of its priority. The default is processor specific.
+    description: xTPR Message Disable
+  - bit: '63:24'
+    description: Reserved
+  access: R/W
+  description: Enable Miscellaneous Processor Features
+  long_description: Enable Miscellaneous Processor Features Allows a variety of processor functions to be enabled and disabled.
+- value: 1C9H
+  name: MSR_LASTBRANCH_TOS
+  access: R/W
+  description: Last Branch Record Stack TOS
+  long_description: 'Last Branch Record Stack TOS Contains an index (bits 0-3) that points to the MSR containing the most recent branch record. See also: • MSR_LASTBRANCH_0_FROM_IP (at 40H). • Section 17.15, “Last Branch, Interrupt, and Exception Recording (Pentium M Processors)”.'
+  see_section:
+  - '17.15'
+- value: 1D9H
+  name: MSR_DEBUGCTLB
+  access: R/W
+  description: Debug Control
+  long_description: Debug Control Controls how several debug features are used. Bit definitions are discussed in the referenced section. See Section 17.15, “Last Branch, Interrupt, and Exception Recording (Pentium M Processors).”
+  see_section:
+  - '17.15'
+- value: 1DDH
+  name: MSR_LER_TO_LIP
+  access: R
+  description: Last Exception Record To Linear IP
+  long_description: Last Exception Record To Linear IP This area contains a pointer to the target of the last branch instruction that the processor executed prior to the last exception that was generated or the last interrupt that was handled. See Section 17.15, “Last Branch, Interrupt, and Exception Recording (Pentium M Processors)” and Section 17.16.2, “Last Branch and Last Exception MSRs.”
+  see_section:
+  - '17.15'
+  - 17.16.2
+- value: 1DEH
+  name: MSR_LER_FROM_LIP
+  access: R
+  description: Last Exception Record From Linear IP
+  long_description: Last Exception Record From Linear IP Contains a pointer to the last branch instruction that the processor executed prior to the last exception that was generated or the last interrupt that was handled. See Section 17.15, “Last Branch, Interrupt, and Exception Recording (Pentium M Processors)” and Section 17.16.2, “Last Branch and Last Exception MSRs.”
+  see_section:
+  - '17.15'
+  - 17.16.2
+- value: 2FFH
+  name: IA32_MTRR_DEF_TYPE
+  access: R/W
+  description: Default Memory Types
+  long_description: Default Memory Types Sets the memory type for the regions of physical memory that are not mapped by the MTRRs. See Section 11.11.2.1, “IA32_MTRR_DEF_TYPE MSR.”
+  see_section:
+  - 11.11.2.1
+- value: 400H
+  name: IA32_MC0_CTL
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 401H
+  name: IA32_MC0_STATUS
+  description: See Section 15.3.2.2
+  see_section:
+  - 15.3.2.2
+- value: 402H
+  name: IA32_MC0_ADDR
+  description: See Section 14.3.2.3.
+  long_description: See Section 14.3.2.3., “IA32_MCi_ADDR MSRs”. The IA32_MC0_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 14.3.2.3.
+- value: 404H
+  name: IA32_MC1_CTL
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 405H
+  name: IA32_MC1_STATUS
+  description: See Section 15.3.2.2
+  see_section:
+  - 15.3.2.2
+- value: 406H
+  name: IA32_MC1_ADDR
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC1_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC1_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 408H
+  name: IA32_MC2_CTL
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 409H
+  name: IA32_MC2_STATUS
+  description: See Chapter 15.3.2.2
+- value: 40AH
+  name: IA32_MC2_ADDR
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 40CH
+  name: MSR_MC4_CTL
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 40DH
+  name: MSR_MC4_STATUS
+  description: See Section 15.3.2.2
+  see_section:
+  - 15.3.2.2
+- value: 40EH
+  name: MSR_MC4_ADDR
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 410H
+  name: MSR_MC3_CTL
+  description: See Section 15.3.2.1
+  see_section:
+  - 15.3.2.1
+- value: 411H
+  name: MSR_MC3_STATUS
+  description: See Section 15.3.2.2
+  see_section:
+  - 15.3.2.2
+- value: 412H
+  name: MSR_MC3_ADDR
+  description: See Section 15.3.2.3
+  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC3_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  see_section:
+  - 15.3.2.3
+- value: 600H
+  name: IA32_DS_AREA
+  bitfields:
+  - bit: '31:0'
+    long_description: DS Buffer Management Area Linear address of the first byte of the DS buffer management area.
+    description: DS Buffer Management Area
+  - bit: '63:32'
+    description: Reserved
+  access: R/W
+  description: DS Save Area
+  long_description: DS Save Area See Table 2-2. Points to the DS buffer management area, which is used to manage the BTS and PEBS buffers. See Section 19.6.3.4, “Debug Store (DS) Mechanism.”
+  see_table:
+  - 2-2
+  see_section:
+  - 19.6.3.4

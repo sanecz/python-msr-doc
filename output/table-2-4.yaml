@@ -2,11 +2,11 @@
 name: Table 2-4
 full_name: Table 2-4. MSRs in 45 nm and 32 nm Intel Atom® Processor Family
 supported_cpu:
+- 06_35H
+- 06_27H
+- 06_1CH
 - 06_36H
 - 06_26H
-- 06_35H
-- 06_1CH
-- 06_27H
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR

@@ -2,8 +2,8 @@
 name: Table 2-53
 full_name: Table 2-53. Selected MSRs Supported by Intel® Xeon Phi™ Processors with DisplayFamily_DisplayModel Signatures 06_57H and 06_85H
 supported_cpu:
-- 06_85H
 - 06_57H
+- 06_85H
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR

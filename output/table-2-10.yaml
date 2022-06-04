@@ -1,7 +1,8 @@
 ---
 name: Table 2-10
 full_name: Table 2-10. Specific MSRs Supported by Intel Atom® Processor C2000 Series with CPUID Signature 06_4DH
-supported_cpu: []
+supported_cpu:
+- 06_4DH
 msr:
 - value: 1A4H
   name: MSR_MISC_FEATURE_CONTROL

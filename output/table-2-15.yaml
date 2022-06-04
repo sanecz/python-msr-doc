@@ -2,13 +2,14 @@
 name: Table 2-15
 full_name: Table 2-15. MSRs in Processors Based on Nehalem Microarchitecture
 supported_cpu:
-- 06_2EH
-- 06_1AH
 - 06_25H
-- 06_2CH
-- 06_2FH
+- 06_2DH
+- 06_1AH
 - 06_1FH
 - 06_1EH
+- 06_2CH
+- 06_2FH
+- 06_2EH
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR

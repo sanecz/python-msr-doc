@@ -4,6 +4,7 @@ full_name: Table 2-12. MSRs in Intel Atom® Processors Based on the Goldmont Mic
 supported_cpu:
 - 06_5CH
 - 06_7AH
+- 06_86H
 msr:
 - value: 17H
   name: MSR_PLATFORM_ID

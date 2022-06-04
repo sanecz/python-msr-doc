@@ -2,8 +2,8 @@
 name: Table 2-3
 full_name: Table 2-3. MSRs in Processors Based on Intel® Core™ Microarchitecture
 supported_cpu:
-- 06_17H
 - 06_0FH
+- 06_17H
 msr:
 - value: 0H
   name: IA32_P5_MC_ADDR

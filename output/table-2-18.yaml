@@ -2,8 +2,8 @@
 name: Table 2-18
 full_name: Table 2-18. Additional MSRs Supported by Intel Processors Based on Westmere Microarchitecture
 supported_cpu:
-- 06_2CH
 - 06_25H
+- 06_2CH
 msr:
 - value: 13CH
   name: MSR_FEATURE_CONFIG

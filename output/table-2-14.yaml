@@ -1,7 +1,8 @@
 ---
 name: Table 2-14
 full_name: Table 2-14. MSRs in Intel Atom® Processors Based on the Tremont Microarchitecture
-supported_cpu: []
+supported_cpu:
+- 06_86H
 msr:
 - value: 33H
   name: MSR_MEMORY_CTRL

@@ -35,16 +35,3 @@ msr:
   scope: Core
   access: R/W
   description: Reload value for IA32_PMCx
-- value: 3BFH
-  name: MSR_SSU_ESCR1
-  shared: Shared
-  description: See Section 18.6.3.1, “ESCR MSRs.”
-  see_section:
-  - 18.6.3.1
-  model_availability:
-  - '0'
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '6'
