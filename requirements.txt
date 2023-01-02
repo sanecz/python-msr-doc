@@ -1,3 +1,4 @@
 camelot-py[base]
 pyyaml
 py-pdf-parser
+PyPDF2<3.0
