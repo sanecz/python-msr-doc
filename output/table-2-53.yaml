@@ -950,7 +950,7 @@ msr:
     access: R/O
     description: Package C3 Residency Counter
   scope: Package
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
 - value: 3F9H
   name: MSR_PKG_C6_RESIDENCY
@@ -973,7 +973,7 @@ msr:
     access: R/O
     description: Module C0 Residency Counter
   scope: Module
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
 - value: 3FDH
   name: MSR_MC6_RESIDENCY
@@ -989,7 +989,7 @@ msr:
     access: R/O
     description: CORE C6 Residency Counter
   scope: Core
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
 - value: 400H
   name: IA32_MC0_CTL
@@ -1143,7 +1143,7 @@ msr:
     access: R/O
     description: Package C2 Residency Counter
   scope: Package
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
 - value: 610H
   name: MSR_PKG_POWER_LIMIT

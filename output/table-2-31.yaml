@@ -51,7 +51,7 @@ msr:
   - bit: 63:60
     description: Reserved
   scope: Package
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
 - value: 631H
   name: MSR_PKG_C9_RESIDENCY
@@ -63,7 +63,7 @@ msr:
   - bit: 63:60
     description: Reserved
   scope: Package
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
 - value: 632H
   name: MSR_PKG_C10_RESIDENCY
@@ -75,5 +75,5 @@ msr:
   - bit: 63:60
     description: Reserved
   scope: Package
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'

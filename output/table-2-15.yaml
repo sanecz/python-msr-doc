@@ -1031,7 +1031,7 @@ msr:
     long_description: Package C3 Residency Counter Value since last reset that this package is in processor- specific C3 states. Count at the same frequency as the TSC.
     description: Package C3 Residency Counter
   scope: Package
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
 - value: 3F9H
   name: MSR_PKG_C6_RESIDENCY
@@ -1041,7 +1041,7 @@ msr:
     long_description: Package C6 Residency Counter Value since last reset that this package is in processor- specific C6 states. Count at the same frequency as the TSC.
     description: Package C6 Residency Counter
   scope: Package
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
 - value: 3FAH
   name: MSR_PKG_C7_RESIDENCY
@@ -1051,7 +1051,7 @@ msr:
     long_description: Package C7 Residency Counter Value since last reset that this package is in processor- specific C7 states. Count at the same frequency as the TSC.
     description: Package C7 Residency Counter
   scope: Package
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
 - value: 3FCH
   name: MSR_CORE_C3_RESIDENCY
@@ -1061,7 +1061,7 @@ msr:
     long_description: CORE C3 Residency Counter Value since last reset that this core is in processor- specific C3 states. Count at the same frequency as the TSC.
     description: CORE C3 Residency Counter
   scope: Core
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
 - value: 3FDH
   name: MSR_CORE_C6_RESIDENCY
@@ -1071,7 +1071,7 @@ msr:
     long_description: CORE C6 Residency Counter Value since last reset that this core is in processor- specific C6 states. Count at the same frequency as the TSC.
     description: CORE C6 Residency Counter
   scope: Core
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
 - value: 400H
   name: IA32_MC0_CTL

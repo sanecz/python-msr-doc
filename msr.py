@@ -110,8 +110,9 @@ class MSRDescription:
         splitted_data = data.split("\n")
         if len(splitted_data) > 2:
             # There is no rule in this pdf for guessing the short description, let's guess based on some tokens
-            if ":" in splitted_data[0] and not BITFIELD_REGEXP.search(splitted_data[0]):
+            if ":" in splitted_data[0] and not BITFIELD_REGEXP.search(splitted_data[0]) and not "Note" in splitted_data[0]:
                 # don't split on ":" if it's a bitfield (i.e [32:2])
+                # also we don't split on "Note: blabla" otherwise the description will just be "Note".
                 description = splitted_data[0].split(":")[0]
             elif "(" in splitted_data[0]:
                 # Split before the parenthesis so we might have something readable

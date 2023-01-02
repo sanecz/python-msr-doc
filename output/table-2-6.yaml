@@ -543,7 +543,7 @@ msr:
     long_description: CORE C6 Residency Counter Value since last reset that this core is in processor- specific C6 states. Counts at the TSC Frequency.
     description: CORE C6 Residency Counter
   scope: Core
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
 - value: 400H
   name: IA32_MC0_CTL
@@ -845,7 +845,7 @@ msr:
     long_description: CORE C1 Residency Counter. Value since last reset that this core is in processor- specific C1 states. Counts at the TSC frequency.
     description: CORE C1 Residency Counter.
   scope: Core
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
 - value: 6E0H
   name: IA32_TSC_DEADLINE

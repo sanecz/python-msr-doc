@@ -125,7 +125,7 @@ msr:
   bitfields:
   - bit: '63:0'
     long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-states.'
-    description: Note
+    description: 'Note: C-state values are processor specific C-state'
   scope: Package
   access: R/O
   description: Package C3 Residency Counter

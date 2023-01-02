@@ -335,7 +335,7 @@ msr:
     long_description: Package C6 Residency Counter Value since last reset that this package is in processor- specific C6 states. Counts at the TSC Frequency.
     description: Package C6 Residency Counter
   scope: Package
-  description: Note
+  description: 'Note: C-state values are processor specific C-state code'
   long_description: 'Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
 - value: 664H
   name: MSR_MC6_RESIDENCY_COUNTER
