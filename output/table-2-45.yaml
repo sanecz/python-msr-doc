@@ -74,7 +74,7 @@ msr:
     long_description: Lock Indication This bit will lock the CURRENT_LIMIT settings in this register and will also lock this setting. This means that once set to 1b, the CURRENT_LIMIT setting and this bit become Read Only until the next Warm Reset.
     description: Lock Indication
   - bit: '62:32'
-    description: Not in use
+    description: Not in use.
   - bit: '63'
     description: Reserved
   scope: Package
@@ -83,15 +83,13 @@ msr:
 - value: 6A0H
   name: IA32_U_CET
   access: R/W
-  description: Configure User Mode CET
-  long_description: Configure User Mode CET See Table 2-2.
+  description: Configure User Mode CET See Table 2-2.
   see_table:
   - 2-2
 - value: 6A2H
   name: IA32_S_CET
   access: R/W
-  description: Configure Supervisor Mode CET
-  long_description: Configure Supervisor Mode CET See Table 2-2.
+  description: Configure Supervisor Mode CET See Table 2-2.
   see_table:
   - 2-2
 - value: 6A4H
@@ -131,34 +129,34 @@ msr:
   - 2-2
 - value: 981H
   name: IA32_TME_CAPABILITY
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 982H
   name: IA32_TME_ACTIVATE
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 983H
   name: IA32_TME_EXCLUDE_MASK
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 984H
   name: IA32_TME_EXCLUDE_BASE
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 990H
   name: IA32_COPY_STATUS1
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 991H
   name: IA32_IWKEYBACKUP_STATUS1
   scope: Platform
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: C82H
@@ -186,12 +184,12 @@ msr:
 - value: D91H
   name: IA32_COPY_LOCAL_TO_PLATFORM1
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: D92H
   name: IA32_COPY_PLATFORM_TO_LOCAL1
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2

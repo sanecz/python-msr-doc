@@ -15,8 +15,7 @@ msr:
   name: IA32_VMX_BASIC
   scope: Core
   access: R/O
-  description: Reporting Register of Basic VMX Capabilities
-  long_description: Reporting Register of Basic VMX Capabilities See Table 2-2.
+  description: Reporting Register of Basic VMX Capabilities See Table 2-2.
   see_table:
   - 2-2
 - value: 481H
@@ -31,22 +30,19 @@ msr:
   name: IA32_VMX_PROCBASED_ CTLS
   scope: Core
   access: R/O
-  description: Capability Reporting Register of Primary Processor-
-  long_description: Capability Reporting Register of Primary Processor- based VM-execution Controls
+  description: Capability Reporting Register of Primary Processor- based VM-execution Controls
 - value: 483H
   name: IA32_VMX_EXIT_CTLS
   scope: Core
   access: R/O
-  description: Capability Reporting Register of VM-exit Controls
-  long_description: Capability Reporting Register of VM-exit Controls See Table 2-2.
+  description: Capability Reporting Register of VM-exit Controls See Table 2-2.
   see_table:
   - 2-2
 - value: 484H
   name: IA32_VMX_ENTRY_CTLS
   scope: Core
   access: R/O
-  description: Capability Reporting Register of VM-entry Controls
-  long_description: Capability Reporting Register of VM-entry Controls See Table 2-2.
+  description: Capability Reporting Register of VM-entry Controls See Table 2-2.
   see_table:
   - 2-2
 - value: 485H
@@ -109,8 +105,7 @@ msr:
   name: IA32_VMX_EPT_VPID_ENUM
   scope: Core
   access: R/O
-  description: Capability Reporting Register of EPT and VPID
-  long_description: Capability Reporting Register of EPT and VPID See Table 2-2.
+  description: Capability Reporting Register of EPT and VPID See Table 2-2.
   see_table:
   - 2-2
 - value: 48DH

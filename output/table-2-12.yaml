@@ -12,7 +12,7 @@ msr:
   - bit: '49:0'
     description: Reserved
   - bit: '52:50'
-    description: See Table 2-2
+    description: See Table 2-2.
     see_table:
     - 2-2
   - bit: '63:33'
@@ -44,30 +44,26 @@ msr:
     description: Reserved
   scope: Core
   access: R/W
-  description: Control Features in Intel 64 Processor
-  long_description: Control Features in Intel 64 Processor See Table 2-2.
+  description: Control Features in Intel 64 Processor See Table 2-2.
   see_table:
   - 2-2
 - value: 3BH
   name: IA32_TSC_ADJUST
   scope: Core
   access: R/W
-  description: Per-Core TSC ADJUST
-  long_description: Per-Core TSC ADJUST See Table 2-2.
+  description: Per-Core TSC ADJUST See Table 2-2.
   see_table:
   - 2-2
 - value: C3H
   name: IA32_PMC2
   scope: Core
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: C4H
   name: IA32_PMC3
   scope: Core
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: CEH
@@ -151,87 +147,77 @@ msr:
 - value: 188H
   name: IA32_PERFEVTSEL2
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 189H
   name: IA32_PERFEVTSEL3
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 1A0H
   name: IA32_MISC_ENABLE
   bitfields:
   - bit: '0'
-    long_description: Fast-Strings Enable See Table 2-2.
-    description: Fast-Strings Enable
+    description: Fast-Strings Enable See Table 2-2.
     see_table:
     - 2-2
   - bit: '2:1'
     description: Reserved
   - bit: '3'
     access: R/W
-    long_description: Automatic Thermal Control Circuit Enable See Table 2-2. Default value is 1.
-    description: Automatic Thermal Control Circuit Enable
+    description: Automatic Thermal Control Circuit Enable See Table 2-2. Default value is 1.
     see_table:
     - 2-2
   - bit: '6:4'
     description: Reserved
   - bit: '7'
     access: R
-    long_description: Performance Monitoring Available See Table 2-2.
-    description: Performance Monitoring Available
+    description: Performance Monitoring Available See Table 2-2.
     see_table:
     - 2-2
   - bit: '10:8'
     description: Reserved
   - bit: '11'
     access: R/O
-    long_description: Branch Trace Storage Unavailable See Table 2-2.
-    description: Branch Trace Storage Unavailable
+    description: Branch Trace Storage Unavailable See Table 2-2.
     see_table:
     - 2-2
   - bit: '12'
     access: R/O
-    long_description: Processor Event Based Sampling Unavailable See Table 2-2.
-    description: Processor Event Based Sampling Unavailable
+    description: Processor Event Based Sampling Unavailable See Table 2-2.
     see_table:
     - 2-2
   - bit: '15:13'
     description: Reserved
   - bit: '16'
     access: R/W
-    long_description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
-    description: Enhanced Intel SpeedStep Technology Enable
+    description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
     see_table:
     - 2-2
   - bit: '18'
     access: R/W
-    long_description: ENABLE MONITOR FSM See Table 2-2.
-    description: ENABLE MONITOR FSM
+    description: ENABLE MONITOR FSM See Table 2-2.
     see_table:
     - 2-2
   - bit: '21:19'
     description: Reserved
   - bit: '22'
     access: R/W
-    long_description: Limit CPUID Maxval See Table 2-2.
-    description: Limit CPUID Maxval
+    description: Limit CPUID Maxval See Table 2-2.
     see_table:
     - 2-2
   - bit: '23'
     access: R/W
-    long_description: xTPR Message Disable See Table 2-2.
-    description: xTPR Message Disable
+    description: xTPR Message Disable See Table 2-2.
     see_table:
     - 2-2
   - bit: '33:24'
     description: Reserved
   - bit: '34'
     access: R/W
-    long_description: XD Bit Disable See Table 2-2.
-    description: XD Bit Disable
+    description: XD Bit Disable See Table 2-2.
     see_table:
     - 2-2
   - bit: '37:35'
@@ -243,7 +229,7 @@ msr:
   - bit: '63:39'
     description: Reserved
   access: R/W
-  description: Enable Misc
+  description: Enable Misc. Processor Features
   long_description: Enable Misc. Processor Features Allows a variety of processor functions to be enabled and disabled.
 - value: 1A4H
   name: MSR_MISC_FEATURE_CONTROL
@@ -369,8 +355,7 @@ msr:
     description: Reserved
   scope: Core
   access: R/W
-  description: Last Branch Record Filtering Select Register
-  long_description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
+  description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
   see_section:
   - 18.9.2
 - value: 1C9H
@@ -391,79 +376,78 @@ msr:
   - bit: '63:2'
     description: Reserved
   scope: Core
-  description: Power Control Register. See http
+  description: Power Control Register. See http://biosbits.org.
 - value: 210H
   name: IA32_MTRR_PHYSBASE8
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 211H
   name: IA32_MTRR_PHYSMASK8
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 212H
   name: IA32_MTRR_PHYSBASE9
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 213H
   name: IA32_MTRR_PHYSMASK9
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 280H
   name: IA32_MC0_CTL2
   scope: Module
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 281H
   name: IA32_MC1_CTL2
   scope: Module
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 282H
   name: IA32_MC2_CTL2
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 283H
   name: IA32_MC3_CTL2
   scope: Module
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 284H
   name: IA32_MC4_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 285H
   name: IA32_MC5_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 286H
   name: IA32_MC6_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 300H
   name: MSR_SGXOWNEREPOCH0
   bitfields:
   - bit: '63:0'
-    long_description: Lower 64 bits of an 128-bit external entropy value for key derivation of an enclave.
-    description: Lower 64 bits of an 128-bit external entropy value for
+    description: Lower 64 bits of an 128-bit external entropy value for key derivation of an enclave.
   scope: Package
   access: W
   description: Lower 64 Bit CR_SGXOWNEREPOCH
@@ -472,8 +456,7 @@ msr:
   name: MSR_SGXOWNEREPOCH1
   bitfields:
   - bit: '63:0'
-    long_description: Upper 64 bits of an 128-bit external entropy value for key derivation of an enclave.
-    description: Upper 64 bits of an 128-bit external entropy value for
+    description: Upper 64 bits of an 128-bit external entropy value for key derivation of an enclave.
   scope: Package
   access: W
   description: Upper 64 Bit CR_SGXOWNEREPOCH
@@ -504,9 +487,9 @@ msr:
   - bit: '57:56'
     description: Reserved
   - bit: '58'
-    description: LBR_Frz
+    description: LBR_Frz.
   - bit: '59'
-    description: CTR_Frz
+    description: CTR_Frz.
   - bit: '60'
     description: ASCI
   - bit: '61'
@@ -516,8 +499,7 @@ msr:
   - bit: '63'
     description: CondChgd
   scope: Core
-  description: See Table 2-2. See Section 20.2.4
-  long_description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
@@ -526,42 +508,41 @@ msr:
   name: IA32_PERF_GLOBAL_STATUS_RESET
   bitfields:
   - bit: '0'
-    description: Set 1 to clear Ovf_PMC0
+    description: Set 1 to clear Ovf_PMC0.
   - bit: '1'
-    description: Set 1 to clear Ovf_PMC1
+    description: Set 1 to clear Ovf_PMC1.
   - bit: '2'
-    description: Set 1 to clear Ovf_PMC2
+    description: Set 1 to clear Ovf_PMC2.
   - bit: '3'
-    description: Set 1 to clear Ovf_PMC3
+    description: Set 1 to clear Ovf_PMC3.
   - bit: '31:4'
     description: Reserved
   - bit: '32'
-    description: Set 1 to clear Ovf_FixedCtr0
+    description: Set 1 to clear Ovf_FixedCtr0.
   - bit: '33'
-    description: Set 1 to clear Ovf_FixedCtr1
+    description: Set 1 to clear Ovf_FixedCtr1.
   - bit: '34'
-    description: Set 1 to clear Ovf_FixedCtr2
+    description: Set 1 to clear Ovf_FixedCtr2.
   - bit: '54:35'
     description: Reserved
   - bit: '55'
-    description: Set 1 to clear Trace_ToPA_PMI
+    description: Set 1 to clear Trace_ToPA_PMI.
   - bit: '57:56'
     description: Reserved
   - bit: '58'
-    description: Set 1 to clear LBR_Frz
+    description: Set 1 to clear LBR_Frz.
   - bit: '59'
-    description: Set 1 to clear CTR_Frz
+    description: Set 1 to clear CTR_Frz.
   - bit: '60'
-    description: Set 1 to clear ASCI
+    description: Set 1 to clear ASCI.
   - bit: '61'
-    description: Set 1 to clear Ovf_Uncore
+    description: Set 1 to clear Ovf_Uncore.
   - bit: '62'
-    description: Set 1 to clear Ovf_BufDSSAVE
+    description: Set 1 to clear Ovf_BufDSSAVE.
   - bit: '63'
-    description: Set 1 to clear CondChgd
+    description: Set 1 to clear CondChgd.
   scope: Core
-  description: See Table 2-2. See Section 20.2.4
-  long_description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
@@ -570,42 +551,41 @@ msr:
   name: IA32_PERF_GLOBAL_STATUS_SET
   bitfields:
   - bit: '0'
-    description: Set 1 to cause Ovf_PMC0 = 1
+    description: Set 1 to cause Ovf_PMC0 = 1.
   - bit: '1'
-    description: Set 1 to cause Ovf_PMC1 = 1
+    description: Set 1 to cause Ovf_PMC1 = 1.
   - bit: '2'
-    description: Set 1 to cause Ovf_PMC2 = 1
+    description: Set 1 to cause Ovf_PMC2 = 1.
   - bit: '3'
-    description: Set 1 to cause Ovf_PMC3 = 1
+    description: Set 1 to cause Ovf_PMC3 = 1.
   - bit: '31:4'
     description: Reserved
   - bit: '32'
-    description: Set 1 to cause Ovf_FixedCtr0 = 1
+    description: Set 1 to cause Ovf_FixedCtr0 = 1.
   - bit: '33'
-    description: Set 1 to cause Ovf_FixedCtr1 = 1
+    description: Set 1 to cause Ovf_FixedCtr1 = 1.
   - bit: '34'
-    description: Set 1 to cause Ovf_FixedCtr2 = 1
+    description: Set 1 to cause Ovf_FixedCtr2 = 1.
   - bit: '54:35'
     description: Reserved
   - bit: '55'
-    description: Set 1 to cause Trace_ToPA_PMI = 1
+    description: Set 1 to cause Trace_ToPA_PMI = 1.
   - bit: '57:56'
     description: Reserved
   - bit: '58'
-    description: Set 1 to cause LBR_Frz = 1
+    description: Set 1 to cause LBR_Frz = 1.
   - bit: '59'
-    description: Set 1 to cause CTR_Frz = 1
+    description: Set 1 to cause CTR_Frz = 1.
   - bit: '60'
-    description: Set 1 to cause ASCI = 1
+    description: Set 1 to cause ASCI = 1.
   - bit: '61'
-    description: Set 1 to cause Ovf_Uncore
+    description: Set 1 to cause Ovf_Uncore.
   - bit: '62'
-    description: Set 1 to cause Ovf_BufDSSAVE
+    description: Set 1 to cause Ovf_BufDSSAVE.
   - bit: '63'
     description: Reserved
   scope: Core
-  description: See Table 2-2. See Section 20.2.4
-  long_description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
@@ -613,7 +593,7 @@ msr:
 - value: 392H
   name: IA32_PERF_GLOBAL_INUSE
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 3F1H
@@ -625,8 +605,7 @@ msr:
     long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMC0.
     description: Enable PEBS trigger and recording for the
   scope: Core
-  description: See Table 2-2. See Section 20.6.2.4
-  long_description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS).”
+  description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS).”
   see_table:
   - 2-2
   see_section:
@@ -664,39 +643,38 @@ msr:
 - value: 406H
   name: IA32_MC1_ADDR
   scope: Module
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 418H
   name: IA32_MC6_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 419H
   name: IA32_MC6_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 41AH
   name: IA32_MC6_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 4C3H
   name: IA32_A_PMC2
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 4C4H
   name: IA32_A_PMC3
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 4E0H
@@ -764,21 +742,18 @@ msr:
   scope: Core
   access: R/O
   description: Status and SVN Threshold of SGX Support for ACM
-  long_description: Status and SVN Threshold of SGX Support for ACM
 - value: 560H
   name: IA32_RTIT_OUTPUT_BASE
   scope: Core
   access: R/W
-  description: Trace Output Base Register
-  long_description: Trace Output Base Register See Table 2-2.
+  description: Trace Output Base Register See Table 2-2.
   see_table:
   - 2-2
 - value: 561H
   name: IA32_RTIT_OUTPUT_MASK_PTRS
   scope: Core
   access: R/W
-  description: Trace Output Mask Pointers Register
-  long_description: Trace Output Mask Pointers Register See Table 2-2.
+  description: Trace Output Mask Pointers Register See Table 2-2.
   see_table:
   - 2-2
 - value: 570H
@@ -793,12 +768,11 @@ msr:
   - bit: '3'
     description: User
   - bit: '6:4'
-    description: Reserved
+    description: Reserved, must be zero.
   - bit: '7'
     description: CR3Filter
   - bit: '8'
-    long_description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
-    description: ToPA
+    description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
   - bit: '9'
     description: MTCEn
   - bit: '10'
@@ -806,27 +780,27 @@ msr:
   - bit: '11'
     description: DisRETC
   - bit: '12'
-    description: Reserved
+    description: Reserved, must be zero.
   - bit: '13'
     description: BranchEn
   - bit: '17:14'
     description: MTCFreq
   - bit: '18'
-    description: Reserved
+    description: Reserved, must be zero.
   - bit: '22:19'
     description: CycThresh
   - bit: '23'
-    description: Reserved
+    description: Reserved, must be zero.
   - bit: '27:24'
     description: PSBFreq
   - bit: '31:28'
-    description: Reserved
+    description: Reserved, must be zero.
   - bit: '35:32'
     description: ADDR0_CFG
   - bit: '39:36'
     description: ADDR1_CFG
   - bit: '63:40'
-    description: Reserved
+    description: Reserved, must be zero.
   scope: Core
   access: R/W
   description: Trace Control Register
@@ -834,14 +808,11 @@ msr:
   name: IA32_RTIT_STATUS
   bitfields:
   - bit: '0'
-    long_description: FilterEn Writes ignored.
-    description: FilterEn
+    description: FilterEn Writes ignored.
   - bit: '1'
-    long_description: ContexEn Writes ignored.
-    description: ContexEn
+    description: ContexEn Writes ignored.
   - bit: '2'
-    long_description: TriggerEn Writes ignored.
-    description: TriggerEn
+    description: TriggerEn Writes ignored.
   - bit: '3'
     description: Reserved
   - bit: '4'
@@ -850,11 +821,11 @@ msr:
   - bit: '5'
     description: Stopped
   - bit: '31:6'
-    description: Reserved
+    description: Reserved, must be zero.
   - bit: '48:32'
     description: PacketByteCnt
   - bit: '63:49'
-    description: Reserved
+    description: Reserved, must be zero.
   scope: Core
   access: R/W
   description: Tracing Status Register
@@ -864,7 +835,7 @@ msr:
   - bit: '4:0'
     description: Reserved
   - bit: '63:5'
-    description: CR3[63:5] value to match
+    description: CR3[63:5] value to match.
   scope: Core
   access: R/W
   description: Trace Filter CR3 Match Register
@@ -872,7 +843,7 @@ msr:
   name: IA32_RTIT_ADDR0_A
   bitfields:
   - bit: '63:0'
-    description: See Table 2-2
+    description: See Table 2-2.
     see_table:
     - 2-2
   scope: Core
@@ -882,7 +853,7 @@ msr:
   name: IA32_RTIT_ADDR0_B
   bitfields:
   - bit: '63:0'
-    description: See Table 2-2
+    description: See Table 2-2.
     see_table:
     - 2-2
   scope: Core
@@ -892,7 +863,7 @@ msr:
   name: IA32_RTIT_ADDR1_A
   bitfields:
   - bit: '63:0'
-    description: See Table 2-2
+    description: See Table 2-2.
     see_table:
     - 2-2
   scope: Core
@@ -902,7 +873,7 @@ msr:
   name: IA32_RTIT_ADDR1_B
   bitfields:
   - bit: '63:0'
-    description: See Table 2-2
+    description: See Table 2-2.
     see_table:
     - 2-2
   scope: Core
@@ -928,8 +899,7 @@ msr:
     description: Reserved
   scope: Package
   access: R/O
-  description: Unit Multipliers used in RAPL Interfaces
-  long_description: Unit Multipliers used in RAPL Interfaces See Section 15.10.1, “RAPL Interfaces.”
+  description: Unit Multipliers used in RAPL Interfaces See Section 15.10.1, “RAPL Interfaces.”
   see_section:
   - 15.10.1
 - value: 60AH
@@ -1021,24 +991,21 @@ msr:
   name: MSR_PKG_POWER_LIMIT
   scope: Package
   access: R/W
-  description: PKG RAPL Power Limit Control
-  long_description: PKG RAPL Power Limit Control See Section 15.10.3, “Package RAPL Domain.”
+  description: PKG RAPL Power Limit Control See Section 15.10.3, “Package RAPL Domain.”
   see_section:
   - 15.10.3
 - value: 611H
   name: MSR_PKG_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: PKG Energy Status
-  long_description: PKG Energy Status See Section 15.10.3, “Package RAPL Domain.”
+  description: PKG Energy Status See Section 15.10.3, “Package RAPL Domain.”
   see_section:
   - 15.10.3
 - value: 613H
   name: MSR_PKG_PERF_STATUS
   scope: Package
   access: R/O
-  description: PKG Perf Status
-  long_description: PKG Perf Status See Section 15.10.3, “Package RAPL Domain.”
+  description: PKG Perf Status See Section 15.10.3, “Package RAPL Domain.”
   see_section:
   - 15.10.3
 - value: 614H
@@ -1046,24 +1013,21 @@ msr:
   bitfields:
   - bit: '14:0'
     access: R/W
-    long_description: Thermal Spec Power See Section 15.10.3, “Package RAPL Domain.”
-    description: Thermal Spec Power
+    description: Thermal Spec Power See Section 15.10.3, “Package RAPL Domain.”
     see_section:
     - 15.10.3
   - bit: '15'
     description: Reserved
   - bit: '30:16'
     access: R/W
-    long_description: Minimum Power See Section 15.10.3, “Package RAPL Domain.”
-    description: Minimum Power
+    description: Minimum Power See Section 15.10.3, “Package RAPL Domain.”
     see_section:
     - 15.10.3
   - bit: '31'
     description: Reserved
   - bit: '46:32'
     access: R/W
-    long_description: Maximum Power See Section 15.10.3, “Package RAPL Domain.”
-    description: Maximum Power
+    description: Maximum Power See Section 15.10.3, “Package RAPL Domain.”
     see_section:
     - 15.10.3
   - bit: '47'
@@ -1081,32 +1045,28 @@ msr:
   name: MSR_DRAM_POWER_LIMIT
   scope: Package
   access: R/W
-  description: DRAM RAPL Power Limit Control
-  long_description: DRAM RAPL Power Limit Control See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM RAPL Power Limit Control See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 619H
   name: MSR_DRAM_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: DRAM Energy Status
-  long_description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 61BH
   name: MSR_DRAM_PERF_STATUS
   scope: Package
   access: R/O
-  description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 61CH
   name: MSR_DRAM_POWER_INFO
   scope: Package
   access: R/W
-  description: DRAM RAPL Parameters
-  long_description: DRAM RAPL Parameters See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM RAPL Parameters See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 632H
@@ -1123,16 +1083,14 @@ msr:
   name: MSR_PP0_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4
 - value: 641H
   name: MSR_PP1_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: PP1 Energy Status
-  long_description: PP1 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP1 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4
 - value: 64CH
@@ -1140,8 +1098,7 @@ msr:
   bitfields:
   - bit: '7:0'
     access: RW/L
-    long_description: MAX_NON_TURBO_RATIO System BIOS can program this field.
-    description: MAX_NON_TURBO_RATIO
+    description: MAX_NON_TURBO_RATIO System BIOS can program this field.
   - bit: '30:8'
     description: Reserved
   - bit: '31'
@@ -1245,7 +1202,7 @@ msr:
     access: R/W
     description: From Linear Address
   - bit: '62:48'
-    description: Signed extension of bits 47
+    description: Signed extension of bits 47:0.
   - bit: '63'
     description: Mispred
   scope: Core
@@ -1259,188 +1216,157 @@ msr:
   name: MSR_LASTBRANCH_1_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 1 From IP
-  long_description: Last Branch Record 1 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 1 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 682H
   name: MSR_LASTBRANCH_2_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 2 From IP
-  long_description: Last Branch Record 2 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 2 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 683H
   name: MSR_LASTBRANCH_3_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 3 From IP
-  long_description: Last Branch Record 3 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 3 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 684H
   name: MSR_LASTBRANCH_4_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 4 From IP
-  long_description: Last Branch Record 4 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 4 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 685H
   name: MSR_LASTBRANCH_5_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 5 From IP
-  long_description: Last Branch Record 5 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 5 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 686H
   name: MSR_LASTBRANCH_6_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 6 From IP
-  long_description: Last Branch Record 6 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 6 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 687H
   name: MSR_LASTBRANCH_7_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 7 From IP
-  long_description: Last Branch Record 7 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 7 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 688H
   name: MSR_LASTBRANCH_8_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 8 From IP
-  long_description: Last Branch Record 8 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 8 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 689H
   name: MSR_LASTBRANCH_9_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 9 From IP
-  long_description: Last Branch Record 9 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 9 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68AH
   name: MSR_LASTBRANCH_10_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 10 From IP
-  long_description: Last Branch Record 10 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 10 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68BH
   name: MSR_LASTBRANCH_11_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 11 From IP
-  long_description: Last Branch Record 11 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 11 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68CH
   name: MSR_LASTBRANCH_12_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 12 From IP
-  long_description: Last Branch Record 12 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 12 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68DH
   name: MSR_LASTBRANCH_13_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 13 From IP
-  long_description: Last Branch Record 13 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 13 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68EH
   name: MSR_LASTBRANCH_14_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 14 From IP
-  long_description: Last Branch Record 14 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 14 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68FH
   name: MSR_LASTBRANCH_15_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 15 From IP
-  long_description: Last Branch Record 15 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 15 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 690H
   name: MSR_LASTBRANCH_16_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 16 From IP
-  long_description: Last Branch Record 16 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 16 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 691H
   name: MSR_LASTBRANCH_17_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 17 From IP
-  long_description: Last Branch Record 17 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 17 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 692H
   name: MSR_LASTBRANCH_18_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 18 From IP
-  long_description: Last Branch Record 18 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 18 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 693H
   name: MSR_LASTBRANCH_19_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 19From IP
-  long_description: Last Branch Record 19From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 19From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 694H
   name: MSR_LASTBRANCH_20_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 20 From IP
-  long_description: Last Branch Record 20 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 20 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 695H
   name: MSR_LASTBRANCH_21_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 21 From IP
-  long_description: Last Branch Record 21 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 21 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 696H
   name: MSR_LASTBRANCH_22_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 22 From IP
-  long_description: Last Branch Record 22 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 22 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 697H
   name: MSR_LASTBRANCH_23_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 23 From IP
-  long_description: Last Branch Record 23 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 23 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 698H
   name: MSR_LASTBRANCH_24_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 24 From IP
-  long_description: Last Branch Record 24 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 24 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 699H
   name: MSR_LASTBRANCH_25_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 25 From IP
-  long_description: Last Branch Record 25 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 25 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 69AH
   name: MSR_LASTBRANCH_26_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 26 From IP
-  long_description: Last Branch Record 26 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 26 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 69BH
   name: MSR_LASTBRANCH_27_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 27 From IP
-  long_description: Last Branch Record 27 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 27 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 69CH
   name: MSR_LASTBRANCH_28_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 28 From IP
-  long_description: Last Branch Record 28 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 28 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 69DH
   name: MSR_LASTBRANCH_29_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 29 From IP
-  long_description: Last Branch Record 29 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 29 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 69EH
   name: MSR_LASTBRANCH_30_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 30 From IP
-  long_description: Last Branch Record 30 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 30 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 69FH
   name: MSR_LASTBRANCH_31_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 31 From IP
-  long_description: Last Branch Record 31 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 31 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 6C0H
   name: MSR_LASTBRANCH_0_TO_IP
   bitfields:
@@ -1448,7 +1374,7 @@ msr:
     access: R/W
     description: Target Linear Address
   - bit: '63:48'
-    description: Elapsed cycles from last update to the LBR
+    description: Elapsed cycles from last update to the LBR.
   scope: Core
   access: R/W
   description: Last Branch Record 0 To IP
@@ -1459,188 +1385,157 @@ msr:
   name: MSR_LASTBRANCH_1_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 1 To IP
-  long_description: Last Branch Record 1 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 1 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C2H
   name: MSR_LASTBRANCH_2_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 2 To IP
-  long_description: Last Branch Record 2 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 2 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C3H
   name: MSR_LASTBRANCH_3_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 3 To IP
-  long_description: Last Branch Record 3 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 3 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C4H
   name: MSR_LASTBRANCH_4_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 4 To IP
-  long_description: Last Branch Record 4 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 4 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C5H
   name: MSR_LASTBRANCH_5_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 5 To IP
-  long_description: Last Branch Record 5 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 5 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C6H
   name: MSR_LASTBRANCH_6_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 6 To IP
-  long_description: Last Branch Record 6 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 6 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C7H
   name: MSR_LASTBRANCH_7_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 7 To IP
-  long_description: Last Branch Record 7 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 7 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C8H
   name: MSR_LASTBRANCH_8_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 8 To IP
-  long_description: Last Branch Record 8 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 8 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C9H
   name: MSR_LASTBRANCH_9_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 9 To IP
-  long_description: Last Branch Record 9 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 9 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CAH
   name: MSR_LASTBRANCH_10_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 10 To IP
-  long_description: Last Branch Record 10 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 10 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CBH
   name: MSR_LASTBRANCH_11_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 11 To IP
-  long_description: Last Branch Record 11 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 11 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CCH
   name: MSR_LASTBRANCH_12_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 12 To IP
-  long_description: Last Branch Record 12 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 12 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CDH
   name: MSR_LASTBRANCH_13_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 13 To IP
-  long_description: Last Branch Record 13 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 13 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CEH
   name: MSR_LASTBRANCH_14_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 14 To IP
-  long_description: Last Branch Record 14 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 14 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CFH
   name: MSR_LASTBRANCH_15_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 15 To IP
-  long_description: Last Branch Record 15 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 15 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6D0H
   name: MSR_LASTBRANCH_16_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 16 To IP
-  long_description: Last Branch Record 16 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 16 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6D1H
   name: MSR_LASTBRANCH_17_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 17 To IP
-  long_description: Last Branch Record 17 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 17 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6D2H
   name: MSR_LASTBRANCH_18_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 18 To IP
-  long_description: Last Branch Record 18 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 18 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6D3H
   name: MSR_LASTBRANCH_19_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 19To IP
-  long_description: Last Branch Record 19To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 19To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6D4H
   name: MSR_LASTBRANCH_20_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 20 To IP
-  long_description: Last Branch Record 20 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 20 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6D5H
   name: MSR_LASTBRANCH_21_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 21 To IP
-  long_description: Last Branch Record 21 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 21 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6D6H
   name: MSR_LASTBRANCH_22_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 22 To IP
-  long_description: Last Branch Record 22 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 22 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6D7H
   name: MSR_LASTBRANCH_23_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 23 To IP
-  long_description: Last Branch Record 23 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 23 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6D8H
   name: MSR_LASTBRANCH_24_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 24 To IP
-  long_description: Last Branch Record 24 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 24 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6D9H
   name: MSR_LASTBRANCH_25_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 25 To IP
-  long_description: Last Branch Record 25 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 25 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6DAH
   name: MSR_LASTBRANCH_26_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 26 To IP
-  long_description: Last Branch Record 26 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 26 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6DBH
   name: MSR_LASTBRANCH_27_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 27 To IP
-  long_description: Last Branch Record 27 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 27 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6DCH
   name: MSR_LASTBRANCH_28_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 28 To IP
-  long_description: Last Branch Record 28 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 28 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6DDH
   name: MSR_LASTBRANCH_29_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 29 To IP
-  long_description: Last Branch Record 29 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 29 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6DEH
   name: MSR_LASTBRANCH_30_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 30 To IP
-  long_description: Last Branch Record 30 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 30 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6DFH
   name: MSR_LASTBRANCH_31_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 31 To IP
-  long_description: Last Branch Record 31 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 31 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 802H
   name: IA32_X2APIC_APICID
   scope: Core
@@ -1781,25 +1676,21 @@ msr:
   scope: Core
   access: R/O
   description: x2APIC Interrupt Request register bits [159:128]
-  long_description: x2APIC Interrupt Request register bits [159:128]
 - value: 825H
   name: IA32_X2APIC_IRR5
   scope: Core
   access: R/O
   description: x2APIC Interrupt Request register bits [191:160]
-  long_description: x2APIC Interrupt Request register bits [191:160]
 - value: 826H
   name: IA32_X2APIC_IRR6
   scope: Core
   access: R/O
   description: x2APIC Interrupt Request register bits [223:192]
-  long_description: x2APIC Interrupt Request register bits [223:192]
 - value: 827H
   name: IA32_X2APIC_IRR7
   scope: Core
   access: R/O
   description: x2APIC Interrupt Request register bits [255:224]
-  long_description: x2APIC Interrupt Request register bits [255:224]
 - value: 828H
   name: IA32_X2APIC_ESR
   scope: Core
@@ -1809,8 +1700,7 @@ msr:
   name: IA32_X2APIC_LVT_CMCI
   scope: Core
   access: R/W
-  description: x2APIC LVT Corrected Machine Check Interrupt
-  long_description: x2APIC LVT Corrected Machine Check Interrupt register
+  description: x2APIC LVT Corrected Machine Check Interrupt register
 - value: 830H
   name: IA32_X2APIC_ICR
   scope: Core
@@ -1883,59 +1773,51 @@ msr:
   name: IA32_L2_QOS_MASK_0
   bitfields:
   - bit: 0:7
-    long_description: 'CBM: Bit vector of available L2 ways for COS 0 enforcement.'
-    description: CBM
+    description: 'CBM: Bit vector of available L2 ways for COS 0 enforcement.'
   - bit: '63:8'
     description: Reserved
   scope: Module
   access: R/W
-  description: L2 Class Of Service Mask - COS 0
-  long_description: L2 Class Of Service Mask - COS 0 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=0.
+  description: L2 Class Of Service Mask - COS 0 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=0.
 - value: D11H
   name: IA32_L2_QOS_MASK_1
   bitfields:
   - bit: 0:7
-    long_description: 'CBM: Bit vector of available L2 ways for COS 0 enforcement.'
-    description: CBM
+    description: 'CBM: Bit vector of available L2 ways for COS 0 enforcement.'
   - bit: '63:8'
     description: Reserved
   scope: Module
   access: R/W
-  description: L2 Class Of Service Mask - COS 1
-  long_description: L2 Class Of Service Mask - COS 1 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=1.
+  description: L2 Class Of Service Mask - COS 1 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=1.
 - value: D12H
   name: IA32_L2_QOS_MASK_2
   bitfields:
   - bit: 0:7
-    long_description: 'CBM: Bit vector of available L2 ways for COS 0 enforcement.'
-    description: CBM
+    description: 'CBM: Bit vector of available L2 ways for COS 0 enforcement.'
   - bit: '63:8'
     description: Reserved
   scope: Module
   access: R/W
-  description: L2 Class Of Service Mask - COS 2
-  long_description: L2 Class Of Service Mask - COS 2 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=2.
+  description: L2 Class Of Service Mask - COS 2 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=2.
 - value: D13H
   name: IA32_L2_QOS_MASK_3
   bitfields:
   - bit: 0:19
-    long_description: 'CBM: Bit vector of available L2 ways for COS 3 enforcement.'
-    description: CBM
+    description: 'CBM: Bit vector of available L2 ways for COS 3 enforcement.'
   - bit: '63:20'
     description: Reserved
   scope: Package
   access: R/W
-  description: L2 Class Of Service Mask - COS 3
-  long_description: L2 Class Of Service Mask - COS 3 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=3.
+  description: L2 Class Of Service Mask - COS 3 If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] >=3.
 - value: D90H
   name: IA32_BNDCFGS
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: DA0H
   name: IA32_XSS
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2

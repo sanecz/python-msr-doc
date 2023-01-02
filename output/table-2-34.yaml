@@ -38,8 +38,7 @@ msr:
   - bit: '63'
     description: CondChgd
   scope: Thread
-  description: See Table 2-2. See Section 20.6.2.2
-  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
@@ -64,10 +63,10 @@ msr:
   - bit: '34'
     description: Set 1 to clear Ovf_FixedCtr2
   - bit: '54:35'
-    description: Reserved
+    description: Reserved.
   - bit: '55'
     long_description: Set 1 to clear Trace_ToPA_PMI. See Section 33.2.7.2, “Table of Physical Addresses (ToPA).”
-    description: Set 1 to clear Trace_ToPA_PMI
+    description: Set 1 to clear Trace_ToPA_PMI.
     see_section:
     - 33.2.7.2
   - bit: '60:56'
@@ -79,8 +78,7 @@ msr:
   - bit: '63'
     description: Set 1 to clear CondChgd
   scope: Thread
-  description: See Table 2-2. See Section 20.6.2.2
-  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
@@ -91,7 +89,7 @@ msr:
   - bit: '6:0'
     description: Reserved
   - bit: MAXPHYADDR1-1:7
-    description: Base physical address
+    description: Base physical address.
   - bit: 63:MAXPHYADDR
     description: Reserved
   scope: THREAD
@@ -105,7 +103,7 @@ msr:
   - bit: '31:7'
     description: MaskOrTableOffset
   - bit: '63:32'
-    description: Output Offset
+    description: Output Offset.
   scope: THREAD
   access: R/W
   description: Trace Output Mask Pointers Register
@@ -115,30 +113,29 @@ msr:
   - bit: '0'
     description: TraceEn
   - bit: '1'
-    description: Reserved
+    description: Reserved, must be zero.
   - bit: '2'
     description: OS
   - bit: '3'
     description: User
   - bit: '6:4'
-    description: Reserved
+    description: Reserved, must be zero.
   - bit: '7'
     description: CR3Filter
   - bit: '8'
-    long_description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
-    description: ToPA
+    description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
   - bit: '9'
-    description: Reserved
+    description: Reserved, must be zero.
   - bit: '10'
     description: TSCEn
   - bit: '11'
     description: DisRETC
   - bit: '12'
-    description: Reserved
+    description: Reserved, must be zero.
   - bit: '13'
-    description: 'Reserved; writing 0 will #GP if also setting TraceEn'
+    description: 'Reserved; writing 0 will #GP if also setting TraceEn.'
   - bit: '63:14'
-    description: Reserved
+    description: Reserved, must be zero.
   scope: Thread
   access: R/W
   description: Trace Control Register
@@ -146,11 +143,11 @@ msr:
   name: IA32_RTIT_STATUS
   bitfields:
   - bit: '0'
-    description: Reserved
+    description: Reserved, writes ignored.
   - bit: '1'
-    description: ContexEn
+    description: ContexEn, writes ignored.
   - bit: '2'
-    description: TriggerEn
+    description: TriggerEn, writes ignored.
   - bit: '3'
     description: Reserved
   - bit: '4'
@@ -159,7 +156,7 @@ msr:
   - bit: '5'
     description: Stopped
   - bit: '63:6'
-    description: Reserved
+    description: Reserved, must be zero.
   scope: Thread
   access: R/W
   description: Tracing Status Register
@@ -169,7 +166,7 @@ msr:
   - bit: '4:0'
     description: Reserved
   - bit: '63:5'
-    description: CR3[63:5] value to match
+    description: CR3[63:5] value to match.
   scope: THREAD
   access: R/W
   description: Trace Filter CR3 Match Register
@@ -184,8 +181,7 @@ msr:
   - bit: '7'
     description: Reserved
   - bit: '6:0'
-    long_description: MAX_RATIO This field is used to limit the max ratio of the LLC/Ring.
-    description: MAX_RATIO
+    description: MAX_RATIO This field is used to limit the max ratio of the LLC/Ring.
   scope: Package
   access: R/W
   description: Uncore Ratio Limit

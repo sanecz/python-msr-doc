@@ -27,23 +27,17 @@ msr:
   name: MSR_TURBO_RATIO_LIMIT
   bitfields:
   - bit: '7:0'
-    long_description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
-    description: Maximum Ratio Limit for 1C
+    description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
   - bit: '15:8'
-    long_description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
-    description: Maximum Ratio Limit for 2C
+    description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
   - bit: '23:16'
-    long_description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
-    description: Maximum Ratio Limit for 3C
+    description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
   - bit: '31:24'
-    long_description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
-    description: Maximum Ratio Limit for 4C
+    description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
   - bit: '39:32'
-    long_description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5 core active.
-    description: Maximum Ratio Limit for 5C
+    description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5 core active.
   - bit: '47:40'
-    long_description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6 core active.
-    description: Maximum Ratio Limit for 6C
+    description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6 core active.
   - bit: '63:48'
     description: Reserved
   scope: Package
@@ -52,6 +46,6 @@ msr:
 - value: 1B0H
   name: IA32_ENERGY_PERF_BIAS
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2

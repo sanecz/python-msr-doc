@@ -20,7 +20,7 @@ msr:
   - bit: '63:0'
     access: R/O
     long_description: Package C4 Residency Counter. Time that this package is in processor-specific C4 states since last reset. Counts at 1 Mhz frequency.
-    description: Package C4 Residency Counter
+    description: Package C4 Residency Counter.
   scope: Package
   description: Package C4 Residency
   long_description: 'Package C4 Residency Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'
@@ -30,7 +30,7 @@ msr:
   - bit: '63:0'
     access: R/O
     long_description: Package C6 Residency Counter. Time that this package is in processor-specific C6 states since last reset. Counts at 1 Mhz frequency.
-    description: Package C6 Residency Counter
+    description: Package C6 Residency Counter.
   scope: Package
   description: Package C6 Residency
   long_description: 'Package C6 Residency Note: C-state values are processor specific C-state code names, unrelated to MWAIT extension C-state parameters or ACPI C-States.'

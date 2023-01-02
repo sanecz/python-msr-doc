@@ -34,14 +34,12 @@ msr:
   - bit: '15:13'
     description: Reserved
   - bit: '19:16'
-    long_description: Time Unit The value is 0000b, indicating time unit is in one second.
-    description: Time Unit
+    description: Time Unit The value is 0000b, indicating time unit is in one second.
   - bit: '63:20'
     description: Reserved
   scope: Package
   access: R/O
-  description: Unit Multipliers used in RAPL Interfaces
-  long_description: Unit Multipliers used in RAPL Interfaces See Section 15.10.1, “RAPL Interfaces.”
+  description: Unit Multipliers used in RAPL Interfaces See Section 15.10.1, “RAPL Interfaces.”
   see_section:
   - 15.10.1
 - value: 610H
@@ -57,14 +55,12 @@ msr:
     - 15.10.3
   - bit: '15'
     access: R/W
-    long_description: 'Enable Power Limit #1 See Section 15.10.3, “Package RAPL Domain.”'
-    description: 'Enable Power Limit #1'
+    description: 'Enable Power Limit #1 See Section 15.10.3, “Package RAPL Domain.”'
     see_section:
     - 15.10.3
   - bit: '16'
     access: R/W
-    long_description: 'Package Clamping Limitation #1 See Section 15.10.3, “Package RAPL Domain.”'
-    description: 'Package Clamping Limitation #1'
+    description: 'Package Clamping Limitation #1 See Section 15.10.3, “Package RAPL Domain.”'
     see_section:
     - 15.10.3
   - bit: '23:17'

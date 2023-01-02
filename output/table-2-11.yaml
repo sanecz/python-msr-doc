@@ -56,8 +56,7 @@ msr:
     description: Reserved
   scope: Module
   access: R/W
-  description: Power Management IO Redirection in C-state
-  long_description: Power Management IO Redirection in C-state See http://biosbits.org.
+  description: Power Management IO Redirection in C-state See http://biosbits.org.
 - value: 638H
   name: MSR_PP0_POWER_LIMIT
   bitfields:
@@ -71,8 +70,7 @@ msr:
     - 15.10.4
   - bit: '15'
     access: R/W
-    long_description: 'Enable Power Limit #1 See Section 15.10.4, “PP0/PP1 RAPL Domains.”'
-    description: 'Enable Power Limit #1'
+    description: 'Enable Power Limit #1 See Section 15.10.4, “PP0/PP1 RAPL Domains.”'
     see_section:
     - 15.10.4
   - bit: '16'

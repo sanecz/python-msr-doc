@@ -13,17 +13,17 @@ supported_cpu:
 msr:
 - value: 0H
   name: P5_MC_ADDR
-  description: See Section 2.23
+  description: See Section 2.23, “MSRs in Pentium Processors.”
   see_section:
   - '2.23'
 - value: 1H
   name: P5_MC_TYPE
-  description: See Section 2.23
+  description: See Section 2.23, “MSRs in Pentium Processors.”
   see_section:
   - '2.23'
 - value: 10H
   name: TSC
-  description: See Section 18.17
+  description: See Section 18.17, “Time-Stamp Counter.”
   see_section:
   - '18.17'
 - value: 17H
@@ -36,11 +36,11 @@ msr:
     long_description: Platform Id Contains information concerning the intended platform for the processor. 52 51 50 0 0 0 Processor Flag 0 0 0 1 Processor Flag 1 0 1 0 Processor Flag 2 0 1 1 Processor Flag 3 1 0 0 Processor Flag 4 1 0 1 Processor Flag 5 1 1 0 Processor Flag 6 1 1 1 Processor Flag 7
     description: Platform Id
   - bit: '56:53'
-    description: L2 Cache Latency Read
+    description: L2 Cache Latency Read.
   - bit: '59:57'
     description: Reserved
   - bit: '60'
-    description: Clock Frequency Ratio Read
+    description: Clock Frequency Ratio Read.
   - bit: 63:61
     description: Reserved
   access: R
@@ -52,18 +52,17 @@ msr:
   - bit: '7:0'
     description: Reserved
   - bit: '8'
-    long_description: Boot Strap Processor Indicator Bit 1 = BSP
-    description: Boot Strap Processor Indicator Bit
+    description: Boot Strap Processor Indicator Bit 1 = BSP
   - bit: '10:9'
     description: Reserved
   - bit: '11'
     long_description: APIC Global Enable Bit - Permanent till reset 1 = Enabled 0 = Disabled
     description: APIC Global Enable Bit - Permanent till reset
   - bit: '31:12'
-    description: APIC Base Address
+    description: APIC Base Address.
   - bit: '63:32'
     description: Reserved
-  description: Section 11.4.4
+  description: Section 11.4.4, “Local APIC Status and Location.”
   see_section:
   - 11.4.4
 - value: 2AH
@@ -158,12 +157,11 @@ msr:
   - bit: '30'
     description: Streaming Buffer Disable
   - bit: '31'
-    long_description: Disable LOCK# Assertion for split locked access.
-    description: Disable LOCK#
+    description: Disable LOCK# Assertion for split locked access.
   description: Test Control Register
 - value: 79H
   name: BIOS_UPDT_TRIG
-  description: BIOS Update Trigger Register
+  description: BIOS Update Trigger Register.
 - value: 88H
   name: BBL_CR_D0[63:0]
   description: 'Chunk 0 data register D[63:0]: used to write to and read from the L2'
@@ -175,20 +173,17 @@ msr:
   description: 'Chunk 2 data register D[63:0]: used to write to and read from the L2'
 - value: 8BH
   name: BIOS_SIGN/BBL_CR_D3[63:0]
-  description: BIOS Update Signature Register or Chunk 3 data register D[63:0]
-  long_description: BIOS Update Signature Register or Chunk 3 data register D[63:0] Used to write to and read from the L2 depending on the usage model.
+  description: BIOS Update Signature Register or Chunk 3 data register D[63:0] Used to write to and read from the L2 depending on the usage model.
 - value: C1H
   name: PerfCtr0
   alt_name: PERFCTR0
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: C2H
   name: PerfCtr1
   alt_name: PERFCTR1
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: FEH
@@ -234,12 +229,10 @@ msr:
   long_description: 'Control register: used to program L2 commands to be issued via cache configuration accesses mechanism. Also receives L2 lookup response Reserved Processor number2 Disable = 1 Enable = 0 Reserved'
 - value: 11AH
   name: BBL_CR_TRIG
-  description: Trigger register
-  long_description: 'Trigger register: used to initiate a cache configuration accesses access, Write only with Data = 0.'
+  description: 'Trigger register: used to initiate a cache configuration accesses access, Write only with Data = 0.'
 - value: 11BH
   name: BBL_CR_BUSY
-  description: Busy register
-  long_description: 'Busy register: indicates when a cache configuration accesses L2 command is in progress. D[0] = 1 = BUSY'
+  description: 'Busy register: indicates when a cache configuration accesses L2 command is in progress. D[0] = 1 = BUSY'
 - value: 11EH
   name: BBL_CR_CTL3BBL_CR_CTL3[63:26]
   bitfields:
@@ -291,23 +284,18 @@ msr:
   alt_name: EVNTSEL0
   bitfields:
   - bit: '7:0'
-    long_description: Event Select Refer to Performance Counter section for a list of event encodings.
-    description: Event Select
+    description: Event Select Refer to Performance Counter section for a list of event encodings.
   - bit: '15:8'
-    long_description: UMASK (Unit Mask) Unit mask register set to 0 to enable all count options.
-    description: UMASK
+    description: UMASK (Unit Mask) Unit mask register set to 0 to enable all count options.
   - bit: '16'
-    long_description: USER Controls the counting of events at Privilege levels of 1, 2, and 3.
-    description: USER
+    description: USER Controls the counting of events at Privilege levels of 1, 2, and 3.
   - bit: '17'
-    long_description: OS Controls the counting of events at Privilege level of 0.
-    description: OS
+    description: OS Controls the counting of events at Privilege level of 0.
   - bit: '18'
     long_description: E O ccurrence/Duration Mode Select 1 = Occurrence 0 = Duration
     description: E O
   - bit: '19'
-    long_description: PC Enabled the signaling of performance counter overflow via BP0 pin
-    description: PC
+    description: PC Enabled the signaling of performance counter overflow via BP0 pin
   - bit: '20'
     long_description: INT Enables the signaling of counter overflow via input to APIC 1 = Enable 0 = Disable
     description: INT
@@ -318,7 +306,7 @@ msr:
     long_description: INV Inverts the result of the CMASK condition 1 = Inverted 0 = Non-Inverted
     description: INV
   - bit: '31:24'
-    description: CMASK
+    description: CMASK (Counter Mask)
   access: R/W
   description: Performance Event Select Register 0
 - value: 187H
@@ -326,23 +314,18 @@ msr:
   alt_name: EVNTSEL1
   bitfields:
   - bit: '7:0'
-    long_description: Event Select Refer to Performance Counter section for a list of event encodings.
-    description: Event Select
+    description: Event Select Refer to Performance Counter section for a list of event encodings.
   - bit: '15:8'
-    long_description: UMASK (Unit Mask) Unit mask register set to 0 to enable all count options.
-    description: UMASK
+    description: UMASK (Unit Mask) Unit mask register set to 0 to enable all count options.
   - bit: '16'
-    long_description: USER Controls the counting of events at Privilege levels of 1, 2, and 3.
-    description: USER
+    description: USER Controls the counting of events at Privilege levels of 1, 2, and 3.
   - bit: '17'
-    long_description: OS Controls the counting of events at Privilege level of 0.
-    description: OS
+    description: OS Controls the counting of events at Privilege level of 0.
   - bit: '18'
     long_description: E O ccurrence/Duration Mode Select. 1 = Occurrence 0 = Duration
     description: E O
   - bit: '19'
-    long_description: PC Enabled the signaling of performance counter overflow via BP0 pin.
-    description: PC
+    description: PC Enabled the signaling of performance counter overflow via BP0 pin.
   - bit: '20'
     long_description: INT Enables the signaling of counter overflow via input to APIC. 1 = Enable 0 = Disable
     description: INT
@@ -350,7 +333,7 @@ msr:
     long_description: INV Inverts the result of the CMASK condition. 1 = Inverted 0 = Non-Inverted
     description: INV
   - bit: '31:24'
-    description: CMASK
+    description: CMASK (Counter Mask)
   access: R/W
   description: Performance Event Select for Counter 1
 - value: 1D9H
@@ -372,15 +355,15 @@ msr:
     description: Enable/Disable Execution Trace Messages
   - bit: '31:7'
     description: Reserved
-  description: Enables last branch
+  description: Enables last branch, interrupt, and exception recording; taken branch
   long_description: Enables last branch, interrupt, and exception recording; taken branch breakpoints; the breakpoint reporting pins; and trace messages. This register can be written to using the WRMSR instruction, when operating at privilege level 0 or when in real-address mode.
 - value: 1DBH
   name: LASTBRANCHFROMIP
-  description: 32-bit register for recording the instruction pointers for the last branch
+  description: 32-bit register for recording the instruction pointers for the last branch,
   long_description: 32-bit register for recording the instruction pointers for the last branch, interrupt, or exception that the processor took prior to a debug exception being generated.
 - value: 1DCH
   name: LASTBRANCHTOIP
-  description: 32-bit register for recording the instruction pointers for the last branch
+  description: 32-bit register for recording the instruction pointers for the last branch,
   long_description: 32-bit register for recording the instruction pointers for the last branch, interrupt, or exception that the processor took prior to a debug exception being generated.
 - value: 1DDH
   name: LASTINTFROMIP
@@ -497,7 +480,7 @@ msr:
   - bit: '59'
     description: MC_STATUS_MISCV
   - bit: '60'
-    description: MC_STATUS_EN. (Note
+    description: 'MC_STATUS_EN. (Note: For MC0_STATUS only, this bit is hardcoded to 1.)'
   - bit: '61'
     description: MC_STATUS_UC
   - bit: '62'
@@ -510,51 +493,45 @@ msr:
   name: MC0_ADDR
 - value: 403H
   name: MC0_MISC
-  description: Defined in MCA architecture but not implemented in the P6 family
-  long_description: Defined in MCA architecture but not implemented in the P6 family processors.
+  description: Defined in MCA architecture but not implemented in the P6 family processors.
 - value: 404H
   name: MC1_CTL
 - value: 405H
   name: MC1_STATUS
-  description: Bit definitions same as MC0_STATUS
+  description: Bit definitions same as MC0_STATUS.
 - value: 406H
   name: MC1_ADDR
 - value: 407H
   name: MC1_MISC
-  description: Defined in MCA architecture but not implemented in the P6 family
-  long_description: Defined in MCA architecture but not implemented in the P6 family processors.
+  description: Defined in MCA architecture but not implemented in the P6 family processors.
 - value: 408H
   name: MC2_CTL
 - value: 409H
   name: MC2_STATUS
-  description: Bit definitions same as MC0_STATUS
+  description: Bit definitions same as MC0_STATUS.
 - value: 40AH
   name: MC2_ADDR
 - value: 40BH
   name: MC2_MISC
-  description: Defined in MCA architecture but not implemented in the P6 family
-  long_description: Defined in MCA architecture but not implemented in the P6 family processors.
+  description: Defined in MCA architecture but not implemented in the P6 family processors.
 - value: 40CH
   name: MC4_CTL
 - value: 40DH
   name: MC4_STATUS
-  description: Bit definitions same as MC0_STATUS
-  long_description: Bit definitions same as MC0_STATUS, except bits 0, 4, 57, and 61 are hardcoded to 1.
+  description: Bit definitions same as MC0_STATUS, except bits 0, 4, 57, and 61 are hardcoded to 1.
 - value: 40EH
   name: MC4_ADDR
-  description: Defined in MCA architecture but not implemented in P6 Family processors
+  description: Defined in MCA architecture but not implemented in P6 Family processors.
 - value: 40FH
   name: MC4_MISC
-  description: Defined in MCA architecture but not implemented in the P6 family
-  long_description: Defined in MCA architecture but not implemented in the P6 family processors.
+  description: Defined in MCA architecture but not implemented in the P6 family processors.
 - value: 410H
   name: MC3_CTL
 - value: 411H
   name: MC3_STATUS
-  description: Bit definitions same as MC0_STATUS
+  description: Bit definitions same as MC0_STATUS.
 - value: 412H
   name: MC3_ADDR
 - value: 413H
   name: MC3_MISC
-  description: Defined in MCA architecture but not implemented in the P6 family
-  long_description: Defined in MCA architecture but not implemented in the P6 family processors.
+  description: Defined in MCA architecture but not implemented in the P6 family processors.

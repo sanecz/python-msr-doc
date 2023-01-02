@@ -33,16 +33,14 @@ msr:
     description: Reserved
   scope: Thread
   access: R/W
-  description: Control Features in Intel 64 Processor
-  long_description: Control Features in Intel 64 Processor See Table 2-2.
+  description: Control Features in Intel 64 Processor See Table 2-2.
   see_table:
   - 2-2
 - value: 350H
   name: MSR_BR_DETECT_CTRL
   bitfields:
   - bit: '0'
-    long_description: EnMonitoring Global enable for branch monitoring.
-    description: EnMonitoring
+    description: EnMonitoring Global enable for branch monitoring.
   - bit: '1'
     long_description: EnExcept Enable branch monitoring event signaling on threshold trip. The branch monitoring event handler is signaled via the existing PMI signaling mechanism as programmed from the corresponding local APIC LVT entry.
     description: EnExcept
@@ -93,8 +91,7 @@ msr:
     long_description: CountWindow The current value of the window counter. The count value is frozen on a valid branch monitoring triggering condition. This is a 10-bit unsigned value.
     description: CountWindow
   - bit: '31:26'
-    long_description: Reserved Reserved for future extension of CountWindow.
-    description: Reserved
+    description: Reserved Reserved for future extension of CountWindow.
   - bit: '39:32'
     long_description: Count0 The current value of counter 0 updated after each occurrence of the event being counted. The count value is frozen on a valid branch monitoring triggering condition (in which case CntrHit0 will also be set). This is an 8-bit signed value (2’s complement). Heuristic events which only increment will saturate and freeze at maximum value 0xFF (256). RET-CALL event counter saturate at maximum value 0x7F (+127) and minimum value 0x80 (-128).
     description: Count0
@@ -109,8 +106,7 @@ msr:
   name: MSR_BR_DETECT_COUNTER_CONFIG_i
   bitfields:
   - bit: '0'
-    long_description: CntrEn Enable counter.
-    description: CntrEn
+    description: CntrEn Enable counter.
   - bit: '7:1'
     long_description: 'CntrEvSel Event select (other values #GP) ‘0000000 = RETs. ‘0000001 = RET-CALL bias. ‘0000010 = RET mispredicts. ‘0000011 = Branch (all) mispredicts. ‘0000100 = Indirect branch mispredicts. ‘0000101 = Far branch instructions.'
     description: CntrEvSel
@@ -155,7 +151,7 @@ msr:
   bitfields:
   - bit: '63:0'
     long_description: 'Value since last reset for the Core C1 residency. Counter rate is the Max Non-Turbo frequency (same as TSC). This counter counts in case both of the core''s threads are in an idle state and at least one of the core''s thread residency is in a C1 state or in one of its sub states. The counter is updated only after a core C state exit. Note: Always reads 0 if core C1 is unsupported. A value of zero indicates that this processor does not support core C1 or never entered core C1 level state.'
-    description: Value since last reset for the Core C1 residency
+    description: Value since last reset for the Core C1 residency.
   scope: Core
   access: R/O
   description: Core C1 Residency Counter
@@ -163,7 +159,7 @@ msr:
   name: MSR_CORE_C3_RESIDENCY
   bitfields:
   - bit: '63:0'
-    description: Will always return 0
+    description: Will always return 0.
   scope: Core
   access: R/O
   description: Core C3 Residency Counter

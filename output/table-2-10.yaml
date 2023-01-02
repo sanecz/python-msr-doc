@@ -25,29 +25,21 @@ msr:
   name: MSR_TURBO_RATIO_LIMIT
   bitfields:
   - bit: '7:0'
-    long_description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
-    description: Maximum Ratio Limit for 1C
+    description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
   - bit: '15:8'
-    long_description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
-    description: Maximum Ratio Limit for 2C
+    description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
   - bit: '23:16'
-    long_description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
-    description: Maximum Ratio Limit for 3C
+    description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
   - bit: '31:24'
-    long_description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
-    description: Maximum Ratio Limit for 4C
+    description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
   - bit: '39:32'
-    long_description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5 core active.
-    description: Maximum Ratio Limit for 5C
+    description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5 core active.
   - bit: '47:40'
-    long_description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6 core active.
-    description: Maximum Ratio Limit for 6C
+    description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6 core active.
   - bit: '55:48'
-    long_description: Maximum Ratio Limit for 7C Maximum turbo ratio limit of 7 core active.
-    description: Maximum Ratio Limit for 7C
+    description: Maximum Ratio Limit for 7C Maximum turbo ratio limit of 7 core active.
   - bit: '63:56'
-    long_description: Maximum Ratio Limit for 8C Maximum turbo ratio limit of 8 core active.
-    description: Maximum Ratio Limit for 8C
+    description: Maximum Ratio Limit for 8C Maximum turbo ratio limit of 8 core active.
   scope: Package
   access: R/W
   description: Maximum Ratio Limit of Turbo Mode
@@ -61,7 +53,7 @@ msr:
     description: Reserved
   - bit: '12:8'
     long_description: Energy Status Units. Energy related information (in microJoules) is based on the multiplier, 2^ESU; where ESU is an unsigned integer represented by bits 12:8. Default value is 00101b, indicating energy unit is in 32 microJoules increment.
-    description: Energy Status Units
+    description: Energy Status Units.
   - bit: '15:13'
     description: Reserved
   - bit: '19:16'
@@ -71,16 +63,14 @@ msr:
     description: Reserved
   scope: Package
   access: R/O
-  description: Unit Multipliers used in RAPL Interfaces
-  long_description: Unit Multipliers used in RAPL Interfaces See Section 15.10.1, “RAPL Interfaces.”
+  description: Unit Multipliers used in RAPL Interfaces See Section 15.10.1, “RAPL Interfaces.”
   see_section:
   - 15.10.1
 - value: 610H
   name: MSR_PKG_POWER_LIMIT
   scope: Package
   access: R/W
-  description: PKG RAPL Power Limit Control
-  long_description: PKG RAPL Power Limit Control See Section 15.10.3, “Package RAPL Domain.”
+  description: PKG RAPL Power Limit Control See Section 15.10.3, “Package RAPL Domain.”
   see_section:
   - 15.10.3
 - value: 66EH

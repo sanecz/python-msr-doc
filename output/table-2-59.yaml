@@ -6,17 +6,17 @@ supported_cpu:
 msr:
 - value: 0H0
   name: P5_MC_ADDR
-  description: See Section 2.23
+  description: See Section 2.23, “MSRs in Pentium Processors.”
   see_section:
   - '2.23'
 - value: 1H
   name: P5_MC_TYPE
-  description: See Section 2.23
+  description: See Section 2.23, “MSRs in Pentium Processors.”
   see_section:
   - '2.23'
 - value: 10H
   name: IA32_TIME_STAMP_COUNTER
-  description: See Section 18.17
+  description: See Section 18.17, “Time-Stamp Counter,” and see Table 2-2.
   see_table:
   - 2-2
   see_section:
@@ -57,12 +57,10 @@ msr:
     description: BINIT# Driver Enable
   - bit: '8'
     access: R/O
-    long_description: Output Tri-state Enabled 1 = Enabled; 0 = Disabled
-    description: Output Tri-state Enabled
+    description: Output Tri-state Enabled 1 = Enabled; 0 = Disabled
   - bit: '9'
     access: R/O
-    long_description: Execute BIST 1 = Enabled; 0 = Disabled
-    description: Execute BIST
+    description: Execute BIST 1 = Enabled; 0 = Disabled
   - bit: '10'
     access: R/O
     long_description: MCERR# Observation Enabled 1 = Enabled; 0 = Disabled Always 0 on the Pentium M processor.
@@ -83,8 +81,7 @@ msr:
     description: Reserved
   - bit: '17:16'
     access: R/O
-    long_description: APIC Cluster ID Always 00B on the Pentium M processor.
-    description: APIC Cluster ID
+    description: APIC Cluster ID Always 00B on the Pentium M processor.
   - bit: '18'
     access: R/O
     long_description: System Bus Frequency 0 = 100 MHz 1 = Reserved Always 0 on the Pentium M processor.
@@ -93,8 +90,7 @@ msr:
     description: Reserved
   - bit: '21: 20'
     access: R/O
-    long_description: Symmetric Arbitration ID Always 00B on the Pentium M processor.
-    description: Symmetric Arbitration ID
+    description: Symmetric Arbitration ID Always 00B on the Pentium M processor.
   - bit: '26:22'
     access: R/O
     description: Clock Frequency Ratio
@@ -111,38 +107,31 @@ msr:
 - value: 41H
   name: MSR_LASTBRANCH_1
   access: R/W
-  description: Last Branch Record 1
-  long_description: Last Branch Record 1 See description of MSR_LASTBRANCH_0.
+  description: Last Branch Record 1 See description of MSR_LASTBRANCH_0.
 - value: 42H
   name: MSR_LASTBRANCH_2
   access: R/W
-  description: Last Branch Record 2
-  long_description: Last Branch Record 2 See description of MSR_LASTBRANCH_0.
+  description: Last Branch Record 2 See description of MSR_LASTBRANCH_0.
 - value: 43H
   name: MSR_LASTBRANCH_3
   access: R/W
-  description: Last Branch Record 3
-  long_description: Last Branch Record 3 See description of MSR_LASTBRANCH_0.
+  description: Last Branch Record 3 See description of MSR_LASTBRANCH_0.
 - value: 44H
   name: MSR_LASTBRANCH_4
   access: R/W
-  description: Last Branch Record 4
-  long_description: Last Branch Record 4 See description of MSR_LASTBRANCH_0.
+  description: Last Branch Record 4 See description of MSR_LASTBRANCH_0.
 - value: 45H
   name: MSR_LASTBRANCH_5
   access: R/W
-  description: Last Branch Record 5
-  long_description: Last Branch Record 5 See description of MSR_LASTBRANCH_0.
+  description: Last Branch Record 5 See description of MSR_LASTBRANCH_0.
 - value: 46H
   name: MSR_LASTBRANCH_6
   access: R/W
-  description: Last Branch Record 6
-  long_description: Last Branch Record 6 See description of MSR_LASTBRANCH_0.
+  description: Last Branch Record 6 See description of MSR_LASTBRANCH_0.
 - value: 47H
   name: MSR_LASTBRANCH_7
   access: R/W
-  description: Last Branch Record 7
-  long_description: Last Branch Record 7 See description of MSR_LASTBRANCH_0.
+  description: Last Branch Record 7 See description of MSR_LASTBRANCH_0.
 - value: 119H
   name: MSR_BBL_CR_CTL
   bitfields:
@@ -177,8 +166,7 @@ msr:
     description: L2 Not Present
   - bit: '63:24'
     description: Reserved
-  description: Control register 3
-  long_description: Control register 3 Used to configure the L2 Cache.
+  description: Control register 3 Used to configure the L2 Cache.
 - value: 179H
   name: IA32_MCG_CAP
   bitfields:
@@ -192,8 +180,7 @@ msr:
     description: IA32_MCG_CTL Present
   - bit: '63:9'
     description: Reserved
-  description: Read-only register that provides information about the machine-check
-  long_description: Read-only register that provides information about the machine-check architecture of the processor.
+  description: Read-only register that provides information about the machine-check architecture of the processor.
 - value: 17AH
   name: IA32_MCG_STATUS
   bitfields:
@@ -211,18 +198,18 @@ msr:
   description: Global Machine Check Status
 - value: 198H
   name: IA32_PERF_STATUS
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 199H
   name: IA32_PERF_CTL
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 19AH
   name: IA32_CLOCK_MODULATION
   access: R/W
-  description: Clock Modulation
+  description: Clock Modulation .
   long_description: Clock Modulation . See Table 2-2. See Section 15.8.3, “Software Controlled Clock Modulation.”
   see_table:
   - 2-2
@@ -301,8 +288,7 @@ msr:
   - bit: '63:24'
     description: Reserved
   access: R/W
-  description: Enable Miscellaneous Processor Features
-  long_description: Enable Miscellaneous Processor Features Allows a variety of processor functions to be enabled and disabled.
+  description: Enable Miscellaneous Processor Features Allows a variety of processor functions to be enabled and disabled.
 - value: 1C9H
   name: MSR_LASTBRANCH_TOS
   access: R/W
@@ -342,79 +328,79 @@ msr:
   - 12.11.2.1
 - value: 400H
   name: IA32_MC0_CTL
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 401H
   name: IA32_MC0_STATUS
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 402H
   name: IA32_MC0_ADDR
-  description: See Section 14.3.2.3.
+  description: See Section 14.3.2.3., “IA32_MCi_ADDR MSRs”.
   long_description: See Section 14.3.2.3., “IA32_MCi_ADDR MSRs”. The IA32_MC0_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 14.3.2.3.
 - value: 404H
   name: IA32_MC1_CTL
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 405H
   name: IA32_MC1_STATUS
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 406H
   name: IA32_MC1_ADDR
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC1_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC1_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 408H
   name: IA32_MC2_CTL
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 409H
   name: IA32_MC2_STATUS
-  description: See Chapter 16.3.2.2
+  description: See Chapter 16.3.2.2, “IA32_MCi_STATUS MSRS.”
 - value: 40AH
   name: IA32_MC2_ADDR
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 40CH
   name: MSR_MC4_CTL
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 40DH
   name: MSR_MC4_STATUS
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 40EH
   name: MSR_MC4_ADDR
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 410H
   name: MSR_MC3_CTL
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 411H
   name: MSR_MC3_STATUS
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 412H
   name: MSR_MC3_ADDR
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC3_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
@@ -422,8 +408,7 @@ msr:
   name: IA32_DS_AREA
   bitfields:
   - bit: '31:0'
-    long_description: DS Buffer Management Area Linear address of the first byte of the DS buffer management area.
-    description: DS Buffer Management Area
+    description: DS Buffer Management Area Linear address of the first byte of the DS buffer management area.
   - bit: '63:32'
     description: Reserved
   access: R/W

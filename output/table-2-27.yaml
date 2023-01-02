@@ -26,8 +26,7 @@ msr:
     description: Reserved
   scope: Thread
   access: R/W
-  description: Control Features in Intel 64 Processor
-  long_description: Control Features in Intel 64 Processor See Table 2-2.
+  description: Control Features in Intel 64 Processor See Table 2-2.
   see_table:
   - 2-2
 - value: 179H
@@ -74,26 +73,19 @@ msr:
   name: MSR_TURBO_RATIO_LIMIT1
   bitfields:
   - bit: '7:0'
-    long_description: Maximum Ratio Limit for 9C Maximum turbo ratio limit of 9 core active.
-    description: Maximum Ratio Limit for 9C
+    description: Maximum Ratio Limit for 9C Maximum turbo ratio limit of 9 core active.
   - bit: '15:8'
-    long_description: Maximum Ratio Limit for 10C Maximum turbo ratio limit of 10core active.
-    description: Maximum Ratio Limit for 10C
+    description: Maximum Ratio Limit for 10C Maximum turbo ratio limit of 10core active.
   - bit: '23:16'
-    long_description: Maximum Ratio Limit for 11C Maximum turbo ratio limit of 11 core active.
-    description: Maximum Ratio Limit for 11C
+    description: Maximum Ratio Limit for 11C Maximum turbo ratio limit of 11 core active.
   - bit: '31:24'
-    long_description: Maximum Ratio Limit for 12C Maximum turbo ratio limit of 12 core active.
-    description: Maximum Ratio Limit for 12C
+    description: Maximum Ratio Limit for 12C Maximum turbo ratio limit of 12 core active.
   - bit: '39:32'
-    long_description: Maximum Ratio Limit for 13C Maximum turbo ratio limit of 13 core active.
-    description: Maximum Ratio Limit for 13C
+    description: Maximum Ratio Limit for 13C Maximum turbo ratio limit of 13 core active.
   - bit: '47:40'
-    long_description: Maximum Ratio Limit for 14C Maximum turbo ratio limit of 14 core active.
-    description: Maximum Ratio Limit for 14C
+    description: Maximum Ratio Limit for 14C Maximum turbo ratio limit of 14 core active.
   - bit: '55:48'
-    long_description: Maximum Ratio Limit for 15C Maximum turbo ratio limit of 15 core active.
-    description: Maximum Ratio Limit for 15C
+    description: Maximum Ratio Limit for 15C Maximum turbo ratio limit of 15 core active.
   - bit: '62:56'
     description: Reserved
   - bit: '63'
@@ -105,19 +97,19 @@ msr:
 - value: 29DH
   name: IA32_MC29_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 29EH
   name: IA32_MC30_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 29FH
   name: IA32_MC31_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 3F1H
@@ -126,17 +118,16 @@ msr:
   bitfields:
   - bit: n:0
     access: R/W
-    description: Enable PEBS on IA32_PMCx
+    description: Enable PEBS on IA32_PMCx.
   - bit: 31:n+1
     description: Reserved
   - bit: 32+m:32
     access: R/W
-    description: Enable Load Latency on IA32_PMCx
+    description: Enable Load Latency on IA32_PMCx.
   - bit: 63:33+m
     description: Reserved
   scope: Thread
-  description: See Section 20.3.1.1.1
-  long_description: See Section 20.3.1.1.1, “Processor Event Based Sampling (PEBS).”
+  description: See Section 20.3.1.1.1, “Processor Event Based Sampling (PEBS).”
   see_section:
   - 20.3.1.1.1
 - value: 41BH
@@ -156,14 +147,13 @@ msr:
     description: Reserved
   scope: Package
   access: R/O
-  description: Misc MAC Information of Integrated I/O
-  long_description: Misc MAC Information of Integrated I/O See Section 16.3.2.4.
+  description: Misc MAC Information of Integrated I/O See Section 16.3.2.4.
   see_section:
   - 16.3.2.4.
 - value: 474H
   name: IA32_MC29_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through
   long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC29 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
   see_section:
   - 16.3.2.1
@@ -180,7 +170,7 @@ msr:
 - value: 478H
   name: IA32_MC30_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through
   long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC30 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
   see_section:
   - 16.3.2.1
@@ -197,7 +187,7 @@ msr:
 - value: 47CH
   name: IA32_MC31_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through
   long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC31 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
   see_section:
   - 16.3.2.1

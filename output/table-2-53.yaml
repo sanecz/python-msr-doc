@@ -8,20 +8,19 @@ msr:
 - value: 0H
   name: IA32_P5_MC_ADDR
   scope: Module
-  description: See Section 2.23
+  description: See Section 2.23, “MSRs in Pentium Processors.”
   see_section:
   - '2.23'
 - value: 1H
   name: IA32_P5_MC_TYPE
   scope: Module
-  description: See Section 2.23
+  description: See Section 2.23, “MSRs in Pentium Processors.”
   see_section:
   - '2.23'
 - value: 6H
   name: IA32_MONITOR_FILTER_SIZE
   scope: Thread
-  description: See Section 9.10.5
-  long_description: See Section 9.10.5, “Monitor/Mwait Address Range Determination.” See Table 2-2.
+  description: See Section 9.10.5, “Monitor/Mwait Address Range Determination.” See Table 2-2.
   see_table:
   - 2-2
   see_section:
@@ -29,8 +28,7 @@ msr:
 - value: 10H
   name: IA32_TIME_STAMP_COUNTER
   scope: Thread
-  description: See Section 18.17
-  long_description: See Section 18.17, “Time-Stamp Counter,” and see Table 2-2.
+  description: See Section 18.17, “Time-Stamp Counter,” and see Table 2-2.
   see_table:
   - 2-2
   see_section:
@@ -39,15 +37,13 @@ msr:
   name: IA32_PLATFORM_ID
   scope: Package
   access: R
-  description: Platform ID
-  long_description: Platform ID See Table 2-2.
+  description: Platform ID See Table 2-2.
   see_table:
   - 2-2
 - value: 1BH
   name: IA32_APIC_BASE
   scope: Thread
-  description: See Section 11.4.4
-  long_description: See Section 11.4.4, “Local APIC Status and Location,” and Table 2-2.
+  description: See Section 11.4.4, “Local APIC Status and Location,” and Table 2-2.
   see_table:
   - 2-2
   see_section:
@@ -76,16 +72,14 @@ msr:
     description: Enable VMX outside SMX operation
   scope: Thread
   access: R/W
-  description: Control Features in Intel 64Processor
-  long_description: Control Features in Intel 64Processor See Table 2-2.
+  description: Control Features in Intel 64Processor See Table 2-2.
   see_table:
   - 2-2
 - value: 3BH
   name: IA32_TSC_ADJUST
   scope: THREAD
   access: R/W
-  description: Per-Logical-Processor TSC ADJUST
-  long_description: Per-Logical-Processor TSC ADJUST See Table 2-2.
+  description: Per-Logical-Processor TSC ADJUST See Table 2-2.
   see_table:
   - 2-2
 - value: 4EH
@@ -94,14 +88,12 @@ msr:
   bitfields:
   - bit: '0'
     access: R/WO
-    long_description: LockOut See Table 2-2.
-    description: LockOut
+    description: LockOut See Table 2-2.
     see_table:
     - 2-2
   - bit: '1'
     access: R/W
-    long_description: Enable_PPIN See Table 2-2.
-    description: Enable_PPIN
+    description: Enable_PPIN See Table 2-2.
     see_table:
     - 2-2
   - bit: '63:2'
@@ -109,15 +101,13 @@ msr:
   scope: Package
   access: R/W
   description: Protected Processor Inventory Number Enable Control
-  long_description: Protected Processor Inventory Number Enable Control
 - value: 4FH
   name: IA32_PPIN
   alt_name: MSR_PPIN
   bitfields:
   - bit: '63:0'
     access: R/O
-    long_description: Protected Processor Inventory Number See Table 2-2.
-    description: Protected Processor Inventory Number
+    description: Protected Processor Inventory Number See Table 2-2.
     see_table:
     - 2-2
   scope: Package
@@ -127,30 +117,26 @@ msr:
   name: IA32_BIOS_UPDT_TRIG
   scope: Core
   access: W
-  description: BIOS Update Trigger Register
-  long_description: BIOS Update Trigger Register See Table 2-2.
+  description: BIOS Update Trigger Register See Table 2-2.
   see_table:
   - 2-2
 - value: 8BH
   name: IA32_BIOS_SIGN_ID
   scope: THREAD
   access: R/W
-  description: BIOS Update Signature ID
-  long_description: BIOS Update Signature ID See Table 2-2.
+  description: BIOS Update Signature ID See Table 2-2.
   see_table:
   - 2-2
 - value: C1H
   name: IA32_PMC0
   scope: THREAD
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: C2H
   name: IA32_PMC1
   scope: THREAD
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: CEH
@@ -212,12 +198,10 @@ msr:
     description: Reserved
   - bit: '28'
     access: R/W
-    long_description: C1 State Auto Undemotion Enable When set, enables Undemotion from Demoted C1.
-    description: C1 State Auto Undemotion Enable
+    description: C1 State Auto Undemotion Enable When set, enables Undemotion from Demoted C1.
   - bit: '29'
     access: R/W
-    long_description: PKG C-State Auto Demotion Enable When set, enables Package C state demotion.
-    description: PKG C-State Auto Demotion Enable
+    description: PKG C-State Auto Demotion Enable When set, enables Package C state demotion.
   - bit: '63:30'
     description: Reserved
   scope: Package
@@ -243,24 +227,21 @@ msr:
   name: IA32_MPERF
   scope: Thread
   access: R/W
-  description: Maximum Performance Frequency Clock Count
-  long_description: Maximum Performance Frequency Clock Count See Table 2-2.
+  description: Maximum Performance Frequency Clock Count See Table 2-2.
   see_table:
   - 2-2
 - value: E8H
   name: IA32_APERF
   scope: Thread
   access: R/W
-  description: Actual Performance Frequency Clock Count
-  long_description: Actual Performance Frequency Clock Count See Table 2-2.
+  description: Actual Performance Frequency Clock Count See Table 2-2.
   see_table:
   - 2-2
 - value: FEH
   name: IA32_MTRRCAP
   scope: Core
   access: R
-  description: Memory Type Range Register
-  long_description: Memory Type Range Register See Table 2-2.
+  description: Memory Type Range Register See Table 2-2.
   see_table:
   - 2-2
 - value: 13CH
@@ -292,31 +273,31 @@ msr:
 - value: 174H
   name: IA32_SYSENTER_CS
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 175H
   name: IA32_SYSENTER_ESP
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 176H
   name: IA32_SYSENTER_EIP
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 179H
   name: IA32_MCG_CAP
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 17AH
   name: IA32_MCG_STATUS
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 17DH
@@ -330,16 +311,13 @@ msr:
     description: Reserved
   - bit: '56'
     access: SMM-RO
-    long_description: Targeted SMI Set if targeted SMI is supported.
-    description: Targeted SMI
+    description: Targeted SMI Set if targeted SMI is supported.
   - bit: '57'
     access: SMM-RO
-    long_description: SMM_CPU_SVRSTR Set if SMM SRAM save/restore feature is supported.
-    description: SMM_CPU_SVRSTR
+    description: SMM_CPU_SVRSTR Set if SMM SRAM save/restore feature is supported.
   - bit: '58'
     access: SMM-RO
-    long_description: SMM_CODE_ACCESS_CHK Set if SMM code access check feature is supported.
-    description: SMM_CODE_ACCESS_CHK
+    description: SMM_CODE_ACCESS_CHK Set if SMM code access check feature is supported.
   - bit: '59'
     access: SMM-RO
     long_description: Long_Flow_Indication If set to 1, indicates that the SMM long flow indicator is supported and a host-space interface available to SMM handler.
@@ -379,42 +357,39 @@ msr:
     description: Reserved
   scope: Thread
   access: R/W
-  description: Performance Monitoring Event Select Register
-  long_description: Performance Monitoring Event Select Register See Table 2-2.
+  description: Performance Monitoring Event Select Register See Table 2-2.
   see_table:
   - 2-2
 - value: 187H
   name: IA32_PERFEVTSEL1
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 198H
   name: IA32_PERF_STATUS
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 199H
   name: IA32_PERF_CTL
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 19AH
   name: IA32_CLOCK_MODULATION
   scope: Thread
   access: R/W
-  description: Clock Modulation
-  long_description: Clock Modulation See Table 2-2.
+  description: Clock Modulation See Table 2-2.
   see_table:
   - 2-2
 - value: 19BH
   name: IA32_THERM_INTERRUPT
   scope: Module
   access: R/W
-  description: Thermal Interrupt Control
-  long_description: Thermal Interrupt Control See Table 2-2.
+  description: Thermal Interrupt Control See Table 2-2.
   see_table:
   - 2-2
 - value: 19CH
@@ -473,8 +448,7 @@ msr:
     description: Reserved
   scope: Module
   access: R/W
-  description: Thermal Monitor Status
-  long_description: Thermal Monitor Status See Table 2-2.
+  description: Thermal Monitor Status See Table 2-2.
   see_table:
   - 2-2
 - value: 1A0H
@@ -530,7 +504,7 @@ msr:
     description: Reserved
   scope: Thread
   access: R/W
-  description: Enable Misc
+  description: Enable Misc. Processor Features
   long_description: Enable Misc. Processor Features Allows a variety of processor functions to be enabled and disabled.
 - value: 1A2H
   name: MSR_TEMPERATURE_TARGET
@@ -552,12 +526,10 @@ msr:
   bitfields:
   - bit: '0'
     access: R/W
-    long_description: DCU Hardware Prefetcher Disable If 1, disables the L1 data cache prefetcher.
-    description: DCU Hardware Prefetcher Disable
+    description: DCU Hardware Prefetcher Disable If 1, disables the L1 data cache prefetcher.
   - bit: '1'
     access: R/W
-    long_description: L2 Hardware Prefetcher Disable If 1, disables the L2 hardware prefetcher.
-    description: L2 Hardware Prefetcher Disable
+    description: L2 Hardware Prefetcher Disable If 1, disables the L2 hardware prefetcher.
   - bit: '63:2'
     description: Reserved
   access: R/W
@@ -622,23 +594,22 @@ msr:
   scope: Package
   access: R/W
   description: Maximum Ratio Limit of Turbo Mode for Groups of Cores
-  long_description: Maximum Ratio Limit of Turbo Mode for Groups of Cores
 - value: 1B0H
   name: IA32_ENERGY_PERF_BIAS
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 1B1H
   name: IA32_PACKAGE_THERM_STATUS
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 1B2H
   name: IA32_PACKAGE_THERM_INTERRUPT
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 1C8H
@@ -666,8 +637,7 @@ msr:
     description: Reserved
   scope: Thread
   access: R/W
-  description: Last Branch Record Filtering Select Register
-  long_description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
+  description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
   see_section:
   - 18.9.2
 - value: 1C9H
@@ -697,14 +667,11 @@ msr:
     long_description: BTINT When clear, BTMs are logged in a BTS buffer in circular fashion. When this bit is set, an interrupt is generated by the BTS facility when the BTS buffer is full.
     description: BTINT
   - bit: '9'
-    long_description: BTS_OFF_OS When set, BTS or BTM is skipped if CPL = 0.
-    description: BTS_OFF_OS
+    description: BTS_OFF_OS When set, BTS or BTM is skipped if CPL = 0.
   - bit: '10'
-    long_description: BTS_OFF_USR When set, BTS or BTM is skipped if CPL > 0.
-    description: BTS_OFF_USR
+    description: BTS_OFF_USR When set, BTS or BTM is skipped if CPL > 0.
   - bit: '11'
-    long_description: FREEZE_LBRS_ON_PMI When set, the LBR stack is frozen on a PMI request.
-    description: FREEZE_LBRS_ON_PMI
+    description: FREEZE_LBRS_ON_PMI When set, the LBR stack is frozen on a PMI request.
   - bit: '12'
     long_description: FREEZE_PERFMON_ON_PMI When set, each ENABLE bit of the global counter control MSR are frozen (address 3BFH) on a PMI request.
     description: FREEZE_PERFMON_ON_PMI
@@ -731,220 +698,215 @@ msr:
 - value: 1F2H
   name: IA32_SMRR_PHYSBASE
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 1F3H
   name: IA32_SMRR_PHYSMASK
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 200H
   name: IA32_MTRR_PHYSBASE0
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 201H
   name: IA32_MTRR_PHYSMASK0
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 202H
   name: IA32_MTRR_PHYSBASE1
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 203H
   name: IA32_MTRR_PHYSMASK1
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 204H
   name: IA32_MTRR_PHYSBASE2
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 205H
   name: IA32_MTRR_PHYSMASK2
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 206H
   name: IA32_MTRR_PHYSBASE3
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 207H
   name: IA32_MTRR_PHYSMASK3
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 208H
   name: IA32_MTRR_PHYSBASE4
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 209H
   name: IA32_MTRR_PHYSMASK4
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20AH
   name: IA32_MTRR_PHYSBASE5
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20BH
   name: IA32_MTRR_PHYSMASK5
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20CH
   name: IA32_MTRR_PHYSBASE6
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20DH
   name: IA32_MTRR_PHYSMASK6
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20EH
   name: IA32_MTRR_PHYSBASE7
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20FH
   name: IA32_MTRR_PHYSMASK7
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 250H
   name: IA32_MTRR_FIX64K_00000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 258H
   name: IA32_MTRR_FIX16K_80000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 259H
   name: IA32_MTRR_FIX16K_A0000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 268H
   name: IA32_MTRR_FIX4K_C0000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 269H
   name: IA32_MTRR_FIX4K_C8000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26AH
   name: IA32_MTRR_FIX4K_D0000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26BH
   name: IA32_MTRR_FIX4K_D8000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26CH
   name: IA32_MTRR_FIX4K_E0000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26DH
   name: IA32_MTRR_FIX4K_E8000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26EH
   name: IA32_MTRR_FIX4K_F0000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26FH
   name: IA32_MTRR_FIX4K_F8000
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 277H
   name: IA32_PAT
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 2FFH
   name: IA32_MTRR_DEF_TYPE
   scope: Core
   access: R/W
-  description: Default Memory Types
-  long_description: Default Memory Types See Table 2-2.
+  description: Default Memory Types See Table 2-2.
   see_table:
   - 2-2
 - value: 309H
   name: IA32_FIXED_CTR0
   scope: Thread
   access: R/W
-  description: Fixed-Function Performance Counter Register 0
-  long_description: Fixed-Function Performance Counter Register 0 See Table 2-2.
+  description: Fixed-Function Performance Counter Register 0 See Table 2-2.
   see_table:
   - 2-2
 - value: 30AH
   name: IA32_FIXED_CTR1
   scope: Thread
   access: R/W
-  description: Fixed-Function Performance Counter Register 1
-  long_description: Fixed-Function Performance Counter Register 1 See Table 2-2.
+  description: Fixed-Function Performance Counter Register 1 See Table 2-2.
   see_table:
   - 2-2
 - value: 30BH
   name: IA32_FIXED_CTR2
   scope: Thread
   access: R/W
-  description: Fixed-Function Performance Counter Register 2
-  long_description: Fixed-Function Performance Counter Register 2 See Table 2-2.
+  description: Fixed-Function Performance Counter Register 2 See Table 2-2.
   see_table:
   - 2-2
 - value: 345H
   name: IA32_PERF_CAPABILITIES
   scope: Package
-  description: See Table 2-2. See Section 18.4.1
-  long_description: See Table 2-2. See Section 18.4.1, “IA32_DEBUGCTL MSR.”
+  description: See Table 2-2. See Section 18.4.1, “IA32_DEBUGCTL MSR.”
   see_table:
   - 2-2
   see_section:
@@ -953,33 +915,32 @@ msr:
   name: IA32_FIXED_CTR_CTRL
   scope: Thread
   access: R/W
-  description: Fixed-Function-Counter Control Register
-  long_description: Fixed-Function-Counter Control Register See Table 2-2.
+  description: Fixed-Function-Counter Control Register See Table 2-2.
   see_table:
   - 2-2
 - value: 38EH
   name: IA32_PERF_GLOBAL_STATUS
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 38FH
   name: IA32_PERF_GLOBAL_CTRL
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 390H
   name: IA32_PERF_GLOBAL_OVF_CTRL
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 3F1H
   name: IA32_PEBS_ENABLE
   alt_name: MSR_PEBS_ENABLE
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 3F8H
@@ -1033,132 +994,130 @@ msr:
 - value: 400H
   name: IA32_MC0_CTL
   scope: Core
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 401H
   name: IA32_MC0_STATUS
   scope: Core
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 402H
   name: IA32_MC0_ADDR
   scope: Core
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 404H
   name: IA32_MC1_CTL
   scope: Core
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 405H
   name: IA32_MC1_STATUS
   scope: Core
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 408H
   name: IA32_MC2_CTL
   scope: Core
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 409H
   name: IA32_MC2_STATUS
   scope: Core
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 40AH
   name: IA32_MC2_ADDR
   scope: Core
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 40CH
   name: IA32_MC3_CTL
   scope: Core
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 40DH
   name: IA32_MC3_STATUS
   scope: Core
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 40EH
   name: IA32_MC3_ADDR
   scope: Core
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 410H
   name: IA32_MC4_CTL
   scope: Core
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 411H
   name: IA32_MC4_STATUS
   scope: Core
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 412H
   name: IA32_MC4_ADDR
   scope: Core
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 414H
   name: IA32_MC5_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 415H
   name: IA32_MC5_STATUS
   scope: Package
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 416H
   name: IA32_MC5_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 4C1H
   name: IA32_A_PMC0
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 4C2H
   name: IA32_A_PMC1
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 600H
   name: IA32_DS_AREA
   scope: Thread
   access: R/W
-  description: DS Save Area
-  long_description: DS Save Area See Table 2-2.
+  description: DS Save Area See Table 2-2.
   see_table:
   - 2-2
 - value: 606H
   name: MSR_RAPL_POWER_UNIT
   bitfields:
   - bit: '3:0'
-    long_description: Power Units See Section 15.10.1, “RAPL Interfaces.”
-    description: Power Units
+    description: Power Units See Section 15.10.1, “RAPL Interfaces.”
     see_section:
     - 15.10.1
   - bit: '7:4'
@@ -1169,8 +1128,7 @@ msr:
   - bit: '15:13'
     description: Reserved
   - bit: '19:16'
-    long_description: Time Units See Section 15.10.1, “RAPL Interfaces.”
-    description: Time Units
+    description: Time Units See Section 15.10.1, “RAPL Interfaces.”
     see_section:
     - 15.10.1
   - bit: '63:20'
@@ -1191,120 +1149,105 @@ msr:
   name: MSR_PKG_POWER_LIMIT
   scope: Package
   access: R/W
-  description: PKG RAPL Power Limit Control
-  long_description: PKG RAPL Power Limit Control See Section 15.10.3, “Package RAPL Domain.”
+  description: PKG RAPL Power Limit Control See Section 15.10.3, “Package RAPL Domain.”
   see_section:
   - 15.10.3
 - value: 611H
   name: MSR_PKG_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: PKG Energy Status
-  long_description: PKG Energy Status See Section 15.10.3, “Package RAPL Domain.”
+  description: PKG Energy Status See Section 15.10.3, “Package RAPL Domain.”
   see_section:
   - 15.10.3
 - value: 613H
   name: MSR_PKG_PERF_STATUS
   scope: Package
   access: R/O
-  description: PKG Perf Status
-  long_description: PKG Perf Status See Section 15.10.3, “Package RAPL Domain.”
+  description: PKG Perf Status See Section 15.10.3, “Package RAPL Domain.”
   see_section:
   - 15.10.3
 - value: 614H
   name: MSR_PKG_POWER_INFO
   scope: Package
   access: R/W
-  description: PKG RAPL Parameters
-  long_description: PKG RAPL Parameters See Section 15.10.3, “Package RAPL Domain.”
+  description: PKG RAPL Parameters See Section 15.10.3, “Package RAPL Domain.”
   see_section:
   - 15.10.3
 - value: 618H
   name: MSR_DRAM_POWER_LIMIT
   scope: Package
   access: R/W
-  description: DRAM RAPL Power Limit Control
-  long_description: DRAM RAPL Power Limit Control See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM RAPL Power Limit Control See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 619H
   name: MSR_DRAM_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: DRAM Energy Status
-  long_description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 61BH
   name: MSR_DRAM_PERF_STATUS
   scope: Package
   access: R/O
-  description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 61CH
   name: MSR_DRAM_POWER_INFO
   scope: Package
   access: R/W
-  description: DRAM RAPL Parameters
-  long_description: DRAM RAPL Parameters See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM RAPL Parameters See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 638H
   name: MSR_PP0_POWER_LIMIT
   scope: Package
   access: R/W
-  description: PP0 RAPL Power Limit Control
-  long_description: PP0 RAPL Power Limit Control See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP0 RAPL Power Limit Control See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4
 - value: 639H
   name: MSR_PP0_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4
 - value: 648H
   name: MSR_CONFIG_TDP_NOMINAL
   scope: Package
   access: R/O
-  description: Base TDP Ratio
-  long_description: Base TDP Ratio See Table 2-25.
+  description: Base TDP Ratio See Table 2-25.
   see_table:
   - 2-25
 - value: 649H
   name: MSR_CONFIG_TDP_LEVEL1
   scope: Package
   access: R/O
-  description: ConfigTDP Level 1 ratio and power level
-  long_description: ConfigTDP Level 1 ratio and power level See Table 2-25.
+  description: ConfigTDP Level 1 ratio and power level See Table 2-25.
   see_table:
   - 2-25
 - value: 64AH
   name: MSR_CONFIG_TDP_LEVEL2
   scope: Package
   access: R/O
-  description: ConfigTDP Level 2 ratio and power level
-  long_description: ConfigTDP Level 2 ratio and power level See Table 2-25.
+  description: ConfigTDP Level 2 ratio and power level See Table 2-25.
   see_table:
   - 2-25
 - value: 64BH
   name: MSR_CONFIG_TDP_CONTROL
   scope: Package
   access: R/W
-  description: ConfigTDP Control
-  long_description: ConfigTDP Control See Table 2-25.
+  description: ConfigTDP Control See Table 2-25.
   see_table:
   - 2-25
 - value: 64CH
   name: MSR_TURBO_ACTIVATION_RATIO
   scope: Package
   access: R/W
-  description: ConfigTDP Control
-  long_description: ConfigTDP Control See Table 2-25.
+  description: ConfigTDP Control See Table 2-25.
   see_table:
   - 2-25
 - value: 690H
@@ -1330,14 +1273,12 @@ msr:
     description: Reserved
   scope: Package
   access: R/W
-  description: Indicator of Frequency Clipping in Processor Cores
-  long_description: Indicator of Frequency Clipping in Processor Cores (Frequency refers to processor core frequency.)
+  description: Indicator of Frequency Clipping in Processor Cores (Frequency refers to processor core frequency.)
 - value: 6E0H
   name: IA32_TSC_DEADLINE
   scope: Core
   access: R/W
-  description: TSC Target of Local APIC’s TSC Deadline Mode
-  long_description: TSC Target of Local APIC’s TSC Deadline Mode See Table 2-2.
+  description: TSC Target of Local APIC’s TSC Deadline Mode See Table 2-2.
   see_table:
   - 2-2
 - value: 802H
@@ -1505,7 +1446,6 @@ msr:
   scope: Thread
   access: R/W
   description: x2APIC LVT Corrected Machine Check Interrupt Register
-  long_description: x2APIC LVT Corrected Machine Check Interrupt Register
 - value: 830H
   name: IA32_X2APIC_ICR
   scope: Thread
@@ -1564,62 +1504,54 @@ msr:
 - value: C000_0080H
   name: IA32_EFER
   scope: Thread
-  description: Extended Feature Enables
-  long_description: Extended Feature Enables See Table 2-2.
+  description: Extended Feature Enables See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0081H
   name: IA32_STAR
   scope: Thread
   access: R/W
-  description: System Call Target Address
-  long_description: System Call Target Address See Table 2-2.
+  description: System Call Target Address See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0082H
   name: IA32_LSTAR
   scope: Thread
   access: R/W
-  description: IA-32e Mode System Call Target Address
-  long_description: IA-32e Mode System Call Target Address See Table 2-2.
+  description: IA-32e Mode System Call Target Address See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0084H
   name: IA32_FMASK
   scope: Thread
   access: R/W
-  description: System Call Flag Mask
-  long_description: System Call Flag Mask See Table 2-2.
+  description: System Call Flag Mask See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0100H
   name: IA32_FS_BASE
   scope: Thread
   access: R/W
-  description: Map of BASE Address of FS
-  long_description: Map of BASE Address of FS See Table 2-2.
+  description: Map of BASE Address of FS See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0101H
   name: IA32_GS_BASE
   scope: Thread
   access: R/W
-  description: Map of BASE Address of GS
-  long_description: Map of BASE Address of GS See Table 2-2.
+  description: Map of BASE Address of GS See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0102H
   name: IA32_KERNEL_GS_BASE
   scope: Thread
   access: R/W
-  description: Swap Target of BASE Address of GS
-  long_description: Swap Target of BASE Address of GS See Table 2-2.
+  description: Swap Target of BASE Address of GS See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0103H
   name: Thread
   access: R/W
-  description: AUXILIARY TSC Signature
-  long_description: AUXILIARY TSC Signature See Table 2-2
+  description: AUXILIARY TSC Signature See Table 2-2
   see_table:
   - 2-2

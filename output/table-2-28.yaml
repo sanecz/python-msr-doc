@@ -63,23 +63,19 @@ msr:
 - value: E10H
   name: MSR_C8_PMON_EVNTSEL0
   scope: Package
-  description: Uncore C-Box 8 Perfmon Event Select for C-Box 8
-  long_description: Uncore C-Box 8 Perfmon Event Select for C-Box 8 Counter 0
+  description: Uncore C-Box 8 Perfmon Event Select for C-Box 8 Counter 0
 - value: E11H
   name: MSR_C8_PMON_EVNTSEL1
   scope: Package
-  description: Uncore C-Box 8 Perfmon Event Select for C-Box 8
-  long_description: Uncore C-Box 8 Perfmon Event Select for C-Box 8 Counter 1
+  description: Uncore C-Box 8 Perfmon Event Select for C-Box 8 Counter 1
 - value: E12H
   name: MSR_C8_PMON_EVNTSEL2
   scope: Package
-  description: Uncore C-Box 8 Perfmon Event Select for C-Box 8
-  long_description: Uncore C-Box 8 Perfmon Event Select for C-Box 8 Counter 2
+  description: Uncore C-Box 8 Perfmon Event Select for C-Box 8 Counter 2
 - value: E13H
   name: MSR_C8_PMON_EVNTSEL3
   scope: Package
-  description: Uncore C-Box 8 Perfmon Event Select for C-Box 8
-  long_description: Uncore C-Box 8 Perfmon Event Select for C-Box 8 Counter 3
+  description: Uncore C-Box 8 Perfmon Event Select for C-Box 8 Counter 3
 - value: E14H
   name: MSR_C8_PMON_BOX_FILTER
   scope: Package
@@ -111,23 +107,19 @@ msr:
 - value: E30H
   name: MSR_C9_PMON_EVNTSEL0
   scope: Package
-  description: Uncore C-Box 9 Perfmon Event Select for C-box 9
-  long_description: Uncore C-Box 9 Perfmon Event Select for C-box 9 Counter 0
+  description: Uncore C-Box 9 Perfmon Event Select for C-box 9 Counter 0
 - value: E31H
   name: MSR_C9_PMON_EVNTSEL1
   scope: Package
-  description: Uncore C-Box 9 Perfmon Event Select for C-box 9
-  long_description: Uncore C-Box 9 Perfmon Event Select for C-box 9 Counter 1
+  description: Uncore C-Box 9 Perfmon Event Select for C-box 9 Counter 1
 - value: E32H
   name: MSR_C9_PMON_EVNTSEL2
   scope: Package
-  description: Uncore C-Box 9 Perfmon Event Select for C-box 9
-  long_description: Uncore C-Box 9 Perfmon Event Select for C-box 9 Counter 2
+  description: Uncore C-Box 9 Perfmon Event Select for C-box 9 Counter 2
 - value: E33H
   name: MSR_C9_PMON_EVNTSEL3
   scope: Package
-  description: Uncore C-Box 9 Perfmon Event Select for C-box 9
-  long_description: Uncore C-Box 9 Perfmon Event Select for C-box 9 Counter 3
+  description: Uncore C-Box 9 Perfmon Event Select for C-box 9 Counter 3
 - value: E34H
   name: MSR_C9_PMON_BOX_FILTER
   scope: Package
@@ -159,23 +151,19 @@ msr:
 - value: E50H
   name: MSR_C10_PMON_EVNTSEL0
   scope: Package
-  description: Uncore C-Box 10 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 10 Perfmon Event Select for C-Box 10 Counter 0
+  description: Uncore C-Box 10 Perfmon Event Select for C-Box 10 Counter 0
 - value: E51H
   name: MSR_C10_PMON_EVNTSEL1
   scope: Package
-  description: Uncore C-Box 10 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 10 Perfmon Event Select for C-Box 10 Counter 1
+  description: Uncore C-Box 10 Perfmon Event Select for C-Box 10 Counter 1
 - value: E52H
   name: MSR_C10_PMON_EVNTSEL2
   scope: Package
-  description: Uncore C-Box 10 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 10 Perfmon Event Select for C-Box 10 Counter 2
+  description: Uncore C-Box 10 Perfmon Event Select for C-Box 10 Counter 2
 - value: E53H
   name: MSR_C10_PMON_EVNTSEL3
   scope: Package
-  description: Uncore C-Box 10 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 10 Perfmon Event Select for C-Box 10 Counter 3
+  description: Uncore C-Box 10 Perfmon Event Select for C-Box 10 Counter 3
 - value: E54H
   name: MSR_C10_PMON_BOX_FILTER
   scope: Package
@@ -207,23 +195,19 @@ msr:
 - value: E70H
   name: MSR_C11_PMON_EVNTSEL0
   scope: Package
-  description: Uncore C-Box 11 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 11 Perfmon Event Select for C-Box 11 Counter 0
+  description: Uncore C-Box 11 Perfmon Event Select for C-Box 11 Counter 0
 - value: E71H
   name: MSR_C11_PMON_EVNTSEL1
   scope: Package
-  description: Uncore C-Box 11 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 11 Perfmon Event Select for C-Box 11 Counter 1
+  description: Uncore C-Box 11 Perfmon Event Select for C-Box 11 Counter 1
 - value: E72H
   name: MSR_C11_PMON_EVNTSEL2
   scope: Package
-  description: Uncore C-Box 11 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 11 Perfmon Event Select for C-Box 11 Counter 2
+  description: Uncore C-Box 11 Perfmon Event Select for C-Box 11 Counter 2
 - value: E73H
   name: MSR_C11_PMON_EVNTSEL3
   scope: Package
-  description: Uncore C-Box 11 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 11 Perfmon Event Select for C-Box 11 Counter 3
+  description: Uncore C-Box 11 Perfmon Event Select for C-Box 11 Counter 3
 - value: E74H
   name: MSR_C11_PMON_BOX_FILTER
   scope: Package
@@ -255,23 +239,19 @@ msr:
 - value: E90H
   name: MSR_C12_PMON_EVNTSEL0
   scope: Package
-  description: Uncore C-Box 12 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 12 Perfmon Event Select for C-Box 12 Counter 0
+  description: Uncore C-Box 12 Perfmon Event Select for C-Box 12 Counter 0
 - value: E91H
   name: MSR_C12_PMON_EVNTSEL1
   scope: Package
-  description: Uncore C-Box 12 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 12 Perfmon Event Select for C-Box 12 Counter 1
+  description: Uncore C-Box 12 Perfmon Event Select for C-Box 12 Counter 1
 - value: E92H
   name: MSR_C12_PMON_EVNTSEL2
   scope: Package
-  description: Uncore C-Box 12 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 12 Perfmon Event Select for C-Box 12 Counter 2
+  description: Uncore C-Box 12 Perfmon Event Select for C-Box 12 Counter 2
 - value: E93H
   name: MSR_C12_PMON_EVNTSEL3
   scope: Package
-  description: Uncore C-Box 12 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 12 Perfmon Event Select for C-Box 12 Counter 3
+  description: Uncore C-Box 12 Perfmon Event Select for C-Box 12 Counter 3
 - value: E94H
   name: MSR_C12_PMON_BOX_FILTER
   scope: Package
@@ -303,23 +283,19 @@ msr:
 - value: EB0H
   name: MSR_C13_PMON_EVNTSEL0
   scope: Package
-  description: Uncore C-Box 13 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 13 Perfmon Event Select for C-Box 13 Counter 0
+  description: Uncore C-Box 13 Perfmon Event Select for C-Box 13 Counter 0
 - value: EB1H
   name: MSR_C13_PMON_EVNTSEL1
   scope: Package
-  description: Uncore C-Box 13 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 13 Perfmon Event Select for C-Box 13 Counter 1
+  description: Uncore C-Box 13 Perfmon Event Select for C-Box 13 Counter 1
 - value: EB2H
   name: MSR_C13_PMON_EVNTSEL2
   scope: Package
-  description: Uncore C-Box 13 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 13 Perfmon Event Select for C-Box 13 Counter 2
+  description: Uncore C-Box 13 Perfmon Event Select for C-Box 13 Counter 2
 - value: EB3H
   name: MSR_C13_PMON_EVNTSEL3
   scope: Package
-  description: Uncore C-Box 13 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 13 Perfmon Event Select for C-Box 13 Counter 3
+  description: Uncore C-Box 13 Perfmon Event Select for C-Box 13 Counter 3
 - value: EB4H
   name: MSR_C13_PMON_BOX_FILTER
   scope: Package
@@ -351,23 +327,19 @@ msr:
 - value: ED0H
   name: MSR_C14_PMON_EVNTSEL0
   scope: Package
-  description: Uncore C-Box 14 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 14 Perfmon Event Select for C-Box 14 Counter 0
+  description: Uncore C-Box 14 Perfmon Event Select for C-Box 14 Counter 0
 - value: ED1H
   name: MSR_C14_PMON_EVNTSEL1
   scope: Package
-  description: Uncore C-Box 14 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 14 Perfmon Event Select for C-Box 14 Counter 1
+  description: Uncore C-Box 14 Perfmon Event Select for C-Box 14 Counter 1
 - value: ED2H
   name: MSR_C14_PMON_EVNTSEL2
   scope: Package
-  description: Uncore C-Box 14 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 14 Perfmon Event Select for C-Box 14 Counter 2
+  description: Uncore C-Box 14 Perfmon Event Select for C-Box 14 Counter 2
 - value: ED3H
   name: MSR_C14_PMON_EVNTSEL3
   scope: Package
-  description: Uncore C-Box 14 Perfmon Event Select for C-Box
-  long_description: Uncore C-Box 14 Perfmon Event Select for C-Box 14 Counter 3
+  description: Uncore C-Box 14 Perfmon Event Select for C-Box 14 Counter 3
 - value: ED4H
   name: MSR_C14_PMON_BOX_FILTER
   scope: Package

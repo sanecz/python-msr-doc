@@ -79,12 +79,10 @@ msr:
     description: C1 State Auto Demotion Enable
   - bit: '27'
     access: R/W
-    long_description: Enable C3 Undemotion When set, enables undemotion from demoted C3.
-    description: Enable C3 Undemotion
+    description: Enable C3 Undemotion When set, enables undemotion from demoted C3.
   - bit: '28'
     access: R/W
-    long_description: Enable C1 Undemotion When set, enables undemotion from demoted C1.
-    description: Enable C1 Undemotion
+    description: Enable C1 Undemotion When set, enables undemotion from demoted C1.
   - bit: '63:29'
     description: Reserved
   scope: Core
@@ -95,8 +93,7 @@ msr:
   name: MSR_PP0_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4
 - value: 648H
@@ -114,8 +111,7 @@ msr:
   name: MSR_CONFIG_TDP_LEVEL1
   bitfields:
   - bit: '14:0'
-    long_description: PKG_TDP_LVL1 Power setting for ConfigTDP Level 1.
-    description: PKG_TDP_LVL1
+    description: PKG_TDP_LVL1 Power setting for ConfigTDP Level 1.
   - bit: '15'
     description: Reserved
   - bit: '23:16'
@@ -124,13 +120,11 @@ msr:
   - bit: '31:24'
     description: Reserved
   - bit: '46:32'
-    long_description: PKG_MAX_PWR_LVL1 Max Power setting allowed for ConfigTDP Level 1.
-    description: PKG_MAX_PWR_LVL1
+    description: PKG_MAX_PWR_LVL1 Max Power setting allowed for ConfigTDP Level 1.
   - bit: '47'
     description: Reserved
   - bit: '62:48'
-    long_description: PKG_MIN_PWR_LVL1 MIN Power setting allowed for ConfigTDP Level 1.
-    description: PKG_MIN_PWR_LVL1
+    description: PKG_MIN_PWR_LVL1 MIN Power setting allowed for ConfigTDP Level 1.
   - bit: '63'
     description: Reserved
   scope: Package
@@ -140,8 +134,7 @@ msr:
   name: MSR_CONFIG_TDP_LEVEL2
   bitfields:
   - bit: '14:0'
-    long_description: PKG_TDP_LVL2 Power setting for ConfigTDP Level 2.
-    description: PKG_TDP_LVL2
+    description: PKG_TDP_LVL2 Power setting for ConfigTDP Level 2.
   - bit: '15'
     description: Reserved
   - bit: '23:16'
@@ -150,13 +143,11 @@ msr:
   - bit: '31:24'
     description: Reserved
   - bit: '46:32'
-    long_description: PKG_MAX_PWR_LVL2 Max Power setting allowed for ConfigTDP Level 2.
-    description: PKG_MAX_PWR_LVL2
+    description: PKG_MAX_PWR_LVL2 Max Power setting allowed for ConfigTDP Level 2.
   - bit: '47'
     description: Reserved
   - bit: '62:48'
-    long_description: PKG_MIN_PWR_LVL2 MIN Power setting allowed for ConfigTDP Level 2.
-    description: PKG_MIN_PWR_LVL2
+    description: PKG_MIN_PWR_LVL2 MIN Power setting allowed for ConfigTDP Level 2.
   - bit: '63'
     description: Reserved
   scope: Package
@@ -167,10 +158,9 @@ msr:
   bitfields:
   - bit: '1:0'
     access: RW/L
-    long_description: TDP_LEVEL System BIOS can program this field.
-    description: TDP_LEVEL
+    description: TDP_LEVEL System BIOS can program this field.
   - bit: '30:2'
-    description: Reserved
+    description: Reserved.
   - bit: '31'
     access: RW/L
     long_description: Config_TDP_Lock When this bit is set, the content of this register is locked until a reset.
@@ -185,8 +175,7 @@ msr:
   bitfields:
   - bit: '7:0'
     access: RW/L
-    long_description: MAX_NON_TURBO_RATIO System BIOS can program this field.
-    description: MAX_NON_TURBO_RATIO
+    description: MAX_NON_TURBO_RATIO System BIOS can program this field.
   - bit: '30:8'
     description: Reserved
   - bit: '31'

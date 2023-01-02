@@ -14,8 +14,7 @@ msr:
   - bit: '17:1'
     description: Reserved
   - bit: '63:18'
-    long_description: ACPIBAR_BASE_ADDRESS AET target address in NPK MMIO space.
-    description: ACPIBAR_BASE_ADDRESS
+    description: ACPIBAR_BASE_ADDRESS AET target address in NPK MMIO space.
   scope: Package
   access: R/W
   description: NPK Address Used by AET Messages
@@ -23,52 +22,45 @@ msr:
   name: MSR_PRMRR_PHYS_BASE
   bitfields:
   - bit: '2:0'
-    long_description: MemType PRMRR BASE MemType.
-    description: MemType
+    description: MemType PRMRR BASE MemType.
   - bit: '11:3'
     description: Reserved
   - bit: '45:12'
-    long_description: Base PRMRR Base Address.
-    description: Base
+    description: Base PRMRR Base Address.
   - bit: '63:46'
     description: Reserved
   scope: Core
   access: R/W
-  description: Processor Reserved Memory Range Register -
-  long_description: Processor Reserved Memory Range Register - Physical Base Control Register
+  description: Processor Reserved Memory Range Register - Physical Base Control Register
 - value: 1F5H
   name: MSR_PRMRR_PHYS_MASK
   bitfields:
   - bit: '9:0'
     description: Reserved
   - bit: '10'
-    long_description: Lock Lock bit for the PRMRR.
-    description: Lock
+    description: Lock Lock bit for the PRMRR.
   - bit: '11'
-    long_description: VLD Enable bit for the PRMRR.
-    description: VLD
+    description: VLD Enable bit for the PRMRR.
   - bit: '45:12'
-    long_description: Mask PRMRR MASK bits.
-    description: Mask
+    description: Mask PRMRR MASK bits.
   - bit: '63:46'
     description: Reserved
   scope: Core
   access: R/W
-  description: Processor Reserved Memory Range Register -
-  long_description: Processor Reserved Memory Range Register - Physical Mask Control Register
+  description: Processor Reserved Memory Range Register - Physical Mask Control Register
 - value: 1FBH
   name: MSR_PRMRR_VALID_CONFIG
   bitfields:
   - bit: '0'
-    description: 1M supported MEE size
+    description: 1M supported MEE size.
   - bit: '4:1'
     description: Reserved
   - bit: '5'
-    description: 32M supported MEE size
+    description: 32M supported MEE size.
   - bit: '6'
-    description: 64M supported MEE size
+    description: 64M supported MEE size.
   - bit: '7'
-    description: 128M supported MEE size
+    description: 128M supported MEE size.
   - bit: '31:8'
     description: Reserved
   scope: Core

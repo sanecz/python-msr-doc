@@ -15,12 +15,11 @@ msr:
     description: Reserved
   - bit: '13:8'
     access: R
-    long_description: Maximum Qualified Ratio The maximum allowed bus ratio.
-    description: Maximum Qualified Ratio
+    description: Maximum Qualified Ratio The maximum allowed bus ratio.
   - bit: '49:13'
     description: Reserved
   - bit: '52:50'
-    description: See Table 2-2
+    description: See Table 2-2.
     see_table:
     - 2-2
   - bit: '63:33'
@@ -41,8 +40,7 @@ msr:
     description: Enable VMX outside SMX operation
   scope: Core
   access: R/W
-  description: Control Features in Intel 64Processor
-  long_description: Control Features in Intel 64Processor See Table 2-2.
+  description: Control Features in Intel 64Processor See Table 2-2.
   see_table:
   - 2-2
 - value: 40H
@@ -58,44 +56,37 @@ msr:
   name: MSR_LASTBRANCH_1_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 1 From IP
-  long_description: Last Branch Record 1 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 1 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 42H
   name: MSR_LASTBRANCH_2_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 2 From IP
-  long_description: Last Branch Record 2 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 2 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 43H
   name: MSR_LASTBRANCH_3_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 3 From IP
-  long_description: Last Branch Record 3 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 3 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 44H
   name: MSR_LASTBRANCH_4_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 4 From IP
-  long_description: Last Branch Record 4 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 4 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 45H
   name: MSR_LASTBRANCH_5_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 5 From IP
-  long_description: Last Branch Record 5 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 5 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 46H
   name: MSR_LASTBRANCH_6_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 6 From IP
-  long_description: Last Branch Record 6 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 6 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 47H
   name: MSR_LASTBRANCH_7_FROM_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 7 From IP
-  long_description: Last Branch Record 7 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 7 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 60H
   name: MSR_LASTBRANCH_0_TO_IP
   scope: Core
@@ -106,44 +97,37 @@ msr:
   name: MSR_LASTBRANCH_1_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 1 To IP
-  long_description: Last Branch Record 1 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 1 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 62H
   name: MSR_LASTBRANCH_2_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 2 To IP
-  long_description: Last Branch Record 2 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 2 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 63H
   name: MSR_LASTBRANCH_3_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 3 To IP
-  long_description: Last Branch Record 3 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 3 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 64H
   name: MSR_LASTBRANCH_4_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 4 To IP
-  long_description: Last Branch Record 4 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 4 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 65H
   name: MSR_LASTBRANCH_5_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 5 To IP
-  long_description: Last Branch Record 5 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 5 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 66H
   name: MSR_LASTBRANCH_6_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 6 To IP
-  long_description: Last Branch Record 6 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 6 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 67H
   name: MSR_LASTBRANCH_7_TO_IP
   scope: Core
   access: R/W
-  description: Last Branch Record 7 To IP
-  long_description: Last Branch Record 7 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 7 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: CEH
   name: MSR_PLATFORM_INFO
   bitfields:
@@ -175,8 +159,7 @@ msr:
     description: Reserved
   - bit: '15'
     access: R/WO
-    long_description: CFG Lock When set, locks bits 15:0 of this register until next reset.
-    description: CFG Lock
+    description: CFG Lock When set, locks bits 15:0 of this register until next reset.
   - bit: '63:16'
     description: Reserved
   scope: Module
@@ -205,80 +188,69 @@ msr:
   - bit: '63:24'
     description: Reserved
   scope: Module
-  description: Control Register 3
-  long_description: Control Register 3 Used to configure the L2 Cache.
+  description: Control Register 3 Used to configure the L2 Cache.
 - value: 1A0H
   name: IA32_MISC_ENABLE
   bitfields:
   - bit: '0'
-    long_description: Fast-Strings Enable See Table 2-2.
-    description: Fast-Strings Enable
+    description: Fast-Strings Enable See Table 2-2.
     see_table:
     - 2-2
   - bit: '2:1'
     description: Reserved
   - bit: '3'
     access: R/W
-    long_description: Automatic Thermal Control Circuit Enable See Table 2-2. Default value is 0.
-    description: Automatic Thermal Control Circuit Enable
+    description: Automatic Thermal Control Circuit Enable See Table 2-2. Default value is 0.
     see_table:
     - 2-2
   - bit: '6:4'
     description: Reserved
   - bit: '7'
     access: R
-    long_description: Performance Monitoring Available See Table 2-2.
-    description: Performance Monitoring Available
+    description: Performance Monitoring Available See Table 2-2.
     see_table:
     - 2-2
   - bit: '10:8'
     description: Reserved
   - bit: '11'
     access: R/O
-    long_description: Branch Trace Storage Unavailable See Table 2-2.
-    description: Branch Trace Storage Unavailable
+    description: Branch Trace Storage Unavailable See Table 2-2.
     see_table:
     - 2-2
   - bit: '12'
     access: R/O
-    long_description: Processor Event Based Sampling Unavailable See Table 2-2.
-    description: Processor Event Based Sampling Unavailable
+    description: Processor Event Based Sampling Unavailable See Table 2-2.
     see_table:
     - 2-2
   - bit: '15:13'
     description: Reserved
   - bit: '16'
     access: R/W
-    long_description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
-    description: Enhanced Intel SpeedStep Technology Enable
+    description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
     see_table:
     - 2-2
   - bit: '18'
     access: R/W
-    long_description: ENABLE MONITOR FSM See Table 2-2.
-    description: ENABLE MONITOR FSM
+    description: ENABLE MONITOR FSM See Table 2-2.
     see_table:
     - 2-2
   - bit: '21:19'
     description: Reserved
   - bit: '22'
     access: R/W
-    long_description: Limit CPUID Maxval See Table 2-2.
-    description: Limit CPUID Maxval
+    description: Limit CPUID Maxval See Table 2-2.
     see_table:
     - 2-2
   - bit: '23'
     access: R/W
-    long_description: xTPR Message Disable See Table 2-2.
-    description: xTPR Message Disable
+    description: xTPR Message Disable See Table 2-2.
     see_table:
     - 2-2
   - bit: '33:24'
     description: Reserved
   - bit: '34'
     access: R/W
-    long_description: XD Bit Disable See Table 2-2.
-    description: XD Bit Disable
+    description: XD Bit Disable See Table 2-2.
     see_table:
     - 2-2
   - bit: '37:35'
@@ -290,7 +262,7 @@ msr:
   - bit: '63:39'
     description: Reserved
   access: R/W
-  description: Enable Misc
+  description: Enable Misc. Processor Features
   long_description: Enable Misc. Processor Features Allows a variety of processor functions to be enabled and disabled.
 - value: 1C8H
   name: MSR_LBR_SELECT
@@ -317,8 +289,7 @@ msr:
     description: Reserved
   scope: Core
   access: R/W
-  description: Last Branch Record Filtering Select Register
-  long_description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
+  description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
   see_section:
   - 18.9.2
 - value: 1C9H
@@ -330,8 +301,7 @@ msr:
 - value: 38EH
   name: IA32_PERF_GLOBAL_STATUS
   scope: Core
-  description: See Table 2-2. See Section 20.6.2.2
-  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
@@ -339,8 +309,7 @@ msr:
 - value: 390H
   name: IA32_PERF_GLOBAL_OVF_CTRL
   scope: Core
-  description: See Table 2-2. See Section 20.6.2.2
-  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
@@ -353,8 +322,7 @@ msr:
     access: R/W
     description: Enable PEBS for precise event on IA32_PMC0
   scope: Core
-  description: See Table 2-2. See Section 20.6.2.4
-  long_description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS).”
+  description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS).”
   see_table:
   - 2-2
   see_section:
@@ -373,8 +341,7 @@ msr:
   name: MSR_MC6_RESIDENCY_COUNTER
   bitfields:
   - bit: '63:0'
-    long_description: Time that this module is in module-specific C6 states since last reset. Counts at 1 Mhz frequency.
-    description: Time that this module is in module-specific C6 states
+    description: Time that this module is in module-specific C6 states since last reset. Counts at 1 Mhz frequency.
   scope: Module
   access: R/0
   description: Module C6 Residency Counter

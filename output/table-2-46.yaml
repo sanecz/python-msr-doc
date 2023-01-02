@@ -9,21 +9,20 @@ msr:
   name: MSR_MEMORY_CTRL
   bitfields:
   - bit: '26:0'
-    description: Reserved
+    description: Reserved.
   - bit: '27'
     long_description: UC_STORE_THROTTLE If set to 1, when enabled, the processor will only allow one in-progress UC store at a time.
     description: UC_STORE_THROTTLE
   - bit: '28'
-    long_description: 'UC_LOCK_DISABLE If set to 1, a UC load lock will trigger a #GP fault.'
-    description: UC_LOCK_DISABLE
+    description: 'UC_LOCK_DISABLE If set to 1, a UC load lock will trigger a #GP fault.'
   - bit: '29'
     access: '0'
     long_description: 'Enable #AC exception for split locked accesses: Cause #AC exception for split locked access at all CPL irrespective of CR0.AM or EFLAGS.AC.'
     description: 'Enable #AC exception for split locked accesses'
   - bit: '30'
-    description: Reserved
+    description: Reserved.
   - bit: '31'
-    description: Reserved
+    description: Reserved.
   scope: Core
   description: Memory Control Register
 - value: BCH
@@ -38,16 +37,14 @@ msr:
   name: IA32_PMC6
   scope: Core
   access: R/W
-  description: General Performance Counter 6
-  long_description: General Performance Counter 6 See Table 2-2.
+  description: General Performance Counter 6 See Table 2-2.
   see_table:
   - 2-2
 - value: C8H
   name: IA32_PMC7
   scope: Core
   access: R/W
-  description: General Performance Counter 7
-  long_description: General Performance Counter 7 See Table 2-2.
+  description: General Performance Counter 7 See Table 2-2.
   see_table:
   - 2-2
 - value: CFH
@@ -84,27 +81,25 @@ msr:
 - value: E1H
   name: IA32_UMWAIT_CONTROL
   access: R/W
-  description: UMWAIT Control
-  long_description: UMWAIT Control See Table 2-2.
+  description: UMWAIT Control See Table 2-2.
   see_table:
   - 2-2
 - value: 10AH
   name: IA32_ARCH_CAPABILITIES
   access: R/O
-  description: Enumeration of Architectural Features
-  long_description: Enumeration of Architectural Features See Table 2-2.
+  description: Enumeration of Architectural Features See Table 2-2.
   see_table:
   - 2-2
 - value: 18CH
   name: IA32_PERFEVTSEL6
   scope: Core
-  description: See Table 2-20
+  description: See Table 2-20.
   see_table:
   - 2-20
 - value: 18DH
   name: IA32_PERFEVTSEL7
   scope: Core
-  description: See Table 2-20
+  description: See Table 2-20.
   see_table:
   - 2-20
 - value: 195H
@@ -119,79 +114,61 @@ msr:
   name: MSR_PRIMARY_TURBO_RATIO_LIMIT
   bitfields:
   - bit: '7:0'
-    long_description: 'MAX_TURBO_GROUP_0: Maximum turbo ratio limit with 1 core active.'
-    description: MAX_TURBO_GROUP_0
+    description: 'MAX_TURBO_GROUP_0: Maximum turbo ratio limit with 1 core active.'
   - bit: '15:8'
-    long_description: 'MAX_TURBO_GROUP_1: Maximum turbo ratio limit with 2 cores active.'
-    description: MAX_TURBO_GROUP_1
+    description: 'MAX_TURBO_GROUP_1: Maximum turbo ratio limit with 2 cores active.'
   - bit: '23:16'
-    long_description: 'MAX_TURBO_GROUP_2: Maximum turbo ratio limit with 3 cores active.'
-    description: MAX_TURBO_GROUP_2
+    description: 'MAX_TURBO_GROUP_2: Maximum turbo ratio limit with 3 cores active.'
   - bit: '31:24'
-    long_description: 'MAX_TURBO_GROUP_3: Maximum turbo ratio limit with 4 cores active.'
-    description: MAX_TURBO_GROUP_3
+    description: 'MAX_TURBO_GROUP_3: Maximum turbo ratio limit with 4 cores active.'
   - bit: '39:32'
-    long_description: 'MAX_TURBO_GROUP_4: Maximum turbo ratio limit with 5 cores active.'
-    description: MAX_TURBO_GROUP_4
+    description: 'MAX_TURBO_GROUP_4: Maximum turbo ratio limit with 5 cores active.'
   - bit: '47:40'
-    long_description: 'MAX_TURBO_GROUP_5: Maximum turbo ratio limit with 6 cores active.'
-    description: MAX_TURBO_GROUP_5
+    description: 'MAX_TURBO_GROUP_5: Maximum turbo ratio limit with 6 cores active.'
   - bit: '55:48'
-    long_description: 'MAX_TURBO_GROUP_6: Maximum turbo ratio limit with 7 cores active.'
-    description: MAX_TURBO_GROUP_6
+    description: 'MAX_TURBO_GROUP_6: Maximum turbo ratio limit with 7 cores active.'
   - bit: '63:56'
-    long_description: 'MAX_TURBO_GROUP_7: Maximum turbo ratio limit with 8 cores active.'
-    description: MAX_TURBO_GROUP_7
+    description: 'MAX_TURBO_GROUP_7: Maximum turbo ratio limit with 8 cores active.'
   scope: Package
   access: R/W
   description: Primary Maximum Turbo Ratio Limit
   long_description: Primary Maximum Turbo Ratio Limit Software can configure these limits when MSR_PLATFORM_INFO[28] = 1. Specifies Maximum Ratio Limit for each group. Maximum ratio for groups with more cores must decrease monotonically.
 - value: 493H
   name: IA32_VMX_EXIT_CTLS2
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 4C7H
   name: IA32_A_PMC6
   access: R/W
-  description: Full Width Writable IA32_PMC6 Alias
-  long_description: Full Width Writable IA32_PMC6 Alias See Table 2-2.
+  description: Full Width Writable IA32_PMC6 Alias See Table 2-2.
   see_table:
   - 2-2
 - value: 4C8H
   name: IA32_A_PMC7
   access: R/W
-  description: Full Width Writable IA32_PMC7 Alias
-  long_description: Full Width Writable IA32_PMC7 Alias See Table 2-2.
+  description: Full Width Writable IA32_PMC7 Alias See Table 2-2.
   see_table:
   - 2-2
 - value: 650H
   name: MSR_SECONDARY_TURBO_RATIO_LIMIT
   bitfields:
   - bit: '7:0'
-    long_description: 'MAX_TURBO_GROUP_0: Maximum turbo ratio limit with 1 core active.'
-    description: MAX_TURBO_GROUP_0
+    description: 'MAX_TURBO_GROUP_0: Maximum turbo ratio limit with 1 core active.'
   - bit: '15:8'
-    long_description: 'MAX_TURBO_GROUP_1: Maximum turbo ratio limit with 2 cores active.'
-    description: MAX_TURBO_GROUP_1
+    description: 'MAX_TURBO_GROUP_1: Maximum turbo ratio limit with 2 cores active.'
   - bit: '23:16'
-    long_description: 'MAX_TURBO_GROUP_2: Maximum turbo ratio limit with 3 cores active.'
-    description: MAX_TURBO_GROUP_2
+    description: 'MAX_TURBO_GROUP_2: Maximum turbo ratio limit with 3 cores active.'
   - bit: '31:24'
-    long_description: 'MAX_TURBO_GROUP_3: Maximum turbo ratio limit with 4 cores active.'
-    description: MAX_TURBO_GROUP_3
+    description: 'MAX_TURBO_GROUP_3: Maximum turbo ratio limit with 4 cores active.'
   - bit: '39:32'
-    long_description: 'MAX_TURBO_GROUP_4: Maximum turbo ratio limit with 5 cores active.'
-    description: MAX_TURBO_GROUP_4
+    description: 'MAX_TURBO_GROUP_4: Maximum turbo ratio limit with 5 cores active.'
   - bit: '47:40'
-    long_description: 'MAX_TURBO_GROUP_5: Maximum turbo ratio limit with 6 cores active.'
-    description: MAX_TURBO_GROUP_5
+    description: 'MAX_TURBO_GROUP_5: Maximum turbo ratio limit with 6 cores active.'
   - bit: '55:48'
-    long_description: 'MAX_TURBO_GROUP_6: Maximum turbo ratio limit with 7 cores active.'
-    description: MAX_TURBO_GROUP_6
+    description: 'MAX_TURBO_GROUP_6: Maximum turbo ratio limit with 7 cores active.'
   - bit: '63:56'
-    long_description: 'MAX_TURBO_GROUP_7: Maximum turbo ratio limit with 8 cores active.'
-    description: MAX_TURBO_GROUP_7
+    description: 'MAX_TURBO_GROUP_7: Maximum turbo ratio limit with 8 cores active.'
   scope: Package
   access: R/W
   description: Secondary Maximum Turbo Ratio Limit
@@ -200,8 +177,7 @@ msr:
   name: MSR_MC6_RESIDENCY_COUNTER
   bitfields:
   - bit: '63:0'
-    long_description: Time that this module is in module-specific C6 states since last reset. Counts at 1 Mhz frequency.
-    description: Time that this module is in module-specific C6 states
+    description: Time that this module is in module-specific C6 states since last reset. Counts at 1 Mhz frequency.
   scope: Module
   access: R/0
   description: Module C6 Residency Counter
@@ -215,20 +191,18 @@ msr:
   - 2-2
 - value: 776H
   name: IA32_HWP_CTL
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 981H
   name: IA32_TME_CAPABILITY
-  description: Memory Encryption Capability MSR
-  long_description: Memory Encryption Capability MSR See Table 2-2.
+  description: Memory Encryption Capability MSR See Table 2-2.
   see_table:
   - 2-2
 - value: 1200H-121FH
   name: IA32_LBR_x_INFO
   access: R/W
-  description: Last Branch Record Entry X Info Register
-  long_description: Last Branch Record Entry X Info Register See Table 2-2.
+  description: Last Branch Record Entry X Info Register See Table 2-2.
   see_table:
   - 2-2
 - value: 14CEH
@@ -248,8 +222,7 @@ msr:
 - value: 1500H-151FH
   name: IA32_LBR_x_FROM_IP
   access: R/W
-  description: Last Branch Record Entry X Source IP Register
-  long_description: Last Branch Record Entry X Source IP Register See Table 2-2.
+  description: Last Branch Record Entry X Source IP Register See Table 2-2.
   see_table:
   - 2-2
 - value: 1600H-161FH
@@ -262,20 +235,17 @@ msr:
 - value: 17D2H
   name: IA32_THREAD_FEEDBACK_CHAR
   access: R/O
-  description: Thread Feedback Characteristics
-  long_description: Thread Feedback Characteristics See Table 2-2.
+  description: Thread Feedback Characteristics See Table 2-2.
   see_table:
   - 2-2
 - value: 17D4H
   name: IA32_HW_FEEDBACK_THREAD_CONFIG
   access: R/W
-  description: Hardware Feedback Thread Configuration
-  long_description: Hardware Feedback Thread Configuration See Table 2-2.
+  description: Hardware Feedback Thread Configuration See Table 2-2.
   see_table:
   - 2-2
 - value: 17DAH6106
   access: R/W
-  description: History Reset Enable
-  long_description: History Reset Enable See Table 2-2.
+  description: History Reset Enable See Table 2-2.
   see_table:
   - 2-2

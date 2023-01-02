@@ -8,10 +8,10 @@ msr:
 - value: 612H1554
   name: Package
   bitfields:
-  - description: Total amount of energy consumed since last reset
+  - description: Total amount of energy consumed since last reset.
   - bit: '63:32'
     long_description: Total time elapsed when the energy was last updated. This is a monotonic increment counter with auto wrap back to zero after overflow. Unit is 10ns.
-    description: Total time elapsed when the energy was last updated
+    description: Total time elapsed when the energy was last updated.
   access: R/W
   description: Package energy consumed by the entire CPU
 - value: 618H
@@ -21,8 +21,7 @@ msr:
     long_description: 'DRAM_PP_PWR_LIM: Power Limit[0] for DDR domain. Units = Watts, Format = 11.3, Resolution = 0.125W, Range = 0-2047.875W.'
     description: DRAM_PP_PWR_LIM
   - bit: '15'
-    long_description: 'PWR_LIM_CTRL_EN: Power Limit[0] enable bit for DDR domain.'
-    description: PWR_LIM_CTRL_EN
+    description: 'PWR_LIM_CTRL_EN: Power Limit[0] enable bit for DDR domain.'
   - bit: '16'
     description: Reserved
   - bit: '23:17'
@@ -41,21 +40,19 @@ msr:
   bitfields:
   - bit: '31:0'
     long_description: Energy in 15.3 micro-joules. Requires BIOS configuration to enable DRAM RAPL mode 0 (Direct VR).
-    description: Energy in 15
+    description: Energy in 15.3 micro-joules. Requires BIOS
   - bit: '63:32'
     description: Reserved
   scope: Package
   access: R/O
-  description: DRAM Energy Status
-  long_description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 61BH
   name: MSR_DRAM_PERF_STATUS
   scope: Package
   access: R/O
-  description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 61CH
@@ -82,28 +79,27 @@ msr:
   - bit: '62:55'
     description: Reserved
   - bit: '63'
-    long_description: 'LOCK: Lock bit to lock the register.'
-    description: LOCK
+    description: 'LOCK: Lock bit to lock the register.'
   scope: Package
   access: R/W
   description: DRAM Power Parameters
 - value: 981H
   name: IA32_TME_CAPABILITY
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 982H
   name: IA32_TME_ACTIVATE
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 983H
   name: IA32_TME_EXCLUDE_MASK
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 984H
   name: IA32_TME_EXCLUDE_BASE
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2

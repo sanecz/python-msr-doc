@@ -22,120 +22,112 @@ msr:
   name: MSR_TURBO_RATIO_LIMIT
   bitfields:
   - bit: '7:0'
-    long_description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
-    description: Maximum Ratio Limit for 1C
+    description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
   - bit: '15:8'
-    long_description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 cores active.
-    description: Maximum Ratio Limit for 2C
+    description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 cores active.
   - bit: '23:16'
-    long_description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 cores active.
-    description: Maximum Ratio Limit for 3C
+    description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 cores active.
   - bit: '31:24'
-    long_description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 cores active.
-    description: Maximum Ratio Limit for 4C
+    description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 cores active.
   - bit: '39:32'
-    long_description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5 cores active.
-    description: Maximum Ratio Limit for 5C
+    description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5 cores active.
   - bit: '47:40'
-    long_description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6 cores active.
-    description: Maximum Ratio Limit for 6C
+    description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6 cores active.
   - bit: '55:48'
-    long_description: Maximum Ratio Limit for 7C Maximum turbo ratio limit of 7 cores active.
-    description: Maximum Ratio Limit for 7C
+    description: Maximum Ratio Limit for 7C Maximum turbo ratio limit of 7 cores active.
   - bit: '63:56'
-    long_description: Maximum Ratio Limit for 8C Maximum turbo ratio limit of 8 cores active.
-    description: Maximum Ratio Limit for 8C
+    description: Maximum Ratio Limit for 8C Maximum turbo ratio limit of 8 cores active.
   scope: Package
   description: Maximum Ratio Limit of Turbo Mode
   long_description: Maximum Ratio Limit of Turbo Mode R/O if MSR_PLATFORM_INFO.[28] = 0, R/W if MSR_PLATFORM_INFO.[28] = 1
 - value: 285H
   name: IA32_MC5_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 286H
   name: IA32_MC6_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 287H
   name: IA32_MC7_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 288H
   name: IA32_MC8_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 289H
   name: IA32_MC9_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 28AH
   name: IA32_MC10_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 28BH
   name: IA32_MC11_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 28CH
   name: IA32_MC12_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 28DH
   name: IA32_MC13_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 28EH
   name: IA32_MC14_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 28FH
   name: IA32_MC15_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 290H
   name: IA32_MC16_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 291H
   name: IA32_MC17_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 292H
   name: IA32_MC18_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 293H
   name: IA32_MC19_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 39CH
@@ -146,383 +138,368 @@ msr:
     long_description: ENABLE_PEBS_NUM_ALT Write 1 to enable alternate PEBS counting logic for specific events requiring additional configuration, see https://perfmon-events.intel.com/.
     description: ENABLE_PEBS_NUM_ALT
   - bit: '63:1'
-    description: Reserved
+    description: Reserved, must be zero.
   scope: Package
   access: R/W
   description: ENABLE_PEBS_NUM_ALT
 - value: 414H
   name: IA32_MC5_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 415H
   name: IA32_MC5_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 416H
   name: IA32_MC5_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 417H
   name: IA32_MC5_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 418H
   name: IA32_MC6_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 419H
   name: IA32_MC6_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 41AH
   name: IA32_MC6_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 41BH
   name: IA32_MC6_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 41CH
   name: IA32_MC7_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 41DH
   name: IA32_MC7_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 41EH
   name: IA32_MC7_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 41FH
   name: IA32_MC7_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 420H
   name: IA32_MC8_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 421H
   name: IA32_MC8_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 422H
   name: IA32_MC8_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 423H
   name: IA32_MC8_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 424H
   name: IA32_MC9_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 425H
   name: IA32_MC9_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 426H
   name: IA32_MC9_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 427H
   name: IA32_MC9_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 428H
   name: IA32_MC10_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 429H
   name: IA32_MC10_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 42AH
   name: IA32_MC10_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 42BH
   name: IA32_MC10_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 42CH
   name: IA32_MC11_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 42DH
   name: IA32_MC11_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 42EH
   name: IA32_MC11_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 42FH
   name: IA32_MC11_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 430H
   name: IA32_MC12_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 431H
   name: IA32_MC12_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 432H
   name: IA32_MC12_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 433H
   name: IA32_MC12_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 434H
   name: IA32_MC13_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 435H
   name: IA32_MC13_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 436H
   name: IA32_MC13_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 437H
   name: IA32_MC13_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 438H
   name: IA32_MC14_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 439H
   name: IA32_MC14_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 43AH
   name: IA32_MC14_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 43BH
   name: IA32_MC14_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 43CH
   name: IA32_MC15_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 43DH
   name: IA32_MC15_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 43EH
   name: IA32_MC15_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 43FH
   name: IA32_MC15_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 440H
   name: IA32_MC16_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 441H
   name: IA32_MC16_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 442H
   name: IA32_MC16_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 443H
   name: IA32_MC16_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 444H
   name: IA32_MC17_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 445H
   name: IA32_MC17_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 446H
   name: IA32_MC17_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 447H
   name: IA32_MC17_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 448H
   name: IA32_MC18_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 449H
   name: IA32_MC18_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 44AH
   name: IA32_MC18_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 44BH
   name: IA32_MC18_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 44CH
   name: IA32_MC19_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 44DH
   name: IA32_MC19_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 44EH
   name: IA32_MC19_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 44FH
   name: IA32_MC19_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 613H
@@ -534,39 +511,34 @@ msr:
   name: MSR_DRAM_POWER_LIMIT
   scope: Package
   access: R/W
-  description: DRAM RAPL Power Limit Control
-  long_description: DRAM RAPL Power Limit Control See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM RAPL Power Limit Control See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 619H
   name: MSR_DRAM_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: DRAM Energy Status
-  long_description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 61BH
   name: MSR_DRAM_PERF_STATUS
   scope: Package
   access: R/O
-  description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 61CH
   name: MSR_DRAM_POWER_INFO
   scope: Package
   access: R/W
-  description: DRAM RAPL Parameters
-  long_description: DRAM RAPL Parameters See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM RAPL Parameters See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 639H
   name: MSR_PP0_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4

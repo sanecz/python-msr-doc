@@ -11,20 +11,19 @@ msr:
 - value: 0H
   name: IA32_P5_MC_ADDR
   shared: Shared
-  description: See Section 2.23
+  description: See Section 2.23, “MSRs in Pentium Processors.”
   see_section:
   - '2.23'
 - value: 1H
   name: IA32_P5_MC_TYPE
   shared: Shared
-  description: See Section 2.23
+  description: See Section 2.23, “MSRs in Pentium Processors.”
   see_section:
   - '2.23'
 - value: 6H
   name: IA32_MONITOR_FILTER_SIZE
   shared: Unique
-  description: See Section 9.10.5
-  long_description: See Section 9.10.5, “Monitor/Mwait Address Range Determination.” and Table 2-2.
+  description: See Section 9.10.5, “Monitor/Mwait Address Range Determination.” and Table 2-2.
   see_table:
   - 2-2
   see_section:
@@ -32,8 +31,7 @@ msr:
 - value: 10H
   name: IA32_TIME_STAMP_COUNTER
   shared: Unique
-  description: See Section 18.17
-  long_description: See Section 18.17, “Time-Stamp Counter,” and see Table 2-2.
+  description: See Section 18.17, “Time-Stamp Counter,” and see Table 2-2.
   see_table:
   - 2-2
   see_section:
@@ -42,8 +40,7 @@ msr:
   name: IA32_PLATFORM_ID
   shared: Shared
   access: R
-  description: Platform ID
-  long_description: Platform ID See Table 2-2.
+  description: Platform ID See Table 2-2.
   see_table:
   - 2-2
 - value: 17H
@@ -53,8 +50,7 @@ msr:
     description: Reserved
   - bit: '12:8'
     access: R
-    long_description: Maximum Qualified Ratio The maximum allowed bus ratio.
-    description: Maximum Qualified Ratio
+    description: Maximum Qualified Ratio The maximum allowed bus ratio.
   - bit: '63:13'
     description: Reserved
   shared: Shared
@@ -63,8 +59,7 @@ msr:
 - value: 1BH
   name: IA32_APIC_BASE
   shared: Unique
-  description: See Section 11.4.4
-  long_description: See Section 11.4.4, “Local APIC Status and Location” and Table 2-2.
+  description: See Section 11.4.4, “Local APIC Status and Location” and Table 2-2.
   see_table:
   - 2-2
   see_section:
@@ -102,8 +97,7 @@ msr:
     description: Reserved
   - bit: '9'
     access: R/O
-    long_description: Execute BIST 1 = Enabled; 0 = Disabled
-    description: Execute BIST
+    description: Execute BIST 1 = Enabled; 0 = Disabled
   - bit: '10'
     access: R/O
     long_description: AERR# Observation Enabled 1 = Enabled; 0 = Disabled Always 0.
@@ -118,20 +112,17 @@ msr:
     description: Reserved
   - bit: '14'
     access: R/O
-    long_description: 1 MByte Power on Reset Vector 1 = 1 MByte; 0 = 4 GBytes
-    description: 1 MByte Power on Reset Vector
+    description: 1 MByte Power on Reset Vector 1 = 1 MByte; 0 = 4 GBytes
   - bit: '15'
     description: Reserved
   - bit: '17:16'
     access: R/O
-    long_description: APIC Cluster ID Always 00B.
-    description: APIC Cluster ID
+    description: APIC Cluster ID Always 00B.
   - bit: '19: 18'
     description: Reserved
   - bit: '21: 20'
     access: R/O
-    long_description: Symmetric Arbitration ID Always 00B.
-    description: Symmetric Arbitration ID
+    description: Symmetric Arbitration ID Always 00B.
   - bit: '26:22'
     access: R/O
     description: Integer Bus Frequency Ratio
@@ -143,8 +134,7 @@ msr:
   name: IA32_FEATURE_CONTROL
   shared: Unique
   access: R/W
-  description: Control Features in Intel 64Processor
-  long_description: Control Features in Intel 64Processor See Table 2-2.
+  description: Control Features in Intel 64Processor See Table 2-2.
   see_table:
   - 2-2
 - value: 40H
@@ -159,44 +149,37 @@ msr:
   name: MSR_LASTBRANCH_1_FROM_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 1 From IP
-  long_description: Last Branch Record 1 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 1 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 42H
   name: MSR_LASTBRANCH_2_FROM_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 2 From IP
-  long_description: Last Branch Record 2 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 2 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 43H
   name: MSR_LASTBRANCH_3_FROM_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 3 From IP
-  long_description: Last Branch Record 3 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 3 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 44H
   name: MSR_LASTBRANCH_4_FROM_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 4 From IP
-  long_description: Last Branch Record 4 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 4 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 45H
   name: MSR_LASTBRANCH_5_FROM_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 5 From IP
-  long_description: Last Branch Record 5 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 5 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 46H
   name: MSR_LASTBRANCH_6_FROM_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 6 From IP
-  long_description: Last Branch Record 6 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 6 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 47H
   name: MSR_LASTBRANCH_7_FROM_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 7 From IP
-  long_description: Last Branch Record 7 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 7 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 60H
   name: MSR_LASTBRANCH_0_TO_IP
   shared: Unique
@@ -207,72 +190,61 @@ msr:
   name: MSR_LASTBRANCH_1_TO_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 1 To IP
-  long_description: Last Branch Record 1 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 1 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 62H
   name: MSR_LASTBRANCH_2_TO_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 2 To IP
-  long_description: Last Branch Record 2 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 2 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 63H
   name: MSR_LASTBRANCH_3_TO_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 3 To IP
-  long_description: Last Branch Record 3 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 3 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 64H
   name: MSR_LASTBRANCH_4_TO_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 4 To IP
-  long_description: Last Branch Record 4 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 4 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 65H
   name: MSR_LASTBRANCH_5_TO_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 5 To IP
-  long_description: Last Branch Record 5 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 5 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 66H
   name: MSR_LASTBRANCH_6_TO_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 6 To IP
-  long_description: Last Branch Record 6 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 6 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 67H
   name: MSR_LASTBRANCH_7_TO_IP
   shared: Unique
   access: R/W
-  description: Last Branch Record 7 To IP
-  long_description: Last Branch Record 7 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 7 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 79H
   name: IA32_BIOS_UPDT_TRIG
   shared: Shared
   access: W
-  description: BIOS Update Trigger Register
-  long_description: BIOS Update Trigger Register See Table 2-2.
+  description: BIOS Update Trigger Register See Table 2-2.
   see_table:
   - 2-2
 - value: 8BH
   name: IA32_BIOS_SIGN_ID
   shared: Unique
   access: R/W
-  description: BIOS Update Signature ID
-  long_description: BIOS Update Signature ID See Table 2-2.
+  description: BIOS Update Signature ID See Table 2-2.
   see_table:
   - 2-2
 - value: C1H
   name: IA32_PMC0
   shared: Unique
-  description: Performance counter register
-  long_description: Performance counter register See Table 2-2.
+  description: Performance counter register See Table 2-2.
   see_table:
   - 2-2
 - value: C2H
   name: IA32_PMC1
   shared: Unique
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: CDH
@@ -282,7 +254,7 @@ msr:
     long_description: '• 111B: 083 MHz (FSB 333) • 101B: 100 MHz (FSB 400) • 001B: 133 MHz (FSB 533) • 011B: 167 MHz (FSB 667)'
     description: •
   - long_description: 133.33 MHz should be utilized if performing calculation with System Bus Speed when encoding is 001B. 166.67 MHz should be utilized if performing calculation with System Bus Speed when encoding is 011B.
-    description: '133'
+    description: 133.33 MHz should be utilized if performing calculation
   - bit: '63:3'
     description: Reserved
   shared: Shared
@@ -293,24 +265,21 @@ msr:
   name: IA32_MPERF
   shared: Unique
   access: R/W
-  description: Maximum Performance Frequency Clock Count
-  long_description: Maximum Performance Frequency Clock Count See Table 2-2.
+  description: Maximum Performance Frequency Clock Count See Table 2-2.
   see_table:
   - 2-2
 - value: E8H
   name: IA32_APERF
   shared: Unique
   access: R/W
-  description: Actual Performance Frequency Clock Count
-  long_description: Actual Performance Frequency Clock Count See Table 2-2.
+  description: Actual Performance Frequency Clock Count See Table 2-2.
   see_table:
   - 2-2
 - value: FEH
   name: IA32_MTRRCAP
   shared: Shared
   access: R
-  description: Memory Type Range Register
-  long_description: Memory Type Range Register See Table 2-2.
+  description: Memory Type Range Register See Table 2-2.
   see_table:
   - 2-2
 - value: 11EH
@@ -335,30 +304,29 @@ msr:
   - bit: '63:24'
     description: Reserved
   shared: Shared
-  description: Control Register 3
-  long_description: Control Register 3 Used to configure the L2 Cache.
+  description: Control Register 3 Used to configure the L2 Cache.
 - value: 174H
   name: IA32_SYSENTER_CS
   shared: Unique
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 175H
   name: IA32_SYSENTER_ESP
   shared: Unique
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 176H
   name: IA32_SYSENTER_EIP
   shared: Unique
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 179H
   name: IA32_MCG_CAP
   shared: Unique
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 17AH
@@ -380,19 +348,19 @@ msr:
 - value: 186H
   name: IA32_PERFEVTSEL0
   shared: Unique
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 187H
   name: IA32_PERFEVTSEL1
   shared: Unique
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 198H
   name: IA32_PERF_STATUS
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 198H
@@ -404,8 +372,7 @@ msr:
     description: Reserved
   - bit: '44:40'
     access: R/O
-    long_description: Maximum Bus Ratio Indicates maximum bus ratio configured for the processor.
-    description: Maximum Bus Ratio
+    description: Maximum Bus Ratio Indicates maximum bus ratio configured for the processor.
   - bit: '63:45'
     description: Reserved
   shared: Shared
@@ -413,7 +380,7 @@ msr:
 - value: 199H
   name: IA32_PERF_CTL
   shared: Unique
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 19AH
@@ -428,16 +395,14 @@ msr:
   name: IA32_THERM_INTERRUPT
   shared: Unique
   access: R/W
-  description: Thermal Interrupt Control
-  long_description: Thermal Interrupt Control See Table 2-2.
+  description: Thermal Interrupt Control See Table 2-2.
   see_table:
   - 2-2
 - value: 19CH
   name: IA32_THERM_STATUS
   shared: Unique
   access: R/W
-  description: Thermal Monitor Status
-  long_description: Thermal Monitor Status See Table 2-2.
+  description: Thermal Monitor Status See Table 2-2.
   see_table:
   - 2-2
 - value: 19DH
@@ -457,16 +422,14 @@ msr:
   name: IA32_MISC_ENABLE
   bitfields:
   - bit: '0'
-    long_description: Fast-Strings Enable See Table 2-2.
-    description: Fast-Strings Enable
+    description: Fast-Strings Enable See Table 2-2.
     see_table:
     - 2-2
   - bit: '2:1'
     description: Reserved
   - bit: '3'
     access: R/W
-    long_description: Automatic Thermal Control Circuit Enable See Table 2-2. Default value is 0.
-    description: Automatic Thermal Control Circuit Enable
+    description: Automatic Thermal Control Circuit Enable See Table 2-2. Default value is 0.
     shared: Unique
     see_table:
     - 2-2
@@ -474,8 +437,7 @@ msr:
     description: Reserved
   - bit: '7'
     access: R
-    long_description: Performance Monitoring Available See Table 2-2.
-    description: Performance Monitoring Available
+    description: Performance Monitoring Available See Table 2-2.
     shared: Shared
     see_table:
     - 2-2
@@ -490,15 +452,13 @@ msr:
     shared: Shared
   - bit: '11'
     access: R/O
-    long_description: Branch Trace Storage Unavailable See Table 2-2.
-    description: Branch Trace Storage Unavailable
+    description: Branch Trace Storage Unavailable See Table 2-2.
     shared: Shared
     see_table:
     - 2-2
   - bit: '12'
     access: R/O
-    long_description: Processor Event Based Sampling Unavailable See Table 2-2.
-    description: Processor Event Based Sampling Unavailable
+    description: Processor Event Based Sampling Unavailable See Table 2-2.
     shared: Shared
     see_table:
     - 2-2
@@ -513,15 +473,13 @@ msr:
     description: Reserved
   - bit: '16'
     access: R/W
-    long_description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
-    description: Enhanced Intel SpeedStep Technology Enable
+    description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
     shared: Shared
     see_table:
     - 2-2
   - bit: '18'
     access: R/W
-    long_description: ENABLE MONITOR FSM See Table 2-2.
-    description: ENABLE MONITOR FSM
+    description: ENABLE MONITOR FSM See Table 2-2.
     shared: Shared
     see_table:
     - 2-2
@@ -536,15 +494,13 @@ msr:
     description: Reserved
   - bit: '22'
     access: R/W
-    long_description: Limit CPUID Maxval See Table 2-2.
-    description: Limit CPUID Maxval
+    description: Limit CPUID Maxval See Table 2-2.
     shared: Unique
     see_table:
     - 2-2
   - bit: '23'
     access: R/W
-    long_description: xTPR Message Disable See Table 2-2.
-    description: xTPR Message Disable
+    description: xTPR Message Disable See Table 2-2.
     shared: Shared
     see_table:
     - 2-2
@@ -552,8 +508,7 @@ msr:
     description: Reserved
   - bit: '34'
     access: R/W
-    long_description: XD Bit Disable See Table 2-2.
-    description: XD Bit Disable
+    description: XD Bit Disable See Table 2-2.
     shared: Unique
     see_table:
     - 2-2
@@ -561,7 +516,7 @@ msr:
     description: Reserved
   shared: Unique
   access: R/W
-  description: Enable Misc
+  description: Enable Misc. Processor Features
   long_description: Enable Misc. Processor Features Allows a variety of processor functions to be enabled and disabled.
 - value: 1C9H
   name: MSR_LASTBRANCH_TOS
@@ -573,8 +528,7 @@ msr:
   name: IA32_DEBUGCTL
   shared: Unique
   access: R/W
-  description: Debug Control
-  long_description: Debug Control See Table 2-2.
+  description: Debug Control See Table 2-2.
   see_table:
   - 2-2
 - value: 1DDH
@@ -592,199 +546,196 @@ msr:
 - value: 200H
   name: IA32_MTRR_PHYSBASE0
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 201H
   name: IA32_MTRR_PHYSMASK0
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 202H
   name: IA32_MTRR_PHYSBASE1
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 203H
   name: IA32_MTRR_PHYSMASK1
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 204H
   name: IA32_MTRR_PHYSBASE2
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 205H
   name: IA32_MTRR_PHYSMASK2
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 206H
   name: IA32_MTRR_PHYSBASE3
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 207H
   name: IA32_MTRR_PHYSMASK3
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 208H
   name: IA32_MTRR_PHYSBASE4
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 209H
   name: IA32_MTRR_PHYSMASK4
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20AH
   name: IA32_MTRR_PHYSBASE5
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20BH
   name: IA32_MTRR_PHYSMASK5
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20CH
   name: IA32_MTRR_PHYSBASE6
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20DH
   name: IA32_MTRR_PHYSMASK6
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20EH
   name: IA32_MTRR_PHYSBASE7
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20FH
   name: IA32_MTRR_PHYSMASK7
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 250H
   name: IA32_MTRR_FIX64K_00000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 258H
   name: IA32_MTRR_FIX16K_80000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 259H
   name: IA32_MTRR_FIX16K_A0000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 268H
   name: IA32_MTRR_FIX4K_C0000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 269H
   name: IA32_MTRR_FIX4K_C8000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26AH
   name: IA32_MTRR_FIX4K_D0000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26BH
   name: IA32_MTRR_FIX4K_D8000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26CH
   name: IA32_MTRR_FIX4K_E0000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26DH
   name: IA32_MTRR_FIX4K_E8000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26EH
   name: IA32_MTRR_FIX4K_F0000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26FH
   name: IA32_MTRR_FIX4K_F8000
   shared: Shared
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 277H
   name: IA32_PAT
   shared: Unique
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 309H
   name: IA32_FIXED_CTR0
   shared: Unique
   access: R/W
-  description: Fixed-Function Performance Counter Register 0
-  long_description: Fixed-Function Performance Counter Register 0 See Table 2-2.
+  description: Fixed-Function Performance Counter Register 0 See Table 2-2.
   see_table:
   - 2-2
 - value: 30AH
   name: IA32_FIXED_CTR1
   shared: Unique
   access: R/W
-  description: Fixed-Function Performance Counter Register 1
-  long_description: Fixed-Function Performance Counter Register 1 See Table 2-2.
+  description: Fixed-Function Performance Counter Register 1 See Table 2-2.
   see_table:
   - 2-2
 - value: 30BH
   name: IA32_FIXED_CTR2
   shared: Unique
   access: R/W
-  description: Fixed-Function Performance Counter Register 2
-  long_description: Fixed-Function Performance Counter Register 2 See Table 2-2.
+  description: Fixed-Function Performance Counter Register 2 See Table 2-2.
   see_table:
   - 2-2
 - value: 345H
   name: IA32_PERF_CAPABILITIES
   shared: Shared
-  description: See Table 2-2. See Section 18.4.1
+  description: See Table 2-2. See Section 18.4.1, “IA32_DEBUGCTL MSR.”
   see_table:
   - 2-2
   see_section:
@@ -793,15 +744,13 @@ msr:
   name: IA32_FIXED_CTR_CTRL
   shared: Unique
   access: R/W
-  description: Fixed-Function-Counter Control Register
-  long_description: Fixed-Function-Counter Control Register See Table 2-2.
+  description: Fixed-Function-Counter Control Register See Table 2-2.
   see_table:
   - 2-2
 - value: 38EH
   name: IA32_PERF_GLOBAL_STATUS
   shared: Unique
-  description: See Table 2-2. See Section 20.6.2.2
-  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
@@ -809,8 +758,7 @@ msr:
 - value: 38FH
   name: IA32_PERF_GLOBAL_CTRL
   shared: Unique
-  description: See Table 2-2. See Section 20.6.2.2
-  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
@@ -818,8 +766,7 @@ msr:
 - value: 390H
   name: IA32_PERF_GLOBAL_OVF_CTRL
   shared: Unique
-  description: See Table 2-2. See Section 20.6.2.2
-  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
@@ -832,8 +779,7 @@ msr:
     access: R/W
     description: Enable PEBS on IA32_PMC0
   shared: Unique
-  description: See Table 2-2. See Section 20.6.2.4
-  long_description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS).”
+  description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS).”
   see_table:
   - 2-2
   see_section:
@@ -841,88 +787,88 @@ msr:
 - value: 400H
   name: IA32_MC0_CTL
   shared: Shared
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 401H
   name: IA32_MC0_STATUS
   shared: Shared
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 402H
   name: IA32_MC0_ADDR
   shared: Shared
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC0_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 404H
   name: IA32_MC1_CTL
   shared: Shared
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 405H
   name: IA32_MC1_STATUS
   shared: Shared
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 408H
   name: IA32_MC2_CTL
   shared: Shared
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 409H
   name: IA32_MC2_STATUS
   shared: Shared
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 40AH
   name: IA32_MC2_ADDR
   shared: Shared
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 40CH
   name: IA32_MC3_CTL
   shared: Shared
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 40DH
   name: IA32_MC3_STATUS
   shared: Shared
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 40EH
   name: IA32_MC3_ADDR
   shared: Shared
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC3_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 410H
   name: IA32_MC4_CTL
   shared: Shared
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 411H
   name: IA32_MC4_STATUS
   shared: Shared
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 412H
   name: IA32_MC4_ADDR
   shared: Shared
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
@@ -1055,55 +1001,48 @@ msr:
 - value: C000_0080H
   name: IA32_EFER
   shared: Unique
-  description: Extended Feature Enables
-  long_description: Extended Feature Enables See Table 2-2.
+  description: Extended Feature Enables See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0081H
   name: IA32_STAR
   shared: Unique
   access: R/W
-  description: System Call Target Address
-  long_description: System Call Target Address See Table 2-2.
+  description: System Call Target Address See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0082H
   name: IA32_LSTAR
   shared: Unique
   access: R/W
-  description: IA-32e Mode System Call Target Address
-  long_description: IA-32e Mode System Call Target Address See Table 2-2.
+  description: IA-32e Mode System Call Target Address See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0084H
   name: IA32_FMASK
   shared: Unique
   access: R/W
-  description: System Call Flag Mask
-  long_description: System Call Flag Mask See Table 2-2.
+  description: System Call Flag Mask See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0100H
   name: IA32_FS_BASE
   shared: Unique
   access: R/W
-  description: Map of BASE Address of FS
-  long_description: Map of BASE Address of FS See Table 2-2.
+  description: Map of BASE Address of FS See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0101H
   name: IA32_GS_BASE
   shared: Unique
   access: R/W
-  description: Map of BASE Address of GS
-  long_description: Map of BASE Address of GS See Table 2-2.
+  description: Map of BASE Address of GS See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0102H
   name: IA32_KERNEL_GS_BASE
   shared: Unique
   access: R/W
-  description: Swap Target of BASE Address of GS
-  long_description: Swap Target of BASE Address of GS See Table 2-2.
+  description: Swap Target of BASE Address of GS See Table 2-2.
   see_table:
   - 2-2

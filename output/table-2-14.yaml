@@ -8,47 +8,44 @@ msr:
   name: MSR_MEMORY_CTRL
   bitfields:
   - bit: '28:0'
-    description: Reserved
+    description: Reserved.
   - bit: '29'
     access: '0'
     long_description: 'Enable #AC exception for split locked accesses: Cause #AC exception for split locked access at all CPL irrespective of CR0.AM or EFLAGS.AC.'
     description: 'Enable #AC exception for split locked accesses'
   - bit: '30'
-    description: Reserved
+    description: Reserved.
   - bit: '31'
-    description: Reserved
+    description: Reserved.
   scope: Core
   description: Memory Control Register
 - value: CFH
   name: IA32_CORE_CAPABILITIES
   bitfields:
   - bit: '4:0'
-    description: Reserved
+    description: Reserved.
   - bit: '5'
-    long_description: Bit 29 of MSR_MEMORY_CTRL (address 33H) supported.
-    description: Bit 29 of MSR_MEMORY_CTRL
+    description: Bit 29 of MSR_MEMORY_CTRL (address 33H) supported.
   - bit: '63:6'
-    description: Reserved
+    description: Reserved.
   scope: Core
-  description: IA32 Core Capabilities Register
-  long_description: IA32 Core Capabilities Register If CPUID.(EAX=07H, ECX=0):EDX[30] = 1.
+  description: IA32 Core Capabilities Register If CPUID.(EAX=07H, ECX=0):EDX[30] = 1.
 - value: 2A0H
   name: MSR_PRMRR_BASE_0
   bitfields:
   - bit: '2:0'
-    description: MEMTYPE
+    description: 'MEMTYPE: PRMRR BASE Memory Type.'
   - bit: '3'
-    description: CONFIGURED
+    description: 'CONFIGURED: PRMRR BASE Configured.'
   - bit: '11:4'
-    description: Reserved
+    description: Reserved.
   - bit: '51:12'
-    description: BASE
+    description: 'BASE: PRMRR Base Address.'
   - bit: '63:52'
-    description: Reserved
+    description: Reserved.
   scope: Core
   access: R/W
-  description: Processor Reserved Memory Range Register - Physical
-  long_description: Processor Reserved Memory Range Register - Physical Base Control Register
+  description: Processor Reserved Memory Range Register - Physical Base Control Register
 - value: 3F1H
   name: IA32_PEBS_ENABLE
   alt_name: MSR_PEBS_ENABLE
@@ -57,23 +54,22 @@ msr:
     long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMCx. The maximum value n can be determined from CPUID.0AH:EAX[15:8].
     description: Enable PEBS trigger and recording for the programmed
   - bit: 31:n+1
-    description: Reserved
+    description: Reserved.
   - bit: 32+m:32
     long_description: Enable PEBS trigger and recording for IA32_FIXED_CTRx. The maximum value m can be determined from CPUID.0AH:EDX[4:0].
     description: Enable PEBS trigger and recording for
   - bit: 59:33+m
-    description: Reserved
+    description: Reserved.
   - bit: '60'
-    description: Pend a PerfMon Interrupt
+    description: Pend a PerfMon Interrupt (PMI) after each PEBS event.
   - bit: 62:61
     long_description: 'Specifies PEBS output destination. Encodings: 00B: DS Save Area 01B: Intel PT trace output. Supported if IA32_PERF_CAPABILITIES.PEBS_OUTPUT_PT_AVAIL[ 16] and CPUID.07H.0.EBX[25] are set. 10B: Reserved 11B: Reserved'
     description: Specifies PEBS output destination. Encodings
   - bit: '63'
-    description: Reserved
+    description: Reserved.
   scope: Core
   access: R/W
-  description: See Table 2-2. See Section 20.6.2.4
-  long_description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS)”.
+  description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS)”.
   see_table:
   - 2-2
   see_section:
@@ -85,7 +81,7 @@ msr:
     long_description: Value loaded into IA32_FIXED_CTRx when a PEBS record is generated while PEBS_EN_FIXEDx = 1 and PEBS_OUTPUT = 01B in IA32_PEBS_ENABLE, and FIXED_CTRx is overflowed.
     description: Value loaded into IA32_FIXED_CTRx when a PEBS
   - bit: '63:48'
-    description: Reserved
+    description: Reserved.
   access: R/W
   description: Reload value for IA32_FIXED_CTRx
 - value: 14C1H-14C4H
@@ -95,7 +91,7 @@ msr:
     long_description: Value loaded into IA32_PMCx when a PEBS record is generated while PEBS_EN_PMCx = 1 and PEBS_OUTPUT = 01B in IA32_PEBS_ENABLE, and PMCx is overflowed.
     description: Value loaded into IA32_PMCx when a PEBS record is
   - bit: '63:48'
-    description: Reserved
+    description: Reserved.
   scope: Core
   access: R/W
   description: Reload value for IA32_PMCx

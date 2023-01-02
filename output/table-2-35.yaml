@@ -51,23 +51,17 @@ msr:
   name: MSR_TURBO_RATIO_LIMIT
   bitfields:
   - bit: '7:0'
-    long_description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
-    description: Maximum Ratio Limit for 1C
+    description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
   - bit: '15:8'
-    long_description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
-    description: Maximum Ratio Limit for 2C
+    description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
   - bit: '23:16'
-    long_description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
-    description: Maximum Ratio Limit for 3C
+    description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
   - bit: '31:24'
-    long_description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
-    description: Maximum Ratio Limit for 4C
+    description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
   - bit: '39:32'
-    long_description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5core active.
-    description: Maximum Ratio Limit for 5C
+    description: Maximum Ratio Limit for 5C Maximum turbo ratio limit of 5core active.
   - bit: '47:40'
-    long_description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6core active.
-    description: Maximum Ratio Limit for 6C
+    description: Maximum Ratio Limit for 6C Maximum turbo ratio limit of 6core active.
   - bit: '63:48'
     description: Reserved
   scope: Package
@@ -77,7 +71,6 @@ msr:
   name: MSR_PP0_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4

@@ -13,20 +13,19 @@ msr:
 - value: 0H
   name: IA32_P5_MC_ADDR
   scope: Thread
-  description: See Section 2.23
+  description: See Section 2.23, “MSRs in Pentium Processors.”
   see_section:
   - '2.23'
 - value: 1H
   name: IA32_P5_MC_TYPE
   scope: Thread
-  description: See Section 2.23
+  description: See Section 2.23, “MSRs in Pentium Processors.”
   see_section:
   - '2.23'
 - value: 6H
   name: IA32_MONITOR_FILTER_SIZE
   scope: Thread
-  description: See Section 9.10.5
-  long_description: See Section 9.10.5, “Monitor/Mwait Address Range Determination” and Table 2-2.
+  description: See Section 9.10.5, “Monitor/Mwait Address Range Determination” and Table 2-2.
   see_table:
   - 2-2
   see_section:
@@ -34,8 +33,7 @@ msr:
 - value: 10H
   name: IA32_TIME_STAMP_COUNTER
   scope: Thread
-  description: See Section 18.17
-  long_description: See Section 18.17, “Time-Stamp Counter,” and see Table 2-2.
+  description: See Section 18.17, “Time-Stamp Counter,” and see Table 2-2.
   see_table:
   - 2-2
   see_section:
@@ -44,8 +42,7 @@ msr:
   name: IA32_PLATFORM_ID
   scope: Package
   access: R
-  description: Platform ID
-  long_description: Platform ID See Table 2-2.
+  description: Platform ID See Table 2-2.
   see_table:
   - 2-2
 - value: 17H
@@ -54,7 +51,7 @@ msr:
   - bit: '49:0'
     description: Reserved
   - bit: '52:50'
-    description: See Table 2-2
+    description: See Table 2-2.
     see_table:
     - 2-2
   - bit: '63:53'
@@ -65,8 +62,7 @@ msr:
 - value: 1BH
   name: IA32_APIC_BASE
   scope: Thread
-  description: See Section 11.4.4
-  long_description: See Section 11.4.4, “Local APIC Status and Location,” and Table 2-2.
+  description: See Section 11.4.4, “Local APIC Status and Location,” and Table 2-2.
   see_table:
   - 2-2
   see_section:
@@ -76,8 +72,7 @@ msr:
   bitfields:
   - bit: '31:0'
     access: R/O
-    long_description: SMI Count Running count of SMI events since last RESET.
-    description: SMI Count
+    description: SMI Count Running count of SMI events since last RESET.
   - bit: '63:32'
     description: Reserved
   scope: Thread
@@ -87,52 +82,45 @@ msr:
   name: IA32_FEATURE_CONTROL
   scope: Thread
   access: R/W
-  description: Control Features in Intel 64Processor
-  long_description: Control Features in Intel 64Processor See Table 2-2.
+  description: Control Features in Intel 64Processor See Table 2-2.
   see_table:
   - 2-2
 - value: 79H
   name: IA32_BIOS_UPDT_TRIG
   scope: Core
   access: W
-  description: BIOS Update Trigger Register
-  long_description: BIOS Update Trigger Register See Table 2-2.
+  description: BIOS Update Trigger Register See Table 2-2.
   see_table:
   - 2-2
 - value: 8BH
   name: IA32_BIOS_SIGN_ID
   scope: Thread
   access: R/W
-  description: BIOS Update Signature ID
-  long_description: BIOS Update Signature ID See Table 2-2.
+  description: BIOS Update Signature ID See Table 2-2.
   see_table:
   - 2-2
 - value: C1H
   name: IA32_PMC0
   scope: Thread
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: C2H
   name: IA32_PMC1
   scope: Thread
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: C3H
   name: IA32_PMC2
   scope: Thread
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: C4H
   name: IA32_PMC3
   scope: Thread
-  description: Performance Counter Register
-  long_description: Performance Counter Register See Table 2-2.
+  description: Performance Counter Register See Table 2-2.
   see_table:
   - 2-2
 - value: CEH
@@ -231,52 +219,49 @@ msr:
     description: Reserved
   scope: Core
   access: R/W
-  description: Power Management IO Redirection in C-state
-  long_description: Power Management IO Redirection in C-state See http://biosbits.org.
+  description: Power Management IO Redirection in C-state See http://biosbits.org.
 - value: E7H
   name: IA32_MPERF
   scope: Thread
   access: R/W
-  description: Maximum Performance Frequency Clock Count
-  long_description: Maximum Performance Frequency Clock Count See Table 2-2.
+  description: Maximum Performance Frequency Clock Count See Table 2-2.
   see_table:
   - 2-2
 - value: E8H
   name: IA32_APERF
   scope: Thread
   access: R/W
-  description: Actual Performance Frequency Clock Count
-  long_description: Actual Performance Frequency Clock Count See Table 2-2.
+  description: Actual Performance Frequency Clock Count See Table 2-2.
   see_table:
   - 2-2
 - value: FEH
   name: IA32_MTRRCAP
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 174H
   name: IA32_SYSENTER_CS
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 175H
   name: IA32_SYSENTER_ESP
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 176H
   name: IA32_SYSENTER_EIP
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 179H
   name: IA32_MCG_CAP
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 17AH
@@ -323,42 +308,42 @@ msr:
   - bit: '63:32'
     description: Reserved
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 187H
   name: IA32_PERFEVTSEL1
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 188H
   name: IA32_PERFEVTSEL2
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 189H
   name: IA32_PERFEVTSEL3
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 198H
   name: IA32_PERF_STATUS
   bitfields:
   - bit: '15:0'
-    description: Current Performance State Value
+    description: Current Performance State Value.
   - bit: '63:16'
     description: Reserved
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 199H
   name: IA32_PERF_CTL
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 19AH
@@ -384,89 +369,78 @@ msr:
   name: IA32_THERM_INTERRUPT
   scope: Core
   access: R/W
-  description: Thermal Interrupt Control
-  long_description: Thermal Interrupt Control See Table 2-2.
+  description: Thermal Interrupt Control See Table 2-2.
   see_table:
   - 2-2
 - value: 19CH
   name: IA32_THERM_STATUS
   scope: Core
   access: R/W
-  description: Thermal Monitor Status
-  long_description: Thermal Monitor Status See Table 2-2.
+  description: Thermal Monitor Status See Table 2-2.
   see_table:
   - 2-2
 - value: 1A0H
   name: IA32_MISC_ENABLE
   bitfields:
   - bit: '0'
-    long_description: Fast-Strings Enable See Table 2-2.
-    description: Fast-Strings Enable
+    description: Fast-Strings Enable See Table 2-2.
     see_table:
     - 2-2
   - bit: '2:1'
     description: Reserved
   - bit: '3'
     access: R/W
-    long_description: Automatic Thermal Control Circuit Enable See Table 2-2. Default value is 1.
-    description: Automatic Thermal Control Circuit Enable
+    description: Automatic Thermal Control Circuit Enable See Table 2-2. Default value is 1.
     see_table:
     - 2-2
   - bit: '6:4'
     description: Reserved
   - bit: '7'
     access: R
-    long_description: Performance Monitoring Available See Table 2-2.
-    description: Performance Monitoring Available
+    description: Performance Monitoring Available See Table 2-2.
     see_table:
     - 2-2
   - bit: '10:8'
     description: Reserved
   - bit: '11'
     access: R/O
-    long_description: Branch Trace Storage Unavailable See Table 2-2.
-    description: Branch Trace Storage Unavailable
+    description: Branch Trace Storage Unavailable See Table 2-2.
     see_table:
     - 2-2
   - bit: '12'
     access: R/O
-    long_description: Processor Event Based Sampling Unavailable See Table 2-2.
-    description: Processor Event Based Sampling Unavailable
+    description: Processor Event Based Sampling Unavailable See Table 2-2.
     see_table:
     - 2-2
   - bit: '15:13'
     description: Reserved
   - bit: '16'
     access: R/W
-    long_description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
-    description: Enhanced Intel SpeedStep Technology Enable
+    description: Enhanced Intel SpeedStep Technology Enable See Table 2-2.
     see_table:
     - 2-2
   - bit: '18'
     access: R/W
-    description: ENABLE MONITOR FSM
+    description: ENABLE MONITOR FSM. See Table 2-2.
     see_table:
     - 2-2
   - bit: '21:19'
     description: Reserved
   - bit: '22'
     access: R/W
-    long_description: Limit CPUID Maxval See Table 2-2.
-    description: Limit CPUID Maxval
+    description: Limit CPUID Maxval See Table 2-2.
     see_table:
     - 2-2
   - bit: '23'
     access: R/W
-    long_description: xTPR Message Disable See Table 2-2.
-    description: xTPR Message Disable
+    description: xTPR Message Disable See Table 2-2.
     see_table:
     - 2-2
   - bit: '33:24'
     description: Reserved
   - bit: '34'
     access: R/W
-    long_description: XD Bit Disable See Table 2-2.
-    description: XD Bit Disable
+    description: XD Bit Disable See Table 2-2.
     see_table:
     - 2-2
   - bit: '37:35'
@@ -478,7 +452,7 @@ msr:
   - bit: '63:39'
     description: Reserved
   access: R/W
-  description: Enable Misc
+  description: Enable Misc. Processor Features
   long_description: Enable Misc. Processor Features Allows a variety of processor functions to be enabled and disabled.
 - value: 1A2H
   name: MSR_TEMPERATURE_TARGET
@@ -541,38 +515,32 @@ msr:
   bitfields:
   - bit: '14:0'
     access: R/W
-    long_description: TDP Limit TDP limit in 1/8 Watt granularity.
-    description: TDP Limit
+    description: TDP Limit TDP limit in 1/8 Watt granularity.
   - bit: '15'
     access: R/W
     long_description: TDP Limit Override Enable A value = 0 indicates override is not active; a value = 1 indicates override is active.
     description: TDP Limit Override Enable
   - bit: '30:16'
     access: R/W
-    long_description: TDC Limit TDC limit in 1/8 Amp granularity.
-    description: TDC Limit
+    description: TDC Limit TDC limit in 1/8 Amp granularity.
   - bit: '31'
     access: R/W
     long_description: TDC Limit Override Enable A value = 0 indicates override is not active; a value = 1 indicates override is active.
     description: TDC Limit Override Enable
   - bit: '63:32'
     description: Reserved
-  description: See http
+  description: See http://biosbits.org.
 - value: 1ADH
   name: MSR_TURBO_RATIO_LIMIT
   bitfields:
   - bit: '7:0'
-    long_description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
-    description: Maximum Ratio Limit for 1C
+    description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
   - bit: '15:8'
-    long_description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
-    description: Maximum Ratio Limit for 2C
+    description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
   - bit: '23:16'
-    long_description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
-    description: Maximum Ratio Limit for 3C
+    description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
   - bit: '31:24'
-    long_description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
-    description: Maximum Ratio Limit for 4C
+    description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
   - bit: '63:32'
     description: Reserved
   scope: Package
@@ -603,8 +571,7 @@ msr:
     description: Reserved
   scope: Core
   access: R/W
-  description: Last Branch Record Filtering Select Register
-  long_description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
+  description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
   see_section:
   - 18.9.2
 - value: 1C9H
@@ -617,8 +584,7 @@ msr:
   name: IA32_DEBUGCTL
   scope: Thread
   access: R/W
-  description: Debug Control
-  long_description: Debug Control See Table 2-2.
+  description: Debug Control See Table 2-2.
   see_table:
   - 2-2
 - value: 1DDH
@@ -636,13 +602,13 @@ msr:
 - value: 1F2H
   name: IA32_SMRR_PHYSBASE
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 1F3H
   name: IA32_SMRR_PHYSMASK
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 1FCH
@@ -657,316 +623,306 @@ msr:
   - bit: '63:2'
     description: Reserved
   scope: Core
-  description: Power Control Register
-  long_description: Power Control Register See http://biosbits.org.
+  description: Power Control Register See http://biosbits.org.
 - value: 200H
   name: IA32_MTRR_PHYSBASE0
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 201H
   name: IA32_MTRR_PHYSMASK0
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 202H
   name: IA32_MTRR_PHYSBASE1
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 203H
   name: IA32_MTRR_PHYSMASK1
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 204H
   name: IA32_MTRR_PHYSBASE2
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 205H
   name: IA32_MTRR_PHYSMASK2
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 206H
   name: IA32_MTRR_PHYSBASE3
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 207H
   name: IA32_MTRR_PHYSMASK3
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 208H
   name: IA32_MTRR_PHYSBASE4
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 209H
   name: IA32_MTRR_PHYSMASK4
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20AH
   name: IA32_MTRR_PHYSBASE5
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20BH
   name: IA32_MTRR_PHYSMASK5
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20CH
   name: IA32_MTRR_PHYSBASE6
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20DH
   name: IA32_MTRR_PHYSMASK6
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20EH
   name: IA32_MTRR_PHYSBASE7
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 20FH
   name: IA32_MTRR_PHYSMASK7
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 210H
   name: IA32_MTRR_PHYSBASE8
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 211H
   name: IA32_MTRR_PHYSMASK8
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 212H
   name: IA32_MTRR_PHYSBASE9
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 213H
   name: IA32_MTRR_PHYSMASK9
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 250H
   name: IA32_MTRR_FIX64K_00000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 258H
   name: IA32_MTRR_FIX16K_80000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 259H
   name: IA32_MTRR_FIX16K_A0000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 268H
   name: IA32_MTRR_FIX4K_C0000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 269H
   name: IA32_MTRR_FIX4K_C8000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26AH
   name: IA32_MTRR_FIX4K_D0000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26BH
   name: IA32_MTRR_FIX4K_D8000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26CH
   name: IA32_MTRR_FIX4K_E0000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26DH
   name: IA32_MTRR_FIX4K_E8000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26EH
   name: IA32_MTRR_FIX4K_F0000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 26FH
   name: IA32_MTRR_FIX4K_F8000
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 277H
   name: IA32_PAT
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 280H
   name: IA32_MC0_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 281H
   name: IA32_MC1_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 282H
   name: IA32_MC2_CTL2
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 283H
   name: IA32_MC3_CTL2
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 284H
   name: IA32_MC4_CTL2
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 285H
   name: IA32_MC5_CTL2
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 286H
   name: IA32_MC6_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 287H
   name: IA32_MC7_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 288H
   name: IA32_MC8_CTL2
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 2FFH
   name: IA32_MTRR_DEF_TYPE
   scope: Thread
   access: R/W
-  description: Default Memory Types
-  long_description: Default Memory Types See Table 2-2.
+  description: Default Memory Types See Table 2-2.
   see_table:
   - 2-2
 - value: 309H
   name: IA32_FIXED_CTR0
   scope: Thread
   access: R/W
-  description: Fixed-Function Performance Counter Register 0
-  long_description: Fixed-Function Performance Counter Register 0 See Table 2-2.
+  description: Fixed-Function Performance Counter Register 0 See Table 2-2.
   see_table:
   - 2-2
 - value: 30AH
   name: IA32_FIXED_CTR1
   scope: Thread
   access: R/W
-  description: Fixed-Function Performance Counter Register 1
-  long_description: Fixed-Function Performance Counter Register 1 See Table 2-2.
+  description: Fixed-Function Performance Counter Register 1 See Table 2-2.
   see_table:
   - 2-2
 - value: 30BH
   name: IA32_FIXED_CTR2
   scope: Thread
   access: R/W
-  description: Fixed-Function Performance Counter Register 2
-  long_description: Fixed-Function Performance Counter Register 2 See Table 2-2.
+  description: Fixed-Function Performance Counter Register 2 See Table 2-2.
   see_table:
   - 2-2
 - value: 345H
   name: IA32_PERF_CAPABILITIES
   bitfields:
   - bit: '5:0'
-    long_description: LBR Format See Table 2-2.
-    description: LBR Format
+    description: LBR Format See Table 2-2.
     see_table:
     - 2-2
   - bit: '6'
     description: PEBS Record Format
   - bit: '7'
-    long_description: PEBSSaveArchRegs See Table 2-2.
-    description: PEBSSaveArchRegs
+    description: PEBSSaveArchRegs See Table 2-2.
     see_table:
     - 2-2
   - bit: '11:8'
-    long_description: PEBS_REC_FORMAT See Table 2-2.
-    description: PEBS_REC_FORMAT
+    description: PEBS_REC_FORMAT See Table 2-2.
     see_table:
     - 2-2
   - bit: '12'
-    long_description: SMM_FREEZE See Table 2-2.
-    description: SMM_FREEZE
+    description: SMM_FREEZE See Table 2-2.
     see_table:
     - 2-2
   - bit: '63:13'
     description: Reserved
   scope: Thread
-  description: See Table 2-2. See Section 18.4.1
-  long_description: See Table 2-2. See Section 18.4.1, “IA32_DEBUGCTL MSR.”
+  description: See Table 2-2. See Section 18.4.1, “IA32_DEBUGCTL MSR.”
   see_table:
   - 2-2
   see_section:
@@ -975,15 +931,13 @@ msr:
   name: IA32_FIXED_CTR_CTRL
   scope: Thread
   access: R/W
-  description: Fixed-Function-Counter Control Register
-  long_description: Fixed-Function-Counter Control Register See Table 2-2.
+  description: Fixed-Function-Counter Control Register See Table 2-2.
   see_table:
   - 2-2
 - value: 38EH
   name: IA32_PERF_GLOBAL_STATUS
   scope: Thread
-  description: See Table 2-2. See Section 20.6.2.2
-  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
@@ -992,8 +946,7 @@ msr:
   name: MSR_PERF_GLOBAL_STATUS
   bitfields:
   - bit: '61'
-    long_description: UNC_Ovf Uncore overflowed if 1.
-    description: UNC_Ovf
+    description: UNC_Ovf Uncore overflowed if 1.
   scope: Thread
   access: R/O
   description: Provides single-bit status used by software to query
@@ -1001,8 +954,7 @@ msr:
 - value: 38FH
   name: IA32_PERF_GLOBAL_CTRL
   scope: Thread
-  description: See Table 2-2. See Section 20.6.2.2
-  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
@@ -1010,7 +962,7 @@ msr:
 - value: 390H
   name: IA32_PERF_GLOBAL_OVF_CTRL
   scope: Thread
-  description: See Table 2-2. See Section 20.6.2.2
+  description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.” Allows software to clear counter overflow conditions on any combination of fixed- function PMCs (IA32_FIXED_CTRx) or general-purpose PMCs via a single WRMSR.
   see_table:
   - 2-2
@@ -1020,8 +972,7 @@ msr:
   name: MSR_PERF_GLOBAL_OVF_CTRL
   bitfields:
   - bit: '61'
-    long_description: CLR_UNC_Ovf Set 1 to clear UNC_Ovf.
-    description: CLR_UNC_Ovf
+    description: CLR_UNC_Ovf Set 1 to clear UNC_Ovf.
   scope: Thread
   access: R/W
 - value: 3F1H
@@ -1057,8 +1008,7 @@ msr:
   - bit: '63:36'
     description: Reserved
   scope: Thread
-  description: See Section 20.3.1.1.1
-  long_description: See Section 20.3.1.1.1, “Processor Event Based Sampling (PEBS).”
+  description: See Section 20.3.1.1.1, “Processor Event Based Sampling (PEBS).”
   see_section:
   - 20.3.1.1.1
 - value: 3F6H
@@ -1066,13 +1016,11 @@ msr:
   bitfields:
   - bit: '15:0'
     access: R/W
-    long_description: Minimum threshold latency value of tagged load operation that will be counted.
-    description: Minimum threshold latency value of tagged load
+    description: Minimum threshold latency value of tagged load operation that will be counted.
   - bit: '63:36'
     description: Reserved
   scope: Thread
-  description: See Section 20.3.1.1.2
-  long_description: See Section 20.3.1.1.2, “Load Latency Performance Monitoring Facility.”
+  description: See Section 20.3.1.1.2, “Load Latency Performance Monitoring Facility.”
   see_section:
   - 20.3.1.1.2
 - value: 3F8H
@@ -1128,225 +1076,222 @@ msr:
 - value: 400H
   name: IA32_MC0_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 401H
   name: IA32_MC0_STATUS
   scope: Package
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 402H
   name: IA32_MC0_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC0_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 403H
   name: IA32_MC0_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 404H
   name: IA32_MC1_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 405H
   name: IA32_MC1_STATUS
   scope: Package
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 406H
   name: IA32_MC1_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC1_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC1_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 407H
   name: IA32_MC1_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 408H
   name: IA32_MC2_CTL
   scope: Core
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 409H
   name: IA32_MC2_STATUS
   scope: Core
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 40AH
   name: IA32_MC2_ADDR
   scope: Core
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 40BH
   name: IA32_MC2_MISC
   scope: Core
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 40CH
   name: IA32_MC3_CTL
   scope: Core
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 40DH
   name: IA32_MC3_STATUS
   scope: Core
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 40EH
   name: IA32_MC3_ADDR
   scope: Core
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 40FH
   name: IA32_MC3_MISC
   scope: Core
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 410H
   name: IA32_MC4_CTL
   scope: Core
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 411H
   name: IA32_MC4_STATUS
   scope: Core
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 412H
   name: IA32_MC4_ADDR
   scope: Core
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC3_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
   - 16.3.2.3
 - value: 413H
   name: IA32_MC4_MISC
   scope: Core
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 414H
   name: IA32_MC5_CTL
   scope: Core
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 415H
   name: IA32_MC5_STATUS
   scope: Core
-  description: See Section 16.3.2.2
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
   - 16.3.2.2
 - value: 416H
   name: IA32_MC5_ADDR
   scope: Core
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 417H
   name: IA32_MC5_MISC
   scope: Core
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 418H
   name: IA32_MC6_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 419H
   name: IA32_MC6_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 41AH
   name: IA32_MC6_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 41BH
   name: IA32_MC6_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 41CH
   name: IA32_MC7_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 41DH
   name: IA32_MC7_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 41EH
   name: IA32_MC7_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 41FH
   name: IA32_MC7_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 420H
   name: IA32_MC8_CTL
   scope: Package
-  description: See Section 16.3.2.1
+  description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs.”
   see_section:
   - 16.3.2.1
 - value: 421H
   name: IA32_MC8_STATUS
   scope: Package
-  description: See Section 16.3.2.2
-  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
+  description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
   - 16.3.2.2
 - value: 422H
   name: IA32_MC8_ADDR
   scope: Package
-  description: See Section 16.3.2.3
+  description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.”
   see_section:
   - 16.3.2.3
 - value: 423H
   name: IA32_MC8_MISC
   scope: Package
-  description: See Section 16.3.2.4
+  description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.”
   see_section:
   - 16.3.2.4
 - value: 480H
@@ -1488,92 +1433,77 @@ msr:
   name: MSR_LASTBRANCH_1_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 1 From IP
-  long_description: Last Branch Record 1 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 1 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 682H
   name: MSR_LASTBRANCH_2_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 2 From IP
-  long_description: Last Branch Record 2 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 2 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 683H
   name: MSR_LASTBRANCH_3_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 3 From IP
-  long_description: Last Branch Record 3 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 3 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 684H
   name: MSR_LASTBRANCH_4_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 4 From IP
-  long_description: Last Branch Record 4 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 4 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 685H
   name: MSR_LASTBRANCH_5_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 5 From IP
-  long_description: Last Branch Record 5 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 5 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 686H
   name: MSR_LASTBRANCH_6_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 6 From IP
-  long_description: Last Branch Record 6 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 6 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 687H
   name: MSR_LASTBRANCH_7_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 7 From IP
-  long_description: Last Branch Record 7 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 7 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 688H
   name: MSR_LASTBRANCH_8_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 8 From IP
-  long_description: Last Branch Record 8 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 8 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 689H
   name: MSR_LASTBRANCH_9_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 9 From IP
-  long_description: Last Branch Record 9 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 9 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68AH
   name: MSR_LASTBRANCH_10_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 10 From IP
-  long_description: Last Branch Record 10 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 10 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68BH
   name: MSR_LASTBRANCH_11_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 11 From IP
-  long_description: Last Branch Record 11 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 11 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68CH
   name: MSR_LASTBRANCH_12_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 12 From IP
-  long_description: Last Branch Record 12 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 12 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68DH
   name: MSR_LASTBRANCH_13_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 13 From IP
-  long_description: Last Branch Record 13 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 13 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68EH
   name: MSR_LASTBRANCH_14_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 14 From IP
-  long_description: Last Branch Record 14 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 14 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 68FH
   name: MSR_LASTBRANCH_15_FROM_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 15 From IP
-  long_description: Last Branch Record 15 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
+  description: Last Branch Record 15 From IP See description of MSR_LASTBRANCH_0_FROM_IP.
 - value: 6C0H
   name: MSR_LASTBRANCH_0_TO_IP
   scope: Thread
@@ -1584,92 +1514,77 @@ msr:
   name: MSR_LASTBRANCH_1_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 1 To IP
-  long_description: Last Branch Record 1 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 1 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C2H
   name: MSR_LASTBRANCH_2_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 2 To IP
-  long_description: Last Branch Record 2 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 2 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C3H
   name: MSR_LASTBRANCH_3_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 3 To IP
-  long_description: Last Branch Record 3 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 3 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C4H
   name: MSR_LASTBRANCH_4_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 4 To IP
-  long_description: Last Branch Record 4 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 4 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C5H
   name: MSR_LASTBRANCH_5_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 5 To IP
-  long_description: Last Branch Record 5 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 5 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C6H
   name: MSR_LASTBRANCH_6_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 6 To IP
-  long_description: Last Branch Record 6 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 6 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C7H
   name: MSR_LASTBRANCH_7_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 7 To IP
-  long_description: Last Branch Record 7 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 7 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C8H
   name: MSR_LASTBRANCH_8_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 8 To IP
-  long_description: Last Branch Record 8 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 8 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6C9H
   name: MSR_LASTBRANCH_9_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 9 To IP
-  long_description: Last Branch Record 9 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 9 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CAH
   name: MSR_LASTBRANCH_10_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 10 To IP
-  long_description: Last Branch Record 10 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 10 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CBH
   name: MSR_LASTBRANCH_11_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 11 To IP
-  long_description: Last Branch Record 11 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 11 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CCH
   name: MSR_LASTBRANCH_12_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 12 To IP
-  long_description: Last Branch Record 12 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 12 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CDH
   name: MSR_LASTBRANCH_13_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 13 To IP
-  long_description: Last Branch Record 13 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 13 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CEH
   name: MSR_LASTBRANCH_14_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 14 To IP
-  long_description: Last Branch Record 14 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 14 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 6CFH
   name: MSR_LASTBRANCH_15_TO_IP
   scope: Thread
   access: R/W
-  description: Last Branch Record 15 To IP
-  long_description: Last Branch Record 15 To IP See description of MSR_LASTBRANCH_0_TO_IP.
+  description: Last Branch Record 15 To IP See description of MSR_LASTBRANCH_0_TO_IP.
 - value: 802H
   name: IA32_X2APIC_APICID
   scope: Thread
@@ -1835,7 +1750,6 @@ msr:
   scope: Thread
   access: R/W
   description: x2APIC LVT Corrected Machine Check Interrupt Register
-  long_description: x2APIC LVT Corrected Machine Check Interrupt Register
 - value: 830H
   name: IA32_X2APIC_ICR
   scope: Thread
@@ -1894,56 +1808,49 @@ msr:
 - value: C000_0080H
   name: IA32_EFER
   scope: Thread
-  description: Extended Feature Enables
-  long_description: Extended Feature Enables See Table 2-2.
+  description: Extended Feature Enables See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0081H
   name: IA32_STAR
   scope: Thread
   access: R/W
-  description: System Call Target Address
-  long_description: System Call Target Address See Table 2-2.
+  description: System Call Target Address See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0082H
   name: IA32_LSTAR
   scope: Thread
   access: R/W
-  description: IA-32e Mode System Call Target Address
-  long_description: IA-32e Mode System Call Target Address See Table 2-2.
+  description: IA-32e Mode System Call Target Address See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0084H
   name: IA32_FMASK
   scope: Thread
   access: R/W
-  description: System Call Flag Mask
-  long_description: System Call Flag Mask See Table 2-2.
+  description: System Call Flag Mask See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0100H
   name: IA32_FS_BASE
   scope: Thread
   access: R/W
-  description: Map of BASE Address of FS
-  long_description: Map of BASE Address of FS See Table 2-2.
+  description: Map of BASE Address of FS See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0101H
   name: IA32_GS_BASE
   scope: Thread
   access: R/W
-  description: Map of BASE Address of GS
-  long_description: Map of BASE Address of GS See Table 2-2.
+  description: Map of BASE Address of GS See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0102H
   name: IA32_KERNEL_GS_BASE
   scope: Thread
   access: R/W
-  description: Swap Target of BASE Address of GS
-  long_description: Swap Target of BASE Address of GS See Table 2-2.
+  description: Swap Target of BASE Address of GS See Table 2-2.
   see_table:
   - 2-2
 - value: C000_0103H

@@ -25,131 +25,130 @@ msr:
 - value: 1ADH
   name: MSR_TURBO_RATIO_LIMIT
   scope: Package
-  description: Reserved
-  long_description: 'Reserved Attempt to read/write will cause #UD.'
+  description: 'Reserved Attempt to read/write will cause #UD.'
 - value: 1B0H
   name: IA32_ENERGY_PERF_BIAS
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: F40H
   name: MSR_C8_PMON_BOX_CTRL
   scope: Package
-  description: Uncore C-box 8 perfmon local box control MSR
+  description: Uncore C-box 8 perfmon local box control MSR.
 - value: F41H
   name: MSR_C8_PMON_BOX_STATUS
   scope: Package
-  description: Uncore C-box 8 perfmon local box status MSR
+  description: Uncore C-box 8 perfmon local box status MSR.
 - value: F42H
   name: MSR_C8_PMON_BOX_OVF_CTRL
   scope: Package
-  description: Uncore C-box 8 perfmon local box overflow control MSR
+  description: Uncore C-box 8 perfmon local box overflow control MSR.
 - value: F50H
   name: MSR_C8_PMON_EVNT_SEL0
   scope: Package
-  description: Uncore C-box 8 perfmon event select MSR
+  description: Uncore C-box 8 perfmon event select MSR.
 - value: F51H
   name: MSR_C8_PMON_CTR0
   scope: Package
-  description: Uncore C-box 8 perfmon counter MSR
+  description: Uncore C-box 8 perfmon counter MSR.
 - value: F52H
   name: MSR_C8_PMON_EVNT_SEL1
   scope: Package
-  description: Uncore C-box 8 perfmon event select MSR
+  description: Uncore C-box 8 perfmon event select MSR.
 - value: F53H
   name: MSR_C8_PMON_CTR1
   scope: Package
-  description: Uncore C-box 8 perfmon counter MSR
+  description: Uncore C-box 8 perfmon counter MSR.
 - value: F54H
   name: MSR_C8_PMON_EVNT_SEL2
   scope: Package
-  description: Uncore C-box 8 perfmon event select MSR
+  description: Uncore C-box 8 perfmon event select MSR.
 - value: F55H
   name: MSR_C8_PMON_CTR2
   scope: Package
-  description: Uncore C-box 8 perfmon counter MSR
+  description: Uncore C-box 8 perfmon counter MSR.
 - value: F56H
   name: MSR_C8_PMON_EVNT_SEL3
   scope: Package
-  description: Uncore C-box 8 perfmon event select MSR
+  description: Uncore C-box 8 perfmon event select MSR.
 - value: F57H
   name: MSR_C8_PMON_CTR3
   scope: Package
-  description: Uncore C-box 8 perfmon counter MSR
+  description: Uncore C-box 8 perfmon counter MSR.
 - value: F58H
   name: MSR_C8_PMON_EVNT_SEL4
   scope: Package
-  description: Uncore C-box 8 perfmon event select MSR
+  description: Uncore C-box 8 perfmon event select MSR.
 - value: F59H
   name: MSR_C8_PMON_CTR4
   scope: Package
-  description: Uncore C-box 8 perfmon counter MSR
+  description: Uncore C-box 8 perfmon counter MSR.
 - value: F5AH
   name: MSR_C8_PMON_EVNT_SEL5
   scope: Package
-  description: Uncore C-box 8 perfmon event select MSR
+  description: Uncore C-box 8 perfmon event select MSR.
 - value: F5BH
   name: MSR_C8_PMON_CTR5
   scope: Package
-  description: Uncore C-box 8 perfmon counter MSR
+  description: Uncore C-box 8 perfmon counter MSR.
 - value: FC0H
   name: MSR_C9_PMON_BOX_CTRL
   scope: Package
-  description: Uncore C-box 9 perfmon local box control MSR
+  description: Uncore C-box 9 perfmon local box control MSR.
 - value: FC1H
   name: MSR_C9_PMON_BOX_STATUS
   scope: Package
-  description: Uncore C-box 9 perfmon local box status MSR
+  description: Uncore C-box 9 perfmon local box status MSR.
 - value: FC2H
   name: MSR_C9_PMON_BOX_OVF_CTRL
   scope: Package
-  description: Uncore C-box 9 perfmon local box overflow control MSR
+  description: Uncore C-box 9 perfmon local box overflow control MSR.
 - value: FD0H
   name: MSR_C9_PMON_EVNT_SEL0
   scope: Package
-  description: Uncore C-box 9 perfmon event select MSR
+  description: Uncore C-box 9 perfmon event select MSR.
 - value: FD1H
   name: MSR_C9_PMON_CTR0
   scope: Package
-  description: Uncore C-box 9 perfmon counter MSR
+  description: Uncore C-box 9 perfmon counter MSR.
 - value: FD2H
   name: MSR_C9_PMON_EVNT_SEL1
   scope: Package
-  description: Uncore C-box 9 perfmon event select MSR
+  description: Uncore C-box 9 perfmon event select MSR.
 - value: FD3H
   name: MSR_C9_PMON_CTR1
   scope: Package
-  description: Uncore C-box 9 perfmon counter MSR
+  description: Uncore C-box 9 perfmon counter MSR.
 - value: FD4H
   name: MSR_C9_PMON_EVNT_SEL2
   scope: Package
-  description: Uncore C-box 9 perfmon event select MSR
+  description: Uncore C-box 9 perfmon event select MSR.
 - value: FD5H
   name: MSR_C9_PMON_CTR2
   scope: Package
-  description: Uncore C-box 9 perfmon counter MSR
+  description: Uncore C-box 9 perfmon counter MSR.
 - value: FD6H
   name: MSR_C9_PMON_EVNT_SEL3
   scope: Package
-  description: Uncore C-box 9 perfmon event select MSR
+  description: Uncore C-box 9 perfmon event select MSR.
 - value: FD7H
   name: MSR_C9_PMON_CTR3
   scope: Package
-  description: Uncore C-box 9 perfmon counter MSR
+  description: Uncore C-box 9 perfmon counter MSR.
 - value: FD8H
   name: MSR_C9_PMON_EVNT_SEL4
   scope: Package
-  description: Uncore C-box 9 perfmon event select MSR
+  description: Uncore C-box 9 perfmon event select MSR.
 - value: FD9H
   name: MSR_C9_PMON_CTR4
   scope: Package
-  description: Uncore C-box 9 perfmon counter MSR
+  description: Uncore C-box 9 perfmon counter MSR.
 - value: FDAH
   name: MSR_C9_PMON_EVNT_SEL5
   scope: Package
-  description: Uncore C-box 9 perfmon event select MSR
+  description: Uncore C-box 9 perfmon event select MSR.
 - value: FDBH
   name: MSR_C9_PMON_CTR5
   scope: Package
-  description: Uncore C-box 9 perfmon counter MSR
+  description: Uncore C-box 9 perfmon counter MSR.

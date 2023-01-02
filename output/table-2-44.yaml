@@ -9,51 +9,51 @@ msr:
   name: MSR_MEMORY_CTRL
   bitfields:
   - bit: '28:0'
-    description: Reserved
+    description: Reserved.
   - bit: '29'
     access: '0'
     long_description: 'Enable #AC exception for split locked accesses: Cause #AC exception for split locked access at all CPL irrespective of CR0.AM or EFLAGS.AC.'
     description: 'Enable #AC exception for split locked accesses'
   - bit: '30'
-    description: Reserved
+    description: Reserved.
   - bit: '31'
-    description: Reserved
+    description: Reserved.
   scope: Core
   description: Memory Control Register
 - value: 48H
   name: IA32_SPEC_CTRL
   scope: Core
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 49H
   name: IA32_PREDICT_CMD
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 8CH
   name: IA32_SGXLEPUBKEYHASH0
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 8DH
   name: IA32_SGXLEPUBKEYHASH1
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 8EH
   name: IA32_SGXLEPUBKEYHASH2
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 8FH
   name: IA32_SGXLEPUBKEYHASH3
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: A0H
@@ -63,7 +63,7 @@ msr:
     access: R/O
     description: Error Codes
   - bit: '30:16'
-    description: Reserved
+    description: Reserved.
   - bit: '31'
     access: R/O
     long_description: MCU Partial Success When set to 1, WRMSR 0x79 skipped part of the functionality during BIOS.
@@ -77,22 +77,18 @@ msr:
   bitfields:
   - bit: '7:0'
     access: R/W
-    long_description: Error Codes Error codes for debug.
-    description: Error Codes
+    description: Error Codes Error codes for debug.
   - bit: '15:8'
     access: R/W
-    long_description: Entry Type Failed FIT entry type.
-    description: Entry Type
+    description: Entry Type Failed FIT entry type.
   - bit: '16'
     access: R/W
-    long_description: FIT MCU Entry FIT contains MCU entry.
-    description: FIT MCU Entry
+    description: FIT MCU Entry FIT contains MCU entry.
   - bit: '62:17'
-    description: Reserved
+    description: Reserved.
   - bit: '63'
     access: R/W
-    long_description: LOCK When set to 1, writes to this MSR will be skipped.
-    description: LOCK
+    description: LOCK When set to 1, writes to this MSR will be skipped.
   scope: Thread
   access: R/W
   description: FIT BIOS ERROR
@@ -100,7 +96,7 @@ msr:
 - value: 10BH
   name: IA32_FLUSH_CMD
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 151H
@@ -115,7 +111,7 @@ msr:
     long_description: Package BIOS Done Indication When set to 1, all threads in the package have bit 0 of this MSR set.
     description: Package BIOS Done Indication
   - bit: '31:2'
-    description: Reserved
+    description: Reserved.
   scope: Thread
   access: R/WO
   description: BIOS Done
@@ -123,29 +119,27 @@ msr:
   name: MSR_CRASHLOG_CONTROL
   bitfields:
   - bit: '0'
-    long_description: 'CDDIS: CrashDump_Disable If set, indicates that Crash Dump is disabled.'
-    description: CDDIS
+    description: 'CDDIS: CrashDump_Disable If set, indicates that Crash Dump is disabled.'
   - bit: '63:1'
-    description: Reserved
+    description: Reserved.
   scope: Thread
   description: Write Data to a Crash Log Configuration
 - value: 2A0H
   name: MSR_PRMRR_BASE_0
   bitfields:
   - bit: '2:0'
-    description: MEMTYPE
+    description: 'MEMTYPE: PRMRR BASE Memory Type.'
   - bit: '3'
-    description: CONFIGURED
+    description: 'CONFIGURED: PRMRR BASE Configured.'
   - bit: '11:4'
-    description: Reserved
+    description: Reserved.
   - bit: '51:12'
-    description: BASE
+    description: 'BASE: PRMRR Base Address.'
   - bit: '63:52'
-    description: Reserved
+    description: Reserved.
   scope: Core
   access: R/W
-  description: Processor Reserved Memory Range Register -
-  long_description: Processor Reserved Memory Range Register - Physical Base Control Register
+  description: Processor Reserved Memory Range Register - Physical Base Control Register
 - value: 30CH
   name: IA32_FIXED_CTR3
   scope: Thread
@@ -158,19 +152,18 @@ msr:
   name: MSR_PERF_METRICS
   bitfields:
   - bit: '7:0'
-    long_description: Retiring. Percent of utilized slots by uops that eventually retire (commit).
-    description: Retiring
+    description: Retiring. Percent of utilized slots by uops that eventually retire (commit).
   - bit: '15:8'
     long_description: Bad Speculation. Percent of wasted slots due to incorrect speculation, covering utilized by uops that do not retire, or recovery bubbles (unutilized slots).
-    description: Bad Speculation
+    description: Bad Speculation. Percent of wasted slots due to
   - bit: '23:16'
     long_description: Frontend Bound. Percent of unutilized slots where front-end did not deliver a uop while back-end is ready.
-    description: Frontend Bound
+    description: Frontend Bound. Percent of unutilized slots where
   - bit: '31:24'
     long_description: Backend Bound. Percent of unutilized slots where a uop was not delivered to back-end due to lack of back- end resources.
-    description: Backend Bound
+    description: Backend Bound. Percent of unutilized slots where a
   - bit: '63:25'
-    description: Reserved
+    description: Reserved.
   scope: Thread
   access: R/W
   description: Performance Metrics
@@ -180,21 +173,21 @@ msr:
   bitfields:
   - bit: '0'
     long_description: Memory Info. Setting this bit will capture memory information such as the linear address, data source and latency of the memory access in the PEBS record.
-    description: Memory Info
+    description: Memory Info.
   - bit: '1'
     long_description: GPRs. Setting this bit will capture the contents of the General Purpose registers in the PEBS record.
-    description: GPRs
+    description: GPRs.
   - bit: '2'
     long_description: XMMs. Setting this bit will capture the contents of the XMM registers in the PEBS record.
-    description: XMMs
+    description: XMMs.
   - bit: '3'
     long_description: LBRs. Setting this bit will capture LBR TO, FROM, and INFO in the PEBS record.
-    description: LBRs
+    description: LBRs.
   - bit: '23:4'
-    description: Reserved
+    description: Reserved.
   - bit: '31:24'
     long_description: LBR Entries. Set the field to the desired number of entries - 1. For example, if the LBR_entries field is 0, a single entry will be included in the record. To include 32 LBR entries, set the LBR_entries field to 31 (0x1F). To ensure all PEBS records are 16-byte aligned, software can use LBR_entries that is multiple of 3.
-    description: LBR Entries
+    description: LBR Entries.
   scope: Thread
   access: R/W
   description: PEBS Data Configuration
@@ -203,10 +196,9 @@ msr:
   name: MSR_CORE_UARCH_CTL
   bitfields:
   - bit: '0'
-    long_description: L1 Scrubbing Enable When set to 1, enable L1 scrubbing.
-    description: L1 Scrubbing Enable
+    description: L1 Scrubbing Enable When set to 1, enable L1 scrubbing.
   - bit: '31:1'
-    description: Reserved
+    description: Reserved.
   scope: Core
   access: R/W
   description: Core Microarchitecture Control MSR
@@ -217,7 +209,7 @@ msr:
     long_description: 'FAST_ACCESS_ENABLE: Bit 0: When set to ''1'', provides a hint for the hardware to enable fast access mode for the IA32_HWP_REQUEST MSR. This bit is sticky and is cleaned by the hardware only during reset time. This bit is valid only if FAST_UNCORE_MSRS_CAPABILITY[0] is set. Setting this bit will cause CPUID[6].EAX[18] to be set.'
     description: FAST_ACCESS_ENABLE
   - bit: '31:4'
-    description: Reserved
+    description: Reserved.
   scope: Thread
   access: R/W
   description: Fast WRMSR/RDMSR Control MSR
@@ -228,9 +220,9 @@ msr:
     long_description: Indicates whether the CPU is still in the middle of writing IA32_HWP_REQUEST MSR, even after the WRMSR instruction has retired. A value of 1 indicates the last write of IA32_HWP_REQUEST is still ongoing. A value of 0 indicates the last write of IA32_HWP_REQUEST is visible outside the logical processor. Software can use the status of this bit to avoid overwriting IA32_HWP_REQUEST.
     description: Indicates whether the CPU is still in the middle of
   - bit: '31:1'
-    description: Reserved
+    description: Reserved.
   scope: Thread
-  description: Indication of Uncore MSRs
+  description: Indication of Uncore MSRs, Post Write Activates
 - value: 65FH
   name: MSR_FAST_UNCORE_MSRS_CAPABILITY
   bitfields:
@@ -238,25 +230,25 @@ msr:
     long_description: 'MSRS_CAPABILITY: Bit 0: If set to ‘1’, hardware supports the fast access mode for the IA32_HWP_REQUEST MSR.'
     description: MSRS_CAPABILITY
   - bit: '31:4'
-    description: Reserved
+    description: Reserved.
   scope: Thread
   access: R/O
   description: Fast WRMSR/RDMSR Enumeration MSR
 - value: 772H
   name: IA32_HWP_REQUEST_PKG
   scope: Package
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 775H
   name: IA32_PECI_HWP_REQUEST_INFO
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2
 - value: 777H
   name: IA32_HWP_STATUS
   scope: Thread
-  description: See Table 2-2
+  description: See Table 2-2.
   see_table:
   - 2-2

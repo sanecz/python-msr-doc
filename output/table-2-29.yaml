@@ -15,8 +15,7 @@ msr:
 - value: 3BH59
   name: Thread
   access: R/W
-  description: Per-Logical-Processor TSC ADJUST
-  long_description: Per-Logical-Processor TSC ADJUST See Table 2-2.
+  description: Per-Logical-Processor TSC ADJUST See Table 2-2.
   see_table:
   - 2-2
 - value: CEH
@@ -156,15 +155,15 @@ msr:
   name: IA32_DEBUGCTL
   bitfields:
   - bit: '0'
-    description: LBR
+    description: 'LBR: Last Branch Record'
   - bit: '1'
     description: BTF
   - bit: '5:2'
     description: Reserved
   - bit: '6'
-    description: TR
+    description: 'TR: Branch Trace'
   - bit: '7'
-    description: BTS
+    description: 'BTS: Log Branch Trace Message to BTS Buffer'
   - bit: '8'
     description: BTINT
   - bit: '9'
@@ -185,8 +184,7 @@ msr:
     description: Reserved
   scope: Thread
   access: R/W
-  description: Debug Control
-  long_description: Debug Control See Table 2-2.
+  description: Debug Control See Table 2-2.
   see_table:
   - 2-2
 - value: 491H
@@ -251,24 +249,21 @@ msr:
   name: MSR_PKG_PERF_STATUS
   scope: Package
   access: R/O
-  description: PKG Perf Status
-  long_description: PKG Perf Status See Section 15.10.3, “Package RAPL Domain.”
+  description: PKG Perf Status See Section 15.10.3, “Package RAPL Domain.”
   see_section:
   - 15.10.3
 - value: 619H
   name: MSR_DRAM_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: DRAM Energy Status
-  long_description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 61BH
   name: MSR_DRAM_PERF_STATUS
   scope: Package
   access: R/O
-  description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
+  description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
   - 15.10.5
 - value: 648H
@@ -286,8 +281,7 @@ msr:
   name: MSR_CONFIG_TDP_LEVEL1
   bitfields:
   - bit: '14:0'
-    long_description: PKG_TDP_LVL1 Power setting for ConfigTDP Level 1.
-    description: PKG_TDP_LVL1
+    description: PKG_TDP_LVL1 Power setting for ConfigTDP Level 1.
   - bit: '15'
     description: Reserved
   - bit: '23:16'
@@ -296,11 +290,9 @@ msr:
   - bit: '31:24'
     description: Reserved
   - bit: '46:32'
-    long_description: PKG_MAX_PWR_LVL1 Max Power setting allowed for ConfigTDP Level 1.
-    description: PKG_MAX_PWR_LVL1
+    description: PKG_MAX_PWR_LVL1 Max Power setting allowed for ConfigTDP Level 1.
   - bit: '62:47'
-    long_description: PKG_MIN_PWR_LVL1 MIN Power setting allowed for ConfigTDP Level 1.
-    description: PKG_MIN_PWR_LVL1
+    description: PKG_MIN_PWR_LVL1 MIN Power setting allowed for ConfigTDP Level 1.
   - bit: '63'
     description: Reserved
   scope: Package
@@ -310,8 +302,7 @@ msr:
   name: MSR_CONFIG_TDP_LEVEL2
   bitfields:
   - bit: '14:0'
-    long_description: PKG_TDP_LVL2 Power setting for ConfigTDP Level 2.
-    description: PKG_TDP_LVL2
+    description: PKG_TDP_LVL2 Power setting for ConfigTDP Level 2.
   - bit: '15'
     description: Reserved
   - bit: '23:16'
@@ -320,11 +311,9 @@ msr:
   - bit: '31:24'
     description: Reserved
   - bit: '46:32'
-    long_description: PKG_MAX_PWR_LVL2 Max Power setting allowed for ConfigTDP Level 2.
-    description: PKG_MAX_PWR_LVL2
+    description: PKG_MAX_PWR_LVL2 Max Power setting allowed for ConfigTDP Level 2.
   - bit: '62:47'
-    long_description: PKG_MIN_PWR_LVL2 MIN Power setting allowed for ConfigTDP Level 2.
-    description: PKG_MIN_PWR_LVL2
+    description: PKG_MIN_PWR_LVL2 MIN Power setting allowed for ConfigTDP Level 2.
   - bit: '63'
     description: Reserved
   scope: Package
@@ -335,8 +324,7 @@ msr:
   bitfields:
   - bit: '1:0'
     access: RW/L
-    long_description: TDP_LEVEL System BIOS can program this field.
-    description: TDP_LEVEL
+    description: TDP_LEVEL System BIOS can program this field.
   - bit: '30:2'
     description: Reserved
   - bit: '31'
@@ -353,8 +341,7 @@ msr:
   bitfields:
   - bit: '7:0'
     access: RW/L
-    long_description: MAX_NON_TURBO_RATIO System BIOS can program this field.
-    description: MAX_NON_TURBO_RATIO
+    description: MAX_NON_TURBO_RATIO System BIOS can program this field.
   - bit: '30:8'
     description: Reserved
   - bit: '31'
@@ -370,7 +357,6 @@ msr:
   name: IA32_DEBUG_INTERFACE
   scope: Package
   access: R/W
-  description: Silicon Debug Feature Control
-  long_description: Silicon Debug Feature Control See Table 2-2.
+  description: Silicon Debug Feature Control See Table 2-2.
   see_table:
   - 2-2

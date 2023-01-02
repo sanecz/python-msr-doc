@@ -92,6 +92,7 @@ class MSRDescription:
     def parse(self, header: List[str], datas: List[str]) -> None:
         description_index = self.parse_format_by_header(header, datas)
         data = datas[description_index]
+        see_other = False
 
         access_type = ACCESS_REGEXP.search(data)
         if access_type:
@@ -100,33 +101,42 @@ class MSRDescription:
             self.access = strip_spaces(access_type.groups()[0])
             data = data.replace(access_type.group(), "")  # remove from description
 
-        splitted_data = data.split("\n")
-        # There is no rule in this pdf for guessing the short description, let's guess based on some tokens
-        if ":" in splitted_data[0] and not BITFIELD_REGEXP.search(splitted_data[0]):
-            # don't split on ":" if it's a bitfield (i.e [32:2])
-            description = splitted_data[0].split(":")[0]
-        elif "(" in splitted_data[0]:
-            # Split before the parenthesis so we might have something readable
-            description = splitted_data[0].split("(")[0]
-        elif "," in splitted_data[0]:
-            # Probably "See section xxxx or See table xxxx"
-            description = splitted_data[0].split(",")[0]
-        elif "." in splitted_data[0] :
-            # who knows, maybe the sentence is ended on this list
-            description = splitted_data[0].split(".")[0]
-        else:
-            # full sentence ?
-            description = splitted_data[0]
-
-        self.description = strip_spaces(description)
-        if len(splitted_data) != 1:
-            # if we have multi line then it's '''long''' description
-            self.long_description = strip_spaces(data)
-
         for section, regexp in SEE_MAPPING.items():
             # Check for `see table` `see appendix` and `see section`
             # TODO: maybe add see http? for some msr they have an url to biosbit
             self.parse_see_other(section, regexp, data)
+            see_other = True
+
+        splitted_data = data.split("\n")
+        if len(splitted_data) > 2:
+            # There is no rule in this pdf for guessing the short description, let's guess based on some tokens
+            if ":" in splitted_data[0] and not BITFIELD_REGEXP.search(splitted_data[0]):
+                # don't split on ":" if it's a bitfield (i.e [32:2])
+                description = splitted_data[0].split(":")[0]
+            elif "(" in splitted_data[0]:
+                # Split before the parenthesis so we might have something readable
+                description = splitted_data[0].split("(")[0]
+            elif "“" in splitted_data[0] and "”" not in splitted_data[0]:
+                # We probably splitted the string inside double quotes
+                for idx, split in enumerate(splitted_data):
+                    if "”" in split:
+                        description = " ".join(splitted_data[0:idx + 1]).split("”", 1)[0] + "”"
+                        break
+            elif "," in splitted_data[0] and not see_other:
+                # Probably "See section xxxx or See table xxxx"
+                description = splitted_data[0].split(",")[0]
+            elif "." in splitted_data[0] and not see_other:
+                # who knows, maybe the sentence is ended on this list
+                description = splitted_data[0].split(".")[0]
+            else:
+                # full sentence ?
+                description = splitted_data[0]
+                # if we have multi line then it's '''long''' description
+            self.description = strip_spaces(description)
+            self.long_description = strip_spaces(data)
+        else:
+            self.description = strip_spaces(data)
+
 
     def parse_see_other(self, other: str, other_regexp: Pattern[str], data: str) -> None:
         found_see_other = other_regexp.findall(data)
@@ -530,9 +540,7 @@ def parse_pdf(path: str) -> Tuple[Set[str], List[Table]]:
                 else:        # Description of the bit fields, appends it to the last register
                     current_table.msr[-1].fields.append(MSRBit(data, header))
             except Exception as excp:  # pylint: disable=W0703
-                # Ignore error on page 136 because it's badly formatted and not usable
-                # Ignore error when you start in the middle of a bitfield description
-                # (usually it breaks at current_table.msr[-1] giving IndexError
+                # Not breaking anything anymore but better keep this
                 logger.exception(excp)
 
     # just make uniq the cpu list

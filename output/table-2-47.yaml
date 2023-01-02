@@ -7,8 +7,7 @@ msr:
   name: MSR_PEBS_FRONTEND
   scope: Thread
   access: R/W
-  description: FrontEnd Precise Event Condition Select
-  long_description: FrontEnd Precise Event Condition Select See Table 2-39.
+  description: FrontEnd Precise Event Condition Select See Table 2-39.
   see_table:
   - 2-39
 - value: 540H
@@ -26,8 +25,7 @@ msr:
   name: MSR_CORE_UARCH_CTL
   scope: Core
   access: R/W
-  description: Core Microarchitecture Control MSR
-  long_description: Core Microarchitecture Control MSR See Table 2-44.
+  description: Core Microarchitecture Control MSR See Table 2-44.
   see_table:
   - 2-44
 - value: D10H-D17H

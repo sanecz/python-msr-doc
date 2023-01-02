@@ -8,8 +8,7 @@ msr:
   name: MSR_CC6_DEMOTION_POLICY_CONFIG
   bitfields:
   - bit: '63:0'
-    long_description: Controls per-core C6 demotion policy. Writing a value of 0 disables core level HW demotion policy.
-    description: Controls per-core C6 demotion policy
+    description: Controls per-core C6 demotion policy. Writing a value of 0 disables core level HW demotion policy.
   scope: Package
   description: Core C6 Demotion Policy Config MSR
 - value: 669H
@@ -24,8 +23,7 @@ msr:
   name: MSR_MC6_RESIDENCY_COUNTER
   bitfields:
   - bit: '63:0'
-    long_description: Time that this module is in module-specific C6 states since last reset. Counts at 1 Mhz frequency.
-    description: Time that this module is in module-specific C6 states
+    description: Time that this module is in module-specific C6 states since last reset. Counts at 1 Mhz frequency.
   scope: Module
   access: R/0
   description: Module C6 Residency Counter

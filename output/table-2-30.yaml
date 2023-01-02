@@ -66,17 +66,13 @@ msr:
   name: MSR_TURBO_RATIO_LIMIT
   bitfields:
   - bit: '7:0'
-    long_description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
-    description: Maximum Ratio Limit for 1C
+    description: Maximum Ratio Limit for 1C Maximum turbo ratio limit of 1 core active.
   - bit: '15:8'
-    long_description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
-    description: Maximum Ratio Limit for 2C
+    description: Maximum Ratio Limit for 2C Maximum turbo ratio limit of 2 core active.
   - bit: '23:16'
-    long_description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
-    description: Maximum Ratio Limit for 3C
+    description: Maximum Ratio Limit for 3C Maximum turbo ratio limit of 3 core active.
   - bit: '31:24'
-    long_description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
-    description: Maximum Ratio Limit for 4C
+    description: Maximum Ratio Limit for 4C Maximum turbo ratio limit of 4 core active.
   - bit: '63:32'
     description: Reserved
   scope: Package
@@ -86,21 +82,21 @@ msr:
   name: MSR_UNC_PERF_GLOBAL_CTRL
   bitfields:
   - bit: '0'
-    description: Core 0 select
+    description: Core 0 select.
   - bit: '1'
-    description: Core 1 select
+    description: Core 1 select.
   - bit: '2'
-    description: Core 2 select
+    description: Core 2 select.
   - bit: '3'
-    description: Core 3 select
+    description: Core 3 select.
   - bit: '18:4'
     description: Reserved
   - bit: '29'
-    description: Enable all uncore counters
+    description: Enable all uncore counters.
   - bit: '30'
-    description: Enable wake on PMI
+    description: Enable wake on PMI.
   - bit: '31'
-    description: Enable Freezing counter when overflow
+    description: Enable Freezing counter when overflow.
   - bit: '63:32'
     description: Reserved
   scope: Package
@@ -109,13 +105,13 @@ msr:
   name: MSR_UNC_PERF_GLOBAL_STATUS
   bitfields:
   - bit: '0'
-    description: Fixed counter overflowed
+    description: Fixed counter overflowed.
   - bit: '1'
-    description: An ARB counter overflowed
+    description: An ARB counter overflowed.
   - bit: '2'
     description: Reserved
   - bit: '3'
-    description: A CBox counter overflowed
+    description: A CBox counter overflowed (on any slice).
   - bit: '63:4'
     description: Reserved
   scope: Package
@@ -126,11 +122,11 @@ msr:
   - bit: '19:0'
     description: Reserved
   - bit: '20'
-    description: Enable overflow propagation
+    description: Enable overflow propagation.
   - bit: '21'
     description: Reserved
   - bit: '22'
-    description: Enable counting
+    description: Enable counting.
   - bit: '63:23'
     description: Reserved
   scope: Package
@@ -140,7 +136,7 @@ msr:
   name: MSR_UNC_PERF_FIXED_CTR
   bitfields:
   - bit: '47:0'
-    description: Current count
+    description: Current count.
   - bit: '63:48'
     description: Reserved
   scope: Package
@@ -149,7 +145,7 @@ msr:
   name: MSR_UNC_CBO_CONFIG
   bitfields:
   - bit: '3:0'
-    description: Encoded number of C-Box
+    description: Encoded number of C-Box, derive value by “-1“.
   - bit: '63:4'
     description: Reserved
   scope: Package
@@ -158,38 +154,38 @@ msr:
 - value: 3B0H
   name: MSR_UNC_ARB_PERFCTR0
   scope: Package
-  description: Uncore Arb Unit
+  description: Uncore Arb Unit, Performance Counter 0
 - value: 3B1H
   name: MSR_UNC_ARB_PERFCTR1
   scope: Package
-  description: Uncore Arb Unit
+  description: Uncore Arb Unit, Performance Counter 1
 - value: 3B2H
   name: MSR_UNC_ARB_PERFEVTSEL0
   scope: Package
-  description: Uncore Arb Unit
+  description: Uncore Arb Unit, Counter 0 Event Select MSR
 - value: 3B3H
   name: MSR_UNC_ARB_PERFEVTSEL1
   scope: Package
-  description: Uncore Arb Unit
+  description: Uncore Arb Unit, Counter 1 Event Select MSR
 - value: 391H
   name: MSR_UNC_PERF_GLOBAL_CTRL
   bitfields:
   - bit: '0'
-    description: Core 0 select
+    description: Core 0 select.
   - bit: '1'
-    description: Core 1 select
+    description: Core 1 select.
   - bit: '2'
-    description: Core 2 select
+    description: Core 2 select.
   - bit: '3'
-    description: Core 3 select
+    description: Core 3 select.
   - bit: '18:4'
     description: Reserved
   - bit: '29'
-    description: Enable all uncore counters
+    description: Enable all uncore counters.
   - bit: '30'
-    description: Enable wake on PMI
+    description: Enable wake on PMI.
   - bit: '31'
-    description: Enable Freezing counter when overflow
+    description: Enable Freezing counter when overflow.
   - bit: '63:32'
     description: Reserved
   scope: Package
@@ -198,7 +194,7 @@ msr:
   name: MSR_UNC_PERF_FIXED_CTR
   bitfields:
   - bit: '47:0'
-    description: Current count
+    description: Current count.
   - bit: '63:48'
     description: Reserved
   scope: Package
@@ -206,7 +202,7 @@ msr:
 - value: 3B3H
   name: MSR_UNC_ARB_PERFEVTSEL1
   scope: Package
-  description: Uncore Arb Unit
+  description: Uncore Arb Unit, Counter 1 Event Select MSR
 - value: 4E0H
   name: MSR_SMM_FEATURE_CONTROL
   bitfields:
@@ -256,8 +252,7 @@ msr:
   name: MSR_RAPL_POWER_UNIT
   bitfields:
   - bit: '3:0'
-    long_description: Power Units See Section 15.10.1, “RAPL Interfaces.”
-    description: Power Units
+    description: Power Units See Section 15.10.1, “RAPL Interfaces.”
     see_section:
     - 15.10.1
   - bit: '7:4'
@@ -268,8 +263,7 @@ msr:
   - bit: '15:13'
     description: Reserved
   - bit: '19:16'
-    long_description: Time Units See Section 15.10.1, “RAPL Interfaces.”
-    description: Time Units
+    description: Time Units See Section 15.10.1, “RAPL Interfaces.”
     see_section:
     - 15.10.1
   - bit: '63:20'
@@ -281,32 +275,28 @@ msr:
   name: MSR_PP0_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4
 - value: 640H
   name: MSR_PP1_POWER_LIMIT
   scope: Package
   access: R/W
-  description: PP1 RAPL Power Limit Control
-  long_description: PP1 RAPL Power Limit Control See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP1 RAPL Power Limit Control See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4
 - value: 641H
   name: MSR_PP1_ENERGY_STATUS
   scope: Package
   access: R/O
-  description: PP1 Energy Status
-  long_description: PP1 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP1 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4
 - value: 642H
   name: MSR_PP1_POLICY
   scope: Package
   access: R/W
-  description: PP1 Balance Policy
-  long_description: PP1 Balance Policy See Section 15.10.4, “PP0/PP1 RAPL Domains.”
+  description: PP1 Balance Policy See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
   - 15.10.4
 - value: 690H
@@ -535,7 +525,7 @@ msr:
     long_description: Thermal Log When set, indicates that the Thermal Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
     description: Thermal Log
   - bit: '19:18'
-    description: Reserved
+    description: Reserved.
   - bit: '20'
     long_description: Graphics Driver Log When set, indicates that the Graphics Driver Status bit has asserted since the log bit was last cleared. This log bit will remain set until cleared by software writing 0.
     description: Graphics Driver Log
@@ -574,64 +564,64 @@ msr:
 - value: 700H
   name: MSR_UNC_CBO_0_PERFEVTSEL0
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Counter 0 Event Select MSR
 - value: 701H
   name: MSR_UNC_CBO_0_PERFEVTSEL1
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Counter 1 Event Select MSR
 - value: 706H
   name: MSR_UNC_CBO_0_PERFCTR0
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Performance Counter 0
 - value: 707H
   name: MSR_UNC_CBO_0_PERFCTR1
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Performance Counter 1
 - value: 710H
   name: MSR_UNC_CBO_1_PERFEVTSEL0
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Counter 0 Event Select MSR
 - value: 711H
   name: MSR_UNC_CBO_1_PERFEVTSEL1
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Counter 1 Event Select MSR
 - value: 716H
   name: MSR_UNC_CBO_1_PERFCTR0
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Performance Counter 0
 - value: 717H
   name: MSR_UNC_CBO_1_PERFCTR1
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Performance Counter 1
 - value: 720H
   name: MSR_UNC_CBO_2_PERFEVTSEL0
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Counter 0 Event Select MSR
 - value: 721H
   name: MSR_UNC_CBO_2_PERFEVTSEL1
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Counter 1 Event Select MSR
 - value: 726H
   name: MSR_UNC_CBO_2_PERFCTR0
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Performance Counter 0
 - value: 727H
   name: MSR_UNC_CBO_2_PERFCTR1
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Performance Counter 1
 - value: 730H
   name: MSR_UNC_CBO_3_PERFEVTSEL0
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Counter 0 Event Select MSR
 - value: 731H
   name: MSR_UNC_CBO_3_PERFEVTSEL1
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Counter 1 Event Select MSR
 - value: 736H
   name: MSR_UNC_CBO_3_PERFCTR0
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Performance Counter 0
 - value: 737H
   name: MSR_UNC_CBO_3_PERFCTR1
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Performance Counter 1

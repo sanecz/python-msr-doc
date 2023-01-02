@@ -8,23 +8,23 @@ msr:
   name: MSR_UNC_PERF_GLOBAL_CTRL
   bitfields:
   - bit: '0'
-    description: Slice 0 select
+    description: Slice 0 select.
   - bit: '1'
-    description: Slice 1 select
+    description: Slice 1 select.
   - bit: '2'
-    description: Slice 2 select
+    description: Slice 2 select.
   - bit: '3'
-    description: Slice 3 select
+    description: Slice 3 select.
   - bit: '4'
-    description: Slice 4 select
+    description: Slice 4 select.
   - bit: '18:5'
     description: Reserved
   - bit: '29'
-    description: Enable all uncore counters
+    description: Enable all uncore counters.
   - bit: '30'
-    description: Enable wake on PMI
+    description: Enable wake on PMI.
   - bit: '31'
-    description: Enable Freezing counter when overflow
+    description: Enable Freezing counter when overflow.
   - bit: '63:32'
     description: Reserved
   scope: Package
@@ -33,13 +33,13 @@ msr:
   name: MSR_UNC_PERF_GLOBAL_STATUS
   bitfields:
   - bit: '0'
-    description: Fixed counter overflowed
+    description: Fixed counter overflowed.
   - bit: '1'
-    description: An ARB counter overflowed
+    description: An ARB counter overflowed.
   - bit: '2'
     description: Reserved
   - bit: '3'
-    description: A CBox counter overflowed
+    description: A CBox counter overflowed (on any slice).
   - bit: '63:4'
     description: Reserved
   scope: Package
@@ -50,11 +50,11 @@ msr:
   - bit: '19:0'
     description: Reserved
   - bit: '20'
-    description: Enable overflow propagation
+    description: Enable overflow propagation.
   - bit: '21'
     description: Reserved
   - bit: '22'
-    description: Enable counting
+    description: Enable counting.
   - bit: '63:23'
     description: Reserved
   scope: Package
@@ -64,7 +64,7 @@ msr:
   name: MSR_UNC_PERF_FIXED_CTR
   bitfields:
   - bit: '47:0'
-    description: Current count
+    description: Current count.
   - bit: '63:48'
     description: Reserved
   scope: Package
@@ -83,196 +83,196 @@ msr:
 - value: 3B0H
   name: MSR_UNC_ARB_PERFCTR0
   scope: Package
-  description: Uncore Arb Unit
+  description: Uncore Arb Unit, Performance Counter 0
 - value: 3B1H
   name: MSR_UNC_ARB_PERFCTR1
   scope: Package
-  description: Uncore Arb Unit
+  description: Uncore Arb Unit, Performance Counter 1
 - value: 3B2H
   name: MSR_UNC_ARB_PERFEVTSEL0
   scope: Package
-  description: Uncore Arb Unit
+  description: Uncore Arb Unit, Counter 0 Event Select MSR
 - value: 3B3H
   name: MSR_UNC_ARB_PERFEVTSEL1
   scope: Package
-  description: Uncore Arb unit
+  description: Uncore Arb unit, Counter 1 Event Select MSR
 - value: 700H
   name: MSR_UNC_CBO_0_PERFEVTSEL0
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Counter 0 Event Select MSR
 - value: 701H
   name: MSR_UNC_CBO_0_PERFEVTSEL1
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Counter 1 Event Select MSR
 - value: 702H
   name: MSR_UNC_CBO_0_PERFEVTSEL2
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Counter 2 Event Select MSR
 - value: 703H
   name: MSR_UNC_CBO_0_PERFEVTSEL3
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Counter 3 Event Select MSR
 - value: 705H
   name: MSR_UNC_CBO_0_UNIT_STATUS
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Unit Status for Counter 0-3
 - value: 706H
   name: MSR_UNC_CBO_0_PERFCTR0
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Performance Counter 0
 - value: 707H
   name: MSR_UNC_CBO_0_PERFCTR1
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Performance Counter 1
 - value: 708H
   name: MSR_UNC_CBO_0_PERFCTR2
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Performance Counter 2
 - value: 709H
   name: MSR_UNC_CBO_0_PERFCTR3
   scope: Package
-  description: Uncore C-Box 0
+  description: Uncore C-Box 0, Performance Counter 3
 - value: 710H
   name: MSR_UNC_CBO_1_PERFEVTSEL0
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Counter 0 Event Select MSR
 - value: 711H
   name: MSR_UNC_CBO_1_PERFEVTSEL1
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Counter 1 Event Select MSR
 - value: 712H
   name: MSR_UNC_CBO_1_PERFEVTSEL2
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Counter 2 Event Select MSR
 - value: 713H
   name: MSR_UNC_CBO_1_PERFEVTSEL3
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Counter 3 Event Select MSR
 - value: 715H
   name: MSR_UNC_CBO_1_UNIT_STATUS
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Unit Status for Counter 0-3
 - value: 716H
   name: MSR_UNC_CBO_1_PERFCTR0
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Performance Counter 0
 - value: 717H
   name: MSR_UNC_CBO_1_PERFCTR1
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Performance Counter 1
 - value: 718H
   name: MSR_UNC_CBO_1_PERFCTR2
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Performance Counter 2
 - value: 719H
   name: MSR_UNC_CBO_1_PERFCTR3
   scope: Package
-  description: Uncore C-Box 1
+  description: Uncore C-Box 1, Performance Counter 3
 - value: 720H
   name: MSR_UNC_CBO_2_PERFEVTSEL0
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Counter 0 Event Select MSR
 - value: 721H
   name: MSR_UNC_CBO_2_PERFEVTSEL1
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Counter 1 Event Select MSR
 - value: 722H
   name: MSR_UNC_CBO_2_PERFEVTSEL2
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Counter 2 Event Select MSR
 - value: 723H
   name: MSR_UNC_CBO_2_PERFEVTSEL3
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Counter 3 Event Select MSR
 - value: 725H
   name: MSR_UNC_CBO_2_UNIT_STATUS
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Unit Status for Counter 0-3
 - value: 726H
   name: MSR_UNC_CBO_2_PERFCTR0
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Performance Counter 0
 - value: 727H
   name: MSR_UNC_CBO_2_PERFCTR1
   scope: Package
-  description: Uncore C-Box 2
+  description: Uncore C-Box 2, Performance Counter 1
 - value: 728H
   name: MSR_UNC_CBO_3_PERFCTR2
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Performance Counter 2
 - value: 729H
   name: MSR_UNC_CBO_3_PERFCTR3
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Performance Counter 3
 - value: 730H
   name: MSR_UNC_CBO_3_PERFEVTSEL0
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Counter 0 Event Select MSR
 - value: 731H
   name: MSR_UNC_CBO_3_PERFEVTSEL1
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Counter 1 Event Select MSR
 - value: 732H
   name: MSR_UNC_CBO_3_PERFEVTSEL2
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Counter 2 Event Select MSR
 - value: 733H
   name: MSR_UNC_CBO_3_PERFEVTSEL3
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, counter 3 Event Select MSR
 - value: 735H
   name: MSR_UNC_CBO_3_UNIT_STATUS
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Unit Status for Counter 0-3
 - value: 736H
   name: MSR_UNC_CBO_3_PERFCTR0
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Performance Counter 0
 - value: 737H
   name: MSR_UNC_CBO_3_PERFCTR1
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Performance Counter 1
 - value: 738H
   name: MSR_UNC_CBO_3_PERFCTR2
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Performance Counter 2
 - value: 739H
   name: MSR_UNC_CBO_3_PERFCTR3
   scope: Package
-  description: Uncore C-Box 3
+  description: Uncore C-Box 3, Performance Counter 3
 - value: 740H
   name: MSR_UNC_CBO_4_PERFEVTSEL0
   scope: Package
-  description: Uncore C-Box 4
+  description: Uncore C-Box 4, Counter 0 Event Select MSR
 - value: 741H
   name: MSR_UNC_CBO_4_PERFEVTSEL1
   scope: Package
-  description: Uncore C-Box 4
+  description: Uncore C-Box 4, Counter 1 Event Select MSR
 - value: 742H
   name: MSR_UNC_CBO_4_PERFEVTSEL2
   scope: Package
-  description: Uncore C-Box 4
+  description: Uncore C-Box 4, Counter 2 Event Select MSR
 - value: 743H
   name: MSR_UNC_CBO_4_PERFEVTSEL3
   scope: Package
-  description: Uncore C-Box 4
+  description: Uncore C-Box 4, Counter 3 Event Select MSR
 - value: 745H
   name: MSR_UNC_CBO_4_UNIT_STATUS
   scope: Package
-  description: Uncore C-Box 4
+  description: Uncore C-Box 4, Unit status for Counter 0-3
 - value: 746H
   name: MSR_UNC_CBO_4_PERFCTR0
   scope: Package
-  description: Uncore C-Box 4
+  description: Uncore C-Box 4, Performance Counter 0
 - value: 747H
   name: MSR_UNC_CBO_4_PERFCTR1
   scope: Package
-  description: Uncore C-Box 4
+  description: Uncore C-Box 4, Performance Counter 1
 - value: 748H
   name: MSR_UNC_CBO_4_PERFCTR2
   scope: Package
-  description: Uncore C-Box 4
+  description: Uncore C-Box 4, Performance Counter 2
 - value: 749H
   name: MSR_UNC_CBO_4_PERFCTR3
   scope: Package
-  description: Uncore C-Box 4
+  description: Uncore C-Box 4, Performance Counter 3
