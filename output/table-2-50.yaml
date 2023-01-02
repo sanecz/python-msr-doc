@@ -1,6 +1,6 @@
 ---
 name: Table 2-50
-full_name: Table 2-50. MSRs Supported by Intel® Xeon® Processor Scalable Family with DisplayFamily_DisplayModel 06_55H
+full_name: Table 2-50. MSRs Supported by Intel® Xeon® Scalable Processor Family with DisplayFamily_DisplayModel 06_55H
 supported_cpu:
 - 06_55H
 msr:
@@ -548,11 +548,11 @@ msr:
 - value: 400H
   name: IA32_MC0_CTL
   scope: Core
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC0 reports MC errors from the IFU module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC0 reports MC errors from the IFU module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 401H
   name: IA32_MC0_STATUS
   scope: Core
@@ -565,11 +565,11 @@ msr:
 - value: 404H
   name: IA32_MC1_CTL
   scope: Core
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC1 reports MC errors from the DCU module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC1 reports MC errors from the DCU module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 405H
   name: IA32_MC1_STATUS
   scope: Core
@@ -582,11 +582,11 @@ msr:
 - value: 408H
   name: IA32_MC2_CTL
   scope: Core
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC2 reports MC errors from the DTLB module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC2 reports MC errors from the DTLB module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 409H
   name: IA32_MC2_STATUS
   scope: Core
@@ -599,11 +599,11 @@ msr:
 - value: 40CH
   name: IA32_MC3_CTL
   scope: Core
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC3 reports MC errors from the MLC module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC3 reports MC errors from the MLC module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 40DH
   name: IA32_MC3_STATUS
   scope: Core
@@ -616,11 +616,11 @@ msr:
 - value: 410H
   name: IA32_MC4_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC4 reports MC errors from the PCU module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC4 reports MC errors from the PCU module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 411H
   name: IA32_MC4_STATUS
   scope: Package
@@ -633,11 +633,11 @@ msr:
 - value: 414H
   name: IA32_MC5_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC5 reports MC errors from a link interconnect module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC5 reports MC errors from a link interconnect module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 415H
   name: IA32_MC5_STATUS
   scope: Package
@@ -650,11 +650,11 @@ msr:
 - value: 418H
   name: IA32_MC6_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC6 reports MC errors from the integrated I/O module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC6 reports MC errors from the integrated I/O module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 419H
   name: IA32_MC6_STATUS
   scope: Package
@@ -667,11 +667,11 @@ msr:
 - value: 41CH
   name: IA32_MC7_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC7 reports MC errors from the M2M 0.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC7 reports MC errors from the M2M 0.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 41DH
   name: IA32_MC7_STATUS
   scope: Package
@@ -684,11 +684,11 @@ msr:
 - value: 420H
   name: IA32_MC8_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC8 reports MC errors from the M2M 1.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC8 reports MC errors from the M2M 1.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 421H
   name: IA32_MC8_STATUS
   scope: Package
@@ -701,11 +701,11 @@ msr:
 - value: 424H
   name: IA32_MC9_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 - MC11 report MC errors from the CHA
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 - MC11 report MC errors from the CHA
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 425H
   name: IA32_MC9_STATUS
   scope: Package
@@ -718,11 +718,11 @@ msr:
 - value: 428H
   name: IA32_MC10_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 - MC11 report MC errors from the CHA.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 - MC11 report MC errors from the CHA.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 429H
   name: IA32_MC10_STATUS
   scope: Package
@@ -735,11 +735,11 @@ msr:
 - value: 42CH
   name: IA32_MC11_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 - MC11 report MC errors from the CHA.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 - MC11 report MC errors from the CHA.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 42DH
   name: IA32_MC11_STATUS
   scope: Package
@@ -752,11 +752,11 @@ msr:
 - value: 430H
   name: IA32_MC12_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC12 report MC errors from each channel of a link interconnect module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC12 report MC errors from each channel of a link interconnect module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 431H
   name: IA32_MC12_STATUS
   scope: Package
@@ -769,11 +769,11 @@ msr:
 - value: 434H
   name: IA32_MC13_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 435H
   name: IA32_MC13_STATUS
   scope: Package
@@ -786,11 +786,11 @@ msr:
 - value: 438H
   name: IA32_MC14_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 439H
   name: IA32_MC14_STATUS
   scope: Package
@@ -803,11 +803,11 @@ msr:
 - value: 43CH
   name: IA32_MC15_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 43DH
   name: IA32_MC15_STATUS
   scope: Package
@@ -820,11 +820,11 @@ msr:
 - value: 440H
   name: IA32_MC16_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 441H
   name: IA32_MC16_STATUS
   scope: Package
@@ -837,11 +837,11 @@ msr:
 - value: 444H
   name: IA32_MC17_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 445H
   name: IA32_MC17_STATUS
   scope: Package
@@ -854,11 +854,11 @@ msr:
 - value: 448H
   name: IA32_MC18_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC13 through MC 18 report MC errors from the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 449H
   name: IA32_MC18_STATUS
   scope: Package
@@ -871,11 +871,11 @@ msr:
 - value: 44CH
   name: IA32_MC19_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC19 reports MC errors from a link interconnect module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC19 reports MC errors from a link interconnect module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 44DH
   name: IA32_MC19_STATUS
   scope: Package
@@ -889,10 +889,10 @@ msr:
   name: MSR_RAPL_POWER_UNIT
   bitfields:
   - bit: '3:0'
-    long_description: Power Units See Section 14.10.1, “RAPL Interfaces.”
+    long_description: Power Units See Section 15.10.1, “RAPL Interfaces.”
     description: Power Units
     see_section:
-    - 14.10.1
+    - 15.10.1
   - bit: '7:4'
     description: Reserved
   - bit: '12:8'
@@ -901,10 +901,10 @@ msr:
   - bit: '15:13'
     description: Reserved
   - bit: '19:16'
-    long_description: Time Units See Section 14.10.1, “RAPL Interfaces.”
+    long_description: Time Units See Section 15.10.1, “RAPL Interfaces.”
     description: Time Units
     see_section:
-    - 14.10.1
+    - 15.10.1
   - bit: '63:20'
     description: Reserved
   scope: Package
@@ -915,9 +915,9 @@ msr:
   scope: Package
   access: R/W
   description: DRAM RAPL Power Limit Control
-  long_description: DRAM RAPL Power Limit Control See Section 14.10.5, “DRAM RAPL Domain.”
+  long_description: DRAM RAPL Power Limit Control See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.10.5
+  - 15.10.5
 - value: 619H
   name: MSR_DRAM_ENERGY_STATUS
   bitfields:
@@ -935,17 +935,17 @@ msr:
   scope: Package
   access: R/O
   description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 14.10.5, “DRAM RAPL Domain.”
+  long_description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.10.5
+  - 15.10.5
 - value: 61CH
   name: MSR_DRAM_POWER_INFO
   scope: Package
   access: R/W
   description: DRAM RAPL Parameters
-  long_description: DRAM RAPL Parameters See Section 14.10.5, “DRAM RAPL Domain.”
+  long_description: DRAM RAPL Parameters See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.10.5
+  - 15.10.5
 - value: 620H
   name: MSR UNCORE_RATIO_LIMIT
   bitfields:

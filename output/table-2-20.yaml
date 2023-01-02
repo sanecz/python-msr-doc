@@ -38,21 +38,21 @@ msr:
 - value: 6H
   name: IA32_MONITOR_FILTER_SIZE
   scope: Thread
-  description: See Section 8.10.5
-  long_description: See Section 8.10.5, “Monitor/Mwait Address Range Determination” and Table 2-2.
+  description: See Section 9.10.5
+  long_description: See Section 9.10.5, “Monitor/Mwait Address Range Determination” and Table 2-2.
   see_table:
   - 2-2
   see_section:
-  - 8.10.5
+  - 9.10.5
 - value: 10H
   name: IA32_TIME_STAMP_COUNTER
   scope: Thread
-  description: See Section 17.17
-  long_description: See Section 17.17, “Time-Stamp Counter” and see Table 2-2.
+  description: See Section 18.17
+  long_description: See Section 18.17, “Time-Stamp Counter” and see Table 2-2.
   see_table:
   - 2-2
   see_section:
-  - '17.17'
+  - '18.17'
 - value: 17H
   name: IA32_PLATFORM_ID
   scope: Package
@@ -64,12 +64,12 @@ msr:
 - value: 1BH
   name: IA32_APIC_BASE
   scope: Thread
-  description: See Section 10.4.4
-  long_description: See Section 10.4.4, “Local APIC Status and Location” and Table 2-2.
+  description: See Section 11.4.4
+  long_description: See Section 11.4.4, “Local APIC Status and Location” and Table 2-2.
   see_table:
   - 2-2
   see_section:
-  - 10.4.4
+  - 11.4.4
 - value: 34H
   name: MSR_SMI_COUNT
   bitfields:
@@ -711,9 +711,9 @@ msr:
   scope: Thread
   access: R/W
   description: Last Branch Record Filtering Select Register
-  long_description: Last Branch Record Filtering Select Register See Section 17.9.2, “Filtering of Last Branch Records.”
+  long_description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
   see_section:
-  - 17.9.2
+  - 18.9.2
 - value: 1C9H
   name: MSR_LASTBRANCH_TOS
   scope: Thread
@@ -1063,12 +1063,12 @@ msr:
   - bit: '63:13'
     description: Reserved
   scope: Thread
-  description: See Table 2-2. See Section 17.4.1
-  long_description: See Table 2-2. See Section 17.4.1, “IA32_DEBUGCTL MSR.”
+  description: See Table 2-2. See Section 18.4.1
+  long_description: See Table 2-2. See Section 18.4.1, “IA32_DEBUGCTL MSR.”
   see_table:
   - 2-2
   see_section:
-  - 17.4.1
+  - 18.4.1
 - value: 38DH
   name: IA32_FIXED_CTR_CTRL
   scope: Thread
@@ -1112,12 +1112,12 @@ msr:
     description: Ovf_BufDSSAVE
   - bit: '63'
     description: CondChgd
-  description: See Table 2-2. See Section 19.6.2.2
-  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2
+  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.2
+  - 20.6.2.2
 - value: 38FH
   name: IA32_PERF_GLOBAL_CTRL
   bitfields:
@@ -1152,12 +1152,12 @@ msr:
   - bit: '63:35'
     description: Reserved
   scope: Thread
-  description: See Table 2-2. See Section 19.6.2.2
-  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2
+  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.2
+  - 20.6.2.2
 - value: 390H
   name: IA32_PERF_GLOBAL_OVF_CTRL
   bitfields:
@@ -1193,12 +1193,12 @@ msr:
     description: Set 1 to clear Ovf_BufDSSAVE
   - bit: '63'
     description: Set 1 to clear CondChgd
-  description: See Table 2-2. See Section 19.6.2.2
-  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2
+  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.2
+  - 20.6.2.2
 - value: 3F1H
   name: IA32_PEBS_ENABLE
   alt_name: MSR_PEBS_ENABLE
@@ -1235,10 +1235,10 @@ msr:
     access: R/W
     description: Enable Precise Store
   scope: Thread
-  description: See Section 19.3.1.1.1
-  long_description: See Section 19.3.1.1.1, “Processor Event Based Sampling (PEBS).”
+  description: See Section 20.3.1.1.1
+  long_description: See Section 20.3.1.1.1, “Processor Event Based Sampling (PEBS).”
   see_section:
-  - 19.3.1.1.1
+  - 20.3.1.1.1
 - value: 3F6H
   name: MSR_PEBS_LD_LAT
   bitfields:
@@ -1249,10 +1249,10 @@ msr:
   - bit: '63:36'
     description: Reserved
   scope: Thread
-  description: See Section 19.3.1.1.2
-  long_description: See Section 19.3.1.1.2, “Load Latency Performance Monitoring Facility.”
+  description: See Section 20.3.1.1.2
+  long_description: See Section 20.3.1.1.2, “Load Latency Performance Monitoring Facility.”
   see_section:
-  - 19.3.1.1.2
+  - 20.3.1.1.2
 - value: 3F8H
   name: MSR_PKG_C3_RESIDENCY
   bitfields:
@@ -1316,103 +1316,103 @@ msr:
 - value: 400H
   name: IA32_MC0_CTL
   scope: Core
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 401H
   name: IA32_MC0_STATUS
   scope: Core
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 16.
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 402H
   name: IA32_MC0_ADDR
   scope: Core
-  description: See Section 15.3.2.3
+  description: See Section 16.3.2.3
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 403H
   name: IA32_MC0_MISC
   scope: Core
-  description: See Section 15.3.2.4
+  description: See Section 16.3.2.4
   see_section:
-  - 15.3.2.4
+  - 16.3.2.4
 - value: 404H
   name: IA32_MC1_CTL
   scope: Core
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 405H
   name: IA32_MC1_STATUS
   scope: Core
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 16.
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 406H
   name: IA32_MC1_ADDR
   scope: Core
-  description: See Section 15.3.2.3
+  description: See Section 16.3.2.3
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 407H
   name: IA32_MC1_MISC
   scope: Core
-  description: See Section 15.3.2.4
+  description: See Section 16.3.2.4
   see_section:
-  - 15.3.2.4
+  - 16.3.2.4
 - value: 408H
   name: IA32_MC2_CTL
   scope: Core
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 409H
   name: IA32_MC2_STATUS
   scope: Core
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 16.
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 40AH
   name: IA32_MC2_ADDR
   scope: Core
-  description: See Section 15.3.2.3
+  description: See Section 16.3.2.3
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 40BH
   name: IA32_MC2_MISC
   scope: Core
-  description: See Section 15.3.2.4
+  description: See Section 16.3.2.4
   see_section:
-  - 15.3.2.4
+  - 16.3.2.4
 - value: 40CH
   name: IA32_MC3_CTL
   scope: Core
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 40DH
   name: IA32_MC3_STATUS
   scope: Core
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 16.
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 40EH
   name: IA32_MC3_ADDR
   scope: Core
-  description: See Section 15.3.2.3
+  description: See Section 16.3.2.3
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 40FH
   name: IA32_MC3_MISC
   scope: Core
-  description: See Section 15.3.2.4
+  description: See Section 16.3.2.4
   see_section:
-  - 15.3.2.4
+  - 16.3.2.4
 - value: 410H
   name: IA32_MC4_CTL
   bitfields:
@@ -1431,16 +1431,16 @@ msr:
   - bit: '63:2'
     description: Reserved
   scope: Core
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 411H
   name: IA32_MC4_STATUS
   scope: Core
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 16.
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 480H
   name: IA32_VMX_BASIC
   scope: Thread
@@ -1650,19 +1650,19 @@ msr:
   scope: Thread
   access: R/W
   description: DS Save Area
-  long_description: DS Save Area See Table 2-2. See Section 19.6.3.4, “Debug Store (DS) Mechanism.”
+  long_description: DS Save Area See Table 2-2. See Section 20.6.3.4, “Debug Store (DS) Mechanism.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.3.4
+  - 20.6.3.4
 - value: 606H
   name: MSR_RAPL_POWER_UNIT
   scope: Package
   access: R/O
   description: Unit Multipliers used in RAPL Interfaces
-  long_description: Unit Multipliers used in RAPL Interfaces See Section 14.10.1, “RAPL Interfaces.”
+  long_description: Unit Multipliers used in RAPL Interfaces See Section 15.10.1, “RAPL Interfaces.”
   see_section:
-  - 14.10.1
+  - 15.10.1
 - value: 60AH
   name: MSR_PKGC3_IRTL
   bitfields:
@@ -1724,42 +1724,42 @@ msr:
   scope: Package
   access: R/W
   description: PKG RAPL Power Limit Control
-  long_description: PKG RAPL Power Limit Control See Section 14.10.3, “Package RAPL Domain.”
+  long_description: PKG RAPL Power Limit Control See Section 15.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.10.3
+  - 15.10.3
 - value: 611H
   name: MSR_PKG_ENERGY_STATUS
   scope: Package
   access: R/O
   description: PKG Energy Status
-  long_description: PKG Energy Status See Section 14.10.3, “Package RAPL Domain.”
+  long_description: PKG Energy Status See Section 15.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.10.3
+  - 15.10.3
 - value: 614H
   name: MSR_PKG_POWER_INFO
   scope: Package
   access: R/W
-  description: PKG RAPL Parameters See Section 14.10.3
-  long_description: PKG RAPL Parameters See Section 14.10.3, “Package RAPL Domain.”
+  description: PKG RAPL Parameters See Section 15.10.3
+  long_description: PKG RAPL Parameters See Section 15.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.10.3
+  - 15.10.3
 - value: 638H
   name: MSR_PP0_POWER_LIMIT
   scope: Package
   access: R/W
   description: PP0 RAPL Power Limit Control
-  long_description: PP0 RAPL Power Limit Control See Section 14.10.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP0 RAPL Power Limit Control See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.10.4
+  - 15.10.4
 - value: 680H
   name: MSR_LASTBRANCH_0_FROM_IP
   scope: Thread
   access: R/W
   description: Last Branch Record 0 From IP
-  long_description: 'Last Branch Record 0 From IP One of sixteen pairs of last branch record registers on the last branch record stack. This part of the stack contains pointers to the source instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.9.1 and record format in Section 17.4.8.1.'
+  long_description: 'Last Branch Record 0 From IP One of sixteen pairs of last branch record registers on the last branch record stack. This part of the stack contains pointers to the source instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 18.9.1 and record format in Section 18.4.8.1.'
   see_section:
-  - 17.9.1
-  - 17.4.8.1.
+  - 18.9.1
+  - 18.4.8.1.
 - value: 681H
   name: MSR_LASTBRANCH_1_FROM_IP
   scope: Thread
@@ -2018,8 +2018,8 @@ msr:
   scope: Thread
   access: R/W
   description: AUXILIARY TSC Signature
-  long_description: AUXILIARY TSC Signature See Table 2-2 and Section 17.17.2, “IA32_TSC_AUX Register and RDTSCP Support.”
+  long_description: AUXILIARY TSC Signature See Table 2-2 and Section 18.17.2, “IA32_TSC_AUX Register and RDTSCP Support.”
   see_table:
   - 2-2
   see_section:
-  - 17.17.2
+  - 18.17.2

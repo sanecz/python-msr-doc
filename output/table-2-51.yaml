@@ -1,6 +1,6 @@
 ---
 name: Table 2-51
-full_name: Table 2-51. MSRs Supported by 3rd Generation Intel® Xeon® Processor Scalable Family with DisplayFamily_DisplayModel Signatures of 06_6AH and 06_6CH
+full_name: Table 2-51. MSRs Supported by 3rd Generation Intel® Xeon® Scalable Processor Family with DisplayFamily_DisplayModel Signatures of 06_6AH and 06_6CH
 supported_cpu:
 - 06_6AH
 - 06_6CH
@@ -47,17 +47,17 @@ msr:
   scope: Package
   access: R/O
   description: DRAM Energy Status
-  long_description: DRAM Energy Status See Section 14.10.5, “DRAM RAPL Domain.”
+  long_description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.10.5
+  - 15.10.5
 - value: 61BH
   name: MSR_DRAM_PERF_STATUS
   scope: Package
   access: R/O
   description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 14.10.5, “DRAM RAPL Domain.”
+  long_description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.10.5
+  - 15.10.5
 - value: 61CH
   name: MSR_DRAM_POWER_INFO
   bitfields:
@@ -77,7 +77,7 @@ msr:
   - bit: '47'
     description: Reserved
   - bit: '54:48'
-    long_description: 'Maximal Time Window (DRAM_MAX_WIN): The maximal time window allowed for the DRAM. Higher values will be clamped to this value. x = PKG_MAX_WIN[54:53] y = PKG_MAX_WIN[52:48] The timing interval window is Floating Point number given by 1.x *power(2,y). The unit of measurement is defined in MSR_DRAM_POWER_INFO_UNIT[TIME_UNIT].'
+    long_description: 'Maximal Time Window (DRAM_MAX_WIN): The maximal time window allowed for the DRAM. Higher values will be clamped to this value. x = PKG_MAX_WIN[54:53] y = PKG_MAX_WIN[52:48] The timing interval window is a floating-point number given by 1.x *power(2,y). The unit of measurement is defined in MSR_DRAM_POWER_INFO_UNIT[TIME_UNIT].'
     description: Maximal Time Window (DRAM_MAX_WIN)
   - bit: '62:55'
     description: Reserved

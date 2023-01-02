@@ -41,32 +41,32 @@ msr:
   scope: Package
   access: R/O
   description: Unit Multipliers used in RAPL Interfaces
-  long_description: Unit Multipliers used in RAPL Interfaces See Section 14.10.1, “RAPL Interfaces.”
+  long_description: Unit Multipliers used in RAPL Interfaces See Section 15.10.1, “RAPL Interfaces.”
   see_section:
-  - 14.10.1
+  - 15.10.1
 - value: 610H
   name: MSR_PKG_POWER_LIMIT
   bitfields:
   - bit: '14:0'
     access: R/W
-    long_description: 'Package Power Limit #1 See Section 14.10.3, “Package RAPL Domain.” and MSR_RAPL_POWER_UNIT in Table 2-8.'
+    long_description: 'Package Power Limit #1 See Section 15.10.3, “Package RAPL Domain.” and MSR_RAPL_POWER_UNIT in Table 2-8.'
     description: 'Package Power Limit #1'
     see_table:
     - 2-8
     see_section:
-    - 14.10.3
+    - 15.10.3
   - bit: '15'
     access: R/W
-    long_description: 'Enable Power Limit #1 See Section 14.10.3, “Package RAPL Domain.”'
+    long_description: 'Enable Power Limit #1 See Section 15.10.3, “Package RAPL Domain.”'
     description: 'Enable Power Limit #1'
     see_section:
-    - 14.10.3
+    - 15.10.3
   - bit: '16'
     access: R/W
-    long_description: 'Package Clamping Limitation #1 See Section 14.10.3, “Package RAPL Domain.”'
+    long_description: 'Package Clamping Limitation #1 See Section 15.10.3, “Package RAPL Domain.”'
     description: 'Package Clamping Limitation #1'
     see_section:
-    - 14.10.3
+    - 15.10.3
   - bit: '23:17'
     access: R/W
     long_description: 'Time Window for Power Limit #1 In unit of second. If 0 is specified in bits [23:17], defaults to 1 second window.'
@@ -81,18 +81,18 @@ msr:
   scope: Package
   access: R/O
   description: PKG Energy Status
-  long_description: PKG Energy Status See Section 14.10.3, “Package RAPL Domain.” and MSR_RAPL_POWER_UNIT in Table 2-8.
+  long_description: PKG Energy Status See Section 15.10.3, “Package RAPL Domain.” and MSR_RAPL_POWER_UNIT in Table 2-8.
   see_table:
   - 2-8
   see_section:
-  - 14.10.3
+  - 15.10.3
 - value: 639H
   name: MSR_PP0_ENERGY_STATUS
   scope: Package
   access: R/O
   description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.” and MSR_RAPL_POWER_UNIT in Table 2-8.
+  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.” and MSR_RAPL_POWER_UNIT in Table 2-8.
   see_table:
   - 2-8
   see_section:
-  - 14.10.4
+  - 15.10.4

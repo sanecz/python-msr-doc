@@ -1,6 +1,6 @@
 ---
 name: Table 2-39
-full_name: Table 2-39. Additional MSRs Supported by 6th Generation, 7th Generation, 8th Generation, 9th Generation, 10th Generation, 11th Generation, and 12th Generation Intel® Core™ Processors, Intel® Xeon® Processor Scalable Family, 2nd and 3rd Generation Intel® Xeon® Processor Scalable Family, 8th Generation Intel® Core™ i3 Processors, and Intel® Xeon® E Processors
+full_name: Table 2-39. Additional MSRs Supported by 6th Generation, 7th Generation, 8th Generation, 9th Generation, 10th Generation, 11th Generation, 12th Generation, and 13th Generation Intel® Core™ Processors, Intel® Xeon® Scalable Processor Family, 2nd, 3rd, and 4th Generation Intel® Xeon® Scalable Processor Family, 8th Generation Intel® Core™ i3 Processors, and Intel® Xeon® E Processors
 supported_cpu:
 - 06_4EH
 - 06_55H
@@ -272,12 +272,12 @@ msr:
     description: Ovf_BufDSSAVE
   - bit: '63'
     description: CondChgd
-  description: See Table 2-2. See Section 19.2.4
-  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 20.2.4
+  long_description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 19.2.4
+  - 20.2.4
 - value: 390H
   name: IA32_PERF_GLOBAL_STATUS_RESET
   bitfields:
@@ -323,12 +323,12 @@ msr:
     description: Set 1 to clear Ovf_BufDSSAVE
   - bit: '63'
     description: Set 1 to clear CondChgd
-  description: See Table 2-2. See Section 19.2.4
-  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 20.2.4
+  long_description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 19.2.4
+  - 20.2.4
 - value: 391H
   name: IA32_PERF_GLOBAL_STATUS_SET
   bitfields:
@@ -378,12 +378,12 @@ msr:
     description: Set 1 to cause Ovf_BufDSSAVE
   - bit: '63'
     description: Reserved
-  description: See Table 2-2. See Section 19.2.4
-  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 20.2.4
+  long_description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 19.2.4
+  - 20.2.4
 - value: 392H
   name: IA32_PERF_GLOBAL_INUSE
   scope: Thread
@@ -461,7 +461,7 @@ msr:
   - bit: '6:4'
     description: Reserved
   - bit: '7'
-    description: CR3 filter
+    description: CR3Filter
   - bit: '8'
     long_description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
     description: ToPA
@@ -480,7 +480,7 @@ msr:
   - bit: '18'
     description: Reserved
   - bit: '22:19'
-    description: CYCThresh
+    description: CycThresh
   - bit: '23'
     description: Reserved
   - bit: '27:24'
@@ -576,9 +576,9 @@ msr:
   scope: Package
   access: R/O
   description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.10.4
+  - 15.10.4
 - value: 64DH
   name: MSR_PLATFORM_ENERGY_COUNTER
   bitfields:
@@ -587,7 +587,7 @@ msr:
     description: Total energy consumed by all devices in the platform
   - bit: '63:32'
     description: Reserved
-  scope: Platform*
+  scope: Platform
   access: R/O
   description: Platform Energy Counter
   long_description: Platform Energy Counter This MSR is valid only if both platform vendor hardware implementation and BIOS enablement support it. This MSR will read 0 if not valid.
@@ -595,10 +595,10 @@ msr:
   name: MSR_PPERF
   bitfields:
   - bit: '63:0'
-    long_description: Hardware’s view of workload scalability. See Section 14.4.5.1.
+    long_description: Hardware’s view of workload scalability. See Section 15.4.5.1.
     description: Hardware’s view of workload scalability
     see_section:
-    - 14.4.5.1.
+    - 15.4.5.1.
   scope: Thread
   access: R/O
   description: Productive Performance Count
@@ -802,7 +802,7 @@ msr:
   - bit: '63'
     long_description: Lock. Setting this bit will lock all other bits of this MSR until system RESET.
     description: Lock
-  scope: Platform*
+  scope: Platform
   access: R/W-L
   description: Platform Power Limit Control
   long_description: Platform Power Limit Control Allows platform BIOS to limit power consumption of the platform devices to the specified values. The Long Duration power consumption is specified via Platform_Power_Limit_1 and Platform_Power_Limit_1_Time. The Short Duration power consumption limit is specified via the Platform_Power_Limit_2 with duration chosen by the processor. The processor implements an exponential-weighted algorithm in the placement of the time windows.
@@ -811,9 +811,9 @@ msr:
   scope: Thread
   access: R/W
   description: Last Branch Record 16 From IP
-  long_description: 'Last Branch Record 16 From IP One of 32 triplets of last branch record registers on the last branch record stack. This part of the stack contains pointers to the source instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.12.'
+  long_description: 'Last Branch Record 16 From IP One of 32 triplets of last branch record registers on the last branch record stack. This part of the stack contains pointers to the source instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 18.12.'
   see_section:
-  - 17.12.
+  - 18.12.
 - value: 691H
   name: MSR_LASTBRANCH_17_FROM_IP
   scope: Thread
@@ -1066,9 +1066,9 @@ msr:
   scope: Thread
   access: R/W
   description: Last Branch Record 16 To IP
-  long_description: 'Last Branch Record 16 To IP One of 32 triplets of last branch record registers on the last branch record stack. This part of the stack contains pointers to the destination instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.12.'
+  long_description: 'Last Branch Record 16 To IP One of 32 triplets of last branch record registers on the last branch record stack. This part of the stack contains pointers to the destination instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 18.12.'
   see_section:
-  - 17.12.
+  - 18.12.
 - value: 6D1H
   name: MSR_LASTBRANCH_17_TO_IP
   scope: Thread
@@ -1162,28 +1162,28 @@ msr:
 - value: 770H
   name: IA32_PM_ENABLE
   scope: Package
-  description: See Section 14.4.2
+  description: See Section 15.4.2
   see_section:
-  - 14.4.2
+  - 15.4.2
 - value: 771H
   name: IA32_HWP_CAPABILITIES
   scope: Thread
-  description: See Section 14.4.3
-  long_description: See Section 14.4.3, “HWP Performance Range and Dynamic Capabilities”.
+  description: See Section 15.4.3
+  long_description: See Section 15.4.3, “HWP Performance Range and Dynamic Capabilities”.
   see_section:
-  - 14.4.3
+  - 15.4.3
 - value: 772H
   name: IA32_HWP_REQUEST_PKG
   scope: Package
-  description: See Section 14.4.4
+  description: See Section 15.4.4
   see_section:
-  - 14.4.4
+  - 15.4.4
 - value: 773H
   name: IA32_HWP_INTERRUPT
   scope: Thread
-  description: See Section 14.4.6
+  description: See Section 15.4.6
   see_section:
-  - 14.4.6
+  - 15.4.6
 - value: 774H
   name: IA32_HWP_REQUEST
   bitfields:
@@ -1208,15 +1208,15 @@ msr:
   - bit: '63:43'
     description: Reserved
   scope: Thread
-  description: See Section 14.4.4
+  description: See Section 15.4.4
   see_section:
-  - 14.4.4
+  - 15.4.4
 - value: 777H
   name: IA32_HWP_STATUS
   scope: Thread
-  description: See Section 14.4.5
+  description: See Section 15.4.5
   see_section:
-  - 14.4.5
+  - 15.4.5
 - value: D90H
   name: IA32_BNDCFGS
   scope: Thread
@@ -1232,30 +1232,30 @@ msr:
 - value: DB0H
   name: IA32_PKG_HDC_CTL
   scope: Package
-  description: See Section 14.5.2
+  description: See Section 15.5.2
   see_section:
-  - 14.5.2
+  - 15.5.2
 - value: DB1H
   name: IA32_PM_CTL1
   scope: Thread
-  description: See Section 14.5.3
-  long_description: See Section 14.5.3, “Logical-Processor Level HDC Control”.
+  description: See Section 15.5.3
+  long_description: See Section 15.5.3, “Logical-Processor Level HDC Control”.
   see_section:
-  - 14.5.3
+  - 15.5.3
 - value: DB2H
   name: IA32_THREAD_STALL
   scope: Thread
-  description: See Section 14.5.4.1
+  description: See Section 15.5.4.1
   see_section:
-  - 14.5.4.1
+  - 15.5.4.1
 - value: DC0H
   name: MSR_LBR_INFO_0
   scope: Thread
   access: R/W
   description: Last Branch Record 0 Additional Information
-  long_description: 'Last Branch Record 0 Additional Information One of 32 triplet of last branch record registers on the last branch record stack. This part of the stack contains flag, TSX-related and elapsed cycle information. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.9.1, “LBR Stack.”'
+  long_description: 'Last Branch Record 0 Additional Information One of 32 triplet of last branch record registers on the last branch record stack. This part of the stack contains flag, TSX-related and elapsed cycle information. See also: • Last Branch Record Stack TOS at 1C9H. • Section 18.9.1, “LBR Stack.”'
   see_section:
-  - 17.9.1
+  - 18.9.1
 - value: DC1H
   name: MSR_LBR_INFO_1
   scope: Thread

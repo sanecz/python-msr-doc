@@ -96,9 +96,9 @@ msr:
   scope: Package
   access: R/O
   description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.10.4
+  - 15.10.4
 - value: 648H
   name: MSR_CONFIG_TDP_NOMINAL
   bitfields:

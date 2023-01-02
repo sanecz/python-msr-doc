@@ -23,9 +23,9 @@ msr:
   - '2.23'
 - value: 10H
   name: TSC
-  description: See Section 17.17
+  description: See Section 18.17
   see_section:
-  - '17.17'
+  - '18.17'
 - value: 17H
   name: IA32_PLATFORM_ID
   bitfields:
@@ -63,9 +63,9 @@ msr:
     description: APIC Base Address
   - bit: '63:32'
     description: Reserved
-  description: Section 10.4.4
+  description: Section 11.4.4
   see_section:
-  - 10.4.4
+  - 11.4.4
 - value: 2AH
   name: EBL_CR_POWERON
   bitfields:

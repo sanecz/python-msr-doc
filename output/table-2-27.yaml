@@ -135,10 +135,10 @@ msr:
   - bit: 63:33+m
     description: Reserved
   scope: Thread
-  description: See Section 19.3.1.1.1
-  long_description: See Section 19.3.1.1.1, “Processor Event Based Sampling (PEBS).”
+  description: See Section 20.3.1.1.1
+  long_description: See Section 20.3.1.1.1, “Processor Event Based Sampling (PEBS).”
   see_section:
-  - 19.3.1.1.1
+  - 20.3.1.1.1
 - value: 41BH
   name: IA32_MC6_MISC
   bitfields:
@@ -157,17 +157,17 @@ msr:
   scope: Package
   access: R/O
   description: Misc MAC Information of Integrated I/O
-  long_description: Misc MAC Information of Integrated I/O See Section 15.3.2.4.
+  long_description: Misc MAC Information of Integrated I/O See Section 16.3.2.4.
   see_section:
-  - 15.3.2.4.
+  - 16.3.2.4.
 - value: 474H
   name: IA32_MC29_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC29 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC29 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 475H
   name: IA32_MC29_STATUS
   scope: Package
@@ -180,11 +180,11 @@ msr:
 - value: 478H
   name: IA32_MC30_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC30 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC30 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 479H
   name: IA32_MC30_STATUS
   scope: Package
@@ -197,11 +197,11 @@ msr:
 - value: 47CH
   name: IA32_MC31_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC31 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC31 reports MC errors from a specific CBo (core broadcast) and its corresponding slice of L3.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 47DH
   name: IA32_MC31_STATUS
   scope: Package

@@ -1,6 +1,6 @@
 ---
 name: Table 2-49
-full_name: Table 2-49. Uncore PMU MSRs Supported by 12th Generation Intel® Core™ Processors
+full_name: Table 2-49. Uncore PMU MSRs Supported by 12th and 13th Generation Intel® Core™ Processors
 supported_cpu: []
 msr:
 - value: 396H

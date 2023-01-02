@@ -1,6 +1,6 @@
 ---
 name: Table 2-48
-full_name: Table 2-48. MSRs Supported by 12th Generation Intel® Core™ Processor E-core
+full_name: Table 2-48. MSRs Supported by 12th and 13th Generation Intel® Core™ Processor E-core
 supported_cpu: []
 msr:
 - value: D10H-D1FH
@@ -13,7 +13,7 @@ msr:
     description: Reserved
   scope: Module
   description: IA32_CR_L2_QOS_MASK_[0-15]
-  long_description: IA32_CR_L2_QOS_MASK_[0-15] If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] ≥ 0. Controls MLC (L2) Intel RDT allocation. For more details on CAT/RDT, see Chapter 17, “Debug, Branch Profile, TSC, and Intel® Resource Director Technology (Intel® RDT) Features”.
+  long_description: IA32_CR_L2_QOS_MASK_[0-15] If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] ≥ 0. Controls MLC (L2) Intel RDT allocation. For more details on CAT/RDT, see Chapter 18, “Debug, Branch Profile, TSC, and Intel® Resource Director Technology (Intel® RDT) Features”.
 - value: 1309H-130BH
   name: MSR_RELOAD_FIXED_CTRx
   bitfields:

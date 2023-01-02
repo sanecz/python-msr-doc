@@ -9,7 +9,7 @@ supported_cpu:
 - 0F_06H
 - 0F_0H
 msr:
-- value: 0H
+- value: 0H0
   name: IA32_P5_MC_ADDR
   shared: Shared
   description: See Section 2.23
@@ -38,10 +38,10 @@ msr:
 - value: 6H
   name: IA32_MONITOR_FILTER_LINE_SIZE
   shared: Shared
-  description: See Section 8.10.5
-  long_description: See Section 8.10.5, “Monitor/Mwait Address Range Determination.”
+  description: See Section 9.10.5
+  long_description: See Section 9.10.5, “Monitor/Mwait Address Range Determination.”
   see_section:
-  - 8.10.5
+  - 9.10.5
   model_availability:
   - 3
   - 4
@@ -83,11 +83,11 @@ msr:
   shared: Unique
   access: R/W
   description: APIC Location and Status
-  long_description: APIC Location and Status See Table 2-2. See Section 10.4.4, “Local APIC Status and Location.”
+  long_description: APIC Location and Status See Table 2-2. See Section 11.4.4, “Local APIC Status and Location.”
   see_table:
   - 2-2
   see_section:
-  - 10.4.4
+  - 11.4.4
   model_availability:
   - 0
   - 1
@@ -295,9 +295,9 @@ msr:
   name: IA32_MTRRCAP
   shared: Unique
   description: MTRR Information
-  long_description: MTRR Information See Section 11.11.1, “MTRR Feature Identification.”.
+  long_description: MTRR Information See Section 12.11.1, “MTRR Feature Identification.”.
   see_section:
-  - 11.11.1
+  - 12.11.1
   model_availability:
   - 0
   - 1
@@ -361,11 +361,11 @@ msr:
   shared: Unique
   access: R
   description: Machine Check Capabilities
-  long_description: Machine Check Capabilities See Table 2-2. See Section 15.3.1.1, “IA32_MCG_CAP MSR.”
+  long_description: Machine Check Capabilities See Table 2-2. See Section 16.3.1.1, “IA32_MCG_CAP MSR.”
   see_table:
   - 2-2
   see_section:
-  - 15.3.1.1
+  - 16.3.1.1
   model_availability:
   - 0
   - 1
@@ -378,11 +378,11 @@ msr:
   shared: Unique
   access: R
   description: Machine Check Status
-  long_description: Machine Check Status See Table 2-2. See Section 15.3.1.2, “IA32_MCG_STATUS MSR.”
+  long_description: Machine Check Status See Table 2-2. See Section 16.3.1.2, “IA32_MCG_STATUS MSR.”
   see_table:
   - 2-2
   see_section:
-  - 15.3.1.2
+  - 16.3.1.2
   model_availability:
   - 0
   - 1
@@ -394,11 +394,11 @@ msr:
   name: IA32_MCG_CTL
   access: R/W
   description: Machine Check Feature Enable
-  long_description: Machine Check Feature Enable See Table 2-2. See Section 15.3.1.3, “IA32_MCG_CTL MSR.”
+  long_description: Machine Check Feature Enable See Table 2-2. See Section 16.3.1.3, “IA32_MCG_CTL MSR.”
   see_table:
   - 2-2
   see_section:
-  - 15.3.1.3
+  - 16.3.1.3
 - value: 180H
   name: MSR_MCG_RAX
   bitfields:
@@ -407,9 +407,9 @@ msr:
     description: Contains register state at time of machine check
   shared: Unique
   description: Machine Check EAX/RAX Save State
-  long_description: Machine Check EAX/RAX Save State See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check EAX/RAX Save State See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -425,9 +425,9 @@ msr:
     description: Contains register state at time of machine check
   shared: Unique
   description: Machine Check EBX/RBX Save State
-  long_description: Machine Check EBX/RBX Save State See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check EBX/RBX Save State See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -443,9 +443,9 @@ msr:
     description: Contains register state at time of machine check
   shared: Unique
   description: Machine Check ECX/RCX Save State
-  long_description: Machine Check ECX/RCX Save State See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check ECX/RCX Save State See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -461,9 +461,9 @@ msr:
     description: Contains register state at time of machine check
   shared: Unique
   description: Machine Check EDX/RDX Save State
-  long_description: Machine Check EDX/RDX Save State See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check EDX/RDX Save State See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -479,9 +479,9 @@ msr:
     description: Contains register state at time of machine check
   shared: Unique
   description: Machine Check ESI/RSI Save State
-  long_description: Machine Check ESI/RSI Save State See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check ESI/RSI Save State See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -497,9 +497,9 @@ msr:
     description: Contains register state at time of machine check
   shared: Unique
   description: Machine Check EDI/RDI Save State
-  long_description: Machine Check EDI/RDI Save State See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check EDI/RDI Save State See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -515,9 +515,9 @@ msr:
     description: Contains register state at time of machine check
   shared: Unique
   description: Machine Check EBP/RBP Save State
-  long_description: Machine Check EBP/RBP Save State See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check EBP/RBP Save State See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -533,9 +533,9 @@ msr:
     description: Contains register state at time of machine check
   shared: Unique
   description: Machine Check ESP/RSP Save State
-  long_description: Machine Check ESP/RSP Save State See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check ESP/RSP Save State See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -551,9 +551,9 @@ msr:
     description: Contains register state at time of machine check
   shared: Unique
   description: Machine Check EFLAGS/RFLAG Save State
-  long_description: Machine Check EFLAGS/RFLAG Save State See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check EFLAGS/RFLAG Save State See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -569,9 +569,9 @@ msr:
     description: Contains register state at time of machine check
   shared: Unique
   description: Machine Check EIP/RIP Save State
-  long_description: Machine Check EIP/RIP Save State See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check EIP/RIP Save State See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -589,9 +589,9 @@ msr:
     description: Reserved
   shared: Unique
   description: Machine Check Miscellaneous
-  long_description: Machine Check Miscellaneous See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check Miscellaneous See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -610,9 +610,9 @@ msr:
     description: Registers R8-15
   shared: Unique
   description: Machine Check R8
-  long_description: Machine Check R8 See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check R8 See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -628,9 +628,9 @@ msr:
     description: Registers R8-15
   shared: Unique
   description: Machine Check R9D/R9
-  long_description: Machine Check R9D/R9 See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check R9D/R9 See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -646,9 +646,9 @@ msr:
     description: Registers R8-15
   shared: Unique
   description: Machine Check R10
-  long_description: Machine Check R10 See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check R10 See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -664,9 +664,9 @@ msr:
     description: Registers R8-15
   shared: Unique
   description: Machine Check R11
-  long_description: Machine Check R11 See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check R11 See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -682,9 +682,9 @@ msr:
     description: Registers R8-15
   shared: Unique
   description: Machine Check R12
-  long_description: Machine Check R12 See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check R12 See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -700,9 +700,9 @@ msr:
     description: Registers R8-15
   shared: Unique
   description: Machine Check R13
-  long_description: Machine Check R13 See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check R13 See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -718,9 +718,9 @@ msr:
     description: Registers R8-15
   shared: Unique
   description: Machine Check R14
-  long_description: Machine Check R14 See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check R14 See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -736,9 +736,9 @@ msr:
     description: Registers R8-15
   shared: Unique
   description: Machine Check R15
-  long_description: Machine Check R15 See Section 15.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
+  long_description: Machine Check R15 See Section 16.3.2.6, “IA32_MCG Extended Machine Check State MSRs.”
   see_section:
-  - 15.3.2.6
+  - 16.3.2.6
   model_availability:
   - 0
   - 1
@@ -749,12 +749,12 @@ msr:
 - value: 198H
   name: IA32_PERF_STATUS
   shared: Unique
-  description: See Table 2-2. See Section 14.1
-  long_description: See Table 2-2. See Section 14.1, “Enhanced Intel Speedstep® Technology.”
+  description: See Table 2-2. See Section 15.1
+  long_description: See Table 2-2. See Section 15.1, “Enhanced Intel Speedstep® Technology.”
   see_table:
   - 2-2
   see_section:
-  - '14.1'
+  - '15.1'
   model_availability:
   - 3
   - 4
@@ -762,12 +762,12 @@ msr:
 - value: 199H
   name: IA32_PERF_CTL
   shared: Unique
-  description: See Table 2-2. See Section 14.1
-  long_description: See Table 2-2. See Section 14.1, “Enhanced Intel Speedstep® Technology.”
+  description: See Table 2-2. See Section 15.1
+  long_description: See Table 2-2. See Section 15.1, “Enhanced Intel Speedstep® Technology.”
   see_table:
   - 2-2
   see_section:
-  - '14.1'
+  - '15.1'
   model_availability:
   - 3
   - 4
@@ -777,11 +777,11 @@ msr:
   shared: Unique
   access: R/W
   description: Thermal Monitor Control
-  long_description: Thermal Monitor Control See Table 2-2. See Section 14.8.3, “Software Controlled Clock Modulation.”
+  long_description: Thermal Monitor Control See Table 2-2. See Section 15.8.3, “Software Controlled Clock Modulation.”
   see_table:
   - 2-2
   see_section:
-  - 14.8.3
+  - 15.8.3
   model_availability:
   - 0
   - 1
@@ -794,11 +794,11 @@ msr:
   shared: Unique
   access: R/W
   description: Thermal Interrupt Control
-  long_description: Thermal Interrupt Control See Section 14.8.2, “Thermal Monitor,” and see Table 2-2.
+  long_description: Thermal Interrupt Control See Section 15.8.2, “Thermal Monitor,” and see Table 2-2.
   see_table:
   - 2-2
   see_section:
-  - 14.8.2
+  - 15.8.2
   model_availability:
   - 0
   - 1
@@ -811,11 +811,11 @@ msr:
   shared: Shared
   access: R/W
   description: Thermal Monitor Status
-  long_description: Thermal Monitor Status See Section 14.8.2, “Thermal Monitor,” and see Table 2-2.
+  long_description: Thermal Monitor Status See Section 15.8.2, “Thermal Monitor,” and see Table 2-2.
   see_table:
   - 2-2
   see_section:
-  - 14.8.2
+  - 15.8.2
   model_availability:
   - 0
   - 1
@@ -850,12 +850,12 @@ msr:
   - bit: '2'
     description: x87 FPU Fopcode Compatibility Mode Enable
   - bit: '3'
-    long_description: Thermal Monitor 1 Enable See Section 14.8.2, “Thermal Monitor,” and see Table 2-2.
+    long_description: Thermal Monitor 1 Enable See Section 15.8.2, “Thermal Monitor,” and see Table 2-2.
     description: Thermal Monitor 1 Enable
     see_table:
     - 2-2
     see_section:
-    - 14.8.2
+    - 15.8.2
   - bit: '4'
     long_description: 'Split-Lock Disable When set, the bit causes an #AC exception to be issued instead of a split-lock cycle. Operating systems that set this bit must align system structures to avoid split-lock scenarios. When the bit is clear (default), normal split-locks are issued to the bus.'
     description: Split-Lock Disable
@@ -865,10 +865,10 @@ msr:
     description: Reserved
   - bit: '6'
     access: R/W
-    long_description: Third-Level Cache Disable When set, the third-level cache is disabled; when clear (default) the third-level cache is enabled. This flag is reserved for processors that do not have a third-level cache. Note that the bit controls only the third-level cache; and only if overall caching is enabled through the CD flag of control register CR0, the page-level cache controls, and/or the MTRRs. See Section 11.5.4, “Disabling and Enabling the L3 Cache.”
+    long_description: Third-Level Cache Disable When set, the third-level cache is disabled; when clear (default) the third-level cache is enabled. This flag is reserved for processors that do not have a third-level cache. Note that the bit controls only the third-level cache; and only if overall caching is enabled through the CD flag of control register CR0, the page-level cache controls, and/or the MTRRs. See Section 12.5.4, “Disabling and Enabling the L3 Cache.”
     description: Third-Level Cache Disable
     see_section:
-    - 11.5.4
+    - 12.5.4
   - bit: '7'
     access: R
     long_description: Performance Monitoring Available See Table 2-2.
@@ -946,10 +946,10 @@ msr:
     - 2-2
   - bit: '24'
     access: R/W
-    long_description: L1 Data Cache Context Mode When set, the L1 data cache is placed in shared mode; when clear (default), the cache is placed in adaptive mode. This bit is only enabled for IA- 32 processors that support Intel Hyper- Threading Technology. See Section 11.5.6, “L1 Data Cache Context Mode.” When L1 is running in adaptive mode and CR3s are identical, data in L1 is shared across logical processors. Otherwise, L1 is not shared and cache use is competitive. If the Context ID feature flag (ECX[10]) is set to 0 after executing CPUID with EAX = 1, the ability to switch modes is not supported. BIOS must not alter the contents of IA32_MISC_ENABLE[24].
+    long_description: L1 Data Cache Context Mode When set, the L1 data cache is placed in shared mode; when clear (default), the cache is placed in adaptive mode. This bit is only enabled for IA- 32 processors that support Intel Hyper- Threading Technology. See Section 12.5.6, “L1 Data Cache Context Mode.” When L1 is running in adaptive mode and CR3s are identical, data in L1 is shared across logical processors. Otherwise, L1 is not shared and cache use is competitive. If the Context ID feature flag (ECX[10]) is set to 0 after executing CPUID with EAX = 1, the ability to switch modes is not supported. BIOS must not alter the contents of IA32_MISC_ENABLE[24].
     description: L1 Data Cache Context Mode
     see_section:
-    - 11.5.6
+    - 12.5.6
   - bit: '33:25'
     description: Reserved
   - bit: '34'
@@ -999,9 +999,9 @@ msr:
   shared: Unique
   access: R
   description: Last Exception Record From Linear IP
-  long_description: Last Exception Record From Linear IP Contains a pointer to the last branch instruction that the processor executed prior to the last exception that was generated or the last interrupt that was handled. See Section 17.13.3, “Last Exception Records.”
+  long_description: Last Exception Record From Linear IP Contains a pointer to the last branch instruction that the processor executed prior to the last exception that was generated or the last interrupt that was handled. See Section 18.13.3, “Last Exception Records.”
   see_section:
-  - 17.13.3
+  - 18.13.3
   model_availability:
   - 0
   - 1
@@ -1025,9 +1025,9 @@ msr:
   shared: Unique
   access: R
   description: Last Exception Record To Linear IP
-  long_description: Last Exception Record To Linear IP This area contains a pointer to the target of the last branch instruction that the processor executed prior to the last exception that was generated or the last interrupt that was handled. See Section 17.13.3, “Last Exception Records.”
+  long_description: Last Exception Record To Linear IP This area contains a pointer to the target of the last branch instruction that the processor executed prior to the last exception that was generated or the last interrupt that was handled. See Section 18.13.3, “Last Exception Records.”
   see_section:
-  - 17.13.3
+  - 18.13.3
   model_availability:
   - 0
   - 1
@@ -1045,9 +1045,9 @@ msr:
   shared: Unique
   access: R/W
   description: Debug Control
-  long_description: Debug Control Controls how several debug features are used. Bit definitions are discussed in the referenced section. See Section 17.13.1, “MSR_DEBUGCTLA MSR.”
+  long_description: Debug Control Controls how several debug features are used. Bit definitions are discussed in the referenced section. See Section 18.13.1, “MSR_DEBUGCTLA MSR.”
   see_section:
-  - 17.13.1
+  - 18.13.1
   model_availability:
   - 0
   - 1
@@ -1060,9 +1060,9 @@ msr:
   shared: Unique
   access: R/O
   description: Last Branch Record Stack TOS
-  long_description: Last Branch Record Stack TOS Contains an index (0-3 or 0-15) that points to the top of the last branch record stack (that is, that points the index of the MSR containing the most recent branch record). See Section 17.13.2, “LBR Stack for Processors Based on Intel NetBurst® Microarchitecture”; and addresses 1DBH-1DEH and 680H-68FH.
+  long_description: Last Branch Record Stack TOS Contains an index (0-3 or 0-15) that points to the top of the last branch record stack (that is, that points the index of the MSR containing the most recent branch record). See Section 18.13.2, “LBR Stack for Processors Based on Intel NetBurst® Microarchitecture”; and addresses 1DBH-1DEH and 680H-68FH.
   see_section:
-  - 17.13.2
+  - 18.13.2
   model_availability:
   - 0
   - 1
@@ -1073,10 +1073,10 @@ msr:
 - value: 1DBH
   name: MSR_LASTBRANCH_0
   bitfields:
-  - long_description: See Section 17.12, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Skylake Microarchitecture.”
-    description: See Section 17.12
+  - long_description: See Section 18.12, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Skylake Microarchitecture.”
+    description: See Section 18.12
     see_section:
-    - '17.12'
+    - '18.12'
   shared: Unique
   access: R/O
   description: Last Branch Record 0
@@ -1116,9 +1116,9 @@ msr:
   name: IA32_MTRR_PHYSBASE0
   shared: Shared
   description: Variable Range Base MTRR
-  long_description: Variable Range Base MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Base MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1130,9 +1130,9 @@ msr:
   name: IA32_MTRR_PHYSMASK0
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1144,9 +1144,9 @@ msr:
   name: IA32_MTRR_PHYSBASE1
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1158,9 +1158,9 @@ msr:
   name: IA32_MTRR_PHYSMASK1
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1172,9 +1172,9 @@ msr:
   name: IA32_MTRR_PHYSBASE2
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1186,9 +1186,9 @@ msr:
   name: IA32_MTRR_PHYSMASK2
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs”.
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs”.
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1200,9 +1200,9 @@ msr:
   name: IA32_MTRR_PHYSBASE3
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1214,9 +1214,9 @@ msr:
   name: IA32_MTRR_PHYSMASK3
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1228,9 +1228,9 @@ msr:
   name: IA32_MTRR_PHYSBASE4
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1242,9 +1242,9 @@ msr:
   name: IA32_MTRR_PHYSMASK4
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1256,9 +1256,9 @@ msr:
   name: IA32_MTRR_PHYSBASE5
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1270,9 +1270,9 @@ msr:
   name: IA32_MTRR_PHYSMASK5
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1284,9 +1284,9 @@ msr:
   name: IA32_MTRR_PHYSBASE6
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1298,9 +1298,9 @@ msr:
   name: IA32_MTRR_PHYSMASK6
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1312,9 +1312,9 @@ msr:
   name: IA32_MTRR_PHYSBASE7
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1326,9 +1326,9 @@ msr:
   name: IA32_MTRR_PHYSMASK7
   shared: Shared
   description: Variable Range Mask MTRR
-  long_description: Variable Range Mask MTRR See Section 11.11.2.3, “Variable Range MTRRs.”
+  long_description: Variable Range Mask MTRR See Section 12.11.2.3, “Variable Range MTRRs.”
   see_section:
-  - 11.11.2.3
+  - 12.11.2.3
   model_availability:
   - 0
   - 1
@@ -1340,9 +1340,9 @@ msr:
   name: IA32_MTRR_FIX64K_00000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs.”
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs.”
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1354,9 +1354,9 @@ msr:
   name: IA32_MTRR_FIX16K_80000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs.”
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs.”
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1368,9 +1368,9 @@ msr:
   name: IA32_MTRR_FIX16K_A0000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs.”
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs.”
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1382,9 +1382,9 @@ msr:
   name: IA32_MTRR_FIX4K_C0000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs.”
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs.”
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1396,9 +1396,9 @@ msr:
   name: IA32_MTRR_FIX4K_C8000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs”.
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs”.
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1410,9 +1410,9 @@ msr:
   name: IA32_MTRR_FIX4K_D0000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs”.
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs”.
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1424,9 +1424,9 @@ msr:
   name: IA32_MTRR_FIX4K_D8000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs.”
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs.”
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1438,9 +1438,9 @@ msr:
   name: IA32_MTRR_FIX4K_E0000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs.”
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs.”
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1452,9 +1452,9 @@ msr:
   name: IA32_MTRR_FIX4K_E8000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs.”
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs.”
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1466,9 +1466,9 @@ msr:
   name: IA32_MTRR_FIX4K_F0000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs.”
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs.”
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1480,9 +1480,9 @@ msr:
   name: IA32_MTRR_FIX4K_F8000
   shared: Shared
   description: Fixed Range MTRR
-  long_description: Fixed Range MTRR See Section 11.11.2.2, “Fixed Range MTRRs.”
+  long_description: Fixed Range MTRR See Section 12.11.2.2, “Fixed Range MTRRs.”
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1494,9 +1494,9 @@ msr:
   name: IA32_PAT
   shared: Unique
   description: Page Attribute Table
-  long_description: Page Attribute Table See Section 11.11.2.2, “Fixed Range MTRRs.”
+  long_description: Page Attribute Table See Section 12.11.2.2, “Fixed Range MTRRs.”
   see_section:
-  - 11.11.2.2
+  - 12.11.2.2
   model_availability:
   - 0
   - 1
@@ -1509,11 +1509,11 @@ msr:
   shared: Shared
   access: R/W
   description: Default Memory Types
-  long_description: Default Memory Types See Table 2-2. See Section 11.11.2.1, “IA32_MTRR_DEF_TYPE MSR.”
+  long_description: Default Memory Types See Table 2-2. See Section 12.11.2.1, “IA32_MTRR_DEF_TYPE MSR.”
   see_table:
   - 2-2
   see_section:
-  - 11.11.2.1
+  - 12.11.2.1
   model_availability:
   - 0
   - 1
@@ -1524,9 +1524,9 @@ msr:
 - value: 300H
   name: MSR_BPU_COUNTER0
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1537,9 +1537,9 @@ msr:
 - value: 301H
   name: MSR_BPU_COUNTER1
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1550,9 +1550,9 @@ msr:
 - value: 302H
   name: MSR_BPU_COUNTER2
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1563,9 +1563,9 @@ msr:
 - value: 303H
   name: MSR_BPU_COUNTER3
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1576,9 +1576,9 @@ msr:
 - value: 304H
   name: MSR_MS_COUNTER0
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1589,9 +1589,9 @@ msr:
 - value: 305H
   name: MSR_MS_COUNTER1
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1602,9 +1602,9 @@ msr:
 - value: 306H
   name: MSR_MS_COUNTER2
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1615,9 +1615,9 @@ msr:
 - value: 307H
   name: MSR_MS_COUNTER3
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1628,9 +1628,9 @@ msr:
 - value: 308H
   name: MSR_FLAME_COUNTER0
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1641,9 +1641,9 @@ msr:
 - value: 309H
   name: MSR_FLAME_COUNTER1
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1654,9 +1654,9 @@ msr:
 - value: 30AH
   name: MSR_FLAME_COUNTER2
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1667,9 +1667,9 @@ msr:
 - value: 30BH
   name: MSR_FLAME_COUNTER3
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1680,9 +1680,9 @@ msr:
 - value: 30CH
   name: MSR_IQ_COUNTER0
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1693,9 +1693,9 @@ msr:
 - value: 30DH
   name: MSR_IQ_COUNTER1
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1706,9 +1706,9 @@ msr:
 - value: 30EH
   name: MSR_IQ_COUNTER2
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1719,9 +1719,9 @@ msr:
 - value: 30FH
   name: MSR_IQ_COUNTER3
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1732,9 +1732,9 @@ msr:
 - value: 310H
   name: MSR_IQ_COUNTER4
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1745,9 +1745,9 @@ msr:
 - value: 311H
   name: MSR_IQ_COUNTER5
   shared: Shared
-  description: See Section 19.6.3.2
+  description: See Section 20.6.3.2
   see_section:
-  - 19.6.3.2
+  - 20.6.3.2
   model_availability:
   - 0
   - 1
@@ -1758,9 +1758,9 @@ msr:
 - value: 360H
   name: MSR_BPU_CCCR0
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1771,9 +1771,9 @@ msr:
 - value: 361H
   name: MSR_BPU_CCCR1
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1784,9 +1784,9 @@ msr:
 - value: 362H
   name: MSR_BPU_CCCR2
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1797,9 +1797,9 @@ msr:
 - value: 363H
   name: MSR_BPU_CCCR3
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1810,9 +1810,9 @@ msr:
 - value: 364H
   name: MSR_MS_CCCR0
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1823,9 +1823,9 @@ msr:
 - value: 365H
   name: MSR_MS_CCCR1
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1836,9 +1836,9 @@ msr:
 - value: 366H
   name: MSR_MS_CCCR2
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1849,9 +1849,9 @@ msr:
 - value: 367H
   name: MSR_MS_CCCR3
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1862,9 +1862,9 @@ msr:
 - value: 368H
   name: MSR_FLAME_CCCR0
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1875,9 +1875,9 @@ msr:
 - value: 369H
   name: MSR_FLAME_CCCR1
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1888,9 +1888,9 @@ msr:
 - value: 36AH
   name: MSR_FLAME_CCCR2
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1901,9 +1901,9 @@ msr:
 - value: 36BH
   name: MSR_FLAME_CCCR3
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1914,9 +1914,9 @@ msr:
 - value: 36CH
   name: MSR_IQ_CCCR0
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1927,9 +1927,9 @@ msr:
 - value: 36DH
   name: MSR_IQ_CCCR1
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1940,9 +1940,9 @@ msr:
 - value: 36EH
   name: MSR_IQ_CCCR2
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1953,9 +1953,9 @@ msr:
 - value: 36FH
   name: MSR_IQ_CCCR3
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1966,9 +1966,9 @@ msr:
 - value: 370H
   name: MSR_IQ_CCCR4
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1979,9 +1979,9 @@ msr:
 - value: 371H
   name: MSR_IQ_CCCR5
   shared: Shared
-  description: See Section 19.6.3.3
+  description: See Section 20.6.3.3
   see_section:
-  - 19.6.3.3
+  - 20.6.3.3
   model_availability:
   - 0
   - 1
@@ -1992,9 +1992,9 @@ msr:
 - value: 3A0H
   name: MSR_BSU_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2005,9 +2005,9 @@ msr:
 - value: 3A1H
   name: MSR_BSU_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2018,9 +2018,9 @@ msr:
 - value: 3A2H
   name: MSR_FSB_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2031,9 +2031,9 @@ msr:
 - value: 3A3H
   name: MSR_FSB_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2044,9 +2044,9 @@ msr:
 - value: 3A4H
   name: MSR_FIRM_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2057,9 +2057,9 @@ msr:
 - value: 3A5H
   name: MSR_FIRM_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2070,9 +2070,9 @@ msr:
 - value: 3A6H
   name: MSR_FLAME_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2083,9 +2083,9 @@ msr:
 - value: 3A7H
   name: MSR_FLAME_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2096,9 +2096,9 @@ msr:
 - value: 3A8H
   name: MSR_DAC_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2109,9 +2109,9 @@ msr:
 - value: 3A9H
   name: MSR_DAC_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2122,9 +2122,9 @@ msr:
 - value: 3AAH
   name: MSR_MOB_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2135,9 +2135,9 @@ msr:
 - value: 3ABH
   name: MSR_MOB_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2148,9 +2148,9 @@ msr:
 - value: 3ACH
   name: MSR_PMH_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2161,9 +2161,9 @@ msr:
 - value: 3ADH
   name: MSR_PMH_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2174,9 +2174,9 @@ msr:
 - value: 3AEH
   name: MSR_SAAT_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2187,9 +2187,9 @@ msr:
 - value: 3AFH
   name: MSR_SAAT_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2200,9 +2200,9 @@ msr:
 - value: 3B0H
   name: MSR_U2L_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2213,9 +2213,9 @@ msr:
 - value: 3B1H
   name: MSR_U2L_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2226,9 +2226,9 @@ msr:
 - value: 3B2H
   name: MSR_BPU_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2239,9 +2239,9 @@ msr:
 - value: 3B3H
   name: MSR_BPU_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2252,9 +2252,9 @@ msr:
 - value: 3B4H
   name: MSR_IS_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2265,9 +2265,9 @@ msr:
 - value: 3B5H
   name: MSR_IS_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2278,9 +2278,9 @@ msr:
 - value: 3B6H
   name: MSR_ITLB_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2291,9 +2291,9 @@ msr:
 - value: 3B7H
   name: MSR_ITLB_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2304,9 +2304,9 @@ msr:
 - value: 3B8H
   name: MSR_CRU_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2317,9 +2317,9 @@ msr:
 - value: 3B9H
   name: MSR_CRU_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2330,10 +2330,10 @@ msr:
 - value: 3BAH
   name: MSR_IQ_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
-  long_description: See Section 19.6.3.1, “ESCR MSRs.” This MSR is not available on later processors. It is only available on processor family 0FH, models 01H-02H.
+  description: See Section 20.6.3.1
+  long_description: See Section 20.6.3.1, “ESCR MSRs.” This MSR is not available on later processors. It is only available on processor family 0FH, models 01H-02H.
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2341,10 +2341,10 @@ msr:
 - value: 3BBH
   name: MSR_IQ_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
-  long_description: See Section 19.6.3.1, “ESCR MSRs.” This MSR is not available on later processors. It is only available on processor family 0FH, models 01H-02H.
+  description: See Section 20.6.3.1
+  long_description: See Section 20.6.3.1, “ESCR MSRs.” This MSR is not available on later processors. It is only available on processor family 0FH, models 01H-02H.
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2352,9 +2352,9 @@ msr:
 - value: 3BCH
   name: MSR_RAT_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2365,9 +2365,9 @@ msr:
 - value: 3BDH
   name: MSR_RAT_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2378,9 +2378,9 @@ msr:
 - value: 3BEH
   name: MSR_SSU_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2391,9 +2391,9 @@ msr:
 - value: 3C0H
   name: MSR_MS_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2404,9 +2404,9 @@ msr:
 - value: 3C1H
   name: MSR_MS_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2417,9 +2417,9 @@ msr:
 - value: 3C2H
   name: MSR_TBPU_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2430,9 +2430,9 @@ msr:
 - value: 3C3H
   name: MSR_TBPU_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2443,9 +2443,9 @@ msr:
 - value: 3C4H
   name: MSR_TC_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2456,9 +2456,9 @@ msr:
 - value: 3C5H
   name: MSR_TC_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2469,9 +2469,9 @@ msr:
 - value: 3C8H
   name: MSR_IX_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2482,9 +2482,9 @@ msr:
 - value: 3C9H
   name: MSR_IX_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2495,9 +2495,9 @@ msr:
 - value: 3CAH
   name: MSR_ALF_ESCR0
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2508,9 +2508,9 @@ msr:
 - value: 3CBH
   name: MSR_ALF_ESCR1
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2521,9 +2521,9 @@ msr:
 - value: 3CCH
   name: MSR_CRU_ESCR2
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2534,9 +2534,9 @@ msr:
 - value: 3CDH
   name: MSR_CRU_ESCR3
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2547,9 +2547,9 @@ msr:
 - value: 3E0H
   name: MSR_CRU_ESCR4
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2560,9 +2560,9 @@ msr:
 - value: 3E1H
   name: MSR_CRU_ESCR5
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2573,9 +2573,9 @@ msr:
 - value: 3F0H
   name: MSR_TC_PRECISE_EVENT
   shared: Shared
-  description: See Section 19.6.3.1
+  description: See Section 20.6.3.1
   see_section:
-  - 19.6.3.1
+  - 20.6.3.1
   model_availability:
   - 0
   - 1
@@ -2596,16 +2596,16 @@ msr:
     description: UOP Tag
   - bit: '25'
     access: R/W
-    long_description: ENABLE_PEBS_MY_THR Enables PEBS for the target logical processor when set; disables PEBS when clear (default). See Section 19.6.4.3, “IA32_PEBS_ENABLE MSR,” for an explanation of the target logical processor. This bit is called ENABLE_PEBS in IA-32 processors that do not support Intel Hyper- Threading Technology.
+    long_description: ENABLE_PEBS_MY_THR Enables PEBS for the target logical processor when set; disables PEBS when clear (default). See Section 20.6.4.3, “IA32_PEBS_ENABLE MSR,” for an explanation of the target logical processor. This bit is called ENABLE_PEBS in IA-32 processors that do not support Intel Hyper- Threading Technology.
     description: ENABLE_PEBS_MY_THR
     see_section:
-    - 19.6.4.3
+    - 20.6.4.3
   - bit: '26'
     access: R/W
-    long_description: ENABLE_PEBS_OTH_THR Enables PEBS for the target logical processor when set; disables PEBS when clear (default). See Section 19.6.4.3, “IA32_PEBS_ENABLE MSR,” for an explanation of the target logical processor. This bit is reserved for IA-32 processors that do not support Intel Hyper-Threading Technology.
+    long_description: ENABLE_PEBS_OTH_THR Enables PEBS for the target logical processor when set; disables PEBS when clear (default). See Section 20.6.4.3, “IA32_PEBS_ENABLE MSR,” for an explanation of the target logical processor. This bit is reserved for IA-32 processors that do not support Intel Hyper-Threading Technology.
     description: ENABLE_PEBS_OTH_THR
     see_section:
-    - 19.6.4.3
+    - 20.6.4.3
   - bit: '63:27'
     description: Reserved
   shared: Shared
@@ -2633,9 +2633,9 @@ msr:
 - value: 400H
   name: IA32_MC0_CTL
   shared: Shared
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
   model_availability:
   - 0
   - 1
@@ -2646,10 +2646,10 @@ msr:
 - value: 401H
   name: IA32_MC0_STATUS
   shared: Shared
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS.”
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
   model_availability:
   - 0
   - 1
@@ -2660,10 +2660,10 @@ msr:
 - value: 402H
   name: IA32_MC0_ADDR
   shared: Shared
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC0_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.3
+  long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC0_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
   model_availability:
   - 0
   - 1
@@ -2674,10 +2674,10 @@ msr:
 - value: 403H
   name: IA32_MC0_MISC
   shared: Shared
-  description: See Section 15.3.2.4
-  long_description: See Section 15.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC0_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.4
+  long_description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC0_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.4
+  - 16.3.2.4
   model_availability:
   - 0
   - 1
@@ -2688,9 +2688,9 @@ msr:
 - value: 404H
   name: IA32_MC1_CTL
   shared: Shared
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
   model_availability:
   - 0
   - 1
@@ -2701,10 +2701,10 @@ msr:
 - value: 405H
   name: IA32_MC1_STATUS
   shared: Shared
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS.”
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
   model_availability:
   - 0
   - 1
@@ -2715,10 +2715,10 @@ msr:
 - value: 406H
   name: IA32_MC1_ADDR
   shared: Shared
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC1_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC1_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.3
+  long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC1_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC1_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
   model_availability:
   - 0
   - 1
@@ -2729,16 +2729,16 @@ msr:
 - value: 407H
   name: IA32_MC1_MISC
   shared: Shared
-  description: See Section 15.3.2.4
-  long_description: See Section 15.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC1_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC1_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.4
+  long_description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC1_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC1_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.4
+  - 16.3.2.4
 - value: 408H
   name: IA32_MC2_CTL
   shared: Shared
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
   model_availability:
   - 0
   - 1
@@ -2749,10 +2749,10 @@ msr:
 - value: 409H
   name: IA32_MC2_STATUS
   shared: Shared
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS.”
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
   model_availability:
   - 0
   - 1
@@ -2762,22 +2762,22 @@ msr:
   - 6
 - value: 40AH
   name: IA32_MC2_ADDR
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.3
+  long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 40BH
   name: IA32_MC2_MISC
-  description: See Section 15.3.2.4
-  long_description: See Section 15.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC2_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.4
+  long_description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC2_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.4
+  - 16.3.2.4
 - value: 40CH
   name: IA32_MC3_CTL
   shared: Shared
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
   model_availability:
   - 0
   - 1
@@ -2788,10 +2788,10 @@ msr:
 - value: 40DH
   name: IA32_MC3_STATUS
   shared: Shared
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS.”
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
   model_availability:
   - 0
   - 1
@@ -2802,10 +2802,10 @@ msr:
 - value: 40EH
   name: IA32_MC3_ADDR
   shared: Shared
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC3_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.3
+  long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC3_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
   model_availability:
   - 0
   - 1
@@ -2816,10 +2816,10 @@ msr:
 - value: 40FH
   name: IA32_MC3_MISC
   shared: Shared
-  description: See Section 15.3.2.4
-  long_description: See Section 15.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC3_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.4
+  long_description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC3_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.4
+  - 16.3.2.4
   model_availability:
   - 0
   - 1
@@ -2830,9 +2830,9 @@ msr:
 - value: 410H
   name: IA32_MC4_CTL
   shared: Shared
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
   model_availability:
   - 0
   - 1
@@ -2843,10 +2843,10 @@ msr:
 - value: 411H
   name: IA32_MC4_STATUS
   shared: Shared
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS.”
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS.”
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
   model_availability:
   - 0
   - 1
@@ -2856,16 +2856,16 @@ msr:
   - 6
 - value: 412H
   name: IA32_MC4_ADDR
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.3
+  long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 413H
   name: IA32_MC4_MISC
-  description: See Section 15.3.2.4
-  long_description: See Section 15.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC2_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.4
+  long_description: See Section 16.3.2.4, “IA32_MCi_MISC MSRs.” The IA32_MC2_MISC MSR is either not implemented or does not contain additional information if the MISCV flag in the IA32_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.4
+  - 16.3.2.4
 - value: 480H
   name: IA32_VMX_BASIC
   shared: Unique
@@ -3039,11 +3039,11 @@ msr:
   shared: Unique
   access: R/W
   description: DS Save Area
-  long_description: DS Save Area See Table 2-2. See Section 19.6.3.4, “Debug Store (DS) Mechanism.”
+  long_description: DS Save Area See Table 2-2. See Section 20.6.3.4, “Debug Store (DS) Mechanism.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.3.4
+  - 20.6.3.4
   model_availability:
   - 0
   - 1
@@ -3054,10 +3054,10 @@ msr:
 - value: 680H
   name: MSR_LASTBRANCH_0_FROM_IP
   bitfields:
-  - long_description: The MSRs at 680H-68FH, 6C0H-6CfH are not available in processor releases before family 0FH, model 03H. These MSRs replace MSRs previously located at 1DBH-1DEH.which performed the same function for early releases. See Section 17.12, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Skylake Microarchitecture.”
+  - long_description: The MSRs at 680H-68FH, 6C0H-6CfH are not available in processor releases before family 0FH, model 03H. These MSRs replace MSRs previously located at 1DBH-1DEH.which performed the same function for early releases. See Section 18.12, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Skylake Microarchitecture.”
     description: The MSRs at 680H-68FH
     see_section:
-    - '17.12'
+    - '18.12'
   shared: Unique
   access: R/W
   description: Last Branch Record 0
@@ -3206,9 +3206,9 @@ msr:
   shared: Unique
   access: R/W
   description: Last Branch Record 0
-  long_description: Last Branch Record 0 One of 16 pairs of last branch record registers on the last branch record stack (6C0H-6CFH). This part of the stack contains pointers to the destination instruction for one of the last 16 branches, exceptions, or interrupts that the processor took. See Section 17.12, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Skylake Microarchitecture.”
+  long_description: Last Branch Record 0 One of 16 pairs of last branch record registers on the last branch record stack (6C0H-6CFH). This part of the stack contains pointers to the destination instruction for one of the last 16 branches, exceptions, or interrupts that the processor took. See Section 18.12, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Skylake Microarchitecture.”
   see_section:
-  - '17.12'
+  - '18.12'
   model_availability:
   - 3
   - 4

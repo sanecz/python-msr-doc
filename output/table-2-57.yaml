@@ -9,9 +9,9 @@ msr:
   shared: Shared
   access: R/W
   description: GSNPQ Event Control and Counter Register
-  long_description: GSNPQ Event Control and Counter Register See Section 19.6.6, “Performance Monitoring on 64-bit Intel Xeon Processor MP with Up to 8- MByte L3 Cache.”
+  long_description: GSNPQ Event Control and Counter Register See Section 20.6.6, “Performance Monitoring on 64-bit Intel Xeon Processor MP with Up to 8- MByte L3 Cache.”
   see_section:
-  - 19.6.6
+  - 20.6.6
   model_availability:
   - 6
 - value: 107CFH
@@ -26,9 +26,9 @@ msr:
   shared: Shared
   access: R/W
   description: FSB Event Control and Counter Register
-  long_description: FSB Event Control and Counter Register See Section 19.6.6, “Performance Monitoring on 64-bit Intel Xeon Processor MP with Up to 8- MByte L3 Cache.”
+  long_description: FSB Event Control and Counter Register See Section 20.6.6, “Performance Monitoring on 64-bit Intel Xeon Processor MP with Up to 8- MByte L3 Cache.”
   see_section:
-  - 19.6.6
+  - 20.6.6
   model_availability:
   - 6
 - value: 107D1H

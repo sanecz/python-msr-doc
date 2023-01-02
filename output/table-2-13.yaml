@@ -92,12 +92,12 @@ msr:
     description: Reserved
   scope: Core
   access: R/W
-  description: See Table 2-2. See Section 19.6.2.4
-  long_description: See Table 2-2. See Section 19.6.2.4, “Processor Event Based Sampling (PEBS).”
+  description: See Table 2-2. See Section 20.6.2.4
+  long_description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS).”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.4
+  - 20.6.2.4
 - value: 570H
   name: IA32_RTIT_CTL
   bitfields:
@@ -116,7 +116,7 @@ msr:
   - bit: '6'
     description: FabricEn
   - bit: '7'
-    description: CR3 filter
+    description: CR3Filter
   - bit: '8'
     long_description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
     description: ToPA
@@ -135,7 +135,7 @@ msr:
   - bit: '18'
     description: Reserved
   - bit: '22:19'
-    description: CYCThresh
+    description: CycThresh
   - bit: '23'
     description: Reserved
   - bit: '27:24'
@@ -156,9 +156,9 @@ msr:
   scope: Core
   access: R/W
   description: Last Branch Record 0 From IP
-  long_description: 'Last Branch Record 0 From IP One of the three MSRs that make up the first entry of the 32-entry LBR stack. The From_IP part of the stack contains pointers to the source instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.7, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Goldmont Plus Microarchitecture.”'
+  long_description: 'Last Branch Record 0 From IP One of the three MSRs that make up the first entry of the 32-entry LBR stack. The From_IP part of the stack contains pointers to the source instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 18.7, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Goldmont Plus Microarchitecture.”'
   see_section:
-  - '17.7'
+  - '18.7'
 - value: 681H-69FH
   name: MSR_LASTBRANCH_i_FROM_IP
   scope: Core
@@ -170,9 +170,9 @@ msr:
   scope: Core
   access: R/W
   description: Last Branch Record 0 To IP
-  long_description: 'Last Branch Record 0 To IP One of the three MSRs that make up the first entry of the 32-entry LBR stack. The To_IP part of the stack contains pointers to the Destination instruction. See also: • Section 17.7, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Goldmont Plus Microarchitecture.”'
+  long_description: 'Last Branch Record 0 To IP One of the three MSRs that make up the first entry of the 32-entry LBR stack. The To_IP part of the stack contains pointers to the Destination instruction. See also: • Section 18.7, “Last Branch, Call Stack, Interrupt, and Exception Recording for Processors based on Goldmont Plus Microarchitecture.”'
   see_section:
-  - '17.7'
+  - '18.7'
 - value: 6C1H-6DFH
   name: MSR_LASTBRANCH_i_TO_IP
   scope: Core
@@ -184,9 +184,9 @@ msr:
   scope: Core
   access: R/W
   description: Last Branch Record 0 Additional Information
-  long_description: 'Last Branch Record 0 Additional Information One of the three MSRs that make up the first entry of the 32-entry LBR stack. This part of the stack contains flag and elapsed cycle information. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.9.1, “LBR Stack.”'
+  long_description: 'Last Branch Record 0 Additional Information One of the three MSRs that make up the first entry of the 32-entry LBR stack. This part of the stack contains flag and elapsed cycle information. See also: • Last Branch Record Stack TOS at 1C9H. • Section 18.9.1, “LBR Stack.”'
   see_section:
-  - 17.9.1
+  - 18.9.1
 - value: DC1H
   name: MSR_LASTBRANCH_INFO_1
   scope: Core

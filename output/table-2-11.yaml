@@ -63,18 +63,18 @@ msr:
   bitfields:
   - bit: '14:0'
     access: R/W
-    long_description: 'PP0 Power Limit #1 See Section 14.10.4, “PP0/PP1 RAPL Domains” and MSR_RAPL_POWER_UNIT in Table 2-8.'
+    long_description: 'PP0 Power Limit #1 See Section 15.10.4, “PP0/PP1 RAPL Domains” and MSR_RAPL_POWER_UNIT in Table 2-8.'
     description: 'PP0 Power Limit #1'
     see_table:
     - 2-8
     see_section:
-    - 14.10.4
+    - 15.10.4
   - bit: '15'
     access: R/W
-    long_description: 'Enable Power Limit #1 See Section 14.10.4, “PP0/PP1 RAPL Domains.”'
+    long_description: 'Enable Power Limit #1 See Section 15.10.4, “PP0/PP1 RAPL Domains.”'
     description: 'Enable Power Limit #1'
     see_section:
-    - 14.10.4
+    - 15.10.4
   - bit: '16'
     description: Reserved
   - bit: '23:17'

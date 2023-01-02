@@ -25,10 +25,10 @@ msr:
   - bit: '54:35'
     description: Reserved
   - bit: '55'
-    long_description: Trace_ToPA_PMI See Section 32.2.7.2, “Table of Physical Addresses (ToPA).”
+    long_description: Trace_ToPA_PMI See Section 33.2.7.2, “Table of Physical Addresses (ToPA).”
     description: Trace_ToPA_PMI
     see_section:
-    - 32.2.7.2
+    - 33.2.7.2
   - bit: '60:56'
     description: Reserved
   - bit: '61'
@@ -38,12 +38,12 @@ msr:
   - bit: '63'
     description: CondChgd
   scope: Thread
-  description: See Table 2-2. See Section 19.6.2.2
-  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2
+  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.2
+  - 20.6.2.2
 - value: 390H
   name: IA32_PERF_GLOBAL_OVF_CTRL
   bitfields:
@@ -66,10 +66,10 @@ msr:
   - bit: '54:35'
     description: Reserved
   - bit: '55'
-    long_description: Set 1 to clear Trace_ToPA_PMI. See Section 32.2.7.2, “Table of Physical Addresses (ToPA).”
+    long_description: Set 1 to clear Trace_ToPA_PMI. See Section 33.2.7.2, “Table of Physical Addresses (ToPA).”
     description: Set 1 to clear Trace_ToPA_PMI
     see_section:
-    - 32.2.7.2
+    - 33.2.7.2
   - bit: '60:56'
     description: Reserved
   - bit: '61'
@@ -79,12 +79,12 @@ msr:
   - bit: '63'
     description: Set 1 to clear CondChgd
   scope: Thread
-  description: See Table 2-2. See Section 19.6.2.2
-  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2
+  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.2
+  - 20.6.2.2
 - value: 560H
   name: IA32_RTIT_OUTPUT_BASE
   bitfields:
@@ -123,7 +123,7 @@ msr:
   - bit: '6:4'
     description: Reserved
   - bit: '7'
-    description: CR3 filter
+    description: CR3Filter
   - bit: '8'
     long_description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
     description: ToPA

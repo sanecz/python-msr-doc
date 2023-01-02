@@ -23,7 +23,8 @@ msr:
 - value: 664H
   name: MSR_MC6_RESIDENCY_COUNTER
   bitfields:
-  - long_description: Time that this module is in module-specific C6 states since last reset. Counts at 1 Mhz frequency.
+  - bit: '63:0'
+    long_description: Time that this module is in module-specific C6 states since last reset. Counts at 1 Mhz frequency.
     description: Time that this module is in module-specific C6 states
   scope: Module
   access: R/0

@@ -12,7 +12,7 @@ msr:
     description: Reserved
   - bit: '29'
     access: '0'
-    long_description: 'Enable #AC exception for split locked accesses: Cause #AC exception for split locked access at all CPL irrespective of CR0.AM or EFLAGS.AC. If bits 29 and 31 are both set, bit 29 takes precedence.'
+    long_description: 'Enable #AC exception for split locked accesses: Cause #AC exception for split locked access at all CPL irrespective of CR0.AM or EFLAGS.AC.'
     description: 'Enable #AC exception for split locked accesses'
   - bit: '30'
     description: Reserved
@@ -188,7 +188,7 @@ msr:
     long_description: XMMs. Setting this bit will capture the contents of the XMM registers in the PEBS record.
     description: XMMs
   - bit: '3'
-    long_description: LBRs. Setting this bit will capture LBR TO, FROM and INFO in the PEBS record.
+    long_description: LBRs. Setting this bit will capture LBR TO, FROM, and INFO in the PEBS record.
     description: LBRs
   - bit: '23:4'
     description: Reserved

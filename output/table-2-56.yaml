@@ -18,9 +18,9 @@ msr:
   shared: Shared
   access: R/W
   description: IFSB SNPQ Event Control and Counter Register
-  long_description: IFSB SNPQ Event Control and Counter Register See Section 19.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
+  long_description: IFSB SNPQ Event Control and Counter Register See Section 20.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
   see_section:
-  - 19.6.6
+  - 20.6.6
   model_availability:
   - 3
   - 4
@@ -37,9 +37,9 @@ msr:
   shared: Shared
   access: R/W
   description: EFSB DRDY Event Control and Counter Register
-  long_description: EFSB DRDY Event Control and Counter Register See Section 19.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
+  long_description: EFSB DRDY Event Control and Counter Register See Section 20.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
   see_section:
-  - 19.6.6
+  - 20.6.6
   model_availability:
   - 3
   - 4
@@ -56,9 +56,9 @@ msr:
   shared: Shared
   access: R/W
   description: IFSB Latency Event Control Register
-  long_description: IFSB Latency Event Control Register See Section 19.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
+  long_description: IFSB Latency Event Control Register See Section 20.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
   see_section:
-  - 19.6.6
+  - 20.6.6
   model_availability:
   - 3
   - 4
@@ -67,9 +67,9 @@ msr:
   shared: Shared
   access: R/W
   description: IFSB Latency Event Counter Register
-  long_description: IFSB Latency Event Counter Register See Section 19.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
+  long_description: IFSB Latency Event Counter Register See Section 20.6.6, “Performance Monitoring on 64- bit Intel Xeon Processor MP with Up to 8-MByte L3 Cache.”
   see_section:
-  - 19.6.6
+  - 20.6.6
   model_availability:
   - 3
   - 4

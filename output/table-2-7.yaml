@@ -50,10 +50,10 @@ msr:
   scope: Core
   access: R/W
   description: Last Branch Record 0 From IP
-  long_description: 'Last Branch Record 0 From IP One of eight pairs of last branch record registers on the last branch record stack. The From_IP part of the stack contains pointers to the source instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.5 and record format in Section 17.4.8.1.'
+  long_description: 'Last Branch Record 0 From IP One of eight pairs of last branch record registers on the last branch record stack. The From_IP part of the stack contains pointers to the source instruction. See also: • Last Branch Record Stack TOS at 1C9H. • Section 18.5 and record format in Section 18.4.8.1.'
   see_section:
-  - '17.5'
-  - 17.4.8.1.
+  - '18.5'
+  - 18.4.8.1.
 - value: 41H
   name: MSR_LASTBRANCH_1_FROM_IP
   scope: Core
@@ -318,9 +318,9 @@ msr:
   scope: Core
   access: R/W
   description: Last Branch Record Filtering Select Register
-  long_description: Last Branch Record Filtering Select Register See Section 17.9.2, “Filtering of Last Branch Records.”
+  long_description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
   see_section:
-  - 17.9.2
+  - 18.9.2
 - value: 1C9H
   name: MSR_LASTBRANCH_TOS
   scope: Core
@@ -330,21 +330,21 @@ msr:
 - value: 38EH
   name: IA32_PERF_GLOBAL_STATUS
   scope: Core
-  description: See Table 2-2. See Section 19.6.2.2
-  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2
+  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.2
+  - 20.6.2.2
 - value: 390H
   name: IA32_PERF_GLOBAL_OVF_CTRL
   scope: Core
-  description: See Table 2-2. See Section 19.6.2.2
-  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2
+  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.2
+  - 20.6.2.2
 - value: 3F1H
   name: IA32_PEBS_ENABLE
   alt_name: MSR_PEBS_ENABLE
@@ -353,12 +353,12 @@ msr:
     access: R/W
     description: Enable PEBS for precise event on IA32_PMC0
   scope: Core
-  description: See Table 2-2. See Section 19.6.2.4
-  long_description: See Table 2-2. See Section 19.6.2.4, “Processor Event Based Sampling (PEBS).”
+  description: See Table 2-2. See Section 20.6.2.4
+  long_description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS).”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.4
+  - 20.6.2.4
 - value: 3FAH
   name: MSR_PKG_C6_RESIDENCY
   bitfields:

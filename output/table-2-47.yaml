@@ -1,6 +1,6 @@
 ---
 name: Table 2-47
-full_name: Table 2-47. MSRs Supported by 12th Generation Intel® Core™ Processor P-core
+full_name: Table 2-47. MSRs Supported by 12th and 13th Generation Intel® Core™ Processor P-core
 supported_cpu: []
 msr:
 - value: 3F7H
@@ -40,4 +40,4 @@ msr:
     description: Reserved
   scope: Core
   description: IA32_CR_L2_QOS_MASK_[0-7]
-  long_description: IA32_CR_L2_QOS_MASK_[0-7] If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] ≥ 0. Controls MLC (L2) Intel RDT allocation. For more details on CAT/RDT, see Chapter 17, “Debug, Branch Profile, TSC, and Intel® Resource Director Technology (Intel® RDT) Features”.
+  long_description: IA32_CR_L2_QOS_MASK_[0-7] If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] ≥ 0. Controls MLC (L2) Intel RDT allocation. For more details on CAT/RDT, see Chapter 18, “Debug, Branch Profile, TSC, and Intel® Resource Director Technology (Intel® RDT) Features”.

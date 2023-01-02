@@ -11,7 +11,7 @@ msr:
     description: Reserved
   - bit: '29'
     access: '0'
-    long_description: 'Enable #AC exception for split locked accesses: Cause #AC exception for split locked access at all CPL irrespective of CR0.AM or EFLAGS.AC. If bits 29 and 31 are both set, bit 29 takes precedence.'
+    long_description: 'Enable #AC exception for split locked accesses: Cause #AC exception for split locked access at all CPL irrespective of CR0.AM or EFLAGS.AC.'
     description: 'Enable #AC exception for split locked accesses'
   - bit: '30'
     description: Reserved
@@ -72,12 +72,12 @@ msr:
     description: Reserved
   scope: Core
   access: R/W
-  description: See Table 2-2. See Section 19.6.2.4
-  long_description: See Table 2-2. See Section 19.6.2.4, “Processor Event Based Sampling (PEBS)”.
+  description: See Table 2-2. See Section 20.6.2.4
+  long_description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS)”.
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.4
+  - 20.6.2.4
 - value: 1309H-130BH
   name: MSR_RELOAD_FIXED_CTRx
   bitfields:

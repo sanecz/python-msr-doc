@@ -6,8 +6,8 @@ supported_cpu:
 - 06_7AH
 - 06_86H
 msr:
-- value: 17H
-  name: MSR_PLATFORM_ID
+- value: 17H23
+  name: Module
   bitfields:
   - bit: '49:0'
     description: Reserved
@@ -17,7 +17,6 @@ msr:
     - 2-2
   - bit: '63:33'
     description: Reserved
-  scope: Module
   access: R
   description: Model Specific Platform ID
 - value: 3AH
@@ -371,9 +370,9 @@ msr:
   scope: Core
   access: R/W
   description: Last Branch Record Filtering Select Register
-  long_description: Last Branch Record Filtering Select Register See Section 17.9.2, “Filtering of Last Branch Records.”
+  long_description: Last Branch Record Filtering Select Register See Section 18.9.2, “Filtering of Last Branch Records.”
   see_section:
-  - 17.9.2
+  - 18.9.2
 - value: 1C9H
   name: MSR_LASTBRANCH_TOS
   scope: Core
@@ -517,12 +516,12 @@ msr:
   - bit: '63'
     description: CondChgd
   scope: Core
-  description: See Table 2-2. See Section 19.2.4
-  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 20.2.4
+  long_description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 19.2.4
+  - 20.2.4
 - value: 390H
   name: IA32_PERF_GLOBAL_STATUS_RESET
   bitfields:
@@ -561,12 +560,12 @@ msr:
   - bit: '63'
     description: Set 1 to clear CondChgd
   scope: Core
-  description: See Table 2-2. See Section 19.2.4
-  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 20.2.4
+  long_description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 19.2.4
+  - 20.2.4
 - value: 391H
   name: IA32_PERF_GLOBAL_STATUS_SET
   bitfields:
@@ -605,12 +604,12 @@ msr:
   - bit: '63'
     description: Reserved
   scope: Core
-  description: See Table 2-2. See Section 19.2.4
-  long_description: See Table 2-2. See Section 19.2.4, “Architectural Performance Monitoring Version 4.”
+  description: See Table 2-2. See Section 20.2.4
+  long_description: See Table 2-2. See Section 20.2.4, “Architectural Performance Monitoring Version 4.”
   see_table:
   - 2-2
   see_section:
-  - 19.2.4
+  - 20.2.4
 - value: 392H
   name: IA32_PERF_GLOBAL_INUSE
   scope: Core
@@ -626,12 +625,12 @@ msr:
     long_description: Enable PEBS trigger and recording for the programmed event (precise or otherwise) on IA32_PMC0.
     description: Enable PEBS trigger and recording for the
   scope: Core
-  description: See Table 2-2. See Section 19.6.2.4
-  long_description: See Table 2-2. See Section 19.6.2.4, “Processor Event Based Sampling (PEBS).”
+  description: See Table 2-2. See Section 20.6.2.4
+  long_description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS).”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.4
+  - 20.6.2.4
 - value: 3F8H
   name: MSR_PKG_C3_RESIDENCY
   bitfields:
@@ -665,29 +664,29 @@ msr:
 - value: 406H
   name: IA32_MC1_ADDR
   scope: Module
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.3
+  long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 418H
   name: IA32_MC6_CTL
   scope: Package
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 419H
   name: IA32_MC6_STATUS
   scope: Package
-  description: See Section 15.3.2.2
-  long_description: See Section 15.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 16.
+  description: See Section 16.3.2.2
+  long_description: See Section 16.3.2.2, “IA32_MCi_STATUS MSRS” and Chapter 17.
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 41AH
   name: IA32_MC6_ADDR
   scope: Package
-  description: See Section 15.3.2.3
+  description: See Section 16.3.2.3
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 4C3H
   name: IA32_A_PMC2
   scope: Core
@@ -796,7 +795,7 @@ msr:
   - bit: '6:4'
     description: Reserved
   - bit: '7'
-    description: CR3 filter
+    description: CR3Filter
   - bit: '8'
     long_description: 'ToPA Writing 0 will #GP if also setting TraceEn.'
     description: ToPA
@@ -815,7 +814,7 @@ msr:
   - bit: '18'
     description: Reserved
   - bit: '22:19'
-    description: CYCThresh
+    description: CycThresh
   - bit: '23'
     description: Reserved
   - bit: '27:24'
@@ -930,9 +929,9 @@ msr:
   scope: Package
   access: R/O
   description: Unit Multipliers used in RAPL Interfaces
-  long_description: Unit Multipliers used in RAPL Interfaces See Section 14.10.1, “RAPL Interfaces.”
+  long_description: Unit Multipliers used in RAPL Interfaces See Section 15.10.1, “RAPL Interfaces.”
   see_section:
-  - 14.10.1
+  - 15.10.1
 - value: 60AH
   name: MSR_PKGC3_IRTL
   bitfields:
@@ -1023,50 +1022,50 @@ msr:
   scope: Package
   access: R/W
   description: PKG RAPL Power Limit Control
-  long_description: PKG RAPL Power Limit Control See Section 14.10.3, “Package RAPL Domain.”
+  long_description: PKG RAPL Power Limit Control See Section 15.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.10.3
+  - 15.10.3
 - value: 611H
   name: MSR_PKG_ENERGY_STATUS
   scope: Package
   access: R/O
   description: PKG Energy Status
-  long_description: PKG Energy Status See Section 14.10.3, “Package RAPL Domain.”
+  long_description: PKG Energy Status See Section 15.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.10.3
+  - 15.10.3
 - value: 613H
   name: MSR_PKG_PERF_STATUS
   scope: Package
   access: R/O
   description: PKG Perf Status
-  long_description: PKG Perf Status See Section 14.10.3, “Package RAPL Domain.”
+  long_description: PKG Perf Status See Section 15.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.10.3
+  - 15.10.3
 - value: 614H
   name: MSR_PKG_POWER_INFO
   bitfields:
   - bit: '14:0'
     access: R/W
-    long_description: Thermal Spec Power See Section 14.10.3, “Package RAPL Domain.”
+    long_description: Thermal Spec Power See Section 15.10.3, “Package RAPL Domain.”
     description: Thermal Spec Power
     see_section:
-    - 14.10.3
+    - 15.10.3
   - bit: '15'
     description: Reserved
   - bit: '30:16'
     access: R/W
-    long_description: Minimum Power See Section 14.10.3, “Package RAPL Domain.”
+    long_description: Minimum Power See Section 15.10.3, “Package RAPL Domain.”
     description: Minimum Power
     see_section:
-    - 14.10.3
+    - 15.10.3
   - bit: '31'
     description: Reserved
   - bit: '46:32'
     access: R/W
-    long_description: Maximum Power See Section 14.10.3, “Package RAPL Domain.”
+    long_description: Maximum Power See Section 15.10.3, “Package RAPL Domain.”
     description: Maximum Power
     see_section:
-    - 14.10.3
+    - 15.10.3
   - bit: '47'
     description: Reserved
   - bit: '54:48'
@@ -1083,33 +1082,33 @@ msr:
   scope: Package
   access: R/W
   description: DRAM RAPL Power Limit Control
-  long_description: DRAM RAPL Power Limit Control See Section 14.10.5, “DRAM RAPL Domain.”
+  long_description: DRAM RAPL Power Limit Control See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.10.5
+  - 15.10.5
 - value: 619H
   name: MSR_DRAM_ENERGY_STATUS
   scope: Package
   access: R/O
   description: DRAM Energy Status
-  long_description: DRAM Energy Status See Section 14.10.5, “DRAM RAPL Domain.”
+  long_description: DRAM Energy Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.10.5
+  - 15.10.5
 - value: 61BH
   name: MSR_DRAM_PERF_STATUS
   scope: Package
   access: R/O
   description: DRAM Performance Throttling Status
-  long_description: DRAM Performance Throttling Status See Section 14.10.5, “DRAM RAPL Domain.”
+  long_description: DRAM Performance Throttling Status See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.10.5
+  - 15.10.5
 - value: 61CH
   name: MSR_DRAM_POWER_INFO
   scope: Package
   access: R/W
   description: DRAM RAPL Parameters
-  long_description: DRAM RAPL Parameters See Section 14.10.5, “DRAM RAPL Domain.”
+  long_description: DRAM RAPL Parameters See Section 15.10.5, “DRAM RAPL Domain.”
   see_section:
-  - 14.10.5
+  - 15.10.5
 - value: 632H
   name: MSR_PKG_C10_RESIDENCY
   bitfields:
@@ -1125,17 +1124,17 @@ msr:
   scope: Package
   access: R/O
   description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.10.4
+  - 15.10.4
 - value: 641H
   name: MSR_PP1_ENERGY_STATUS
   scope: Package
   access: R/O
   description: PP1 Energy Status
-  long_description: PP1 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP1 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.10.4
+  - 15.10.4
 - value: 64CH
   name: MSR_TURBO_ACTIVATION_RATIO
   bitfields:
@@ -1252,10 +1251,10 @@ msr:
   scope: Core
   access: R/W
   description: Last Branch Record 0 From IP
-  long_description: 'Last Branch Record 0 From IP One of 32 pairs of last branch record registers on the last branch record stack. The From_IP part of the stack contains pointers to the source instruction . See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.6 and record format in Section 17.4.8.1.'
+  long_description: 'Last Branch Record 0 From IP One of 32 pairs of last branch record registers on the last branch record stack. The From_IP part of the stack contains pointers to the source instruction . See also: • Last Branch Record Stack TOS at 1C9H. • Section 18.6 and record format in Section 18.4.8.1.'
   see_section:
-  - '17.6'
-  - 17.4.8.1.
+  - '18.6'
+  - 18.4.8.1.
 - value: 681H
   name: MSR_LASTBRANCH_1_FROM_IP
   scope: Core
@@ -1453,9 +1452,9 @@ msr:
   scope: Core
   access: R/W
   description: Last Branch Record 0 To IP
-  long_description: Last Branch Record 0 To IP One of 32 pairs of last branch record registers on the last branch record stack. The To_IP part of the stack contains pointers to the Destination instruction and elapsed cycles from last LBR update. See Section 17.6.
+  long_description: Last Branch Record 0 To IP One of 32 pairs of last branch record registers on the last branch record stack. The To_IP part of the stack contains pointers to the Destination instruction and elapsed cycles from last LBR update. See Section 18.6.
   see_section:
-  - 17.6.
+  - 18.6.
 - value: 6C1H
   name: MSR_LASTBRANCH_1_TO_IP
   scope: Core

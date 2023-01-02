@@ -497,8 +497,9 @@ def parse_pdf(path: str) -> Tuple[Set[str], List[Table]]:
 
     logger.info("Reading pdf")
 
-    # MSR are described from page 19 to 394, using man intel vol 4 Order October 2019
-    # MSR are described from page 19 to 504, using man intel vol 4 Order 2022
+    # MSRs are described from page 19 to 394, using man intel vol 4 Order October 2019
+    # MSRs are described from page 19 to 427, using man intel vol 4 Order Avril 2022
+    # MSRs are described from page 19 to 438, using man intel vol 4 December 2022
     # page 17 to 19 describe available CPU families/models
     # ofc consistency is way too hard, so I added manually 05_09H
     pdf = PDFHandler(path, pages="17-end")
@@ -551,8 +552,9 @@ def parse_cpus(path: str, cpu_list: Set[str], table_list: List[Table]) -> None:
     table = get_table_by_name(table_list, "Table 2-2")
     table.supported_cpus = cpu_list
 
-    # MSR index is from page 426 to page 506 in man version 2022
-    for page in pdf.pages[426:506]:
+    # MSRs index is from page 427 to page 506 in man version april 2022
+    # MSRs index is from page 438 to page 517 in man version december 2022
+    for page in pdf.pages[438:517]:
         for idx, elem in enumerate(page.elements):
             # Move until we find the start
             if elem.text().startswith("Location"):
@@ -598,7 +600,7 @@ def parse_cpus(path: str, cpu_list: Set[str], table_list: List[Table]) -> None:
             logger.debug("Extracted name %s and list %s" % (table_name, cpu_list))
 
             table_name_list = [table_name]
-    
+
             if "and" in table_name:
                 table_name_list.append(next(elem_iterator).text())
 
@@ -620,7 +622,7 @@ def parse_cpus(path: str, cpu_list: Set[str], table_list: List[Table]) -> None:
 
             for table_name in table_name_list:
                 table = get_table_by_name(table_list, table_name.replace("See", "").strip())
-    
+
                 if table:
                     table.supported_cpus.extend(cpu_list)
 
@@ -638,7 +640,7 @@ def dump_tables(table_list: List[Table]) -> None:
                 )
             )
 
-    
+
 def apply_patches(table_list: List[Table]) -> None:
     patchdir = Path(__file__).parent.resolve() / Path("patches")
     for patch in patchdir.iterdir():

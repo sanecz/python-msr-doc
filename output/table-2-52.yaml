@@ -1,8 +1,24 @@
 ---
 name: Table 2-52
-full_name: Table 2-52. Additional MSRs Supported by Future Intel® Xeon® Processors with a DisplayFamily_DisplayModel Signature of 06_8FH
+full_name: Table 2-52. Additional MSRs Supported by the 4th Generation Intel® Xeon® Scalable Processor Family with a DisplayFamily_DisplayModel Signature of 06_8FH
 supported_cpu: []
 msr:
+- value: A7H
+  name: MSR_BIOS_DEBUG
+  scope: Thread
+  access: R/O
+  description: BIOS DEBUG
+  long_description: BIOS DEBUG See Table 2-45.
+  see_table:
+  - 2-45
+- value: BCH
+  name: IA32_MISC_PACKAGE_CTLS
+  scope: Package
+  access: R/W
+  description: Power Filtering Control
+  long_description: Power Filtering Control IA32_ARCH_CAPABILITIES[bit 10] enumerates support for this MSR. See Table 2-2.
+  see_table:
+  - 2-2
 - value: CFH
   name: IA32_CORE_CAPABILITY
   bitfields:
@@ -33,6 +49,150 @@ msr:
   access: R/W
   description: IA32 Core Capabilities Register
   long_description: IA32 Core Capabilities Register If CPUID.(EAX=07H, ECX=0):EDX[30] = 1. This MSR provides an architectural enumeration function for model-specific behavior.
+- value: E1H
+  name: IA32_UMWAIT_CONTROL
+  access: R/W
+  description: UMWAIT Control
+  long_description: UMWAIT Control See Table 2-2.
+  see_table:
+  - 2-2
+- value: EDH
+  name: MSR_RAR_CONTROL
+  bitfields:
+  - bit: '63:32'
+    description: Reserved
+  - bit: '31'
+    long_description: ENABLE RAR events are recognized. When RAR is not enabled, RARs are dropped.
+    description: ENABLE
+  - bit: '30'
+    long_description: IGNORE_IF Allow RAR servicing at the RLP regardless of the value of RFLAGS.IF.
+    description: IGNORE_IF
+  - bit: '29:0'
+    description: Reserved
+  scope: Thread
+  access: R/W
+  description: RAR Control
+- value: EEH
+  name: MSR_RAR_ACTION_VECTOR_BASE
+  bitfields:
+  - bit: 63:MAXPHYADDR
+    description: Reserved
+  - bit: MAXPHYADDR-1:6
+    long_description: VECTOR_PHYSICAL_ADDRESS Pointer to the physical address of the 64B aligned RAR action vector.
+    description: VECTOR_PHYSICAL_ADDRESS
+  - bit: '5:0'
+    description: Reserved
+  scope: Thread
+  access: R/W
+  description: Pointer to RAR Action Vector
+- value: EFH
+  name: MSR_RAR_PAYLOAD_TABLE_BASE
+  bitfields:
+  - bit: 63:MAXPHYADDR
+    description: Reserved
+  - bit: MAXPHYADDR-1:12
+    long_description: TABLE_PHYSICAL_ADDRESS Pointer to the base physical address of the 4K aligned RAR payload table.
+    description: TABLE_PHYSICAL_ADDRESS
+  - bit: '11:0'
+    description: Reserved
+  scope: Thread
+  access: R/W
+  description: Pointer to Base of RAR Payload Table
+- value: F0H
+  name: MSR_RAR_INFO
+  bitfields:
+  - bit: '63:38'
+    description: Always zero
+  - bit: '37:32'
+    long_description: Table Max Index Maximum supported payload table index.
+    description: Table Max Index
+  - bit: '31:0'
+    long_description: Supported payload type bitmap. A value of 1 in bit position [i] indicates that payload type [i] is supported.
+    description: Supported payload type bitmap
+  scope: Thread
+  access: RO
+  description: Read Only RAR Information
+- value: 105H
+  name: MSR_CORE_BIST
+  bitfields:
+  - bit: '31:0'
+    long_description: BIST_ARRAY Bitmap indicating which arrays to run BIST on (WRITE). Bitmap indicating which arrays were not processed, i.e., completion mask (READ).
+    description: BIST_ARRAY
+  - bit: '39:32'
+    long_description: BANK Array bank of the [least significant set bit] array indicated in EAX to start BIST(WRITE). Array bank interrupted or failed (READ).
+    description: BANK
+  - bit: '47:40'
+    long_description: DWORD Array dword of the [least significant set bit] array indicated in EAX to start BIST (WRITE). Array dword interrupted or failed (READ).
+    description: DWORD
+  - bit: '62:48'
+    description: Reserved
+  - bit: '63'
+    access: '0'
+    long_description: CTRL_RESULT Indicates whether WRMSR should signal Machine- Check upon BIST-error (WRITE). BIST result PASS/FAIL(1) of the (least significant set bit) array indicated in EAX (READ).
+    description: CTRL_RESULT
+  scope: Core
+  access: R/W
+  description: Core BIST
+  long_description: Core BIST Controls Array BIST activation and status checking as part of FUSA.
+- value: 10AH
+  name: IA32_ARCH_CAPABILITIES
+  access: R/O
+  description: Enumeration of Architectural Features
+  long_description: Enumeration of Architectural Features See Table 2-2.
+  see_table:
+  - 2-2
+- value: 1A4H
+  name: MSR_PREFETCH_CONTROL
+  bitfields:
+  - bit: '0'
+    long_description: L2_HARDWARE_PREFETCHER_DISABLE If 1, disables the L2 hardware prefetcher, which fetches additional lines of code or data into the L2 cache.
+    description: L2_HARDWARE_PREFETCHER_DISABLE
+  - bit: '1'
+    long_description: L2_ADJACENT_CACHE_LINE_PREFETCHER_DISABLE If 1, disables the adjacent cache line prefetcher, which fetches the cache line that comprises a cache line pair (128 bytes).
+    description: L2_ADJACENT_CACHE_LINE_PREFETCHER_DISABLE
+  - bit: '2'
+    long_description: DCU_HARDWARE_PREFETCHER_DISABLE If 1, disables the L1 data cache prefetcher, which fetches the next cache line into L1 data cache.
+    description: DCU_HARDWARE_PREFETCHER_DISABLE
+  - bit: '3'
+    long_description: DCU_IP_PREFETCHER_DISABLE If 1, disables the L1 data cache IP prefetcher, which uses sequential load history (based on instruction pointer of previous loads) to determine whether to prefetch additional lines.
+    description: DCU_IP_PREFETCHER_DISABLE
+  - bit: '4'
+    description: Reserved
+  - bit: '5'
+    long_description: AMP_PREFETCH_DISABLE If 1, disables the L2 Adaptive Multipath Probability (AMP) prefetcher.
+    description: AMP_PREFETCH_DISABLE
+  - bit: '63:6'
+    description: Reserved
+  access: R/W
+  description: Prefetch Disable Bits
+- value: 1ADH
+  name: MSR_PRIMARY_TURBO_RATIO_LIMIT
+  scope: Package
+  access: R/W
+  description: Primary Maximum Turbo Ratio Limit
+  long_description: Primary Maximum Turbo Ratio Limit See Table 2-46.
+  see_table:
+  - 2-46
+- value: 1AEH
+  name: MSR_TURBO_RATIO_LIMIT_CORES
+  scope: Package
+  description: See Table 2-50
+  see_table:
+  - 2-50
+- value: 1C4H
+  name: IA32_XFD
+  access: R/W
+  description: Extended Feature Detect
+  long_description: Extended Feature Detect See Table 2-2.
+  see_table:
+  - 2-2
+- value: 1C5H
+  name: IA32_XFD_ERR
+  access: R/W
+  description: XFD Error Code
+  long_description: XFD Error Code See Table 2-2.
+  see_table:
+  - 2-2
 - value: 2C2H
   name: MSR_COPY_SCAN_HASHES
   bitfields:
@@ -185,11 +345,11 @@ msr:
 - value: 410H
   name: IA32_MC4_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC4 reports MC errors from the PCU module. If SIGNAL_MCE is set, a Scan Status is logged in MC4_STATUS and MC4_MISC.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC4 reports MC errors from the PCU module. If SIGNAL_MCE is set, a Scan Status is logged in MC4_STATUS and MC4_MISC.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 411H
   name: IA32_MC4_STATUS
   scope: Package
@@ -199,3 +359,242 @@ msr:
 - value: 413H
   name: IA32_MC4_MISC
   scope: Package
+- value: 492H
+  name: IA32_VMX_PROCBASED_CTLS3
+  access: R/O
+  description: Capability Reporting Register of Tertiary Processor-
+  long_description: Capability Reporting Register of Tertiary Processor- Based VM-Execution Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 493H
+  name: IA32_VMX_EXIT_CTLS2
+  access: R/O
+  description: Capability Reporting Register of Secondary VM-Exit
+  long_description: Capability Reporting Register of Secondary VM-Exit Controls See Table 2-2.
+  see_table:
+  - 2-2
+- value: 540H
+  name: MSR_THREAD_UARCH_CTL
+  scope: Thread
+  access: R/W
+  description: Thread Microarchitectural Control
+  long_description: Thread Microarchitectural Control See Table 2-47.
+  see_table:
+  - 2-47
+- value: 65CH
+  name: MSR_PLATFORM_POWER_LIMIT
+  scope: Platform
+  access: R/W-L
+  description: Platform Power Limit Control
+  long_description: Platform Power Limit Control See Table 2-39.
+  see_table:
+  - 2-39
+- value: 6A0H
+  name: IA32_U_CET
+  access: R/W
+  description: Configure User Mode CET
+  long_description: Configure User Mode CET See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A2H
+  name: IA32_S_CET
+  access: R/W
+  description: Configure Supervisor Mode CET
+  long_description: Configure Supervisor Mode CET See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A4H
+  name: IA32_PL0_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on transition to
+  long_description: Linear address to be loaded into SSP on transition to privilege level 0. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A5H
+  name: IA32_PL1_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on transition to
+  long_description: Linear address to be loaded into SSP on transition to privilege level 1. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A6H
+  name: IA32_PL2_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on transition to
+  long_description: Linear address to be loaded into SSP on transition to privilege level 2. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A7H
+  name: IA32_PL3_SSP
+  access: R/W
+  description: Linear address to be loaded into SSP on transition to
+  long_description: Linear address to be loaded into SSP on transition to privilege level 3. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6A8H
+  name: IA32_INTERRUPT_SSP_TABLE_ADDR
+  access: R/W
+  description: Linear address of a table of seven shadow stack
+  long_description: Linear address of a table of seven shadow stack pointers that are selected in IA-32e mode using the IST index (when not 0) from the interrupt gate descriptor. See Table 2-2.
+  see_table:
+  - 2-2
+- value: 6E1H
+  name: IA32_PKRS
+  access: R/W
+  description: Specifies the PK permissions associated with each
+  long_description: Specifies the PK permissions associated with each protection domain for supervisor pages See Table 2-2.
+  see_table:
+  - 2-2
+- value: 776H
+  name: IA32_HWP_CTL
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 981H
+  name: IA32_TME_CAPABILITY
+  description: Memory Encryption Capability MSR
+  long_description: Memory Encryption Capability MSR See Table 2-2.
+  see_table:
+  - 2-2
+- value: 985H
+  name: IA32_UINTR_RR
+  access: R/W
+  description: User Interrupt Request Register
+  long_description: User Interrupt Request Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 986H
+  name: IA32_UINTR_HANDLER
+  access: R/W
+  description: User Interrupt Handler Address
+  long_description: User Interrupt Handler Address See Table 2-2.
+  see_table:
+  - 2-2
+- value: 987H
+  name: IA32_UINTR_STACKADJUST
+  access: R/W
+  description: User Interrupt Stack Adjustment
+  long_description: User Interrupt Stack Adjustment See Table 2-2.
+  see_table:
+  - 2-2
+- value: 988H
+  name: IA32_UINTR_MISC
+  access: R/W
+  description: User-Interrupt Target-Table Size and Notification
+  long_description: User-Interrupt Target-Table Size and Notification Vector See Table 2-2.
+  see_table:
+  - 2-2
+- value: 989H
+  name: IA32_UINTR_PD
+  access: R/W
+  description: User Interrupt PID Address
+  long_description: User Interrupt PID Address See Table 2-2.
+  see_table:
+  - 2-2
+- value: 98AH
+  name: IA32_UINTR_TT
+  access: R/W
+  description: User-Interrupt Target Table
+  long_description: User-Interrupt Target Table See Table 2-2.
+  see_table:
+  - 2-2
+- value: C70H
+  name: MSR_B1_PMON_EVNT_SEL0
+  scope: Package
+  description: Uncore B-box 1 perfmon event select MSR
+- value: C71H
+  name: MSR_B1_PMON_CTR0
+  scope: Package
+  description: Uncore B-box 1 perfmon counter MSR
+- value: C72H
+  name: MSR_B1_PMON_EVNT_SEL1
+  scope: Package
+  description: Uncore B-box 1 perfmon event select MSR
+- value: C73H
+  name: MSR_B1_PMON_CTR1
+  scope: Package
+  description: Uncore B-box 1 perfmon counter MSR
+- value: C74H
+  name: MSR_B1_PMON_EVNT_SEL2
+  scope: Package
+  description: Uncore B-box 1 perfmon event select MSR
+- value: C75H
+  name: MSR_B1_PMON_CTR2
+  scope: Package
+  description: Uncore B-box 1 perfmon counter MSR
+- value: C76H
+  name: MSR_B1_PMON_EVNT_SEL3
+  scope: Package
+  description: Uncore B-box 1vperfmon event select MSR
+- value: C77H
+  name: MSR_B1_PMON_CTR3
+  scope: Package
+  description: Uncore B-box 1 perfmon counter MSR
+- value: C82H
+  name: MSR_W_PMON_BOX_OVF_CTRL
+  scope: Package
+  description: Uncore W-box perfmon local box overflow control
+  long_description: Uncore W-box perfmon local box overflow control MSR.
+- value: C8FH
+  name: IA32_PQR_ASSOC
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: C90H-C9EH
+  name: IA32_L3_QOS_MASK_0 through IA32_L3_QOS_MASK_14
+  scope: Package
+  description: See Table 2-50
+  see_table:
+  - 2-50
+- value: D10H-D17H
+  name: IA32_L2_QOS_MASK_[0-7]
+  scope: Core
+  description: IA32_CR_L2_QOS_MASK_[0-7]
+  long_description: IA32_CR_L2_QOS_MASK_[0-7] If CPUID.(EAX=10H, ECX=1):EDX.COS_MAX[15:0] ≥ 0. See Table 2-2.
+  see_table:
+  - 2-2
+- value: D93H
+  name: IA32_PASID
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 1200H-121FH
+  name: IA32_LBR_x_INFO
+  access: R/W
+  description: Last Branch Record Entry X Info Register
+  long_description: Last Branch Record Entry X Info Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 1406H
+  name: IA32_MCU_CONTROL
+  description: See Table 2-2
+  see_table:
+  - 2-2
+- value: 14CEH
+  name: IA32_LBR_CTL
+  access: R/W
+  description: Last Branch Record Enabling and Configuration
+  long_description: Last Branch Record Enabling and Configuration Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 14CFH
+  name: IA32_LBR_DEPTH
+  access: R/W
+  description: Last Branch Record Maximum Stack Depth Register
+  long_description: Last Branch Record Maximum Stack Depth Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 1500H-151FH
+  name: IA32_LBR_x_FROM_IP
+  access: R/W
+  description: Last Branch Record Entry X Source IP Register
+  long_description: Last Branch Record Entry X Source IP Register See Table 2-2.
+  see_table:
+  - 2-2
+- value: 1600H-161FH
+  name: IA32_LBR_x_TO_IP
+  access: R/W
+  description: Last Branch Record Entry X Destination IP Register
+  long_description: Last Branch Record Entry X Destination IP Register See Table 2-2.
+  see_table:
+  - 2-2

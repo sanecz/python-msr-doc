@@ -10,7 +10,7 @@ msr:
   - bit: '62:0'
     description: Reserved
   - bit: '63'
-    long_description: Semaphore for Turbo Ratio Limit Configuration If 1, the processor uses override configuration1 specified in MSR_TURBO_RATIO_LIMIT, MSR_TURBO_RATIO_LIMIT1 and MSR_TURBO_RATIO_LIMIT2. If 0, the processor uses factory-set configuration (Default).
+    long_description: Semaphore for Turbo Ratio Limit Configuration If 1, the processor uses override configuration1 specified in MSR_TURBO_RATIO_LIMIT, MSR_TURBO_RATIO_LIMIT1, and MSR_TURBO_RATIO_LIMIT2. If 0, the processor uses factory-set configuration (Default).
     description: Semaphore for Turbo Ratio Limit Configuration
   scope: Package
   description: Config Ratio Limit of Turbo Mode
@@ -120,11 +120,11 @@ msr:
 - value: 414H
   name: IA32_MC5_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC5 reports MC errors from the Intel QPI 0 module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC5 reports MC errors from the Intel QPI 0 module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 415H
   name: IA32_MC5_STATUS
   scope: Package
@@ -137,11 +137,11 @@ msr:
 - value: 418H
   name: IA32_MC6_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC6 reports MC errors from the integrated I/O module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC6 reports MC errors from the integrated I/O module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 419H
   name: IA32_MC6_STATUS
   scope: Package
@@ -154,11 +154,11 @@ msr:
 - value: 41CH
   name: IA32_MC7_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC7 reports MC errors from the home agent HA 0.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC7 reports MC errors from the home agent HA 0.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 41DH
   name: IA32_MC7_STATUS
   scope: Package
@@ -171,11 +171,11 @@ msr:
 - value: 420H
   name: IA32_MC8_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC8 reports MC errors from the home agent HA 1.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC8 reports MC errors from the home agent HA 1.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 421H
   name: IA32_MC8_STATUS
   scope: Package
@@ -188,11 +188,11 @@ msr:
 - value: 424H
   name: IA32_MC9_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 425H
   name: IA32_MC9_STATUS
   scope: Package
@@ -205,11 +205,11 @@ msr:
 - value: 428H
   name: IA32_MC10_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 429H
   name: IA32_MC10_STATUS
   scope: Package
@@ -222,11 +222,11 @@ msr:
 - value: 42CH
   name: IA32_MC11_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 42DH
   name: IA32_MC11_STATUS
   scope: Package
@@ -239,11 +239,11 @@ msr:
 - value: 430H
   name: IA32_MC12_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 431H
   name: IA32_MC12_STATUS
   scope: Package
@@ -256,11 +256,11 @@ msr:
 - value: 434H
   name: IA32_MC13_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 435H
   name: IA32_MC13_STATUS
   scope: Package
@@ -273,11 +273,11 @@ msr:
 - value: 438H
   name: IA32_MC14_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 439H
   name: IA32_MC14_STATUS
   scope: Package
@@ -290,11 +290,11 @@ msr:
 - value: 43CH
   name: IA32_MC15_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 43DH
   name: IA32_MC15_STATUS
   scope: Package
@@ -307,11 +307,11 @@ msr:
 - value: 440H
   name: IA32_MC16_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Banks MC9 through MC 16 report MC errors from each channel of the integrated memory controllers.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 441H
   name: IA32_MC16_STATUS
   scope: Package
@@ -324,11 +324,11 @@ msr:
 - value: 444H
   name: IA32_MC17_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: 'See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC17 reports MC errors from the following pair of CBo/L3 Slices (if the pair is present): CBo0, CBo3, CBo6, CBo9, CBo12, CBo15.'
+  description: See Section 16.3.2.1
+  long_description: 'See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC17 reports MC errors from the following pair of CBo/L3 Slices (if the pair is present): CBo0, CBo3, CBo6, CBo9, CBo12, CBo15.'
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 445H
   name: IA32_MC17_STATUS
   scope: Package
@@ -341,11 +341,11 @@ msr:
 - value: 448H
   name: IA32_MC18_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: 'See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC18 reports MC errors from the following pair of CBo/L3 Slices (if the pair is present): CBo1, CBo4, CBo7, CBo10, CBo13, CBo16.'
+  description: See Section 16.3.2.1
+  long_description: 'See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC18 reports MC errors from the following pair of CBo/L3 Slices (if the pair is present): CBo1, CBo4, CBo7, CBo10, CBo13, CBo16.'
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 449H
   name: IA32_MC18_STATUS
   scope: Package
@@ -358,11 +358,11 @@ msr:
 - value: 44CH
   name: IA32_MC19_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: 'See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC19 reports MC errors from the following pair of CBo/L3 Slices (if the pair is present): CBo2, CBo5, CBo8, CBo11, CBo14, CBo17.'
+  description: See Section 16.3.2.1
+  long_description: 'See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC19 reports MC errors from the following pair of CBo/L3 Slices (if the pair is present): CBo2, CBo5, CBo8, CBo11, CBo14, CBo17.'
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 44DH
   name: IA32_MC19_STATUS
   scope: Package
@@ -375,11 +375,11 @@ msr:
 - value: 450H
   name: IA32_MC20_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC20 reports MC errors from the Intel QPI 1 module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC20 reports MC errors from the Intel QPI 1 module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 451H
   name: IA32_MC20_STATUS
   scope: Package
@@ -392,11 +392,11 @@ msr:
 - value: 454H
   name: IA32_MC21_CTL
   scope: Package
-  description: See Section 15.3.2.1
-  long_description: See Section 15.3.2.1, “IA32_MCi_CTL MSRs” through Section 15.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC21 reports MC errors from the Intel QPI 2 module.
+  description: See Section 16.3.2.1
+  long_description: See Section 16.3.2.1, “IA32_MCi_CTL MSRs” through Section 16.3.2.4, “IA32_MCi_MISC MSRs.”. Bank MC21 reports MC errors from the Intel QPI 2 module.
   see_section:
-  - 15.3.2.1
-  - 15.3.2.4
+  - 16.3.2.1
+  - 16.3.2.4
 - value: 455H
   name: IA32_MC21_STATUS
   scope: Package

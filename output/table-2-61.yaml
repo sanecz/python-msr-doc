@@ -5,31 +5,31 @@ supported_cpu: []
 msr:
 - value: 0H
   name: P5_MC_ADDR
-  description: See Section 15.10.2
+  description: See Section 16.10.2
   see_section:
-  - 15.10.2
+  - 16.10.2
 - value: 1H
   name: P5_MC_TYPE
-  description: See Section 15.10.2
+  description: See Section 16.10.2
   see_section:
-  - 15.10.2
+  - 16.10.2
 - value: 10H
   name: TSC
-  description: See Section 17.17
+  description: See Section 18.17
   see_section:
-  - '17.17'
+  - '18.17'
 - value: 11H
   name: CESR
-  description: See Section 19.6.9.1, “Control and Event Select Register
+  description: See Section 20.6.9.1, “Control and Event Select Register
   see_section:
-  - 19.6.9.1
+  - 20.6.9.1
 - value: 12H
   name: CTR0
-  description: Section 19.6.9.3
+  description: Section 20.6.9.3
   see_section:
-  - 19.6.9.3
+  - 20.6.9.3
 - value: 13H
   name: CTR1
-  description: Section 19.6.9.3
+  description: Section 20.6.9.3
   see_section:
-  - 19.6.9.3
+  - 20.6.9.3

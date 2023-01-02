@@ -72,17 +72,17 @@ msr:
   scope: Package
   access: R/O
   description: Unit Multipliers used in RAPL Interfaces
-  long_description: Unit Multipliers used in RAPL Interfaces See Section 14.10.1, “RAPL Interfaces.”
+  long_description: Unit Multipliers used in RAPL Interfaces See Section 15.10.1, “RAPL Interfaces.”
   see_section:
-  - 14.10.1
+  - 15.10.1
 - value: 610H
   name: MSR_PKG_POWER_LIMIT
   scope: Package
   access: R/W
   description: PKG RAPL Power Limit Control
-  long_description: PKG RAPL Power Limit Control See Section 14.10.3, “Package RAPL Domain.”
+  long_description: PKG RAPL Power Limit Control See Section 15.10.3, “Package RAPL Domain.”
   see_section:
-  - 14.10.3
+  - 15.10.3
 - value: 66EH
   name: MSR_PKG_POWER_INFO
   bitfields:

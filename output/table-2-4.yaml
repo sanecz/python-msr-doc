@@ -23,21 +23,21 @@ msr:
 - value: 6H
   name: IA32_MONITOR_FILTER_SIZE
   shared: Unique
-  description: See Section 8.10.5
-  long_description: See Section 8.10.5, “Monitor/Mwait Address Range Determination.” and Table 2-2.
+  description: See Section 9.10.5
+  long_description: See Section 9.10.5, “Monitor/Mwait Address Range Determination.” and Table 2-2.
   see_table:
   - 2-2
   see_section:
-  - 8.10.5
+  - 9.10.5
 - value: 10H
   name: IA32_TIME_STAMP_COUNTER
   shared: Unique
-  description: See Section 17.17
-  long_description: See Section 17.17, “Time-Stamp Counter,” and see Table 2-2.
+  description: See Section 18.17
+  long_description: See Section 18.17, “Time-Stamp Counter,” and see Table 2-2.
   see_table:
   - 2-2
   see_section:
-  - '17.17'
+  - '18.17'
 - value: 17H
   name: IA32_PLATFORM_ID
   shared: Shared
@@ -63,12 +63,12 @@ msr:
 - value: 1BH
   name: IA32_APIC_BASE
   shared: Unique
-  description: See Section 10.4.4
-  long_description: See Section 10.4.4, “Local APIC Status and Location” and Table 2-2.
+  description: See Section 11.4.4
+  long_description: See Section 11.4.4, “Local APIC Status and Location” and Table 2-2.
   see_table:
   - 2-2
   see_section:
-  - 10.4.4
+  - 11.4.4
 - value: 2AH
   name: MSR_EBL_CR_POWERON
   bitfields:
@@ -152,9 +152,9 @@ msr:
   shared: Unique
   access: R/W
   description: Last Branch Record 0 From IP
-  long_description: 'Last Branch Record 0 From IP One of eight pairs of last branch record registers on the last branch record stack. The From_IP part of the stack contains pointers to the source instruction . See also: • Last Branch Record Stack TOS at 1C9H. • Section 17.5.'
+  long_description: 'Last Branch Record 0 From IP One of eight pairs of last branch record registers on the last branch record stack. The From_IP part of the stack contains pointers to the source instruction . See also: • Last Branch Record Stack TOS at 1C9H. • Section 18.5.'
   see_section:
-  - 17.5.
+  - 18.5.
 - value: 41H
   name: MSR_LASTBRANCH_1_FROM_IP
   shared: Unique
@@ -784,11 +784,11 @@ msr:
 - value: 345H
   name: IA32_PERF_CAPABILITIES
   shared: Shared
-  description: See Table 2-2. See Section 17.4.1
+  description: See Table 2-2. See Section 18.4.1
   see_table:
   - 2-2
   see_section:
-  - 17.4.1
+  - 18.4.1
 - value: 38DH
   name: IA32_FIXED_CTR_CTRL
   shared: Unique
@@ -800,30 +800,30 @@ msr:
 - value: 38EH
   name: IA32_PERF_GLOBAL_STATUS
   shared: Unique
-  description: See Table 2-2. See Section 19.6.2.2
-  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2
+  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.2
+  - 20.6.2.2
 - value: 38FH
   name: IA32_PERF_GLOBAL_CTRL
   shared: Unique
-  description: See Table 2-2. See Section 19.6.2.2
-  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2
+  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.2
+  - 20.6.2.2
 - value: 390H
   name: IA32_PERF_GLOBAL_OVF_CTRL
   shared: Unique
-  description: See Table 2-2. See Section 19.6.2.2
-  long_description: See Table 2-2. See Section 19.6.2.2, “Global Counter Control Facilities.”
+  description: See Table 2-2. See Section 20.6.2.2
+  long_description: See Table 2-2. See Section 20.6.2.2, “Global Counter Control Facilities.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.2
+  - 20.6.2.2
 - value: 3F1H
   name: IA32_PEBS_ENABLE
   alt_name: MSR_PEBS_ENABLE
@@ -832,100 +832,100 @@ msr:
     access: R/W
     description: Enable PEBS on IA32_PMC0
   shared: Unique
-  description: See Table 2-2. See Section 19.6.2.4
-  long_description: See Table 2-2. See Section 19.6.2.4, “Processor Event Based Sampling (PEBS).”
+  description: See Table 2-2. See Section 20.6.2.4
+  long_description: See Table 2-2. See Section 20.6.2.4, “Processor Event Based Sampling (PEBS).”
   see_table:
   - 2-2
   see_section:
-  - 19.6.2.4
+  - 20.6.2.4
 - value: 400H
   name: IA32_MC0_CTL
   shared: Shared
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 401H
   name: IA32_MC0_STATUS
   shared: Shared
-  description: See Section 15.3.2.2
+  description: See Section 16.3.2.2
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 402H
   name: IA32_MC0_ADDR
   shared: Shared
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC0_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.3
+  long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC0_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC0_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 404H
   name: IA32_MC1_CTL
   shared: Shared
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 405H
   name: IA32_MC1_STATUS
   shared: Shared
-  description: See Section 15.3.2.2
+  description: See Section 16.3.2.2
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 408H
   name: IA32_MC2_CTL
   shared: Shared
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 409H
   name: IA32_MC2_STATUS
   shared: Shared
-  description: See Section 15.3.2.2
+  description: See Section 16.3.2.2
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 40AH
   name: IA32_MC2_ADDR
   shared: Shared
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.3
+  long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The IA32_MC2_ADDR register is either not implemented or contains no address if the ADDRV flag in the IA32_MC2_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 40CH
   name: IA32_MC3_CTL
   shared: Shared
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 40DH
   name: IA32_MC3_STATUS
   shared: Shared
-  description: See Section 15.3.2.2
+  description: See Section 16.3.2.2
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 40EH
   name: IA32_MC3_ADDR
   shared: Shared
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC3_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.3
+  long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC3_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC3_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 410H
   name: IA32_MC4_CTL
   shared: Shared
-  description: See Section 15.3.2.1
+  description: See Section 16.3.2.1
   see_section:
-  - 15.3.2.1
+  - 16.3.2.1
 - value: 411H
   name: IA32_MC4_STATUS
   shared: Shared
-  description: See Section 15.3.2.2
+  description: See Section 16.3.2.2
   see_section:
-  - 15.3.2.2
+  - 16.3.2.2
 - value: 412H
   name: IA32_MC4_ADDR
   shared: Shared
-  description: See Section 15.3.2.3
-  long_description: See Section 15.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
+  description: See Section 16.3.2.3
+  long_description: See Section 16.3.2.3, “IA32_MCi_ADDR MSRs.” The MSR_MC4_ADDR register is either not implemented or contains no address if the ADDRV flag in the MSR_MC4_STATUS register is clear. When not implemented in the processor, all reads and writes to this MSR will cause a general-protection exception.
   see_section:
-  - 15.3.2.3
+  - 16.3.2.3
 - value: 480H
   name: IA32_VMX_BASIC
   shared: Unique
@@ -1047,11 +1047,11 @@ msr:
   shared: Unique
   access: R/W
   description: DS Save Area
-  long_description: DS Save Area See Table 2-2. See Section 19.6.3.4, “Debug Store (DS) Mechanism.”
+  long_description: DS Save Area See Table 2-2. See Section 20.6.3.4, “Debug Store (DS) Mechanism.”
   see_table:
   - 2-2
   see_section:
-  - 19.6.3.4
+  - 20.6.3.4
 - value: C000_0080H
   name: IA32_EFER
   shared: Unique

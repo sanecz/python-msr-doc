@@ -256,10 +256,10 @@ msr:
   name: MSR_RAPL_POWER_UNIT
   bitfields:
   - bit: '3:0'
-    long_description: Power Units See Section 14.10.1, “RAPL Interfaces.”
+    long_description: Power Units See Section 15.10.1, “RAPL Interfaces.”
     description: Power Units
     see_section:
-    - 14.10.1
+    - 15.10.1
   - bit: '7:4'
     description: Reserved
   - bit: '12:8'
@@ -268,10 +268,10 @@ msr:
   - bit: '15:13'
     description: Reserved
   - bit: '19:16'
-    long_description: Time Units See Section 14.10.1, “RAPL Interfaces.”
+    long_description: Time Units See Section 15.10.1, “RAPL Interfaces.”
     description: Time Units
     see_section:
-    - 14.10.1
+    - 15.10.1
   - bit: '63:20'
     description: Reserved
   scope: Package
@@ -282,33 +282,33 @@ msr:
   scope: Package
   access: R/O
   description: PP0 Energy Status
-  long_description: PP0 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP0 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.10.4
+  - 15.10.4
 - value: 640H
   name: MSR_PP1_POWER_LIMIT
   scope: Package
   access: R/W
   description: PP1 RAPL Power Limit Control
-  long_description: PP1 RAPL Power Limit Control See Section 14.10.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP1 RAPL Power Limit Control See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.10.4
+  - 15.10.4
 - value: 641H
   name: MSR_PP1_ENERGY_STATUS
   scope: Package
   access: R/O
   description: PP1 Energy Status
-  long_description: PP1 Energy Status See Section 14.10.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP1 Energy Status See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.10.4
+  - 15.10.4
 - value: 642H
   name: MSR_PP1_POLICY
   scope: Package
   access: R/W
   description: PP1 Balance Policy
-  long_description: PP1 Balance Policy See Section 14.10.4, “PP0/PP1 RAPL Domains.”
+  long_description: PP1 Balance Policy See Section 15.10.4, “PP0/PP1 RAPL Domains.”
   see_section:
-  - 14.10.4
+  - 15.10.4
 - value: 690H
   name: MSR_CORE_PERF_LIMIT_REASONS
   bitfields:
