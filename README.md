@@ -2,8 +2,8 @@
 
 This might take a lot amount of ram to parse the whole PDF ~19G
 
-3m50 to run the msr.py on a 2x Xeon E5-2678v3 @2.50Ghz
-
+3m50 to run the msr.py on a 2x Xeon E5-2678v3 @2.50GHz
+1m23 to run the msy.py on a 1x AMD EPYC 7543P @2.80GHz
 
 ```
 pip install -r requirements.txt
@@ -19,7 +19,7 @@ Because I ended up too many times reading the wrong table for the MSR I was sear
 This can help but the man is still the source of truth.
 
 Source used: Intel® 64 and IA-32 Architectures Software Developer’s Manual
-Volume 4: Model-Specific Registers April 2022.
+Volume 4: Model-Specific Registers December 2022.
 
 This has not been tested with other versions and might break and/or display wrong results.
 
